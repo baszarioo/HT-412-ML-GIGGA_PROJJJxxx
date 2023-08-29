@@ -2,3 +2,22 @@ RESPONSIVE WEB DESIGN
 In this Responsive Web Desing Certification, you'll learn the languages that developers use to build webpages: HMTL (Hypertext Markup Language) for content, and CSS (Cascading Style Sheets) for design.
 First, you'll build a cat photo app to learn the basics of HTML and CSS. Later, you'll learn modern techniques like CSS variables by building a penguin, and best practices for accessibility by building a quiz site. 
 Finally, you'll learn how to make webpages that respond to different screen sizes by building a photo gallery with Flexbox, and a magazine article layout with CSS Grid.
+
+
+Learn HTML by Building a Cat Photo App.
+HTML tags give a webpage its structure. You can use HTML tags to add photos, buttons, and other elements to your webpage. 
+In this course, you'll learn the most common HTML tags by building your own cat photo app.
+
+step 1-12:
+<html>
+<body>
+<main>
+<h1>CatPhotoApp</h1>
+<h2>Cat Photos</h2>
+<!-- TODO: Add link to cat photos -->
+<p>See more cat photos in our gallery.</p>
+<a href="https://freecatphotoapp.com">link to cat pictures</a>
+<img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"  alt="A cute orange cat lying on its back.">
+</main>
+</body>
+</html>
