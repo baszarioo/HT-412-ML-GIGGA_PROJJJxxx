@@ -3,7 +3,12 @@ TAGS:
 Textabsatz erstellen = <p></p>
 [Eingang] Bild. Bild einfügen <img>
 [Grundgerüst einer HTML-Seite]
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CatPhotoApp</title>
+</head>
 <body>
 <main>
   <h1>CatPhotoApp</h1>
