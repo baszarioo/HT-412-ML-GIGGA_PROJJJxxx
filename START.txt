@@ -29,3 +29,5 @@ img:
 ordered list <ol></ol>
 elementy ol: <li></li>
 ... src="" alt="">
+<strong>EXSSS</strong>
+<section></section>
