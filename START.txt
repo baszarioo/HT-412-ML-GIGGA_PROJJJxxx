@@ -23,3 +23,9 @@ step 1-12:
 </html>
 steps-12-22
 steps->30
+
+figure: 
+img:
+ordered list <ol></ol>
+elementy ol: <li></li>
+... src="" alt="">
