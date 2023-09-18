@@ -1,0 +1,13 @@
+Step1: Add the <!DOCTYPE html> tag, and an html element with a lang attribute of en.
+=
+Step2: Add a head element within the html element, so you can add a title element.
+=
+Step3: Inside the head element, nest a meta element with an attribute named charset set to the value utf-8 to tell the browser how to ...
+:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cafe Menu</title>
+    <meta charset="utf-8">
+</head>
+</html>
