@@ -11,3 +11,8 @@ Step3: Inside the head element, nest a meta element with an attribute named char
     <meta charset="utf-8">
 </head>
 </html>
+
+Step4: ... add a body element below the head element.
+Step5: Add a main element within the existing body element.
+Step6: Add an h1 element within your main element..
+
