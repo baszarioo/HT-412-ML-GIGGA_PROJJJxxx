@@ -64,3 +64,7 @@ Step15: ... remove the style element [from html file] and all its content.
 h1, h2, p {
     text-align: center;
 }
+
+Step16: Nest a self-closing ink element in the head element Give it a rel attribute value stylesheet and an href attribue value of styles.css
+Step17: ... you need to add a meta element with a special content attribute.: <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+Step18: Add another style to the file that changes the background-color property to brown for the body element.
