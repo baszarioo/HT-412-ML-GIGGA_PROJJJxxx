@@ -41,3 +41,6 @@ Step10: To start taking control, add a style element within the head element.
 Step11:  //element { property: value; }## Center your h1 element by setting its text-align property to the value center.
 Step12: Center the h2 and p elements by adding a new type selector for each one to the existing style element.
 ...
+Step13: //selector1, selector2 { property: value; } ## Delete the three existing type selectors and replace them iwth one selector list that centers the text for the h1, h2, and p elements.
+Step14: Start by rewriting the styles you have created into the styles.css file. Make sure to exclude the opening and closing style tags.
+Step15: ... remove the style element [from html file] and all its content.
