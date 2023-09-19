@@ -20,3 +20,20 @@ Step6: Add an h1 element within your main element..
 Step7: add a p element below the h1 element with the text: .
 Step8: Add a section element within the main element so you have a place to put all the....
 Step9: Create an h2 element in the section element and give it the text Coffee.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cafe Menu</title>
+</head>
+<body>
+    <main>
+        <h1>CAMPER CAFE</h1>
+        <p>Est. 2020</p>
+        <section>
+            <h2>Coffee</h2>
+        </section>
+    </main>
+</body>
+</html>
+
