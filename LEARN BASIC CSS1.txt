@@ -68,3 +68,5 @@ h1, h2, p {
 Step16: Nest a self-closing ink element in the head element Give it a rel attribute value stylesheet and an href attribue value of styles.css
 Step17: ... you need to add a meta element with a special content attribute.: <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 Step18: Add another style to the file that changes the background-color property to brown for the body element.
+Step19: change the body elemnt's background color to burlywood.
+Step2-: Add a div element inside the body element and then move all the other elements inside the new duv. Add the id attribue = menu.
