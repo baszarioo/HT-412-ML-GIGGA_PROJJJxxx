@@ -70,3 +70,30 @@ Step17: ... you need to add a meta element with a special content attribute.: <m
 Step18: Add another style to the file that changes the background-color property to brown for the body element.
 Step19: change the body elemnt's background color to burlywood.
 Step2-: Add a div element inside the body element and then move all the other elements inside the new duv. Add the id attribue = menu.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cafe Menu</title>
+</head>
+<body>
+    <div id="menu">
+    <main>
+        <h1>CAMPER CAFE</h1>
+        <p>Est. 2020</p>
+        <section>
+            <h2>Coffee</h2>
+        </section>
+    </main>
+    </div>
+</body>
+</html>
+--styles.css:
+body {
+    background-color: burlywood;
+}
+h1, h2, p {
+    text-align: center;
+}
+
