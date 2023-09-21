@@ -106,4 +106,5 @@ Step24: set the width inside of #menu to the 80%
 Step25: center the #menu horizontally: set maring-left + margin-right to auto.
 Step26: Change the existing #menu selector into a class selector by replacing #menu with a class named .menu.
 Step27: To apply the class's styling to the div element, remove the id attribute and add a class attribute to the div element's opening tag. background-image:url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg)
-
+Step28/29: Add an empty article.
+Step30: 
