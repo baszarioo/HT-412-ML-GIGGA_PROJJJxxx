@@ -100,3 +100,7 @@ h1, h2, p {
 step21: #menu {
   width:300px;
 }
+Step22: comment = /* ... */
+Step23: set the div element inside the #menu into burlywood color.
+Step24: set the width inside of #menu to the 80%
+
