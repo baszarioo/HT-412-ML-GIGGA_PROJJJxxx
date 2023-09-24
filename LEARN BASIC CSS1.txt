@@ -120,3 +120,6 @@ Step39: It didn't work, change their width to 49%;
 Step40: You could instead of that, place the both p elements on the same line.
 Step41: set the width of these elements back to 50%;
 Step42: do that 5x.
+skip43.
+skip44.
+Step45: 75%/25% for flavor/price widths.
