@@ -123,3 +123,50 @@ Step42: do that 5x.
 skip43.
 skip44.
 Step45: 75%/25% for flavor/price widths.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Cafe Menu</title>
+</head>
+<body>
+    <div id="menu">
+    <main>
+        <h1>CAMPER CAFE</h1>
+        <p>Est. 2020</p>
+        <section>
+            <h2>Coffee</h2>
+            <article class="item">
+                <p class="flavor">French Vanilla</p><p class="price">3.00</p>
+            </article>
+            ...
+        </section>
+    </main>
+    </div>
+</body>
+</html>
+--styles.css:
+body {
+    background-image: url(https://xddd.xdd/xd.jpg);
+}
+h1, h2, p {
+    text-align: center;
+}
+.menu {
+    width:80%;
+    background-color: burlywood;
+    margin-left: auto;
+    margin-right: auto;
+}
+.item p{
+    display: inline-block;
+}
+.flavor{
+    text-align: left;
+    width: 75%;
+}
+.price{
+    text-align: center;
+    width: 25%;
+}
