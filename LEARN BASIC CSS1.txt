@@ -111,5 +111,7 @@ Step30:  Nest two p elements inside article element.
 Step31: 5x {step 30}
 Step32: Add the flavor class to the p element.
 Step33: for flavor class set the text-align value to the left.
-
+Step34: add the price class for the other p element.
+Step35: Now align the text to the right for the elements with the price class.
+Step36: We want to achieve the "inline" behaviour for elements. Add the class with value of item to the articles.
 
