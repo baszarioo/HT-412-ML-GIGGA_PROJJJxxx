@@ -114,4 +114,6 @@ Step33: for flavor class set the text-align value to the left.
 Step34: add the price class for the other p element.
 Step35: Now align the text to the right for the elements with the price class.
 Step36: We want to achieve the "inline" behaviour for elements. Add the class with value of item to the articles.
-
+Step37: using the .item p {} selector, add a display property with value inline-block, so the p elements behave more like inline elements.
+Step38: inline-block elements only take up the width of their content. Spread them out, adding a width property to the flavor and price class selectors that have a value of 50% each.
+Step39: It didn't work, change their width to 49%;
