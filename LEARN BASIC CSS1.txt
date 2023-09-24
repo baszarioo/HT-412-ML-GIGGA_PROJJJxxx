@@ -117,3 +117,6 @@ Step36: We want to achieve the "inline" behaviour for elements. Add the class wi
 Step37: using the .item p {} selector, add a display property with value inline-block, so the p elements behave more like inline elements.
 Step38: inline-block elements only take up the width of their content. Spread them out, adding a width property to the flavor and price class selectors that have a value of 50% each.
 Step39: It didn't work, change their width to 49%;
+Step40: You could instead of that, place the both p elements on the same line.
+Step41: set the width of these elements back to 50%;
+Step42: do that 5x.
