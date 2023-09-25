@@ -170,3 +170,7 @@ h1, h2, p {
     text-align: center;
     width: 25%;
 }
+
+Step46: add 2nd section item.
+Step47: add an h2 element in the new section.
+Step48: add an empty article and give it a class attribute with the value = item.
