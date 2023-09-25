@@ -177,3 +177,6 @@ Step48: add an empty article and give it a class attribute with the value = item
 Step49: nest two p elements inside new article element.
 Step50: classes: dessert vs price.
 Step51: in the CSS add the dessert rule into the existing 'flavor' one.
+Step52: 3x articles.
+Step53: padding-left + padding-right for .menu
+Step54: padding-top + padding-bottom.
