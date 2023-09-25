@@ -174,3 +174,6 @@ h1, h2, p {
 Step46: add 2nd section item.
 Step47: add an h2 element in the new section.
 Step48: add an empty article and give it a class attribute with the value = item.
+Step49: nest two p elements inside new article element.
+Step50: classes: dessert vs price.
+Step51: in the CSS add the dessert rule into the existing 'flavor' one.
