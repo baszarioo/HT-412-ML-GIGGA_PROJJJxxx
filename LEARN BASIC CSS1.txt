@@ -220,6 +220,10 @@ Step60: Create an established class selector and give it the font-style property
 --styles.css:
 body {
     background-image: url(https://xddd.xdd/xd.jpg);
+    font-family: sans-serif;
+}
+.established {
+    font-style: italic;
 }
 h1, h2, p {
     text-align: center;
@@ -229,11 +233,16 @@ h1, h2, p {
     background-color: burlywood;
     margin-left: auto;
     margin-right: auto;
+    padding: 20px;
+    max-width: 500px;
+}
+h1,h2 {
+    font-family: Impact, serif;   
 }
 .item p{
     display: inline-block;
 }
-.flavor{
+.flavor, .dessert{
     text-align: left;
     width: 75%;
 }
@@ -241,3 +250,6 @@ h1, h2, p {
     text-align: center;
     width: 25%;
 }
+
+
+
