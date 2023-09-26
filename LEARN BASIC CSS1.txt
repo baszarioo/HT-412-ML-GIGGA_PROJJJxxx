@@ -180,3 +180,6 @@ Step51: in the CSS add the dessert rule into the existing 'flavor' one.
 Step52: 3x articles.
 Step53: padding-left + padding-right for .menu
 Step54: padding-top + padding-bottom.
+Step55: delete all existing paddings and add a single padding.
+Step56: Set the max-width for menu to 500px
+Step57: set the font family for body: font-family: sans-serif;
