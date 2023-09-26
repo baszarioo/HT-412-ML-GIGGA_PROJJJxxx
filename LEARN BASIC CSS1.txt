@@ -183,3 +183,7 @@ Step54: padding-top + padding-bottom.
 Step55: delete all existing paddings and add a single padding.
 Step56: Set the max-width for menu to 500px
 Step57: set the font family for body: font-family: sans-serif;
+Step58: style both the h1 and the h2 elements with a new selector, with the Impact font.
+Step59: Add the fallback font serif after the Impact font. = font-family: Impact, serif;
+Step60: Create an established class selector and give it the font-style property with the value = italic.
+
