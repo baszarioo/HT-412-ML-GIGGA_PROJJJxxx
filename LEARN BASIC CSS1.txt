@@ -253,3 +253,4 @@ h1,h2 {
 
 
 
+Step61: Apply the established class to the Est.2020;
