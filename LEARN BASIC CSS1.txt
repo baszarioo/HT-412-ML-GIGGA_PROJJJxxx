@@ -272,3 +272,6 @@ Step66: You can use an ht element to display a divider between sections of diffe
 Step67: Change the height of the hr element to be 3px (css).
 Step68: Set the background-color for the hr element to brown.
 Step69: Set the borders of the hr the same as the background's..
+Step70: Set the height of the hr to 2px, so total height (incl. border) is 4px.
+Step71: Add another hr element between the main element and the footer element.
+Step72: To create a little more room around the menu, add 20 px inside of the body element - using padding.
