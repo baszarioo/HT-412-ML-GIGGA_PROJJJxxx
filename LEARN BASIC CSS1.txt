@@ -275,3 +275,6 @@ Step69: Set the borders of the hr the same as the background's..
 Step70: Set the height of the hr to 2px, so total height (incl. border) is 4px.
 Step71: Add another hr element between the main element and the footer element.
 Step72: To create a little more room around the menu, add 20 px inside of the body element - using padding.
+Step73: Target all the p elements nested in elements with the class named item and set their top and bottom margin to be 5px.
+Step74: Using the same style selector in the previous step, make the font size of the items and prices larger by using a value of 18x.
+Step75: Create the class "bottom-line" using the 25px for the margin-top property.
