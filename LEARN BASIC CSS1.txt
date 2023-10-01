@@ -267,3 +267,5 @@ Step65: Add a second p element.
         123 Free Code Camp Drive
     </p>
 </footer>
+
+Step66: You can use an ht element to display a divider between sections of different content/ hr' elements are self closing btw. //that's that big underline.
