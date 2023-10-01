@@ -370,3 +370,4 @@ h1,h2 {
     width: 25%;
 OK?
 
+Step76: add the bottom-line class to the 2nd hr element.
