@@ -278,3 +278,95 @@ Step72: To create a little more room around the menu, add 20 px inside of the bo
 Step73: Target all the p elements nested in elements with the class named item and set their top and bottom margin to be 5px.
 Step74: Using the same style selector in the previous step, make the font size of the items and prices larger by using a value of 18x.
 Step75: Create the class "bottom-line" using the 25px for the margin-top property.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Menu</title>
+    <link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="menu">
+    <main>
+        <h1>CAMPER CAFE</h1>
+        <p class="established">Est. 2020</p>
+        <hr>
+        <section>
+            <h2>Coffee</h2>
+            <article class="item">
+                <p class="flavor">French Vanilla</p><p class="price">3.00</p>
+            </article>
+            ...
+        </section>
+        <section>
+            <h2>Desserts</h2>
+            <article class="item">
+                <p class="dessert">Donut</p><p class="price">1.50</p>
+            </article>
+        </section>
+     </main>
+     <hr>
+     <footer>
+        <p>
+            <a href="https://..." target="_blank">Visit our website</a>
+        </p>
+        <p>123 Free Coding Camp Drive by </p>
+     </footer>
+    </div>
+ </body>
+</html>
+--styles.css:
+body {
+    background-image: url(https://xddd.xdd/xd.jpg);
+    font-family: sans-serif;
+    padding:20px;
+}
+h1{
+    font-size:40px;
+}
+h2{
+    font-size:30px;
+}
+.established {
+    font-style: italic;
+}
+h1, h2, p {
+    text-align: center;
+}
+.menu {
+    width:80%;
+    background-color: burlywood;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    max-width: 500px;
+}
+hr{
+    height:2px;
+    background-color:brown;
+    border-color:brown;
+}
+.bottom-line{
+    margin-top:25px;
+}
+h1,h2 {
+    font-family: Impact, serif;   
+}
+.item p{
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.flavor, .dessert{
+    text-align: left;
+    width: 75%;
+}
+.price{
+    text-align: center;
+    width: 25%;
+OK?
+
