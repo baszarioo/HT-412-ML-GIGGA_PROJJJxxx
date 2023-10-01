@@ -256,3 +256,14 @@ h1,h2 {
 Step61: Apply the established class to the Est.2020;
 Step62: Add two new type selectors (h1 and h2). Use the font-size property for both, but use the value 40px for the h1 and 30px for the h2.
 Step63: Add a footer element below the main element, where you can add some additional information.
+Step64: Inside the footer, add a p element. Then, nest an anchor (a) element in the p that links to...
+Step65: Add a second p element.
+
+<footer>
+    <p>
+        <a href="https://www...." target="_blank">Visit our website</a>
+    </p>
+    <p>
+        123 Free Code Camp Drive
+    </p>
+</footer>
