@@ -269,3 +269,6 @@ Step65: Add a second p element.
 </footer>
 
 Step66: You can use an ht element to display a divider between sections of different content/ hr' elements are self closing btw. //that's that big underline.
+Step67: Change the height of the hr element to be 3px (css).
+Step68: Set the background-color for the hr element to brown.
+Step69: Set the borders of the hr the same as the background's..
