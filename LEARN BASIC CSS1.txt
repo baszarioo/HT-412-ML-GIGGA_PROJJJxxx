@@ -375,4 +375,7 @@ Step77: Now you're about to style the footer. Add a comment = FOOTER.
 Step78: Apply to all the text in the footer the font-size of 14px.
 Step79: Make the footer links the same color regardless if a link has been visited, use a type selector for anchor element(a) and use the value black for the color property.
 Step80: Change the color of the footer 'Visit our website' link to be grey when a user has visited the link.
-Step81: Change the color of the footer, like above to be brown when a user hovers over it.
+Step81: Change the color of the footer, like above to be brown when a user hovers over it. 
+Step82: Change the color of the footer-link to be white when clicked on.
+Step83: Set the color when link visited to be black, and brown when it is clicked.
+Step84: set the margin-top of the h1 selector (CAMPER CAFE) to be 0.
