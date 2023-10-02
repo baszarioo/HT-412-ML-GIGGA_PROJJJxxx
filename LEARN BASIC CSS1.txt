@@ -373,3 +373,6 @@ OK?
 Step76: add the bottom-line class to the 2nd hr element.
 Step77: Now you're about to style the footer. Add a comment = FOOTER.
 Step78: Apply to all the text in the footer the font-size of 14px.
+Step79: Make the footer links the same color regardless if a link has been visited, use a type selector for anchor element(a) and use the value black for the color property.
+Step80: Change the color of the footer 'Visit our website' link to be grey when a user has visited the link.
+Step81: Change the color of the footer, like above to be brown when a user hovers over it.
