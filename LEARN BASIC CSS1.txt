@@ -506,4 +506,3 @@ a: hover {
 a: active {
     color: brown;
 }
-OK?
