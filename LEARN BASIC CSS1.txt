@@ -371,3 +371,5 @@ h1,h2 {
 OK?
 
 Step76: add the bottom-line class to the 2nd hr element.
+Step77: Now you're about to style the footer. Add a comment = FOOTER.
+Step78: Apply to all the text in the footer the font-size of 14px.
