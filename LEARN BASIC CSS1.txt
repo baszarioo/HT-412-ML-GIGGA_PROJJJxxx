@@ -385,4 +385,5 @@ Step87: Apply the address class to the p element containing the street address 1
 Step88: Under the Coffee heading, add an image using the url : https://cdn....jpg. Give the image an alt value of coffee icon.
 Step89: To make the added image behave like heading elements (which are block-level), create an img type selector and use the value block for the display property and use the applicable margin-left and margin-right values to center it horizontally.
 Step90: Add one last image under the Desserts heading using the url https://cdn....jpg. Give the image an alt value of pie icon.
-Step91: 
+Step91: It would be nice if the vertical space between the h2 elements and their associated icons was smaller. The h2 elements have default top and bottom margin space, so you could change the bottom margin of the h2 elements to say 0 or another number.
+- There is an easier way, simply add a negative top margin to the img elements to pull them up from their current positions. Go ahead and use a negative top margin of 25px in the im type selector. 
