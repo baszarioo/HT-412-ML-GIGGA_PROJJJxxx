@@ -1,0 +1,10 @@
+//body + title.
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Colored Markers</title>
+	</head>
+	<body>
+	</body>
+</html>
