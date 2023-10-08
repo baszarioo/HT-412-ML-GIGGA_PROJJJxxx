@@ -16,3 +16,14 @@
 		</div>
 	</body>
 </html>
+
+		||CSS||
+h1 {
+	text-algin: center;
+}
+.marker {
+	width: 200px;
+	height: 25px;
+	background-color: red;
+	margin: auto;
+}
