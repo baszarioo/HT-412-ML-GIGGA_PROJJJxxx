@@ -11,8 +11,9 @@
 	<body>
 	<h1>CSS Color Markers</h1>
 		<div class="container">
-			<div class="marker">
-			</div>
+			<div class="one marker"></div>
+			<div class="two marker"></div>
+			<div class="marker"></div>
 		</div>
 	</body>
 </html>
@@ -24,6 +25,8 @@ h1 {
 .marker {
 	width: 200px;
 	height: 25px;
+	margin: 10px auto; //divides/splits 3 markers [they were joint].
+}
+.one {
 	background-color: red;
-	margin: auto;
 }
