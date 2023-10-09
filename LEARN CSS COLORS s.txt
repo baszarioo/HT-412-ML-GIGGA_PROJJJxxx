@@ -23,7 +23,8 @@ h1 {
 	text-algin: center;
 }
 .container {
-	background-color: rgb(0,0,0);
+	background-color: rgb(0,0,0);	//background-color: rgb(255,255,255);
+	padding: 10px 0;	// top-bot=10px, left-right=0.
 .marker {
 	width: 200px;
 	height: 25px;
@@ -31,7 +32,9 @@ h1 {
 }
 .one {
 	/* background-color: red; */
-	background-color: rgb(255,0,0);
+	/* background-color: rgb(255,0,0); */
+	background-color: rgb(255,255,0);
+
 }
 .two {
 	background-color: rgb(0,255,0);
@@ -39,5 +42,6 @@ h1 {
 .three {
 	background-color: rgb(0,0,255);
 }
-ess
+essn't
+
 
