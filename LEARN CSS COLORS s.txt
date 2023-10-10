@@ -37,7 +37,11 @@ h1 {
 	background-color: rgb(255,127,0);	//orange
 	background-color: rgb(127,255,0);	//super green yeezy
 	background: rgb(255,0,0);
-	background: linear-gradient(90deg);		// preparing for linear gradient.
+	background: linear-gradient(90deg, rgb(255,0,0), rgb(0,255,0));		// red - green gradient.
+	background: linear-gradient(90deg, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255));		// rgb gradient
+	/* linear-gradient(90deg, red 90%, black);
+	background: linear-gradient(90deg, rgb(255,0,0) 75%, rgb(0,255,0), rgb(0,0,255));		// rgb gradient	(where's red = 75%).
+	
 }
 .two {
 	background-color: rgb(0,255,0);
