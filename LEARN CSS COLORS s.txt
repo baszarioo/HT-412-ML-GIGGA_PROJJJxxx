@@ -16,8 +16,14 @@
 				<div class="sleeve">
 				</div>
 			</div>
-			<div class="marker green"></div>
-			<div class="marker blue"></div>
+			<div class="marker green">
+				<div class="cap"></div>
+				<div class="sleeve"></div>
+			</div>
+			<div class="marker blue">
+				<div class="cap"></div>
+				<div class="sleeve"></div>
+			</div>
 		</div>
 	</body>
 </html>
@@ -45,13 +51,17 @@ h1 {
 	opacity: 0.5;	// half of a div is in a half covered by (white, semitransparent sleeve).
 	/* when you remove opacity: 0.5 -> then the half of the bar disappears (its on a white background) */
 	background-color: rgba(255,255,255,50%);
-	border-left-width: 10px;
-	border-left-style: solid;
+	/* border-left-width: 10px;
+	  border-left-style: solid;
+	  border-left-color: black; */
+	/* border-left: 10px solid black; */
+	/* border-left: 10px double black; */ // double border
+	border-left: 10px double rgba(0,0,0,75%);
 }
 .cap, .sleeve {
 	display: inline-block
 }
-.one {
+.red {
 	/* background-color: red; */
 	/* background-color: rgb(255,0,0); */
 	/ *background-color: rgb(255,255,0);	//yellow */
@@ -65,8 +75,9 @@ h1 {
 	background: linear-gradient(180deg, rgb(255,0,0) 75%, rgb(0,255,0), rgb(0,0,255));		// 
 	vertical turn (direction).
 	background: linear-gradient(180deg, rgb(122, 74, 14) 0%, rgb(245, 62, 113) 50%, rgb(162, 27, 27) 100%);
+	box-shadow: 5px 5px red;
 }
-.two {
+.green {
 	background-color: rgb(0,255,0);
 	/* background-color: rgb(0,255,255);	//cyan*/
 	background-color: rgb(0,255,127);	//lime
@@ -78,7 +89,7 @@ h1 {
 	background: linear-gradient(180deg, #55680D, #71F53E, #116C31);
 
 }
-.three {
+.blue {
 	/* background-color: rgb(0,0,255); */
 	/* background-color: rgb(255,0,255); //magenta */
 	background-color: rgb(127,0,255); //purple
