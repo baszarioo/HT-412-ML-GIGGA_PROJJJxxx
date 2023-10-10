@@ -41,7 +41,9 @@ h1 {
 	background: linear-gradient(90deg, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255));		// rgb gradient
 	/* linear-gradient(90deg, red 90%, black);
 	background: linear-gradient(90deg, rgb(255,0,0) 75%, rgb(0,255,0), rgb(0,0,255));		// rgb gradient	(where's red = 75%).
-	
+	background: linear-gradient(180deg, rgb(255,0,0) 75%, rgb(0,255,0), rgb(0,0,255));		// 
+	vertical turn (direction).
+	background: linear-gradient(180deg, rgb(122, 74, 14) 0%, rgb(245, 62, 113) 50%, rgb(162, 27, 27) 100%);
 }
 .two {
 	background-color: rgb(0,255,0);
@@ -50,6 +52,7 @@ h1 {
 	background-color: rgb(0,127,255);	//blue pastel/azure
 	background-color: #00FF00	//green.
 	background-color: #007F00;	//darker green
+	background: #007F00;
 }
 .three {
 	/* background-color: rgb(0,0,255); */
