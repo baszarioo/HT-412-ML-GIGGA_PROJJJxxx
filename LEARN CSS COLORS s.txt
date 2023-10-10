@@ -11,9 +11,12 @@
 	<body>
 	<h1>CSS Color Markers</h1>
 		<div class="container">
-			<div class="one marker"></div>
-			<div class="two marker"></div>
-			<div class="three marker"></div>
+			<div class="marker red">
+				<div class="sleeve">
+				</div>
+			</div>
+			<div class="marker green"></div>
+			<div class="marker blue"></div>
 		</div>
 	</body>
 </html>
@@ -29,6 +32,10 @@ h1 {
 	width: 200px;
 	height: 25px;
 	margin: 10px auto; //divides/splits 3 markers [they were joint].
+}
+.sleeve{
+	width: 110px;
+	height: 25px;
 }
 .one {
 	/* background-color: red; */
@@ -63,7 +70,9 @@ h1 {
 	background-color: rgb(127,0,255); //purple
 	background-color: rgb(255,0,127);	//rose (red + magenta). 
 	background-color: hsl(240,100%,50%);	//blue in hsl
-
+	background: hsl(240,100%,50%);
+	background: linear-gradient(hsl(240,100%,50%), hsl(223,90%,60%));
+	background: linear-gradient(hsl(240,100%,50%), hsl(223,90%,60%), hsl(240,56%,42%));
 }
 essn't
 
