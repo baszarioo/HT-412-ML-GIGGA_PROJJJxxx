@@ -93,6 +93,7 @@ h1 {
 	/* box-shadow: offsetX offsetY blurRadius color; */
 	box-shadow: 5px 5px 5px green;
 	box-shadow: 0px 0px 20px 0 green;
+	box-shadow: 0 0 20px 0 #3B7E20CC;
 }
 .blue {
 	/* background-color: rgb(0,0,255); */
@@ -106,6 +107,7 @@ h1 {
 	/* box-shadow: offsetX offsetY blurRadius spreadRadius color */
 	box-shadow: 0 0 0 5px blue;
 	box-shadow: 0px 0px 20px 0 blue;
+	box-shadow: 0 0 20px 0 hsla(223,59%,31%,0.8);
 }
 done
 
