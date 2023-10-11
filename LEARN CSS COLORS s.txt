@@ -77,7 +77,8 @@ h1 {
 	background: linear-gradient(180deg, rgb(122, 74, 14) 0%, rgb(245, 62, 113) 50%, rgb(162, 27, 27) 100%);
 	/* box-shadow: 5px 5px red; */
 	/* box-shadow: -5px -5px red; */
-	box-shadow: 0 0 20px 0 red;	//cool glow effect.
+	/* box-shadow: 0 0 20px 0 red;	//cool glow effect. */
+	box-shadow: 0 0 20px 0 rgba(83,14,14,0.8); //worse looking, brownie glow.
 }
 .green {
 	background-color: rgb(0,255,0);
@@ -91,6 +92,7 @@ h1 {
 	background: linear-gradient(180deg, #55680D, #71F53E, #116C31);
 	/* box-shadow: offsetX offsetY blurRadius color; */
 	box-shadow: 5px 5px 5px green;
+	box-shadow: 0px 0px 20px 0 green;
 }
 .blue {
 	/* background-color: rgb(0,0,255); */
@@ -103,7 +105,9 @@ h1 {
 	background: linear-gradient(hsl(240,100%,50%), hsl(223,90%,60%), hsl(240,56%,42%));
 	/* box-shadow: offsetX offsetY blurRadius spreadRadius color */
 	box-shadow: 0 0 0 5px blue;
+	box-shadow: 0px 0px 20px 0 blue;
 }
-essn't
+done
+
 
 
