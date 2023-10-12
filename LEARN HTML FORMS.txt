@@ -10,12 +10,17 @@
 		<p>Please fill out this form with the required information</p>
 		<p><form action="https://register-demo.freecodecamp.org" method=post>
 			<fieldset>
-					<label for="first-name">Enter Your First Name: <input id="first-name" type="text"/></label>
-					<label for="last-name">Enter Your Last Name: <input id="last-name" type="text"/></label>
-					<label for="email">Enter Your Email: <input id="email" type="email"/></label>
-					<label for="new-password">Create a New Password: <input id="new-password" type="password"/></label>
+					<legend>Account type (required)</legend>
+					<label for="first-name">Enter Your First Name: <input id="first-name" type="text" required/></label>
+					<label for="last-name">Enter Your Last Name: <input id="last-name" type="text" required/></label>
+					<label for="email">Enter Your Email: <input id="email" type="email" required/></label>
+					<label for="new-password">Create a New Password: <input id="new-password" type="password" required minlength=8 pattern=[a-z0-5]{8,}/></label>
 			</fieldset>
-			<fieldset></fieldset>
+			<fieldset>
+				<legend>Account type (required)</legend>
+				<label for="personal-account"><input id="personal-account" type="radio" name="account-type" checked /> Personal</label>
+				<label for="business-account"><input id="business-account" type="radio" name="account-type" /> Business</label>
+			</fieldset>
 			<fieldset></fieldset>
 			<input type="submit" value="Submit">
 		</form></p>
@@ -34,3 +39,4 @@ label {
 	display: block;
 	margin: 0.5rem 0;
 }
+`
