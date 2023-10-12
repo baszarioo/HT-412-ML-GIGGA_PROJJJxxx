@@ -1,0 +1,106 @@
+1: justify-content: right;
+2: justify-content: center;
+3: justify-content: space-around;
+4: justify-content: space-between;
+5: align-items: flex-end;
+6: justify-content: center;
+	align-items: center;
+7: justify-content: space-around;
+	align-items: flex-end;
+8: flex-direction: row-reverse;
+Лягушатам нужно выстроиться в том же порядке, что и лилии, используя flex-direction. Это свойство CSS задает направление, в котором будут расположены элементы в контейнере, и принимает следующие значения:
+9: flex-direction: column;
+10: #pond {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: flex-end;
+	}
+11: flex-direction: column;
+	justify-content: flex-end;
+12: flex-direction: column-reverse;
+	justify-content: space-between;
+идти дальше x следующий x кириллица
+13: justify-content: center;
+	flex-direction: row-reverse;
+	align-items: flex-end
+14: #pond {
+	display: flex;
+	}
+
+	.yellow {
+	order: 1
+}
+15: #pond {
+	  display: flex;
+	}
+
+	.red {
+	order: -3
+	}
+16: #pond {
+  display: flex;
+  align-items: flex-start;
+}
+
+.yellow {
+align-self: flex-end;
+}
+17: #pond {
+  display: flex;
+  align-items: flex-start;
+}
+
+.yellow {
+order: 1;
+align-self: flex-end;
+}
+18:
+#pond {
+  display: flex;
+flex-wrap: wrap;
+}
+
+19:
+#pond {
+  display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+}
+
+20: == 19:
+#pond {
+  display: flex;
+flex-flow: column wrap;
+}
+
+21:	[all at the top/wrapped].
+#pond {
+  display: flex;
+  flex-wrap: wrap;
+align-content: flex-start;
+}
+
+22:
+#pond {
+  display: flex;
+  flex-wrap: wrap;
+align-content: flex-end;
+}
+
+23:
+#pond {
+  display: flex;
+  flex-wrap: wrap;
+flex-direction: column-reverse;
+align-content: center;
+}
+
+24:
+justify-content: center;
+align-content: space-between;
+flex-flow: column-reverse wrap-reverse;
+||
+flex-direction: column-reverse;
+flex-wrap: wrap-reverse;
+align-content: space-between;
+justify-content: center;
