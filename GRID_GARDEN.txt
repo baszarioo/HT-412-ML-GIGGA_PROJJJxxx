@@ -37,3 +37,71 @@ grid-column-start: 5;
   grid-column-start: 1;
 grid-column-end: 4
 }
+
+4.
+#garden {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-column-start: 5;
+grid-column-end: 2;
+}
+
+5. ORA PROVA AD IMPOSTARE UN VALORE 
+#water {
+  grid-column-start: 1;
+grid-column-end: -2;
+}
+
+6. #poison {
+grid-column-start: -3;
+}
+
+7. PER ESEMPIO, INNAFFIA QUESTE CAROTE UTILIZZANDO: 
+#water {
+  grid-column-start: 2;
+grid-column-end: span 2;
+}
+
+8. PROVA AD USARE SPAN CON GRID-COLUMN-END: PER INNAFFIARE(to water) TUTTE LA CAROTE.
+#water {
+  grid-column-start: 1;
+grid-column-end: span 5;
+}
+
+Livello 9 di 28:.	 PUOI ANCHE USARE SPAN CON G-C-START PER IMPPSTARE LA LARGHEZZA DELL'ELEMENTO RELATIVA ALLA POSIZIONE FINALE.
+#water {
+grid-column-start: span 3;
+  grid-column-end: 6;
+}
+
+10: Può DIVENTARE NOIOSO DOVER INDICATE TUTTE LE VOLTE SIA G-C-S CHE G-C-E. FORTUNATAMENTE ESISTE GRID-COLUMN, OVVERO UNA VERSIONE ABBREVIATA CHE ACCETTA ENTRAMVBI I VALORI, SEPARATIDA UNO SLASH.
+	PER ESEMPIO, ; IMPOSTA IL VALORE INIZIALE 
+
+#water {
+grid-column: 4/6;
+}
+
+
+
+
+LIVELLO 27 di 28:
+grid-template è un'abbrevazione che combina grid-template-rows e grid-template-columns.
+Per esempio, grid-template: 50% 50% / 200px; creerà una griglia con due righe di dimensione ognuna del 50%, e una colonna larga 200 pixel.
+	Prova ad usare grid-template per innaffiare un'area che include il 60% della parte verticale e 200 pixel della pare sinistra del tuo giardino.
+
+#garden {
+  display: grid;
+grid-template: 50% 50% / 200px
+}
+#water {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+	
+LIVELLO 28 di 28:
+grid-template: 1fr 50px / 20% 80%:		/* 1fr = 100% available space, */
