@@ -85,8 +85,37 @@ grid-column-start: span 3;
 grid-column: 4/6;
 }
 
+11:
+#water {
+grid-column: span 3/5
+}
 
 
+12: Una delle differenze principali tra CSS grid e flexbox è che non CSS grid puoi posizionare facilmente gli elementi in due dimensioni: colonne e righe. grid-row-start funziona esattamente come grid-column-start con la differenza di riferirsi all'asse verticale.
+Usa grid-row-start per innaffiare le tue carote.
+#water {
+	grid-row-start: 3
+}
+
+
+13: Ora PROVA CON LA VERSIONE ABBREVIATA grid-row.
+#water {
+	grid-row: 3/6
+}
+
+
+14: Ora usa contemporaneamente grid-column e grid-row per posizionare il diserbante (poison) usando entrambe le dimensioni.
+#poison {
+grid-column: 2;
+grid-row: 5;
+}
+
+
+15: PUOI ANCHE USARE grid-column E grid-row INSIEME PER CREARE UNA GRIGLIA PIÙ GRANDE. DAI PROVACI!
+#water {
+grid-column: 2/6;
+grid-row: 1/6;
+}
 
 LIVELLO 27 di 28:
 grid-template è un'abbrevazione che combina grid-template-rows e grid-template-columns.
