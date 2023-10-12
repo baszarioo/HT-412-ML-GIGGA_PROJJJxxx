@@ -1,0 +1,39 @@
+Benvenuto su Grid Garden, dove tramite l'uso del CSS potrai far crescere le carote del tuo giardino! Innaffia solo le aree con le carote usando la proprietà grid-column-start.
+
+Per esempio, grid-column-start: 3; innaffierà l'area che inizia dalla 3ª linea verticale, che è un altro modo per dire il 3° bordo verticale della griglia partendo da sinistra.
+1.
+#garden {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+	grid-column-start:3
+}
+
+PROSSIMA;
+2.
+#garden {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#poison {
+grid-column-start: 5;
+}
+
+#PER DISERBARLE = ON POISON
+
+3.
+#garden {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-column-start: 1;
+grid-column-end: 4
+}
