@@ -138,7 +138,40 @@ grid-area: 2/3/5/6
 }
 
 
-18: Se gli ...
+er18: SE GLI ELEMENTI NON SONO ESPLICITAMENTE POSIZIONATI CON grid-area, grid-column, grid-row, ecc., SONO AUTOMATICAMENTE DISPOSTI SECONDO IL LORO ORDINE ALL'INTERNO DEL CODICE. Ė POSSIBILE SOVRASCRIVERE QUESTO ORDINE USANDO LA PROPRIETÀ order, CHE Ė ANCHE UN DEI VANTAGGI DI USARE CSS grid INVECE CHE LAYOUT BASATI SU TABELLE. [ If grid item's are not explicitly(dokładnie) placed with g-a, g-c, g-r, etc. They are automatically placed according to their order in the source code. We can override this using the 'order' property, which is one of the advantages of grid over table-based layout.]
+	DI DEFAULT, OGNI ELEMENTO DELLA GRIGLIA HA ORDER UGUALE A 0, MA PUÒ ESSERE SETTATI A QUALSIASI VALORE, POSITIVO O NEGATIVO, IN MODO ANALOGO A z-index =[By default, all grid items have an order of 0, but this can be set to any positive or negative]
+	 IN QUESTO CASO, IL DISERBANTE (POISON) STA VENENDO DATO ALLE CAROTE E INVECE LE ERBACCE STANNO VENENDO INNAFFIATE. [Right now, the carrots in the second column are being posioned and the weeds in the last column are being watered.]
+	  CAMBIA L'ORDER DEGLI ELEMENTI PER SISTEMARE LE COSE IL PRIMA POSSIBILE! [ Change the order value of the poison to fix this right away!]
+.water { order: 0; }
+#poison { order: 5; }
+
+
+19: ORA L'ACQUA E IL DISERBANTE (POISON) SONO ALTERNATI, [Now the water and poison are alternating,] ANCHE SE TUTTE LE ERBACCE SONO ALL'INIZIO DEL TUO GIARDINO. [even though all of the weeds are at the start of your garden.] 
+	IMPOSTA L'ORDER DEL DISERBANTE PER SISTEMARE LE COSE. [Set the order of the poisons to remedy this.
+.water {
+  order: 0;
+}
+
+.poison {
+order: -1;
+}
+
+
+20: FINO A QUESTO PUNTO, HAI AVUTO A CHE FARE CON UN GIARDINO DIVISO IN CINQUE COLONNE, [Up to this point, you've had your garden set up as a grid of five columns..] OGNUNA LARGA IL 20% DELLA LARGHEZZA GENERALE, E CINQUE RIGHTE, OGNUNA DEL 20% DELL'ALTEZZA. [each 20% of the full width, and five rows, each 20% of the full height].
+	QUESTO È STATO IMPOSTATO RAMITE grid-template-columns: 20% 20% 20% 20% 20%; e grid-template-rows: 20% 20% 20% 20% 20%; [ This was done with the rules: g-t-c and g-t-r]. OGNI REGOLA HA CINQUE VALORI A DEFINIRE LE CINQUE COLONNE, OGNUNA DI GRANDEZZA DEL 20% DELLA LARGHEZZA TOTALE DEL GIARDINO. [ Each rule has five values which create five columns, each set to 20% of the overall width of the garden.]
+ PERÒ TU PUOI SUDDIVIDERE LA GRIGLIA COME PREFERISCI. [ but you can set the grid up however you like. ] IMPOSTA A grid-template-columns UN NUOVO VALORE PER INNAFFIARE LE TUE CAROTE= [give g-t-c a new value to water your carrots.]  PROVA A SETTARE LA LARGHEZZA DELLA 1^(a) COLONNA A 50% [ You'll want to set the width of 1st column to be 50%].
+#garden {
+	display: grid;
+	grid-template-columns: 50%;
+	grid-template-rows: 20% 20% 20% 20% 20%;
+}
+#water {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+21:	
+
 
 
 LIVELLO 27 di 28:
