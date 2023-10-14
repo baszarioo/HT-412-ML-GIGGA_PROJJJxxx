@@ -170,9 +170,23 @@ order: -1;
 	grid-row: 1;
 }
 
-21:	
+
+21:	SPECIFICARE UNA SERIE DI COLONNE CON LA STESSA LARGHEZZA PUÒ ESSERE STANCANTE. [Specifying a bunch of columns with identical widths can get tedious.] FRTUNATAMENTE C'È UNA FUNZIONE repeat PER FARE QUESTO.[luckily there's a 'repeat' function to help with that.]
+ PER ESEMPIO, PRECEDENTEMENTE ABBIAMO DEFINITO CINQUE COLONNE DI LARGHEZZA 20% CON grid-template-columns: 20% 20% 20% 20% 20%;.[ For example, we previously defined five 20% columns with the rule g-t-c;] QUESTO PUÒ ESSERE SEMPLIFICATO CON grid-template-columns: repeat(5,20%); [this can be simplified as g-t-c: repeat(5,20%);
+	USA grid-template-columns CON LA FUNZIONE repeat, crea otto colonne ognuna con larghezza 12.5%.[using g-t-c with the repeat function, create eight columns each with 12.5% width.] IN QUESTO MODO NON SPRECHERAI ACQUA INNAFFIANDO INUTILMENTE PARTI DEL GIARDINO SENZA CAROTE. [this way you won't overwater your garden.]
+#garden {
+  display: grid;
+grid-template-columns: repeat(5,12.5%);
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-column: 1;
+  grid-row: 1;
+}
 
 
+22.
 
 LIVELLO 27 di 28:
 grid-template è un'abbrevazione che combina grid-template-rows e grid-template-columns.
