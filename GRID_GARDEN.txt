@@ -117,6 +117,30 @@ grid-column: 2/6;
 grid-row: 1/6;
 }
 
+
+16: Se per te è troppo usare ogni volta grid-column e grid-row, c'è una scorciatoia anche per questo. grid-area accetta quattro valori separati da uno slash: grid-row-start, grid-column-start, grid-row-end, seguito da grid-column-end.
+// If it's too much for you to use every time grid-column and grid-row.There's also a shortcut for this. Grid-area accepts four values separated with a slash. seguito da= followed by.
+	Un esempio di questo potrebbe essere grid-area: 1/ 1/ 3/ 6;
+	An example of this could be: ^^^
+soluzione: 
+#water {
+grid-area: 1/2/4/6
+}
+
+
+17: E se volessi usare più di un elemento? [and what if you want to use more than one element?] Puoi sovrapporre elementi senza problemi. [ You can overlap elements without problems]. Usa grid-area per definire una seconda area che vada a coprire tutte la carote non ancora innaffiate. [use grida-area to define a second area that will incorporate all the carrots not yet wanted]/
+#water-1 {
+  grid-area: 1 / 4 / 6 / 5;
+}
+
+#water-2 {
+grid-area: 2/3/5/6
+}
+
+
+18: Se gli ...
+
+
 LIVELLO 27 di 28:
 grid-template è un'abbrevazione che combina grid-template-rows e grid-template-columns.
 Per esempio, grid-template: 50% 50% / 200px; creerà una griglia con due righe di dimensione ognuna del 50%, e una colonna larga 200 pixel.
