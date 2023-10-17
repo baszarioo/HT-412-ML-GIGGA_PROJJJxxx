@@ -95,3 +95,8 @@ select {
 	margin: 0 0.5em 0 0		/* margin-right equivalent */
 	vertical-align: middle; /* elements were too high on the line. */
 }
+/* input[name="password"] */
+input[type="submit"]{
+  display: block;
+  width: 60%;
+}
