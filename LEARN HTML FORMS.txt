@@ -18,8 +18,8 @@
 			</fieldset>
 			<fieldset>
 				<legend>Account type (required)</legend>
-				<label for="personal-account"><input id="personal-account" name="account-type" type="radio" name="account-type" checked /> Personal</label>
-				<label for="business-account"><input id="business-account" name="account-type" type="radio" name="account-type" /> Business</label>
+				<label for="personal-account"><input id="personal-account" class="inline" name="account-type" type="radio" name="account-type" checked /> Personal</label>
+				<label for="business-account"><input id="business-account" class="inline" name="account-type" type="radio" name="account-type" /> Business</label>
 			</fieldset>
 			<fieldset>
 				<label for="profile-picture">Upload a profile picture: <input id="profile-picture" type="file" name="file"/></label>
@@ -65,8 +65,21 @@ form {
   min-width: 300px;
   width: 60vw;
 }
+fieldset {
+  border: 0;
+  padding: 2rem 0 2rem 0
+  border-bottom: 3px solid #3b3b4f;
+}
+fieldset:last-of-type {
+  border-bottom: none;
+}
 label {
 	display: block;
 	margin: 0.5rem 0;
 }
-`
+input,
+textarea,
+select {
+  margin: 10px 0 0 0;
+  width: 100%;
+}
