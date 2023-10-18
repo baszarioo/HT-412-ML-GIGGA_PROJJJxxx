@@ -96,7 +96,10 @@ select {
 	vertical-align: middle; /* elements were too high on the line. */
 }
 /* input[name="password"] */
-input[type="submit"]{
-  display: block;
-  width: 60%;
+input[type="submit"] {
+	display: block;
+	width: 60%;
+	margin: 0 auto; //center the submit button.
+	height: 2em;
+	font-size: 1.1rem;
 }
