@@ -22,3 +22,35 @@
 
 </body>
 </html>
+
+/*For the name, email, and number input fields, you can see placeholder text that gives a description or instructions for each field */
+/*Inside the form element, you should have a select dropdown element with an id of dropdown and at least two options to choose from */
+/*Inside the form element, you can select an option from a group of at least two radio buttons that are grouped using the name attribute*/
+
+
+...
+  <form id="survey-form">
+	<label id="name-label" for="name">Name:</label><br>
+	<input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+	<label id="email-label" for="email">Email:</labeL><br>
+	<input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+    <label id="number-label" for="number">Number:</label><br>
+    <input type="number" id="number" name="number" placeholder="Enter a number between 1 and 100" min="1" max="100" required><br>
+
+<!-- lista rozwijana = DROPDOWN-LISTE -->
+    <label for="dropdown">Choose an option:</label><br>
+    <select id="dropdown">
+      <option value="">Select...</option>
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+    </select><br>
+
+    <p>Select a radio button:</p>
+    <input type="radio" id="radio1" name="radio-group" value="radio1">
+    <label for="radio1">Radio 1</label><br>
+    <input type="radio" id="radio2" name="radio-group" value="radio2">
+    <label for="radio2">Radio 2</label><br>
+  </form>
+
+</body>
+</html>
