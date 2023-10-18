@@ -54,3 +54,28 @@
 
 </body>
 </html>
+
+/*Inside the form element, you can select several fields from a series of checkboxes, each of which must have a value attribute
+Inside the form element, you are presented with a textarea for additional comments
+Inside the form element, you are presented with a button with id of submit to submit all the inputs*/
+
+...
+<div>
+	<input type="checkbox" id="option1" name="option1" value="Option 1">
+	<label for="option1">Option 1</label><br>
+	<input type="checkbox" id="option2" name="option2" value="Option 2">
+	<label for="option2">Option 2</label><br>	
+	<!-- Add more checkboxes as needed -->
+</div>
+<!-- TExtarea for additional comments -->
+<div>
+	<label for="comments">Additional Comments:</label><br>
+	<textarea id="comments" name="comments"></textarea>
+</div>
+
+<!-- Submit button -->
+<div>
+	<button type="submit" id="submit">Submit</button>
+	<button type="submit" id="submit">Submit</button>
+</div>
+....
