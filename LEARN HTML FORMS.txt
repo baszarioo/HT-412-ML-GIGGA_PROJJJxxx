@@ -64,6 +64,7 @@ form {
   max-width: 500px;
   min-width: 300px;
   width: 60vw;
+  padding: 2em; //fix the submit button sitting at the bottom of the form elem.
 }
 fieldset {
   border: 0;
@@ -99,7 +100,29 @@ select {
 input[type="submit"] {
 	display: block;
 	width: 60%;
-	margin: 0 auto; //center the submit button.
+	margin: 1em auto; // top&bot = 1em, centerized.
+	/*margin: 0 auto; //center the submit button. */
 	height: 2em;
 	font-size: 1.1rem;
 }
+input[type="file"] {
+  padding: 1px 2px;
+}
+
+
+//////////////////last step 
+/*
+<style>
+  #terms-and-conditions {
+    display: inline-block;
+  }
+
+  a {
+    color: #dfdfe2;
+  }
+</style>
+
+<label for="terms-and-conditions">
+  <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" class="inline"/> I accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">terms and conditions</a>
+</label>
+*/
