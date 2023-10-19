@@ -197,6 +197,11 @@ IL PRIMO ELEMENTO OCCUPERÀ 1/4 E IL SECONDO ELEMENTO 3/4 DI TUTTO LO SPAZIO ACA
 grid-template-columns: 1fr 5fr;
 
 
+24. QUANDO LE COLONNE SONO DEFINITE IN PIXEL, PERCENTUALE O EM, [When columns are set with pixels, percentages, or ems] OGNI ALTRA COLONNA DEFINITA CON fr SUDDIVIDERÀ LO SPAZIO RESTANTE. [any other columns set with fr will divvy up the space that's left over.]..
+
+#garden{ 
+	display: grid;
+	grid-template-columns: 50px 1fr 1fr 1fr 50px; ...
 
 LIVELLO 27 di 28:
 grid-template è un'abbrevazione che combina grid-template-rows e grid-template-columns.
