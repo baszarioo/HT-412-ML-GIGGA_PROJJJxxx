@@ -117,3 +117,14 @@ input[type="radio"], input[type="checkbox"] {
 textarea {
 	height: 100px;
 }
+html, body {
+	height: 100%;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+select option {
+	color: #333;
+}
