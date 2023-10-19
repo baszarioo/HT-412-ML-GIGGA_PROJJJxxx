@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rothko Painting</title>
+    <link href="./styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="frame">
+      <div class="canvas">
+      </div>
+    </div>
+  </body>
+</html>
+
+	/|| styles.css ||\
+.canvas {
+  width: 500px;
+  height: 600px;
+  background-color: #4d0f00;
+}
+
+.frame {
+  border: 50px solid black;
+  
+//13 black border frame: brown-part to small, some white space left from right.
