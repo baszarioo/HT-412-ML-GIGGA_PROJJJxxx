@@ -1,81 +1,59 @@
-<!DOCTYPE hmtl>
+<!DOCTYPE html>
 <html lang="en">
     <head>
-		<title>Registration Form</title>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="styles.css" />
-	</head>
+        <title>Registration Form</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css" />
+    </head>
 <body>
   <h1 id="title">Survey Form</h1>
   <p id="description">This is a simple survey form. Please fill out the details below.</p>
 
-   <form id="survey-form">
-		<label id="name-label" for="name">Name:</label><br>
-		<input type="text" id="name" name="name" required><br>
+<form id="survey-form">
+    <label id="name-label" for="name">Name:</label><br>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+    <label id="email-label" for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+    <label id="number-label" for="number">Number:</label><br>
+    <input type="number" id="number" name="number" placeholder="Enter a number between 1 and 100" min="1" max="100" required><br>
 
-		<label id="email-label" for="email">Email:</label><br>
-		<input type="email" id="email" name="email" required><br>
+    <!-- Dropdown list -->
+    <label for="dropdown">Choose an option:</label><br>
+    <select id="dropdown">
+        <option value="">Select...</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+    </select><br>
 
-		<label id="number-label" for="number">Number:</label><br>
-		<input type="number" id="number" name="number" min="1" max="100" required><br>
-  </form>
+    <!-- Radio buttons -->
+    <p>Select a radio button:</p>
+    <input type="radio" id="radio1" name="radio-group" value="radio1">
+    <label for="radio1">Radio 1</label><br>
+    <input type="radio" id="radio2" name="radio-group" value="radio2">
+    <label for="radio2">Radio 2</label><br>
 
+    <!-- Checkboxes -->
+    <div>
+        <input type="checkbox" id="option1" name="option1" value="Option 1">
+        <label for="option1">Option 1</label><br>
+        <input type="checkbox" id="option2" name="option2" value="Option 2">
+        <label for="option2">Option 2</label><br>
+    </div>
+
+    <!-- Textarea for comments -->
+    <div>
+        <label for="comments">Additional Comments:</label><br>
+        <textarea id="comments" name="comments"></textarea>
+    </div>
+
+    <!-- Submit button -->
+    <div>
+        <button type="submit" id="submit-btn">Submit</button>
+    </div>
+</form>
 </body>
 </html>
 
 /*For the name, email, and number input fields, you can see placeholder text that gives a description or instructions for each field */
 /*Inside the form element, you should have a select dropdown element with an id of dropdown and at least two options to choose from */
 /*Inside the form element, you can select an option from a group of at least two radio buttons that are grouped using the name attribute*/
-
-
-...
-  <form id="survey-form">
-	<label id="name-label" for="name">Name:</label><br>
-	<input type="text" id="name" name="name" placeholder="Enter your name" required><br>
-	<label id="email-label" for="email">Email:</labeL><br>
-	<input type="email" id="email" name="email" placeholder="Enter your email" required><br>
-    <label id="number-label" for="number">Number:</label><br>
-    <input type="number" id="number" name="number" placeholder="Enter a number between 1 and 100" min="1" max="100" required><br>
-
-<!-- lista rozwijana = DROPDOWN-LISTE -->
-    <label for="dropdown">Choose an option:</label><br>
-    <select id="dropdown">
-      <option value="">Select...</option>
-      <option value="option1">Option 1</option>
-      <option value="option2">Option 2</option>
-    </select><br>
-
-    <p>Select a radio button:</p>
-    <input type="radio" id="radio1" name="radio-group" value="radio1">
-    <label for="radio1">Radio 1</label><br>
-    <input type="radio" id="radio2" name="radio-group" value="radio2">
-    <label for="radio2">Radio 2</label><br>
-  </form>
-
-</body>
-</html>
-
-/*Inside the form element, you can select several fields from a series of checkboxes, each of which must have a value attribute
-Inside the form element, you are presented with a textarea for additional comments
-Inside the form element, you are presented with a button with id of submit to submit all the inputs*/
-
-...
-<div>
-	<input type="checkbox" id="option1" name="option1" value="Option 1">
-	<label for="option1">Option 1</label><br>
-	<input type="checkbox" id="option2" name="option2" value="Option 2">
-	<label for="option2">Option 2</label><br>	
-	<!-- Add more checkboxes as needed -->
-</div>
-<!-- TExtarea for additional comments -->
-<div>
-	<label for="comments">Additional Comments:</label><br>
-	<textarea id="comments" name="comments"></textarea>
-</div>
-
-<!-- Submit button -->
-<div>
-	<button type="submit" id="submit">Submit</button>
-	<button type="submit" id="submit">Submit</button>
-</div>
-....
