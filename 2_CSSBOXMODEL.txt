@@ -8,6 +8,7 @@
   <body>
     <div class="frame">
       <div class="canvas">
+		<div class="one"></div>
       </div>
     </div>
   </body>
@@ -18,9 +19,22 @@
   width: 500px;
   height: 600px;
   background-color: #4d0f00;
+  padding: 1px; 	//s21. whole returns back to first position + now we get some sort of book look, in a black frame.
 }
 
 .frame {
   border: 50px solid black;
-  
+  width: 500px;		//frame was too wide.
+  padding: 50px;	//brown -> white -> black border.
+  margin: 20px auto; //vertical margin: 20px, horizontal - auto.
+
+}
+.one {
+	width: 425px;
+	height: 150px;
+	background-color: #efb762;
+	margin: 20px auto;	 // dark frame extends height, brown goes down, and creamy gets centered.
+}
+
 //13 black border frame: brown-part to small, some white space left from right.
+//19 div one has creamy color and is set on 1/3 vertical brown-border + 7/8 of horizontal brown.
