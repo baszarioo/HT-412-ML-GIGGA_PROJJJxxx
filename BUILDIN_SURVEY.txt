@@ -89,3 +89,31 @@ label { /* make the label full page - ++size,
 	font-weight: bold;
 	margin: 10px 0;
 }
+input[type="text"], input[type="email"], input[type="number"], select, textarea {
+	width: 100%;	/* make input boxes wide + smooth them
+	padding: 10px;
+	margin: 5px 0;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+select {
+	height: 40px;
+}
+input[type="radio"], input[type="checkbox"] {
+	margin-right: 5px;
+}
+#submit-btn{ 
+	background-color: #007BFF;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 10px 0;
+}
+#submit-btn:hover {
+	background-color: #0056b3;
+}
+textarea {
+	height: 100px;
+}
