@@ -57,3 +57,20 @@
 /*For the name, email, and number input fields, you can see placeholder text that gives a description or instructions for each field */
 /*Inside the form element, you should have a select dropdown element with an id of dropdown and at least two options to choose from */
 /*Inside the form element, you can select an option from a group of at least two radio buttons that are grouped using the name attribute*/
+
+	/|| styles.css ||\
+body {
+	background-color: #f2f2f2;
+	font-family: Arial, sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+#survey-form{
+	background-color: #fef; //pinkywhite
+	max-width: 500px;
+	margin: 20px auto;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
