@@ -198,10 +198,28 @@ grid-template-columns: 1fr 5fr;
 
 
 24. QUANDO LE COLONNE SONO DEFINITE IN PIXEL, PERCENTUALE O EM, [When columns are set with pixels, percentages, or ems] OGNI ALTRA COLONNA DEFINITA CON fr SUDDIVIDERÀ LO SPAZIO RESTANTE. [any other columns set with fr will divvy up the space that's left over.]..
-
+QUI LE CAROTE OCCUPANO UNA COLONNA DI 50(CINQUANTA) PIXEL A SINISTRA E LE ERBACCE OCCUPANO UNA COLONNA DI 50 PIXEL A DESTRA.[Here the carrots from a 50 px column on the left, and the weeds a 50 px column on the right]	CON grid-template-columns, CREA QUESTE DUE COLONNE, E USA fr PER CREARE TRE NUOVE COLONNE CHE OCCUPINO LO SPAZIO RIMANENTE NEL MEZZO. [With g-t-c, create these two columns, and use 'fr' to make three more columns that take up the remaining space in between.]
 #garden{ 
 	display: grid;
-	grid-template-columns: 50px 1fr 1fr 1fr 50px; ...
+	grid-template-columns: 50px 1fr 1fr 1fr 50px;
+	grid-template-rows: 20% 20% 20% 20% 20%;
+}
+#water {
+	grid-area: 1/1/6/2;
+}
+#poison {
+	grid-area: 1/5/6/6;
+}
+
+
+25: ORA C'È UNA COLONNA DI ERBACCE DI 75 PIXEL NEL LATO SINISTRO DEL TUO GIARDINO. [now there is a 75px column of weeds on the left side of your garden]. 3/5 DELLO SPAZIO RIMANENTE È OCCUPATO DE CAROTE, MENTRE 2/5 OCCUPATO ANCORA DA ERBACEE.[3/5 of the remaining space is growin carrots, while 2/5 has been overrun with weeds]
+ USA grid-template-columns CON UNA COMBINAZIONE DI px E fr PER CREARE LE COLONNE NECESSARIE.
+[use g-t-c with a combination of px and fr units to make the necessary columns].
+#garden{
+	display: grid;
+	grid-template-columns: 75px 3fr 2fr
+	grid-template-rows: 100%;	}
+
 
 LIVELLO 27 di 28:
 grid-template è un'abbrevazione che combina grid-template-rows e grid-template-columns.
