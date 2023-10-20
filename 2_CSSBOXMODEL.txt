@@ -10,7 +10,8 @@
       <div class="canvas">
 		<div class="one"></div>
 		<div class="two"></div>
-      </div>
+		<div class="three"></div>
+	  </div>
     </div>
   </body>
 </html>
@@ -22,6 +23,8 @@
   background-color: #4d0f00;
   /* padding: 1px; 	//s21. whole returns back to first position + now we get some sort of book  look, in a black frame. */
   overflow: hidden; // before: canvas: 502px x 602px -> now og. dimensions.
+  filter: blur(2px); // filter:blur(2px); -> 34th. addin some blur to whole canva/
+
 }
 
 .frame {
@@ -30,6 +33,9 @@
   padding: 50px;	//brown -> white -> black border.
   margin: 20px auto; //vertical margin: 20px, horizontal - auto.
 
+}
+.one, .two {
+  filter: blur(1px);	//add blur+ 1 .
 }
 .one {
 	width: 425px;
@@ -41,7 +47,17 @@
 	width: 475px;
 	height: 200px;
 	background-color: #8f0401
-	margin: auto; //lighter red below/beneath the creamy rectangle -> widther but not in full range brown one (seduced by margin?)
+	/* margin: 0 auto; //lighter red below/beneath the creamy rectangle -> widther but not in full range brown one (seduced by margin?) */
+	margin: 0 auto 20px; // step 32-> bottom margin set to 20px;
+}
+.three{
+	width: 91%;
+	height: 28%;
+	background-color: #b20403; 
+	// 31: startin from the left edge of brown box, and it's tangential(styczny) to red rect, above//.
+	margin: auto;
+	// 32: now its cneterd.
+	filter: blue(2px);
 }
 
 //13 black border frame: brown-part to small, some white space left from right.
