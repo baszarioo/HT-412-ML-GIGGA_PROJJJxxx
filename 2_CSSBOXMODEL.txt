@@ -9,6 +9,7 @@
     <div class="frame">
       <div class="canvas">
 		<div class="one"></div>
+		<div class="two"></div>
       </div>
     </div>
   </body>
@@ -19,7 +20,8 @@
   width: 500px;
   height: 600px;
   background-color: #4d0f00;
-  padding: 1px; 	//s21. whole returns back to first position + now we get some sort of book look, in a black frame.
+  /* padding: 1px; 	//s21. whole returns back to first position + now we get some sort of book  look, in a black frame. */
+  overflow: hidden; // before: canvas: 502px x 602px -> now og. dimensions.
 }
 
 .frame {
@@ -34,6 +36,12 @@
 	height: 150px;
 	background-color: #efb762;
 	margin: 20px auto;	 // dark frame extends height, brown goes down, and creamy gets centered.
+}
+.two {
+	width: 475px;
+	height: 200px;
+	background-color: #8f0401
+	margin: auto; //lighter red below/beneath the creamy rectangle -> widther but not in full range brown one (seduced by margin?)
 }
 
 //13 black border frame: brown-part to small, some white space left from right.
