@@ -42,6 +42,9 @@
 	height: 150px;
 	background-color: #efb762;
 	margin: 20px auto;	 // dark frame extends height, brown goes down, and creamy gets centered.
+	box-shadow: 0 0 3px 3px #efb762 // increase the area + soften edges.
+	border-radius: 9px; // round each corner.
+	transform: rotate(-0.6deg);
 }
 .two {
 	width: 475px;
@@ -49,6 +52,8 @@
 	background-color: #8f0401
 	/* margin: 0 auto; //lighter red below/beneath the creamy rectangle -> widther but not in full range brown one (seduced by margin?) */
 	margin: 0 auto 20px; // step 32-> bottom margin set to 20px;
+	box-shadow: 0 0 3px 3px #8f0401; 
+	border-radius: 8px 10px; 	//top-left+bot-right(8)  x  top-right+bot-left.(10) 
 }
 .three{
 	width: 91%;
@@ -57,7 +62,9 @@
 	// 31: startin from the left edge of brown box, and it's tangential(styczny) to red rect, above//.
 	margin: auto;
 	// 32: now its cneterd.
-	filter: blue(2px);
+	filter: blur(2px);
+	box-shadow: 0 0 5px 5px #b20403
+	border-radius: 30px 25px 60px 12px; //kind of messenger 'cloud' message.
 }
 
 //13 black border frame: brown-part to small, some white space left from right.
