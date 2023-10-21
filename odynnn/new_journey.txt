@@ -1,0 +1,30 @@
+arduous = trudny/meczacy/zmudny/mozolny
+GIT SETUP:
+git config --global user.name "Your Name"
+git config --global user.email "yourname@example.com"
+git config --global init.defaultBranch main
+git config --global init.defaultBranch main
+git config --global color.ui auto
+git config --global pull.rebase false
+
+verify:
+git config --get user.name
+git config --get user.email
+
+macOS:
+echo .DS_Store >> ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+
+STEP2.3: Create an SSH key.
+ls ~/.ssh/id_ed25519.pub
+ssh-keyen -t ed25519 -C "your@email.com"
+
+copy public SSH key:
+cat ~/.ssh/id_ed25519.pub
+=> highlight and copy the output, which starts with ssh-ed25519 and ends with your email address.
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+__________________________________________
+<ul> <li>Item 1</li> <li>Item 2</li> <li>Item 3</li> </ul>	// unordered-begins with bullet pnt
+<ol> <li>Item 1</li> <li>Item 2</li> <li>Item 3</li> </ol>	// ordered, begins with nums=1,2...
+ <img src="https://www.theodinproject.com/mstile-310x310.png"> // use an image ..
