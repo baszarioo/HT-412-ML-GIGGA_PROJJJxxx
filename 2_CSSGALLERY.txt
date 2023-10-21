@@ -11,15 +11,16 @@
       <h1>css flexbox photo gallery</h1>
     </header>
 	<div class="gallery">
-      <img>
-      <img>
-      <img>
-      <img>
-      <img>
-      <img>
-      <img>
-      <img>
-      <img>
+      <img src="https://.../css-photo-gallery/1.jpg">
+      <img src="https://.../css-photo-gallery/2.jpg">
+      <img src="https://.../css-photo-gallery/3.jpg">
+      <img src="https://.../css-photo-gallery/4.jpg">
+      <img src="https://.../css-photo-gallery/5.jpg">
+      <img src="https://.../css-photo-gallery/6.jpg">
+      <img src="https://.../css-photo-gallery/7.jpg">
+      <img src="https://.../css-photo-gallery/8.jpg">
+      <img src="https://.../css-photo-gallery/9.jpg" alt="cat09>
+    </div>
     </div>
   </body>
 </html>
@@ -71,3 +72,7 @@ body {
   color: #fff;
   border-bottom: 4px solid #fdb347;
 }
+.gallery::after{
+  content:"";
+  width: 350px;
+}				// some kind of new element after last one.
