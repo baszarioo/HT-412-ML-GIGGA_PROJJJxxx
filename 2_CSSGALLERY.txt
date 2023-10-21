@@ -44,9 +44,19 @@ img {
   width: 100%;
   max-width: 350px;
   height: 300px;
+  object-fit: cover;	//fill the img container: while maintaining aspect ratio.
+  border-radius: 10px;	//smooth up the edges .
 }
 .gallery {
   display: flex;	//14: all photos in a carouysel.
+  flex-direction: row;		//options: row, row-reverse, column, column-reverse.
+  flex-wrap: wrap;	//imgs wrap to the next row when they run out of time.\
+  justify-content: center;	//centerized (images)>
+  align-items: center;		// theoritically the same as above 
+  padding: 20px 10px;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 16px;	// set gap between images to 16px;
 }
 body {
   margin: 0;
