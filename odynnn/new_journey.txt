@@ -32,3 +32,77 @@ __________________________________________
  
  #!/bin/sh
 "C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin\idea64.exe" $1 &
+
+
+__________________________________________
+exampl;
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Pop culture recipes!</title>
+	</head>
+	<body>
+		<h1 id='header'>Recipes from pop culuture!</h1>
+		<img src='images/chef-boyardee.jpg' alt='a talented chef by the name of boyardee' style="width:800px; height:450px;">
+		<h3 id='image label'>poppin recipes!</h3>
+		<div>
+			<ul>
+				<li><a href='./recipes/golf-wang.html'>Tyler</a></li>
+				<li><a href='./recipes/disco-ba.html'>Disco Bania</a></li>
+				<li><a href='./recipes/wszystki.html'>Deamm</a></li>
+			</ul>
+		</div>
+		<a href="#header">Return to top</a>
+	</body>
+</html>
+
+//class="alert-text severe-alert"
+
+/*	GROUPIN SELECTOR 	*/
+.read {
+	color: white;
+	background-color: black;
+}
+.unread {
+	color: white;
+	background-color: black;
+}
+
+/*	CHAINING SELECTORS	*/
+<div> 
+	<div class="subsection header">Latest Posts</div>
+	<p class="subsection preview">preview for a post:</p>
+</div>
+	//CSS
+.subsection.header {
+	color: red;
+}	
+		//but:"\
+
+<div>
+	<div class="subsection header">Latest Posts</div>
+	<p class="subsection" id="preview">post preview: </p>
+</div>
+		//CSS
+.subsection.header{
+	color: red;
+}
+.subsection#preview {
+	color: blue;
+}
+
+/*	DESCENDANT COMBINATOR 	*/
+<div class="ancestor">
+	<!-- A -->
+	<div class="contents">
+		<!-- B -->
+		<div class="contents"><!-- C --></div>
+	</div>
+</div>
+
+<div class="contents"></div> <!-- D -->
+		//CSS
+.ancestor .contents {
+	/* D not affected, versus B,C,A which are. */
+}	
