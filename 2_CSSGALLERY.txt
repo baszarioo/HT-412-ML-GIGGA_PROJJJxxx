@@ -10,5 +10,54 @@
     <header class="header">
       <h1>css flexbox photo gallery</h1>
     </header>
+	<div class="gallery">
+      <img>
+      <img>
+      <img>
+      <img>
+      <img>
+      <img>
+      <img>
+      <img>
+      <img>
+    </div>
   </body>
 </html>
+
+	/|| CSS ||\
+.gallery {
+  width: 50%;
+  border: 5px solid red;
+}
+/*
+img {
+  width: 100%;
+  padding: 5px;
+  border: 5px solid blue;
+}
+* {
+  /* box-sizing: content-box; */
+  box-sizing: border-box;
+} 
+*/
+.gallery img {
+  width: 100%;
+  max-width: 350px;
+  height: 300px;
+}
+.gallery {
+  display: flex;	//14: all photos in a carouysel.
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f5f6f7;
+}
+.header {
+  text-transform: uppercase;
+  padding: 32px;
+  background: #0a0a23;
+  text-align: center;
+  color: #fff;
+  border-bottom: 4px solid #fdb347;
+}

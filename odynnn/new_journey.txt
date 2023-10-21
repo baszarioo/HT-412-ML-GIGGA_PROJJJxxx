@@ -28,3 +28,7 @@ __________________________________________
 <ul> <li>Item 1</li> <li>Item 2</li> <li>Item 3</li> </ul>	// unordered-begins with bullet pnt
 <ol> <li>Item 1</li> <li>Item 2</li> <li>Item 3</li> </ol>	// ordered, begins with nums=1,2...
  <img src="https://www.theodinproject.com/mstile-310x310.png"> // use an image ..
+ 
+ 
+ #!/bin/sh
+"C:\Program Files\JetBrains\IntelliJ IDEA 2022.3.1\bin\idea64.exe" $1 &
