@@ -106,3 +106,130 @@ exampl;
 .ancestor .contents {
 	/* D not affected, versus B,C,A which are. */
 }	
+__________________________________________
+* The cascade *
+1) 
+<div class="main">
+	<div class="list subsection">Red text</div>
+</div>
+
+/* rule 1 */
+.subsection {	color: blue;	}
+/* rule 2 */
+.main .list {	color: red;		}		// color: red; declaration takes the precedence.
+
+2)
+<div class="main">
+	<div class="list" id="subsection">Blue text</div>
+</div>
+/* rule 1 */
+#subsection {	color: blue; 	}
+/* rule 2 */
+.main .list {	color: red;		}		// now ID beats class selector: -> color: blue; tops
+
+3)
+<div class="main">
+	<div class="list" id="subsection">Red text on yellow background</div>
+</div>
+/* rule 1 *.
+#subsection {
+	background-color: yellow;
+	color: blue;
+}
+/* rule 2 */
+.main #subsection {
+	color: red;  } /* both rules has only one ID selector, but one with a class has a higher specificity -> color: red takes precedence, but background-color: yellow is still aplied */
+
+4) COMPARING SELECTORS:
+.class.second-class == .class .second-class
+.class.second-class == .class > .second-class
+* <= h1 	//becase rule 1 is more universal.\
+
+5) INHERITANCE EXCEPTION:
+<div id="parent">
+	<div class="child"></div>
+</div>
+/* styles.css */
+#parent {	color: red;		}
+.child { color: blue; 	}		//despite the parent element having a higher specificity with // an ID, the child element would have color: blue, since it is directly targeted.
+
+EXERCISE FIX THAT:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix the Cascade</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p class="para">I'm just a paragraph with extra bold text!</p>
+    <p class="para small-para">I'm a smaller paragraph, also with extra bold text!</p>
+
+    <button id="confirm-button" class="button confirm">Confirm</button>
+    <button id="cancel-button" class="button cancel">Cancel</button>
+
+    <div class="text">I'm a div with thin text!</div>
+    <div class="text">I'm a div with thin text and a child div!
+      <div class="text child">I'm a smaller child div with extra bold text.</div>
+    </div>
+  </body>
+</html>
++
+/* styles.css */
++
+body { font-family: Arial, Helvetica, sans-serif;	}
+.para, .small-para {
+	color: hsl(0,0%,0%);
+	font-weight: 800;
+}
+.small-para {
+	font-size:14px;
+	font-weight: 8900;
+}
+.para {
+  font-size: 22px;
+}
+
+/*
+.confirm {
+  background: green;
+  color: white;
+  font-weight: bold;
+} 
+*/
+#confirm-button {
+	background: green;
+	color: white;
+	font-weight: bold;
+}
+.button {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+/*
+.child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
+}
+*/
+.text .child {
+	color: rgb(0,0,0);
+	font-weight: 800;
+	font-size: 14px;
+}
+||
+div .child {
+	color: rgb(0,0,0);
+	font-weight: 800;
+	font-size: 14px;
+}	
+
+div.text {
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  font-weight: 100;
+}
