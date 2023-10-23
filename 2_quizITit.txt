@@ -2,35 +2,67 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<meta name="description" content="essa"/>
+		<meta name="description" content="essa practice quiz"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>SEO important part</title>
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
 		<header>
-			  <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg"
-			  id="logo">
+			  <img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" id="logo">
 			  <h1>HTML/CSS Quiz</h1>
 			  <nav>Tap ~by Nav
 			    <ul>
-				  <li><a>INFO</a></li>
-				  <li><a>HTML</a></li>
-				  <li><a>CSS</a></li>
+					<li><a href="#student-info">INFO</a></li>
+					<li><a href="#html-questions">HTML</a></li>
+					<li><a href="#css-questions">CSS</a></li>
 				</ul>
 			  </nav>
 		</header>
 		<main>
 		  <form action="https://freecodecamp.org/practice-project/accessibility-quiz" method=post>
-			 <section role="region" aria-labelledby="student-info">
-          <h2 id="student-info">Student Information</h2>
-        </section>
-        <section role="region" aria-labelledby="html-questions">
-          <h2 id="html-questions">HTML Questionary</h2>
-        </section>
-        <section role="region" aria-labelledby="css-questions">
-          <h2 id="css-questions">CSS Questionary</h2>
-        </section>
+			<section role="region" aria-labelledby="student-info">
+			  <h2 id="student-info">Student Info</h2>
+			  <div class="info">
+				<label for="student-name">Name:</label>
+				<input id="student-name" type="text" name="student-name">  /* placeholder="Enter your name"/> */
+				<!-- Remove the placeholder texts, as we can rely on the labelizn being the best-practice. -->
+			  </div>
+			  <div class="info">
+				<label for="student-email">Email:</label>
+				<input id="student-email" type="email" name="student-email"/>
+			  </div>
+			  <div class="info">
+				<label for="birth-date">D.O.B.<span class="sr-only">(Date of Birth)</span></label>
+				<input id="birth-date" type="date" name="birth-date"/>
+			  </div>
+			</section>
+			<section role="region" aria-labelledby="html-questions">
+				<h2 id="html-questions">HTML</h2>
+				<div class="question-block">
+					<p>1</p>
+					<fieldset class="question">
+						<legend></legend>
+						<ul>
+							<li></li>
+							<li></li>
+						</ul>
+					</fieldset>
+				</div>
+				<div class="question-block">
+					<p>2</p>
+					<fieldset class="question">
+						<legend></legend>
+						<ul>
+							<li></li>
+							<li></li>
+						</ul>
+					</fieldset>
+				</div>
+			</section>
+			<section role="region" aria-labelledby="css-questions">
+				<h2 id="css-questions">CSS</h2>
+			</section>
 		  </form>
 		</main>
 	</body>
@@ -55,7 +87,23 @@ header {
   background-color: #1b1b32;
   display: flex;	//set display use the Flexbox.
 }
+h1 {
+  color: #f1be32;
+  font-size: min(5vw, 1.2em);
+}
+
+nav {
+  width: 50%;
+  max-width: 300px;
+  height: 50px;
+}
 nav>ul {
   display: flex;
   justify-content: space-evenly; //use Flexbox to evenly space the children.
+}
+h1, h2 {
+  font-family: "Verdana", sans-serif;
+}
+h2 {
+  border-bottom: 4px solid #dfdfe2;
 }
