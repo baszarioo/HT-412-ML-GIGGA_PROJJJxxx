@@ -24,15 +24,27 @@
 	  <span>230</span>
     </div>
 	<div class="divider medium"></div>
-	<div class="daily-value small-text">
-      <p class="bold right">% Daily Value *</p>
+	 <div class="daily-value small-text">
+      <p class="bold right no-divider">% Daily Value *</p>
       <div class="divider"></div>
       <p><span><span class="bold">Total Fat</span> 8g</span> <span class="bold">10%</span></p>
+      <p class="indent no-divider">Saturated Fat 1g <span class="bold">5%</span></p>
+      <div class="divider"></div>
+      <p class="indent no-divider"><span><i>Trans</i> Fat 0g</span></p>
+      <div class="divider"></div>
+      <p><span><span class="bold">Cholesterol</span> 0mg</span> <span class="bold">0%</span></p>
+      <p><span><span class="bold">Sodium</span> 160mg</span> <span class="bold">7%</span></p>
+      <p><span><span class="bold">Total Carbohydrate</span> 37g</span> <span class="bold">13%</span></p>
+      <p class="indent no-divider">Dietary Fiber 4g</p>
+      <div class="divider"></div>
+      <p class="indent no-divider">Total Sugars 12g</p>
+      <div class="divider double-indent"></div>
+      <p class="double-indent no-divider">Includes 10g Added Sugars <span class="bold">20%</span>
+      <div class="divider"></div>
     </div>
-  </div>
+ </div>
 </body>
 </html>
-
 	//|| CSS ||\\
 * {
   box-sizing: border-box;
@@ -83,6 +95,9 @@ p {
 	background-color: black;
 	border: 0;
 }
+.medium {
+	height: 5px;
+}
 .calories-info {
 	display: flex;
 	justify-content: space-between;
@@ -96,6 +111,23 @@ p {
 	font-size: 2em;
 	font-weiht: 700;
 }
+.calories-info span {
+	margin: -7px -2px;
+	font-size: 2.4em;
+	font-weight: 700;
+}
 .right {
   justify-content: flex-end;	// sends the text/p to max right side.
 }
+.indent {
+	margin-left: 1em;
+}
+.double-indent {
+	margin-left: 2em;
+}
+.daily-value p:not(.no-divider){
+	border-bottom: 1px solid #888989;
+}
+
+/* The :not pseudo-selector can be used to select all elements that do not match the given CSS rule.
+div:not(#example) { color: red;	}	-> selects all div elements without an id of example.

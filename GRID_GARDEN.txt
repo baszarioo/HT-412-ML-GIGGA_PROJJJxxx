@@ -219,6 +219,19 @@ QUI LE CAROTE OCCUPANO UNA COLONNA DI 50(CINQUANTA) PIXEL A SINISTRA E LE ERBACC
 	display: grid;
 	grid-template-columns: 75px 3fr 2fr
 	grid-template-rows: 100%;	}
+	
+
+26: grid-template-rows FUNZIONA NELLA STESSA MANIERA DI grid-template-columns.	[gg-t-r works much the same as g-t-c].
+USA grid-template-rows PER INNAFFIARE TUTTO IL GIARDINO TRANNE I 50px IN CIMA AL TUO GIARDINO. [use g-t-r to water all but the top 50 pixels of your garden.] NOTA CHE L'ACQUA È IMPOSTATA AD INNAFFIARE SOLO LA 5^a RIGA, QUINDI DEVI CREARE IN TOTALE 5 RIGHE = [Note that the water is set to fill only your 5th row, so you'll need to create 5 rows in total].
+#garden {
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	grid-template-rows: 20px 10px 10px 10px 1fr;
+}
+#water {
+	grid-column: 1/6;
+	grid-row; 5/6;
+}
 
 
 LIVELLO 27 di 28:
@@ -238,3 +251,4 @@ grid-template: 50% 50% / 200px
 	
 LIVELLO 28 di 28:
 grid-template: 1fr 50px / 20% 80%:		/* 1fr = 100% available space, */
+FOLLOW: @placodepip [twitter/X].

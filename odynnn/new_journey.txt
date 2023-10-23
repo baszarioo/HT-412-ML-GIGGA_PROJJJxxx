@@ -1,3 +1,7 @@
+git checkout -b fix-typo	//new branch
+git add .	//all files
+git commit -m "fixed a typo"
+git push || git push  --set-upstream origin branch-name
 arduous = trudny/meczacy/zmudny/mozolny
 GIT SETUP:
 git config --global user.name "Your Name"
