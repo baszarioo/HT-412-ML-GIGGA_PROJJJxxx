@@ -5,7 +5,17 @@ FIRST Run: npm run dev -> it gives us an html link.
 ctrl+shift+~ for terminal :0
 then cut everything insidfe the return statement of page.js
 "rafce" = shortcut for default page by es7 /react.
-ctrl+shift+l -> zaznaczone page można podmienić w każdej linijce.
+ctrl+shift+l -> zaznaczone page można podmienić w każdej linijce. 
 to simplify routering ,we can just make new folders. example: localhost:3000 = Dashboard page.	and then: localhost:3000/TicketsPage	=> moves to the ticketpage.
 And also we can make the folder as: TicketsPage -> [id] (for individual records).
 'Semicolons' are optional? i guess so :p
+- when folder is in parantheses [], there wont be set up router for that.
+In next.js you can use google fonts directly "btw"
+
+Installing free icons lib: npm install @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+- You can standarize colors for tailwind.css:
+	it is accesible, by writing colos: {} after the backgroundImage: {..} declaration.
+	<div className=""> ... is a tailwind opeartor ;)
+	flex-grow: //fill whole page.		overflow-y-auto: //
+	
+we're setting up css in a file: globals.css [mainly].	//26min

@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+@layer components {
+  .icon {
+    @apply text-default-text text-xl;
+  }
+  .btn {
+    @apply hover:no-underline bg-blue-400 hover:bg-blue-accent-hover w-full text-center;
+  }
+}
