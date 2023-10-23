@@ -41,9 +41,17 @@
       <div class="divider double-indent"></div>
       <p class="double-indent no-divider">Includes 10g Added Sugars <span class="bold">20%</span>
       <div class="divider"></div>
+	  <p class="no-divider"><soan class="bold">Protein</span> 3g</p>
+	   <div class="divider large"></div>
+      <p>Vitamin D 2mcg <span>10%</span></p>
+      <p>Calcium 260mg <span>20%</span></p>
+      <p>Iron 8mg <span>45%</span></p>
+	  <p class="no-divider">Potassium 235mg<span>6^</span></p>
     </div>
- </div>
-</body>
+	</div class="divider-medium"></div>
+	<p class="notge">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p>
+  </div>
+ </body>
 </html>
 	//|| CSS ||\\
 * {
@@ -127,6 +135,12 @@ p {
 }
 .daily-value p:not(.no-divider){
 	border-bottom: 1px solid #888989;
+}
+.note {
+	font-size: 0.6rem;
+	margin: 5px 0;
+	padding: 0 8px;
+	text-indent: -8px;
 }
 
 /* The :not pseudo-selector can be used to select all elements that do not match the given CSS rule.
