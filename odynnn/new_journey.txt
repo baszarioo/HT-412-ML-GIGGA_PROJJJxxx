@@ -237,3 +237,70 @@ div.text {
   font-size: 22px;
   font-weight: 100;
 }
+
+__________________________________________ BLOCK AND INLINE:
+display: block => stacked on each other,		||w3schools.com||
+display: inline-block	=> stacked on each other horizontally
+<p> is a block-level
+<div> is also a block-level
+block-level elements:	
+<address> <article> <aside> <blockquote> <canvas> <dd> <div> <dl> <dt> <fieldset> <figcaption> <figure> <footer> <form> <h1-h6> <header> <hr> <li> <main> <nav> <noscript> <ol> <p> <pre> <section> <table> <tfoot> <ul> <video>
+:: <dl> =description list, <dd> = description.description pepeW, <dt> = description term 
+
+inline elements: <do not start on a new line>
+<a> <abbr> <acronym> <b> <bdo> <big> <br> <button> <cite> <code> <dfn> <em> <i> <img> <input> <kbd> <label> <map> <object> <output> <q> <samp> <script> <select> <small> <span> <strong> <sub> <sup> <textarea> <time> <tt> <var>
+::The <abbr title="World Health Organization">WHO</abbr> was founded in 1948. 	//skrócona nazwa
+::<acronym> got replaced with an <abbr> tag.
+::<b> bold text lul
+::<bdo> text will go from right-to-left: amaM
+::<cite> //italic font text claiming it has a title of artwork.
+::<code> //gives text some kind of different font + size. 
+::<dfn> //definition same as above, different styling.;
+::<em> //emphasis
+::<i> //italic.
+::<kbd> //keyboard input' styling.
+::<map> //image map?
+::<object> //examples below.
+::<output>	// result of some formula?	example below;
+::<sub> // subscript (text below).
+::<sup> // superscript (text above).
+::<time> // doesn't even work i guess.
+::<var></var> // italicizes a text and makes it a mathematical(?) variable.
+
+example of <map>:
+<p> Click on some coordinates, to go to a new page and read more about the topic. </p>
+<img src="workplace.jpg" alt="Workplace" usemap="#workmap" width="400" heiht="379">
+<map name="workmap">
+	<area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm">
+	<area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+	<area shape="circle" coords="337,300,44" alt="Cup of coffee" href="coffee.htm">
+</map>
+</body>
+</html>
+
+
+example of <object> 3x:	//embedded = osadzony (in sth).
+<object data="pic_trulli.jpg" width="300" height="200"></object>
+<object data="snippet.html" width="500" height="200"></object>
+<object data="video.mp4" width="400" height="300"></object>
+object:focus {	outline: none;	}	//default value.
+
+
+example of <output>:
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+	<input type="range" id="a" value="50">
+	+ <input type="number" id="b" value="25">
+	= <output name="x" for="a b"></output>
+</form>
+<p><strong>Note:</strong> The output element is not supported in Edge 12(or earlier).</p>
+</body> </html>
+
+flex-item + flex-container
+.flex-container {	display:flex;	} //makes elements be displayed in a line.
+.flex-container div { ... flex: 1 1 0%; } //flex - divides them equally.
+.flex-container .two { flex: 2 1 0%;	} //makes the 2nd box widthier?
+flex-shrink :can make the same
+flex-basis : sets innitial size.
+flex-grow..
+
+__________________________________________ LANDING PAGE PROJECTS: @deanstro + @Criosyom
