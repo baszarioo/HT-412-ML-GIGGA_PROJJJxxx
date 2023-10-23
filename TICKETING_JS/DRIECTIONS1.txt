@@ -1,0 +1,5 @@
+npx create-next-app
+ticket-mods app
+after downloading these dependencies: u can open up that folder in vsc.
+FIRST Run: npm run dev -> it gives us an html link.
+ctrl+shift+~ for terminal :0
