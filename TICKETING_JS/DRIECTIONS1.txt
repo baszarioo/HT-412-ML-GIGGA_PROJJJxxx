@@ -3,3 +3,9 @@ ticket-mods app
 after downloading these dependencies: u can open up that folder in vsc.
 FIRST Run: npm run dev -> it gives us an html link.
 ctrl+shift+~ for terminal :0
+then cut everything insidfe the return statement of page.js
+"rafce" = shortcut for default page by es7 /react.
+ctrl+shift+l -> zaznaczone page można podmienić w każdej linijce.
+to simplify routering ,we can just make new folders. example: localhost:3000 = Dashboard page.	and then: localhost:3000/TicketsPage	=> moves to the ticketpage.
+And also we can make the folder as: TicketsPage -> [id] (for individual records).
+'Semicolons' are optional? i guess so :p
