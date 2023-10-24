@@ -304,3 +304,4 @@ flex-basis : sets innitial size.
 flex-grow..
 
 __________________________________________ LANDING PAGE PROJECTS: @deanstro + @Criosyom
+<!DOCTYPE html>
