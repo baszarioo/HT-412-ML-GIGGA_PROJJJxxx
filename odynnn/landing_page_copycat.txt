@@ -1,0 +1,91 @@
+<!DOCTYHPE html>
+<html>
+	<head>
+		<title>Landing Page</title>
+		<meta charset="utf-8">
+		<script src="https://kit.fontawesome.com/7da60887b.js" crossorigin="anmonymous"></script>
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect: href="https://fonts.googleapis.com">
+		<link rel="preconnect: href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+	</head>
+		<body>
+			<div class="header">
+				<div class="left-icon">
+					<ul>
+					<li><i class="fas fa-fish fa-2x"></i></li>
+					</ul>
+				</div>
+				<div class="right-icon">
+					<ul>
+					<li><i class="fas fa-user-circle fa-2x"></i></li>
+					<li><i class="fas fa-bars fa=2x"></i></li>
+					</ul>
+				</div>
+			</div>
+			<div class="hero">
+				<div class="hero-content">
+					<h2 class="text large">A lanuage that transcends all boundaries</h2>
+					<h3 class="text hinfo"> Music touches the soul in way no other thing can, bridging the barriers between us??? ~ some npc</h3>
+				<div id="topbtn">
+					<button>SIGN UP</button>
+				</div>
+			</div>
+				<div class="image">
+				<img src="phone.png" alt="music player on phone" width="450">
+			   </div>
+			   </div>
+			   <div class="main">
+					<h3 clas="mid">Discover playtlists</h3>
+					<div class="cards">
+					<iframe class="playlist" src="https://open.spotify.com/embed/playlist/<<code>>"width="25%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+					
+					<iframe class="playlist" src="https://open.spotify.com/embed/playlist/<<code>>"width="25%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; 
+					encrypted-media; fullscreen; picture-in-picture"></iframe>
+					
+					<iframe class="playlist" src="https://open.spotify.com/embed/playlist/<<code>>"width="25%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+				</div>
+				</div>
+			<div class="content-info">
+				<ul>
+				<div class="info">
+					<li>FUNK SOUL BROTHA.</li>
+					<li>DRIP TOO HARD 🅿</li>
+					<li>Memphis 💫💫</li>
+				</div>
+				</ul>
+			</div>
+			<div class="bot-sect">
+				<p class="quote">"Music sounds better with you."</p>
+				<text class="name">~JUICY J</text> <br />
+			</div>
+			<div class="cta-b">
+			<div class="cta">
+				 <text class="bottom" id="tag">Music For The Better</text>
+				<p class="bottom">LOFI JAPANESE HIP-HOP 100% focus gainzz CITY 🌇🌇</p>
+				<button class="button">LEARN MORE</button>
+			</div>
+		</div>
+			<div class="footer-cr">SIEMA ENIU ©</div>
+		</body>
+	</html>
+
+	\\|| CSS ||//
+body {
+	background-image: linearg-gradient(#051b33 25%, #02050a 75%);
+	font-family: 'Montserrat', sans-serif;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+.text{
+	color" #f2f4f7;
+	font-size: 18px;
+}
+ul {
