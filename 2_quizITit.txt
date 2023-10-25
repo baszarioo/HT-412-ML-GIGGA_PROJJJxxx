@@ -1,3 +1,4 @@
+// tbh it is looking like a crap. .xD //
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,9 +14,9 @@
 			  <h1>HTML/CSS Quiz</h1>
 			  <nav>Tap ~by Nav
 			    <ul>
-					<li><a href="#student-info">INFO</a></li>
-					<li><a href="#html-questions">HTML</a></li>
-					<li><a href="#css-questions">CSS</a></li>
+					<li><a href="#student-info" accesskey="s">INFO</a></li>
+					<li><a href="#html-questions" accesskey="h">HTML</a></li>
+					<li><a href="#css-questions" accesskey="c">CSS</a></li>
 				</ul>
 			  </nav>
 		</header>
@@ -115,6 +116,11 @@
 </html>
 
 	/|| *CSS* ||\
+@media (prefers-reduced-motion: no-preference){
+	*{
+		scroll-behavior: smooth;
+	}
+}
 body {
 	background: #f5f6f7;
 	color: #1b1b32;
@@ -144,6 +150,16 @@ h1 {
   text-align: center;
 }
 main { padding-top: 30px; }
+
+button {
+  display: block;
+  margin: 40px auto;
+  width: 40%;
+  padding: 15px;
+  font-size: 23px;
+  background: #d0d0d5;
+  border: 3px solid #3b3b4f;
+}	//shitty lookin button.
 
 section{
   width: 80%;
@@ -192,6 +208,19 @@ h2 {
 input {
   font-size: 16px;
 }
+/* either: .info input */
+.info > input {
+  width: 50%;
+  text-align: left;
+} 
+.info > label {
+  width: 10%;
+  min-width: 55px;
+  text-align: right;
+}
+.info > label, .info > input {
+	display: inline-block;
+}
 
 /* you can use both 'nav li' or 'nav > ul > li' */
 nav > ul > li {
@@ -214,6 +243,23 @@ nav > ul > li:hover
   cursor: pointer;
 }
 
+.answers-list {
+  padding: 0;
+  list-style: none;
+}
+
+.question-block {
+  text-align: left;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 5px;
+}
+.question {
+  border: none;
+  padding-bottom: 0;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -225,9 +271,111 @@ nav > ul > li:hover
   white-space: nowrap;
   border: 0;
 }
+
+p {
+  margin-top: 5px;
+  padding-left: 15px;
+  font-size: 20px;
+}
+
 p::before {
   content: "Question #";
 }
 li > a {
   color: inherit;
 } /* context between text & backround of a heading should be >= 4.5:1 , f.e: #595959; */	 
+
+footer {	//use Flexbox, then horizontally center the text.
+  display: flex;
+  justify-content:center;
+  background: #2a2a40;
+}
+footer, footer a {
+  color: #dfdfe2;
+}
+address {	//center horizontally all text + add some paddingg.
+  /* display:flex;	*/
+  text-align: center;
+  padding: 3px;
+}
+
+
+// ||| CSS"2 ||| \\
+@media (prefers-reduced-motion: no-preference){
+	*{
+		scroll-behavior: smooth;
+		transition: all 0.3s ease;
+	}
+}
+body {
+	background: #f5f6f7;
+	color: #1b1b32;
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+	line-height: 1.6;
+}
+#logo {
+	width: max(100px, 18vw);
+	background-color: #0a0a23;
+	aspect-ratio: 35/4;
+	padding: 0.4rem;
+	border-radius: 5px;	//soft rounded corners..
+}
+header{
+	width: 100%;
+	height: 50px;
+	background-color: #1b1b32;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);	//subtle shadow depth-adding
+}
+h1 {
+	color: #f1be32;
+	font-size: min(5vw, 1.2em);
+	align-items: center;
+	text-align: center;
+}
+main {
+	padding-top: 30px;
+}
+button {
+	display: block;
+	margin: 20px auto;
+	width: 40%;
+	padding: 12px 20px;
+	font-size: 18px;
+	background: linear-gradient(135deg, #e8e8ed, #c4c4cc);
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	transition: transform 0.2s ease, box-shadow 0.2 ease;
+}
+button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+/* ,..., */
+
+nav > ul > li {
+	color: #dfdfe2;
+	margin: 0 0.2rem;
+	padding: 0.2rem;
+	display: block;
+	transition: background-color 0.2 ease, color 0.2s ease; /* smooth transitions */
+}
+li > a {
+	color: inherit;
+	text-decoration: none;
+	background-color: #dfdfe2;
+	padding: 10px 15px;
+	border-radius: 3px;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+nav > ul > li:hover {
+	background-color: #e1e1e7;
+	color: #1b1b32;
+}
+// most crucial changes :o
