@@ -4,13 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>We<33uTecca</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 	<main id="main">
 		<h1 id="title">Lit tecvcca</h1>
 		<div id="img-div">
 			<img id="image" src="tecca.jpg" alt="lil tecc">
+			<figcaption id="img-caption">Tec ca^</figcaption>
 			<p id="img-caption">Tecca coachella</p>
 		</div>
 		<div id="tribute-info">
@@ -22,3 +23,15 @@
 	</main>
 </body>
 </html>
+
+CSS:
+img {
+  display: block;
+}
+#image {
+  max-width: 100%;
+}
+
+____________________________________________________________
+TO BE FINISHED - in progress :DD
+____________________________________________________________
