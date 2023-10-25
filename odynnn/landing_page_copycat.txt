@@ -269,3 +269,119 @@ button: hover {
 	display: flex;
 	justify-content: center;
 }
+________________________________________________________________________________________________________
+PxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPx
+--------------------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html langg="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA=Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="landingPage.css" rel="stylesheet">
+	<title>Miska DAWID jasper vlog</title>
+	<link rel="icon" href="resources/xxx.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="backgroundContainer">
+		<video id="background" muted autoplay loop>
+			<source src="resources/xxx-background.mp4" type="video/mp4"></src>
+		</video>
+		<audio id="backgroundMusic" class="bgm" src="resources/backgroundMUSICKEKW.mp3" loop></audio>
+	</div>
+	<div class="headerBar">
+		<div class="leftBarContainer">
+			<a class="logoContainer" href=".">
+				<div class="looImageContainer">
+					<img class="logoImage" src="resources/redWhiteYinYang.png">
+				</div>
+				<div class="logoSrack">S R A C K</div>
+			</a>
+			<img id="audioController" src="resources/audioControllerOn.png" onclick="audioController(); imageChange();">
+		</div>
+		<div class="sourcesContainer">
+			<button class="link" onclick="showOrHide()">Sources</button>
+			<div class="dorpdownContent">
+				<div class = "aboutCopyright"> #CREDDDITS @#@#@# </div>
+				<br />
+				<div class = "sourceC">ESS@poppyn: <a class = "sourcesLink" href = "https://www.twitch.tv/popo" target = "_blank">https://www.twitch.tv/popo</a></div>
+				
+				/* can make that as much as credits you want x need */
+				<br />
+				<div class ="dm"> QUESTIONS, DM's -> SKYPE | @hcl_warr</div>
+			</div>
+		</div>
+/*		rightBar of navbar on top 😑		*/
+		<div class= "rightBarContainer">
+			<div class="rightBarStuff">
+				<a class="about stuffKoks" href="#">About</a>
+				<img class="separator stuffKoks" src="resources/glowSquare.png">
+				<a class="characters stuffKoks" href="#">Characters</a>
+				<img class="separator stuffKoks" src="resources/glowSquare.png">
+				<a class="music stuffKoks" href="#">Musicc</a>
+				<img class="separator stuffKoks" src="resources/glowSquare.png">
+				<a class="contact stuffKoks" href="#">Contact</a>
+			</div>
+			<div class="menuKoks"><div class="menuKoksBtn"></div></div>
+		</div>
+	</div>
+/*		layer1 - that communicate with img and text + window shadow etc 	*/
+	<div class="layer1">
+		<div class="layer1BgSources"><a class="layer1BgSource1" href="" target = "_blank">bg by: @xxx</a><br><a class = "layer1BgSource2" href = "https://www.youtube.com/watch?v=someAnimationXD" target = "_blank">Animated by: Live Wallpaper Centre</a></div>
+		<div class="layer1Container">
+			<div class="layer1Left">
+				<div class="greetings">	Welocme to the ZEN state site off.</div>
+				<div class="description"> Home of empire State of Mind ... ☯🧉 Take a seat please. </div>
+				<div class="donateNowContainer">
+					<a class="donateNow" href=https://www.youtube.com/channel=?ESSA">Simple donate form :)</a>
+				</div>
+			</div>
+			<div class="layer1Right">
+				<img class="layer1Image" src="resources/raymoo.jpg">
+				<div class="layer1Caption">	Downtown City midnight kanye' </div>
+				<a class="layer1Source" href="" target="_blank">Picture by: @asstonM</a>
+			</div>
+		</div>
+	</div>
+	<div class="layer2">
+		<div class="layer2Bg">
+			<div class="layer2Content">
+				<div class=layer2Heading"> Check out more of my works? "gg</div>
+				<div class="layer2InfoContainer">
+					<div class="gameContainer">
+						<a class="linkX" href="https://www.youtube.com/watch?v=XDXx"><img class="gameImage" src="resources/game_ss.jpg"></a>
+						<div class="gameSubtext">Gaming Channel! ^i^</div>
+					</div>
+					<div class="carsContainer">
+						<a class="linkX" href="https://www.mysummercar.com"><im class="fanartImage" src="resources/car.jpg"></a>
+						<div class="fanartSubtext">Warsaw Night Racing post!</div>
+						<div clas="fanartSource">by @jasiula22gtr (https://www.instagram.com/en/user/jasiula22gtr)</div>
+					</div>
+					<div class="musicContainer">
+						<a class="linkX" href="https://www.youtube.com/@2020label"><video class="musicVideo" src="resources/flary.mp4" muted autoplay loop></video></a>
+						<div class="musicSubtext">Music!</div>
+					</div>
+					<div class="missingContainer">
+						<a class="linkX" href=""><img class="misisng" src="resources/missingg.png"></a>
+						<div class="missingSubtext">To be introduced.... </span class="stuff">"fr'</span></div>
+					</div>
+					<div class="missingContainer">
+						<a class="linkX" href=""><img class="misisng" src="resources/missingg.png"></a>
+						<div class="missingSubtext">To be introduced.... </span class="stuff">"fr'</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+/*		2nd background ok that's dope 		*/
+	<div class="layer3">
+		<a class="layer3BgSource" href="" target="_blank">Background illustration by: @sajggown</a>
+		<div class="layer3Text">
+			<div class = "layer3Quote">	"Ty ta kreatyna działa ci powiem Ty, bicek się napręża 🤭 zbity bic 😊."</div>
+			<div class = "layer3QuoteFrom"> ~Rafonix </div>
+		</div>
+	</div>
+/* 		4th layer= footer ? generalyy but not - ending text's 	*/
+	
+			
