@@ -305,3 +305,73 @@ flex-grow..
 
 __________________________________________ LANDING PAGE PROJECTS: @deanstro + @Criosyom
 <!DOCTYPE html>
+
+__________________________________________ USING JS:
+<script src="javascript.js"></script>
+
+Create a variable:
+'var', 'let' & 'const'
+
+''
+let a=10
+console.log(a) -> prints 10
+9 * a
+let b=7 * a -> (returns undefined *).
+
+||2
+const MAX=57;
+let actual = MAX - 13;
+let percentae = actual/MAX;
+//percentage returns: 0.7719
+
+F12 ||or Ctrl + Shift + C  			=> dev options.
+There is throttle option for networ x cpu DAMN 
+More tools > SENSORS: or CTRL + Shift + P and type: sensors
+From that menu you can also change the orientation if you want.
+
+function sample:
+function favoriteAnimal(animal) {
+	return anima; + " is my favorite animal!"
+}
+console.log(favoriteAnimal('Goat'))
+TASKS for FUNDAMENTALS.3:::::
+ function add7(num) {
+	return num+7;
+ }	console.log(add7(3));
+ function multiply(num1, num2) {
+	return num1 * num2;
+ }	console.log(multiply(4,5));
+ function capitalize(str) {
+	return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+ } 	console.log(capitalize("hello"));	console.log(capitalize("WORLD"));	console.log(capitalize("jaVaScriPT"));
+ function lastLetter(str) {
+	return str.charAt(str.length - 1);
+ }
+ console.log(lastLetter("abcd"));	//expected: "d"\
+ 
+ 
+// FizzBuzz problem :
+let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: "));
+for(let i=1; i<= answer; i++) {
+	console.log(i);
+}
+
+js prompt() method:|||	//w3schools.com
+let person=prompt("Please enter your name", "Harry Potter");
+if(person!=null){
+	document.getElementById("demo").innerHTML = "Hello "+person + "! How are you today?";
+}
+
+// Solve:"
+let answer= parseInt(prompt("Please enter the number you would like to FizzBuzz up to: ));
+for (let i=1; i<=answer; i++) {
+	if(i%3 === 0 && i % 5 === 0) {
+		console.log("FizzBuzz");
+	} else if (i%3 === 0) {
+		console.log("Fizz");
+	} else if (i%5 === 0) {
+		console.log("Buzz");
+	} else {
+		console.log(i);
+	}
+}
