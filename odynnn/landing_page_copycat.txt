@@ -383,5 +383,117 @@ PxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPxPx
 		</div>
 	</div>
 /* 		4th layer= footer ? generalyy but not - ending text's 	*/
-	
-			
+	<div class="layer4">
+		<div class="layer4Bg">
+			<div class="layer4Content">
+				<div class="layer4Text">
+					<div class="layer4TextHeading"> Why don't you ggive up?' </div>
+					<div class="layer4TextSubtext"> Nah, keep grinding fam' </div>
+				</div>
+				<div class="layer4ContactConatiner">
+					<a class="layer4Contact" href="#"> Contact! </a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footerLayer">
+		<div class="footerLayerBg">
+			<a class="footerLayerAuthor" href="https://github.com/" target="_blank"> Page by: Pyroc </a>
+		</div>
+	</div>
+</body>
+<script src="landingPage.js"></script>
+</html>
+
+		\\||x CSS x||//
+html {
+	margin: 0;
+	min-height: 100%;
+}
+body{
+	margin: 0;
+}
+#background {	/* id for video */
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	top: 0;
+	left: 0;
+	filter: brightness(1.2);
+	z-index: -2;
+}
+.headerBar {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: rgba(0,0,0,0.9);
+	text-decoration: none;
+	position: fixed;
+	top: 0;
+	z-index: 9;
+}
+.leftBarContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 16em;
+}
+.logoContainer {
+	margin: 0.7em 0 0.7em 2.5vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	aliggn-items: center;
+	width: 8.8em;
+	text-decoration: none;
+}
+.logoSrack {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    width: 5.2em;
+    letter-spacing: 0.1em;
+    font-family: "melancholy";   
+}
+.logoImageContainer {
+	display: flex;
+	align-items: center;
+	margin-right: 0.5em;
+}
+.logoImage {
+	width: 2em;
+}
+#audioController {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 100%;
+    margin: 0 1em 0 2em;
+}
+#audioController:hover{
+	filter: brightness(0.8);
+}
+.sourcesContainer {
+    color: white;
+    position: absolute;
+    left: 18em;
+}
+.link {
+	border: none;
+	background: none;
+	color: white;
+	 cursor: pointer;
+	 font-size: 1.3em;
+	 border: 3px solid;
+	 border-radius: 1em;
+	 position: relative;
+	font-family: "izayoi";
+	animation: colorChane 0.75s infinite;
+	animation-direction: alternate;
+}
+.link:hover {
+	background: white;
+}
