@@ -1,0 +1,10 @@
+JS datatypes: undefined, null, boolean, string, symbol, bigint, number, object.
+var myName;
+
+var declared => value = undefined.
+math operation on undefined => NaN.
+concatenation of a string with an undefined => undefined.
+
+write variables using camelCase ;)
+
+var: same name can be overriden,	let - creates an object, allows only one instance of the same name/
