@@ -1,0 +1,60 @@
+////////////////////////////		1 	TV 		/////////////////////////////////////////////////
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rock Paper Scissors</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>	
+	<body>
+		<!-- <h1 class="heading">Rock, Paper, and Scissors</h1>	-->
+		
+		<h1 class="heading">STEINE, PAPIERE UND SCHEREN</h1>
+		<div class="container">
+			<div class="score">
+				<div class="player-score">0</div>
+				<div style="margin: 0px 50px">-</div>
+				<div class="computer-score">0</div>
+			</div>
+			<div class="message"></div>
+			<div class="d-flex">
+				<div class="card">
+					<div class="card-image" data-image="rock">
+						<img src="images/rock.png" alt="Rock" class="image" />
+					</div>
+					<div class="card-text">DER FELS/SCHAUKELN</div>
+				</div>
+				
+				<div class="card">
+					<div class="card-image" data-image="paper">
+						<img src="images/paper.png" alt="Paper" class="image" />
+					</div>
+					<div class="card-text">DAS PAPER</div>
+				</div>
+				
+				<div class="card">
+					<div class="card-image" data-image="scissors">
+						<img src="images/scissors.png" alt="Scissors" class="image" />
+					</div>
+					<div class="card-text">DIE SCHERE</div>
+				</div>
+			</div>
+			<div class="dashboard">
+				<div class="dashboard-side">
+					<!-- <h2 class="heading-sub">Player</h2>
+					<h2 class="heading-sub">SPIELER</h2>
+					<div class="player-selection">
+					</div>
+				</div>
+				<div class="dashboard-side">
+					<h2 class="heading-sub">DER COMPUTER</h2>
+					<div class="computer-selection">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<scripts src="main.js"></script>
+	</body>
+</html>
