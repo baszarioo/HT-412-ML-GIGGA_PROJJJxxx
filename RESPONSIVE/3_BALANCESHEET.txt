@@ -132,3 +132,48 @@
 <!-- The tr element is used to indicate a table row. Add a tr element within your thead element. In your new 'tr' element, add a 'td' element, followed by three 'th' elements.		The 'td' element indicates a data cell, while the 'th' element indicates a header call.	-->
 
 		l//|CSS|\\__
+span[class~="sr-only"] {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  padding: 0;
+  margin: -1px;
+}
+html { box-sizing: border-box; }
+body {
+  font-family: sans-serif;
+  color: #0a0a23;
+}
+
+h1 {
+  max-width: 37.25rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+}
+h1 .flex {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1rem;
+}	
+h1 .flex span:first-of-type {	//target first element that matches the selector.
+  font-size: 0.7em;
+}	
+h1 .flex span:last-of-type {
+  font-size: 1.2em;
+}
+section {
+  max-width: 40rem;
+  margin: 0 auto;
+  border: 2px solid #d0d0d5;
+}
+#years {
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 0;
+}
