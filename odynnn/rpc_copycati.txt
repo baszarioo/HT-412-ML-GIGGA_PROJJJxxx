@@ -263,7 +263,38 @@ function capitalize(string) {
 		string.toLowerCase().charAt(0).toUpperCase() + string.toLowerCase().slice(1)
 	);
 }
-
-		
-
-	
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// that ziom with rocks init dessert type beat //	index.html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Lato:wght@100&display=swap" rel="stylesheet">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>камень ножницы Бумага</title>
+		<link href="style.css" rel="stylesheet">
+		<link rel="icon" href="rps-icon.png">
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<div class="content-container">
+			<div class="header">
+				<h1 class="rps-title">камень ножницы Бумага</h1>
+				<h1 class="rockpaperscissors-title active">ROCK PAPER SCISSORS</h1>
+				<div class='scroll active'><span></span><h5>Scroll</h5></div>
+			</div>
+			<div class='result'></div>
+			<div class="visuals">
+				<img src="Planet-2.png" class="planet-2" id="planet-2">
+				<img src="Planet-1.png" class="planet-1" id="planet-1">
+				<img src = "FarBackground.png" class = "far-background">
+				<img src="background.png" class="background">
+				<img src="midground.png" class="midground">
+				<div class='hover-rocks'>
+					<img src="Rock.png" class="rock"/...
+				
+				
