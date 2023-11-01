@@ -295,6 +295,166 @@ function capitalize(string) {
 				<img src="background.png" class="background">
 				<img src="midground.png" class="midground">
 				<div class='hover-rocks'>
-					<img src="Rock.png" class="rock"/...
-				
-				
+					<img src="Rock.png" class="rock">
+					<img src="Paper.png" class="paper">
+					<img src="Scissors.png" class="scissors">
+				</div>
+				<img src="Foreground.png" class="foreground">
+				<img src="Player.png" class="player">
+			</div>
+			<div class="player-area-container">
+				<div class="player-area">
+					<div class="player-sign-image">
+						<img src="circle.svg" class="rock-sign">
+						<img src="rectangle.svg" class="paper-sign">
+						<img src="x.svg" class="scissors-sign">
+					</div>
+					<div class="spinner-box">
+						<button class="play-button" title="play" onclick="beginPlay()"> ИГРАТЬ </button>
+						<div class="ellipse1"></div>
+						<div class="ellipse2"></div>
+						<div class="ellipse3"></div>
+						<div class="solar-system">
+							<div class="earth-orbit orbit">
+							<div class="planet earth"></div>
+							<div class="venus-orbit orbit">
+								<div class="planet venus"></div>
+								<div class="mercury-orbit orbit">
+								<div class="planet mercury"></div>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+					<div class="countdown">
+					</div>
+					<div class="score-container">
+						<div class="computer-score-container">
+							<div class="computer-score"> 0 </div>
+							<div class="computer-score-label">	ОНИ </div>
+						</div>
+						<div class="player-score-container">
+							<div class="player-score"> 0 </div>
+							<div class="player-score-label"> ТЫ </div>
+						</div>
+					</div>
+					<div class="player-choice">
+						<div class="choice-row-top">
+							<button class="choice-rock" title="rock" onclick="getSelected(1)"> КАМЕНЬ </button>
+							<button class="choice-paper" title="paper" onclick="getSelected(2)"> БУМАГА </button>
+							<button class="choice-scissors" title="scissors" onclick="getSelected(3)"> НОЖНИЦЫ </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</button>
+				22//| CSS |\\\l
+
+:root{
+    --primary-color: #fbffff;
+    --secondary-color: #00ffc4;
+    --background-color: #d0f4fc;
+    --backlight-color: #314644;
+    --border-color: #f6fffe9e;
+    --text-color: #432a20;
+    --box-shadow-color: #333333;
+    --svg-filter: invert(46%) sepia(80%) saturate(100%) hue-rotate(
+        130deg) brightness(120%) contrast(400%);
+
+    --rock-object-float: 0px;
+    --paper-object-float: 0px;
+    --scissors-object-float: 0px;
+
+    --rock-magic-visible: 0;
+    --paper-magic-visible: 0;
+    --scissors-magic-visible: 0;
+    --scroll:0;
+    --pageHeight: 2500px;
+    --screenWidthVar: 0px;
+}
+h2 {
+	font-family: 'Lato', sans-serif;
+	font-size: 40px;
+	font-weight: 500;
+	color: var(--primary-color);
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 1000;
+    color: var(--text-color);
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+h4 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+    color: var(--text-color);
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+h5 {
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+	font-weight: 2000;
+	color: var(--text-color);
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+p {
+	font-size: 15px;
+	color:#000;
+}
+body {
+	margin: 0;
+	background: var(--background-color);
+}
+.content-container {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 2900px;
+}
+
+.header{
+    z-index: 1;
+    width: 500px;
+    height: 64px;
+    position: fixed;
+    top: 0%;
+    background: none;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.result {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 20%;
+    z-index: 2;
+}
+/*	....		*/
+
+		00 JS ////////////////////	JavaScript	////////////////// JS 00
