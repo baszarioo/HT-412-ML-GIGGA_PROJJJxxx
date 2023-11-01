@@ -458,3 +458,142 @@ body {
 /*	....		*/
 
 		00 JS ////////////////////	JavaScript	////////////////// JS 00
+const PLANET2= document.getEleemntsByClassName('planet-2')[0];
+const PLANET1= document.getEleemntsByClassName('planet-1')[0];
+const FAR_BACKGROUND = document.getElementsByClassName('far-background')[0];
+const BACKGROUND = document.getElementsByClassName('background')[0];
+const MIDGROUND = document.getElementsByClassName('midground')[0];
+const HOVER_ROCKS = document.getElementsByClassName('hover-rocks')[0];
+const FOREGROUND = document.getElementsByClassName('foregorund')[0];
+const PLAYER = document.getElementsByClassName('player')[0];
+
+const ELLIPSE1 = document.getElementsByClassName('ellipse1')[0];
+const ELLIPSE2 = document.getElementsByClassName('ellipse2')[0];
+const ELLIPSE3 = document.getElementsByClassName('ellipse3')[0];
+let animationLastConsidered=0;
+function shouldAnimate(time) {
+	if(time <=aniamtionLastConsidered) {return false; }
+	return true;
+}
+function setScrollVariable() {
+	const rootHtmlElement = document.documentElement;
+	const heightScrolled=rootHtmlElement.scrollTop / (rootHtmlElement.scrollHeight - window.innerHeight);
+	return +heightScrolled.toFixed(4)*100;
+}
+window.addEventListener(
+	'scroll',
+	() => {
+		hideOnScroll();
+		const scrollAmount=  setScrollVariable();
+		function slide(element, velocity) {
+			const translateY = scrollAmount * velocity;
+			requestAnimationFrame((time)=> {
+				if(!shouldAnimate(time)) { return; }
+				element.style.transform=`translateY(${translateY}px)`;
+				return;
+			})
+		}
+		slide(PLANET2, 12.5);
+		slide(PLANET1, 12);
+		slide(FAR_BACKGROUND, 10);
+		slide(MIDGROUND, 6);
+		slide(BACKGROUND, 8);
+		slide(HOVER_ROCKS, 3.5);
+		slide(FOREGROUND, 3);
+		slide(PLAYER, 0);
+		return;
+	}
+);
+window.addEventListener (
+	'resize', () => {
+		setScrollVariable();
+		return;
+	}
+);
+// Function to chane titles on scroll.
+function titleCycle(){
+	const title1= document.getElementByClassName( 'rockpaerscissors-title' )[0];
+	title1.classList.remove('active')
+	setTimeout(()=>{	const rpcTitle=document.getElementsByClassName( 'rpc-title' )[0];
+		rpcTitle.classList.add('active') }, 1500)
+	return;
+}
+function hideOnScroll() {
+	document.getElementsByClassName('scroll')[0].classList.remove('active');
+	titleCycle();
+	return;
+}
+function visibilityToggle(targetDiv) {
+	var divVis=document.getElementByClassName(targetDiv, '')[0];
+	if(divVis.style.visibility==="hidden") {
+		divVis.style.visibility="visible";
+	}else{
+		divVis.style.visibility="hidden";
+	}
+	return;
+}
+
+function getSelected(number){
+	playerSelection=number;
+}
+
+//get player choice from keyboard..feature debug in progress(not implemented)
+function getKey(playerSelection) {
+	document.addEventListener('keydown', (event) => {
+		playerSelection=event.key;
+		if (
+			playerSelection < 1 ||
+			playerSelection > 3 ||
+			playerSelection == NaN
+		) {
+			playerSelection = null;
+			alert('wrong key, 1=Rock, 2=Paper, 3=Scissors')
+		}
+	}) return;
+}
+
+function resetVisibility() {
+	document.getElementsByClassName(
+		'player-choice'
+	)[0].style.visibility='hidden';
+	document.getElementsByClassName(
+		'play-button'
+	)[0].style.visibility='visible';
+	document.getElementsByClassName(
+		'spinner-box'
+	)[0].style.visibility='visible';
+	ELLIPSE1.style.visibility='hidden';
+	ELLIPSE1.style.animationName='none';
+	ELLIPSE2.style.visibility='hidden';
+	ELLIPSE2.style.animationName='none';
+	ELLIPSE3.style.visibility='hidden';
+	ELLIPSE3.style.animationName='none';
+	return;
+}
+
+function countDown(currentCount){
+	const countDown=document.getElementsByClassName('countdown')[0];
+	const countDownH2=document.createElement('h2');
+	countDownH2.innerText=currentCount;
+	countDown.appendChild(countDownH2);
+	setTimeout(()=>{ countDown.removeChild(countDownH2)	},500)
+	return;
+}
+
+function resultDisplay (displayedResult, explainedResult) {
+	const resultDiv = document.getElementsByClassName('result')[0];
+	const resultH3 = document.createElement('h3');
+	const resultH5 = document.createElement('h5');
+	resultH3.innerText=displayedResult;
+	resultH5.innerText=explainedResult;
+	resultDiv.appendChild(resultH3);
+	
+	setTimeout(()=>{
+		resultDiv.appendChild(resultH5);
+	},500)
+	setTimeout(()=>{
+		resultDiv.removeChild(resultH3)
+		resultDiv.removeChild(resultH5)
+	},4000)
+	return;
+}
