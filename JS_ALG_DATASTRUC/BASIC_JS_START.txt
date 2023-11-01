@@ -8,3 +8,50 @@ concatenation of a string with an undefined => undefined.
 write variables using camelCase ;)
 
 var: same name can be overriden,	let - creates an object, allows only one instance of the same name/
+
+read-only variables: 'const'
+
+ex:
+const FCC="freeCodeCamp" //can't change it.
+let fact="is cool!"
+fact="is awesome!"
+console.log(FCC, fact);
+
+
+const myVar=5+10;
+
+
+let myVar=87;'
+myVar++;
+
+
+const ourDecimal=5.7;
+var/let/const myDeccimal=ourDecimal;
+
+
+
+const product=2.0 * 2.5;
+
+
+const myStr = "I am a \"double quoted\" string inside \"double quotes\".";
+
+
+const myStr ='<a href="http://www.example.com" target="_blank">Link</a>';
+
+
+const myStr = 'FirstLine\n\t\\SecondLine\nThirdLine';
+
+
+const myStr = "This is the start. " + "This is the end.";
+
+
+let myStr="This is the first sentence. ";
+myStr+="This is the second sentence."
+
+
+const myName = "kamilub";
+const myStr = "My name is "+myName + " and I am well!";
+
+
+
+
