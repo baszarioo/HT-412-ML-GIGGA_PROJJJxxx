@@ -597,3 +597,8 @@ function resultDisplay (displayedResult, explainedResult) {
 	},4000)
 	return;
 }
+function scoreCounter (playerCount,computerCount) {	//200
+	const playerScoreH4=document.getElementsByClassName('player-score')[0];
+	const computerScoreH4=document.getElementsByClassName('computer-score')[0];
+	let playerTotal=+playerScoreH4.innerText;
+	let computerTotal=+computerScoreH4.innerText;
