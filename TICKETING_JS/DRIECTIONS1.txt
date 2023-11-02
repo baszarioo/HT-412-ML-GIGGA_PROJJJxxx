@@ -38,5 +38,5 @@ Browse collections -> add my data
 
 MONGODB_URI=mongodb+srv://admin:<password>@beefwi7me.3ryna74.mongodb.net/?retryWrites=true&w=majority
 
-admin
-Y9I0T6kQcWdfGwWK
+
+HTTP status 201: (CREATED).
