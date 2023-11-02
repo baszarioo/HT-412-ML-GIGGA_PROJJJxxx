@@ -28,3 +28,15 @@ npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/free-regular-svg-icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 npm install @fortawesome/react-fontawesome
+
+partx:
+npm install mongodb mongoose
+-> create a file: .env.local
+w mono atlas-> network access +ADD IP ADDRESS -> connect from everywhere [0.0.0.0/0]
+CLSUTER = collection of databases
+Browse collections -> add my data
+
+MONGODB_URI=mongodb+srv://admin:<password>@beefwi7me.3ryna74.mongodb.net/?retryWrites=true&w=majority
+
+admin
+Y9I0T6kQcWdfGwWK
