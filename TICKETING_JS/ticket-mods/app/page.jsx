@@ -5,19 +5,31 @@ const getTickets = async () => {
   try {
     const res=await fetch("http://localhost:3000/api/Tickets", {
       cache: "no-store"
-    })    
-  } catch {
-
+    });
+    return res.json();
+  } catch (error){
+    console.log("Failed to load tickets", error);
   }
 }
-const Dashboard = () => {
+const Dashboard = async () => {
+  const { tickets } = await getTickets();
+  const uniqueCategories = [
+    ... new Set(tickets?.map(({category}) => category)),
+  ];
   return(
     <div className="p-5">
+      <div>
+        {tickets && uniqueCategories?.map((uniqueCategory, categoryIndex) => (
+          <div key={categoryIndex} className="mb-4">
+
+          </div>
+        ))}
       <div className="lg:grid grid-cols-2 xl:grid-cols-4">
+      </div>
+      {/* <TicketCard />
       <TicketCard />
       <TicketCard />
-      <TicketCard />
-      <TicketCard />
+      <TicketCard /> */}
       </div>
     </div>
   )
