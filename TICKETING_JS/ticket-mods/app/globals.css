@@ -43,7 +43,16 @@ body {
     @apply text-xl;
   }
   p{
-    @apply text-sm text-default-text
+    @apply text-sm text-default-text;
+  }
+  form {
+    @apply roudned-xl p-4
+  }
+  label {
+    @apply mt-4
+  }
+  input, select, textarea {
+    @apply m-1 roudned bg-card p-1;
   }
 }
 
