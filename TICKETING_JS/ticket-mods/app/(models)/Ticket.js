@@ -1,6 +1,7 @@
 import mongoose, { Schema } from "mongoose";
-import { Truculenta } from "next/font/google";
+// import { Truculenta } from "next/font/google";
 
+// mongoose.connect(process.env.MONGODB_URI);
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 
@@ -19,5 +20,6 @@ const ticketSchema = new Schema (
         timestamps: true,
     }
 );
-const Ticket = mongoose.models.Ticket || mongoose.models("Ticket", ticketSchema);
+const Ticket = mongoose.models.Ticket || mongoose.model("Ticket", ticketSchema);
+
 export default Ticket;

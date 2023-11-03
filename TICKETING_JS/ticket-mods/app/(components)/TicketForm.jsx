@@ -1,33 +1,41 @@
 "use client";
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 
 const TicketForm = () => {
-const router = useRouter()
-const handleChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+    const router = useRouter();
+    const handleChange = (e) => {
+        const value = e.target.value;
+        const name = e.target.name;
 
-    setFormData((prevState) => ({
-        ...prevState,
-        [name]: value,
-    }));
-}
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    const res= await fetch("api/Tickets", {
-        method: "POST",
-        body: JSON.stringify({formData}),
-        "content-type": "application/json"
-        // console.log('submitted');
-    })
-    if(!res.ok) {
-        throw new Error("Failed to create Ticket.")
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await fetch("/api/Tickets", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+                // "content-type": "application/json"
+                // console.log('submitted');
+            });
+            if(!res.ok) {
+                throw new Error("Failed to create Ticket.");
+            }
+            router.refresh();
+            router.push("/");
+        } catch (error) {
+            console.error(error);
+        }
     }
-    router.refresh();
-    router.push("/");
-}
 
     const startingTicketData = {
         title: "",

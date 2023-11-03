@@ -1,6 +1,15 @@
 // import React from 'react'
 import TicketCard from "./(components)/TicketCard"
 
+const getTickets = async () => {
+  try {
+    const res=await fetch("http://localhost:3000/api/Tickets", {
+      cache: "no-store"
+    })    
+  } catch {
+
+  }
+}
 const Dashboard = () => {
   return(
     <div className="p-5">
