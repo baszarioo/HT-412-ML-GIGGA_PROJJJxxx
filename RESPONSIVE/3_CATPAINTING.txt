@@ -7,8 +7,10 @@
 </head>
 <body>
     <main>
-      <div class="cat-head"></div>
-	  <div class="box"></div>
+      <div class="cat-head">
+		<div class="cat-ears">
+	  </div>
+	  <!-- <div class="box"></div> -->
     </main>
 </body>
 </html>	
@@ -40,4 +42,43 @@ body {
   border-radius: 46%;
   background: linear-gradient(#5e5e5e 85%, #45454f 100%);
 }
+.cat-left-ear 
+  position: absolute;
+  top: -26px;
+  left: -31px;
+  z-index: 1;
+  transform: rotate(-45deg);
+  border-top-left-radius: 90px;
+  border-top-right-radius: 10px;
+  border-bottom: 70px solid #5e5e5e;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+}
+.cat-left-inner-ear {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid #3b3b4f;
+}
 
+.cat-right-ear {
+  position: absolute;
+  top: -26px;
+  left: 163px;
+  z-index: 1;
+  transform: rotate(45deg);
+  border-top-left-radius: 90px;
+  border-top-right-radius: 10px;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 70px solid #5e5e5e;
+}
+/*
+.box {
+  width: 400px;
+  height: 600px;
+  background-color: #000;
+  position: absolute;
+  left: 650px;
+  top: 800px;
+}
+*/
