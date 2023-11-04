@@ -9,7 +9,21 @@
     <main>
       <div class="cat-head">
 		<div class="cat-ears">
+			<div class="cat-left-ear">
+				<div class="cat-left-inner-ear"></div>
+			</div>
+			<div class="cat-right-ear">
+				<div class="cat-right-inner-ear"></div>
+			</div>
 	  </div>
+	  <div class="cat-eyes">
+          <div class="cat-left-eye">
+			<div class="cat-left-inner-eye"></div>
+		  </div>
+          <div class="cat-right-eye">
+			<div class="cat-right-inner-eye"></div>
+		  </div>
+        </div>
 	  <!-- <div class="box"></div> -->
     </main>
 </body>
@@ -55,6 +69,13 @@ body {
   border-right: 35px solid transparent;
 }
 .cat-left-inner-ear {
+  position: absolute;
+  top: 22px;
+  left: -20px;
+  border-bottom-right-radius: 40%;
+  border-bottom-left-radius: 40%;
+  border-top-left-radius: 90px;
+  border-top-right-radius: 10px;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 40px solid #3b3b4f;
@@ -71,6 +92,40 @@ body {
   border-left: 35px solid transparent;
   border-right: 35px solid transparent;
   border-bottom: 70px solid #5e5e5e;
+}
+.cat-right-inner-ear {
+  position: absolute;
+  top: 22px;
+  left: -20px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid #3b3b4f;
+}
+
+.cat-left-eye {
+  position: absolute;
+  top: 54px;
+  left: 39px;
+  border-radius: 60%;
+  transform: rotate(25deg);
+  width: 30px;
+  height: 40px;
+  background-color: #000;
+}
+.cat-left-inner-eye {
+  width: 10px;
+  height: 20px;
+  background-color: #fff;
+}
+.cat-right-eye {
+position: absolute;
+  top: 54px;
+  left: 134px;
+  border-radius: 60%;
+  transform: rotate(-25deg);
+  width: 30px;
+  height: 40px;
+  background-color: #000;
 }
 /*
 .box {
