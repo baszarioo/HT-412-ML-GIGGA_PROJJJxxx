@@ -6,6 +6,7 @@ import ProgressDisplay from "./ProgressDisplay";
 import StatusDisplay from "./StatusDisplay";
 import Link from "next/link";
 
+
 const TicketCard = ({ticket}) => {
 const formatTimestamp = (timestamp) => {
   const options = {

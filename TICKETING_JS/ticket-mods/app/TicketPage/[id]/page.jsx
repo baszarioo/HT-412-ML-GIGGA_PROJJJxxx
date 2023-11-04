@@ -1,5 +1,5 @@
 import React from 'react'
-import TicketForm from '@/app/(components)/TicketForm';
+import EditTicketForm from '@/app/(components)/EditTicketForm';
 
 const getTicketById = async (id) => {
   try {
@@ -16,14 +16,19 @@ const getTicketById = async (id) => {
 };
 
 const TicketPage = async ({params}) => {
-    const EDITMODE = params.id === "new" ? false : true
+    const EDITMODE = params.id === "new" ? false : true;
     let updateTicketData = {};
     if (EDITMODE){
       updateTicketData = await getTicketById(params.id);
+      updateTicketData = updateTicketData.foundTicket;
       console.log(updateTicketData);
+    } else {
+      updateTicketData = {
+        _id: "new",
+      }
     }
     // <div>TicketPage {params.id}</
-    return <TicketForm />;
+    return <EditTicketForm ticket={updateTicketData} />;
 };
 
 export default TicketPage;
