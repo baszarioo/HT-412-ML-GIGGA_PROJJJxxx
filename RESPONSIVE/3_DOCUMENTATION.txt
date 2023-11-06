@@ -1,0 +1,30 @@
+#esss
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<title>Technical Documentation kind off?</title>
+</head>
+<body>
+	<nav id="navbar">
+		<header>Technical documentation kinda page👉🏿👈🏿</header>
+		<a class="nav-link" href="#html_and_css">HTML and CSS</a>
+		<a class="nav-link" href="#javascript_and_java">JavaScript != JAVA</a>
+		<a class="nav-link" href="#pyhthon_and_ruby">Python and Ruby</a>
+		<a class="nav-link" href="#c_plus_plus">C++</a>
+		<a class="nav-link" href="#php_and_sql">PHP and SQL</a>
+	</nav>
+	<main id="main-doc">
+		<section class="main-section" id="html_and_css">
+			<header>HTML and CSS</header>
+	</main>
+		<section></section>
+		<section></section>
+		<section></section>
+		<section></section>
+		<section></section>
+	</main>
+</body>
+</html>
