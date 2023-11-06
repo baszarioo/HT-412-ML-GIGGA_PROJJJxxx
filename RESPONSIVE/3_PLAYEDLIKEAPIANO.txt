@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-	<div id="piano"></div>
+	<div id="piano">
+	 <img class="logo" src="..." alt="piano Logo" />
 	  <div class="keys">
         <div class="key"></div>
         <div class="key black--key"></div>
@@ -30,6 +31,7 @@
         <div class="key black--key"></div>
         <div class="key black--key"></div>
       </div>
+	</div>
 </body>
 </html>
 
@@ -42,11 +44,13 @@ html {
   box-sizing: inherit;
 }
 #piano {
+  position: relative;
   background-color: #00471b;
   width: 992px;
   height: 290px;
   margin: 80px auto;
   padding: 90px 20px 0 20px;
+  border-radius: 10px;
 }
 
 .keys {
@@ -62,6 +66,7 @@ html {
   height: 175px;
   margin: 2px;
   float: left;
+  border-radius: 0 0 3px 3px;
 }
 .key.black--key::after {
   background-color: #1d1e22;
@@ -71,4 +76,9 @@ html {
   left: -18px;
   width: 32px;
   height: 100px;
+}
+.logo {
+  width: 200px;
+  position: absolute;
+  top: 23px;
 }
