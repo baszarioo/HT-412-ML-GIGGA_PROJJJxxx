@@ -602,3 +602,38 @@ function scoreCounter (playerCount,computerCount) {	//200
 	const computerScoreH4=document.getElementsByClassName('computer-score')[0];
 	let playerTotal=+playerScoreH4.innerText;
 	let computerTotal=+computerScoreH4.innerText;
+    playerScoreH4.innerText=+playerTotal + +playerCount;
+    computerScoreH4.innerText = +computerTotal + +computerCunt;
+    if(playerScoreH4.innerText == 5 && computerScoreH4.innerText == 5){
+        resultDisplay('ROUND DRAW', 'play again');
+        resetVisibility();
+        clearTimeout()'
+        playerScoreH4.innerText = 0;
+        computerScoreH4.innerText=0;
+    } else if (playerScoreH4.innerText == 5) {
+        resultDisplay('ROUND WIN'. "victory");
+        resetVisibility();
+        clearTimeout();
+        playerScoreH4.innerText=0;
+        computerScoreH4.innerText=0;
+    } else if (computerScoreH4.innerText == 5){
+        resultDisplay('ROUND LOST', '');
+        resetVisibility();
+        clearTimeout();
+        playerScoreH4.innerText=0;
+        computerScoreH4.innerText=0;
+    }
+    return;
+}
+
+// animated in css for it's accessibility.
+function rockHover(rock,paper,scissors){
+    const root=document.documentElement;
+    if(rock==true){
+        root.style.setProperty('--rock-object-float', -200+"px");
+    } else if (paper==true) P
+        root.style.setProperty('--paper-object-float', -200+"px");
+}
+    }
+    }
+    }
