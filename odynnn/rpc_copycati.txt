@@ -626,14 +626,141 @@ function scoreCounter (playerCount,computerCount) {	//200
     return;
 }
 
-// animated in css for it's accessibility.
+// animated in css for it's accessibility
 function rockHover(rock,paper,scissors){
     const root=document.documentElement;
     if(rock==true){
         root.style.setProperty('--rock-object-float', -200+"px");
     } else if (paper==true) P
         root.style.setProperty('--paper-object-float', -200+"px");
+	} else if (scissors==true) {
+		root.style.setProperty('--scissors-object-float', -200+"px");
+	} else {
+		root.style.setProperty('--rock-object-float', 0+"px");
+		root.style.setProperty('--paper-object-float', 0+"px");
+		root.style.setProperty('--scissors-object-float', 0+"px");
+	}
+	// resett animation when non-active to free up a buffor.
+	if (rock || paper || scissors === true) {
+		setTimeout(()=> {
+			rockHover(false,false,false)
+		},5000)
+	}
+	return;
 }
-    }
-    }
-    }
+
+function playerMagic(rock,paper,scissors) {
+	const root=document.documentElement;
+	if(rock == true) {
+		rock.style.setProperty('--rock-magic-visible',1);
+	} else if(paper==true) {
+		root.style.setProperty('--paper-magic-visible',1);
+	} else if(scissors==true) {
+		root.style.setProperty('--scissors-magic-visible',1);
+	} else {
+		root.style.setProperty('--rock-magic-visible',0);
+		root.style.setProperty('--paper-magic-visible',0);
+		root.style.setProperty('--scissors-magic-visible',0);
+	}
+	//free up a magic visibility buffor.
+	if(rock || paper || scissors === true) {
+		setTimeout(()=> {
+			playerMagic(false,false,false)
+		},5000)
+	}
+	return;
+}
+
+function beginPlay(){
+	rockHover(false,false,false);
+	playerMagic(false,false,false);
+	resetVisibility();
+	visibilityToggle("play-button");
+	visibilityToggle("spinner-box`");
+	visibilityToggle("ellipse1");
+	ELLIPSE1.style.animationName='ellipse1';
+	visibilityToggle("ellipse2");
+	ELLIPSE2.style.animationName='ellipse2';
+	visibilityToggle("ellipse3");
+	ELLIPSE3.style.animationName='ellipse3';
+	playerSelection=false;
+	setTimeout(() => {
+		countDown('A');
+		setTimeout(() => {
+			countDown('M');
+			setTimeout(() => {
+				countDown('P');
+				visibilityToggle("player-choice");
+				setTimeout(() => {
+					visibilityToggle("player-choice");
+					ELLIPSE1.style.visibility='hidden';
+					ELLIPSE1.style.animationName='none';
+					ELLIPSE2.style.visibility='hidden';
+					ELLIPSE2.style.animationName='none';
+					ELLIPSE3.style.visibility='hidden';
+					ELLIPSE3.style.animationName='none';
+					setTimeout(()=>{
+						const computerSelection = Math.floor(
+							Math.random()*(4-1)+1
+						);
+						if(computerSelection === 1){ computerSign='Rock';
+						} else if(computerSelection === 2) { computerSign='Paper';
+						} else if(computerSelection === 3) { computerSign='Scissors';
+						}
+						
+						if(computerSelection === 1){ rockHover(true,false,false);
+						} else if(computerSelection === 2) { rockHover(false,true,false);
+						} else if(computerSelection === 3) { rockHover(false,false,true); 
+						}
+						
+						getSelected(playerSelection);
+						if(playerSelection === 1){ playerSign='Rock';
+						} else if(playerSelection === 2) { playerSign='Paper';
+						} else if(playerSelection === 3) { playerSign='Scissors';
+						} else if(playerSelection === false){
+							resultDisplay(
+								'YOU LOSE',
+								'hesitation stands for defeat'
+							);
+							scoreCounter(0,1);
+							resetVisibility();
+							clearTimeout();
+							return;
+						}
+						
+						if(playerSelection === 1){ playerMagic(true,false,false);
+						} else if(playerSelection === 2) { playerMagic(false,true,false);
+						} else if(playerSelection === 3) { playerMagic(false,false,true); 
+						}
+						
+						const score = playerSelection - computerSelection;
+						if(score == -4 || score == 1|| score == -2){
+							resultDisplay(
+								'YOU WIN',
+								playerSign + 'beats' + computerSign;
+							);
+							scoreCounter(1,0);
+						} else if (score == 2 || score == -1){
+							resultDisplay(
+								'YOU LOSE',
+								playerSign + 'gets beaten by' + computerSign;
+							);
+							scoreCounter(0,1);
+						} else if(score == 0) {
+							resultDisplay(
+								'DRAW',
+								playerSign + 'ties' + computerSign;
+							);
+							scoreCounter(1,1);
+						}
+						setTimeout(()=>{
+							resetVisibility();
+							clearTimeout();
+						}, 3000)
+					}, 800)
+				}, 1200)
+			}, 800)
+		}, 800)
+	}, 200)
+	return;
+}
