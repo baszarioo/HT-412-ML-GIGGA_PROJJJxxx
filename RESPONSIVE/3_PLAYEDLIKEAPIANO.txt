@@ -32,3 +32,23 @@
       </div>
 </body>
 </html>
+
+		3//|CSS|\\__
+html {
+/* box-sizing: border-box; */
+  box-sizing: inherit;
+}
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+#piano {
+  background-color: #00471b;
+  width: 992px;
+  height: 290px;
+}
+.keys {
+  background-color: #040404;
+  width: 949px;
+  height: 180px;
+  padding-left: 2px;
+}
