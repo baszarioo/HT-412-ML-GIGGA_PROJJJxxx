@@ -19,6 +19,27 @@
 	<main id="main-doc">
 		<section class="main-section" id="html_and_css">
 			<header>HTML and CSS</header>
+			<p>HYPERTEXT MARKUP LANGUAGE	CASCADING STYLE SHEETS</p>
+			<p>CSS can be added to HTML documents in 3 ways: 1. Inline - by using the styleattribute inside HTML elements 2. Internal - by using a <style> element in the <head>section 3. External - by using a <link>element to link to an external CSS file The most common way to add CSS, is to keep the styles in …</p>
+			<code><h1 style="color:blue;">A Blue Heading</h1>
+					<p style="color:red;">A red paragraph.</p> </code>
+			<ul>
+				<li><html>tag</li>
+				<li><body>tag/li>
+			</ul>
+		</section>
+		
+		<section class="main-section" id="javascript_and_java">
+			<header>HTML and CSS</header>
+			<p>HYPERTEXT MARKUP LANGUAGE	CASCADING STYLE SHEETS</p>
+			<p>CSS can be added to HTML documents in 3 ways: 1. Inline - by using the styleattribute inside HTML elements 2. Internal - by using a <style> element in the <head>section 3. External - by using a <link>element to link to an external CSS file The most common way to add CSS, is to keep the styles in …</p>
+			<code><h1 style="color:blue;">A Blue Heading</h1>
+					<p style="color:red;">A red paragraph.</p> </code>
+			<ul>
+				<li><html>tag</li>
+				<li><body>tag/li>
+			</ul>
+		</section>
 	</main>
 		<section></section>
 		<section></section>
