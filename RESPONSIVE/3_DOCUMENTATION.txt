@@ -21,8 +21,9 @@
 			<header>HTML and CSS</header>
 			<p>HYPERTEXT MARKUP LANGUAGE	CASCADING STYLE SHEETS</p>
 			<p>CSS can be added to HTML documents in 3 ways: 1. Inline - by using the styleattribute inside HTML elements 2. Internal - by using a <style> element in the <head>section 3. External - by using a <link>element to link to an external CSS file The most common way to add CSS, is to keep the styles in …</p>
-			<code><h1 style="color:blue;">A Blue Heading</h1>
-					<p style="color:red;">A red paragraph.</p> </code>
+			<code>  <h1 style="color:blue;">A Blue Heading</h1>
+					<p style="color:red;">A red paragraph.</p>
+			</code>
 			<ul>
 				<li><html>tag</li>
 				<li><body>tag/li>
@@ -30,22 +31,68 @@
 		</section>
 		
 		<section class="main-section" id="javascript_and_java">
-			<header>HTML and CSS</header>
-			<p>HYPERTEXT MARKUP LANGUAGE	CASCADING STYLE SHEETS</p>
-			<p>CSS can be added to HTML documents in 3 ways: 1. Inline - by using the styleattribute inside HTML elements 2. Internal - by using a <style> element in the <head>section 3. External - by using a <link>element to link to an external CSS file The most common way to add CSS, is to keep the styles in …</p>
-			<code><h1 style="color:blue;">A Blue Heading</h1>
-					<p style="color:red;">A red paragraph.</p> </code>
+			<header>JavaScript and Java</header>
+			<p>JAVASCRIPT 	!= 	JAVA</p>
+			<p>When considering Java versus JavaScript, you’ll notice a few key differences. Java is a compiled language, meaning that you write code, then run it through a compiler and create bytecode. The bytecode is then run in a Java Virtual Machine (JVM), which is likely the software you have on your computer. …
+			</p>
+			<code>
+			Printing/logging/outputting something // JAVASCRIPT console.log ("tomatoes are gross"); // JAVA System.out.println ("tomatoes are gross"); ...
+			</code>
 			<ul>
-				<li><html>tag</li>
-				<li><body>tag/li>
+				<li>Java is an OOP programming language while JavaScript is an OOP scripting language.</li>
+				<li>Java creates applications that run in a virtual machine or browser while JavaScript code is run on a browser only./li>
+				<li></li>
 			</ul>
 		</section>
-	</main>
-		<section></section>
-		<section></section>
-		<section></section>
-		<section></section>
-		<section></section>
+		
+		<section class="main-section" id="python_and_ruby">
+			<header>Python and Ruby</header>
+			<p>PYTHON🐍 AND RUBY😡</p>
+			<p>Ruby and Python are two popular computer languages used in building web applications. Both are clean, readable, and open-sourced and are high-level, back-end languages used to create the server functions needed to support the application’s front end.
+			</p>
+			<code>
+		def greet(name):
+    return "Hello, " + name
+			</code>
+			<code>
+			def greet(name)
+    "Hello, " + name
+			end
+			</code>
+			<ul>
+				<li>Web frameworks	| Django |	Ruby on Rails</li>
+				<li>Libraries |	Has larger range of libraries. | It has smaller library than Python./li>
+				<li>Usage |	Google, Dropbox, Instagram, Mozilla, Yahoo, Venom, You Tubes |	Apple, GitHub, Twitter, Hulu, ZenDesk, Urban Dictionary</li>
+			</ul>
+		</section>
+		
+		<section class="main-section" id="c_plus_plus">
+            <header>C++</header>
+            <p>Content about C++...</p>
+            <p>Another paragraph about C++...</p>
+            <code>Sample C++ code here...</code>
+            <!-- More paragraphs, code, and list items as needed -->
+            <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <!-- More list items as needed -->
+            </ul>
+        </section>
+        <section class="main-section" id="php_and_sql">
+            <header>PHP and SQL</header>
+            <p>Content about PHP and SQL...</p>
+            <p>Another paragraph about PHP and SQL...</p>
+            <code>Sample PHP code here...</code>
+            <!-- More paragraphs, code, and list items as needed -->
+            <ul>
+                <li>List item 1</li>
+                <li>List item 2</li>
+                <!-- More list items as needed -->
+            </ul>
+		</section>
 	</main>
 </body>
 </html>
+
+
+	3/||CSS||\
