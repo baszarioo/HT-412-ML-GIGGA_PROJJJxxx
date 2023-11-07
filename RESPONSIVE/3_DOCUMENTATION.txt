@@ -96,3 +96,20 @@
 
 
 	3/||CSS||\
+@media(max-width: 600px) {
+	body {
+		font-size: 14px;
+	}
+	#navbar {
+		position: fixed;
+		width: 100%;
+		left: 0;
+	}
+	.nav-link {
+		display: block;
+		margin: 10px 0;
+	}
+	.main-section {
+		padding: 20px;
+	}
+}
