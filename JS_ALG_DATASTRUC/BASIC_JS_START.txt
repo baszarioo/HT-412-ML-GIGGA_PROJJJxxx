@@ -358,3 +358,38 @@ cosnt testObj={
 };
 const entreeValue=testObj["an entree"];
 const drinkValue=testObj["the drink"];
+
+
+const testObj={
+	12:"Namath",
+	16:"Montana",
+	19:"Unitas"
+};
+const playerNumber=16;
+const player = testObj[playerNumber];
+
+const myDog = {
+	"name": "Happy Coder!",
+	"legs": 4,
+	"tails": 1,
+	"friends": ["freeCodeCamp Campers"]
+};
+myDog.bark="woof!" //new property.
+myDog.name="Happy Coder";
+delete myDog.tails; // delete property.
+const value="name";
+const nameLookup = myDog[value];	// +> Happy Coder! :O 
+
+
+function phoneticLookup(val) {
+	let result="";
+	const lookup = {
+		"alpha": "Adams",
+		"bravo": "Boston",
+		...
+		"echo": "Easy"
+	};
+	result=lookup[val];
+	return result;
+} phoneticLookup("charlie");
+
