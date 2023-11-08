@@ -8,7 +8,7 @@
 	</head>
 	<body> 
 		<div class="background-buildings">
-		  <div class="bb1">
+		  <div class="bb1 building-wrap">
 			<div class="bb1a bb1-window"></div>
 			<div class="bb1b bb1-window"></div>
 			<div class="bb1c bb1-window"></div>
@@ -18,9 +18,22 @@
 				<div class="bb2a"></div>
 				<div class="bb2b"></div>
 			</div>
-			<div class="bb3"></div>
+			<div class="bb3">
+				/* <div class="bb3a"></div>
+				<div class="bb3b"></div>
+				<div class="bb3c"></div> */
+			</div>
 			<div></div>
-			<div class="bb4"></div>
+			<div class="bb4 building-wrap">
+				<div class="bb4a"></div>
+				<div class="bb4b"></div>
+				<div class="bb4c">
+				  <div class="bb4-window"></div>
+				  <div class="bb4-window"></div>
+				  <div class="bb4-window"></div>
+				  <div class="bb4-window"></div>
+				</div>
+			</div>
 			<div></div>
 			<div></div>
 		</div>
@@ -45,6 +58,7 @@
   --window-color1: black;
   --window-color2: #8cd9b3;
   --window-color3: #d98cb3;
+  --window-color4: #8cb3d9;
 }
 * {
   border: 1px solid black;
@@ -67,9 +81,9 @@ body {
 .bb1 {
 	width: 10%;
 	height: 70%;
-	display: flex;
-  flex-direction: column;
-  align-items: center; // +> center parts of building
+/*	display: flex;		*/
+/*  flex-direction: column;		*/
+/*  align-items: center; // +> center parts of building		*/
 /*
   --building-colorx: #999;
   --building-color1: #aa80ff;
@@ -134,13 +148,42 @@ bb1-window {
 .bb3 {
   width: 10%;
   height: 55%;
-  background-color: var(--building-color3, pink);
+  /* background-color: var(--building-color3, pink); */
   background: repeating-linear-gradient( 90deg, var(--building-color3), var(--building-color3), var(--window-color3) 15% );
 }
 .bb4 {
   width: 11%;
   height: 58%;
-  background-color: var(--building-color4);
+}
+.bb4a {
+  width: 3%;
+  height: 10%;
+   background-color: var(--building-color4);
+}
+.bb4b {
+  width: 80%;
+  height: 5%;
+   background-color: var(--building-color4);
+} 
+.bb4c {
+  width: 100%;
+  height: 85%;
+   background-color: var(--building-color4);
+}
+.bb4-window {
+  width: 18%;
+  height: 90%;
+  background-color: var(--window-color4);
+}
+.building-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.window-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 /* /////////////////////////////// FOREGROUND 	*/
 .foreground-buildings {
