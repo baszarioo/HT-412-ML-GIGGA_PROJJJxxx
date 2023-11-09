@@ -27,7 +27,7 @@
 			<div class="bb4 building-wrap">
 				<div class="bb4a"></div>
 				<div class="bb4b"></div>
-				<div class="bb4c">
+				<div class="bb4c window-wrap">
 				  <div class="bb4-window"></div>
 				  <div class="bb4-window"></div>
 				  <div class="bb4-window"></div>
@@ -38,8 +38,19 @@
 			<div></div>
 		</div>
 		<div class="foreground-buildings">
-			<div class="fb1"></div>
-			<div class="fb2"></div>
+			<div class="fb1 building-wrap">
+				<div class="fb1a"></div>
+				<div class="fb1b"></div>
+				<div class="fb1c"></div>
+			</div>
+			<div class="fb2">
+				<div class="fb2a"></div>
+				<div class="fb2b">
+					<div class="fb2-window"></div>
+					<div class="fb2-window"></div>
+					<div class="fb2-window"></div>
+				</div>
+			</div>
 			<div class="fb3"></div>
 			<div class="fb4"></div>
 			<div class="fb5"></div>
@@ -180,11 +191,7 @@ bb1-window {
 	flex-direction: column;
 	align-items: center;
 }
-.window-wrap{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
+
 /* /////////////////////////////// FOREGROUND 	*/
 .foreground-buildings {
   width: 100%;
@@ -198,13 +205,38 @@ bb1-window {
 .fb1 {
   width: 10%;
   height: 60%;
-  background-color: var(--building-color4);
 }
+.fb1a {
+  border-bottom: 7vh solid var(--building-color4);
+  border-left: 2vw solid transparent;
+  border-right: 2vw solid transparent;
+}
+.fb1b{
+  width: 60%;
+  height: 10%;
+    background-color: var(--building-color4);
+}
+.fb1c{
+  width: 100%;
+  height: 80%;
+	background: repeating-linear-gradient(90deg, var(--building-color4) 0%, var(--building-color4) 10%, transparent 10%, transparent 15%),
+	
+    repeating-linear-gradient( var(--building-color4) 0%, var(--building-color4) 10%, var(--window-color4) 10%, var(--window-color4) 90%);
+}
+
 .fb2 {
   width: 10%;
   height: 40%;
   background-color: var(--building-color3);
 }
+.fb2a {
+  width: 100%;
+}
+.fb2b {
+  width: 100%;
+  height: 75%;
+}
+
 .fb3 {
   width: 10%;
   height: 35%;
