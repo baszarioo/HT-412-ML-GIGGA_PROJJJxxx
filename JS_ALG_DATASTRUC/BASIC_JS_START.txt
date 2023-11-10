@@ -393,3 +393,141 @@ function phoneticLookup(val) {
 	return result;
 } phoneticLookup("charlie");
 
+
+testing properties-for object."
+function checkForProperty(object, property) {
+	return object.hasOwnProperty(property);
+} 		checkForProperty({ top: 'hat', bottom: 'pants' }, 'top'); //true..
+		checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'); //false..
+/*	+ EXAMPLE +	*/
+funciton checkObj(obj, checkProp) {
+	if(obj.hasOwnProperty(checkProp)){
+		return obj[checkProp];
+	} else {
+		return "Not Found";
+	}
+}
+
+
+/////////// MANIPULATING COMPLEX OBJECTS ///////////////
+const myMusic =[
+ {
+	"artist": "ZIOM",
+	"title": "ZLOM",
+	"release_year": 1999,
+	"formats": [
+		"CD",
+		"LP"
+	],
+	"gold": true
+ }, {
+	"artist": "essyn"
+	"title": "tsno",
+	"release_year": 2002,
+	 "formats": [
+		"CD", "8T", "LP"
+	],
+	"gold":false
+}
+
+
+///////////// ACCESS NESTED OBJECTS ?////
+const myStorage ={ 
+	"car": {
+		"inside": {
+			"glove box": "maps",
+			"passenger seat": "crumbs"
+		},
+		"outside": {
+			"trunk": "jack"
+		}
+	}
+};    const gloveBoxContents=myStorage.car.inside["glove box"];
+
+
+///////////// ACCESS NESTED ARRAYS ?/////
+const myPlants=[
+ {
+	type: "flowers",
+	list: [
+		"rose",
+		"tulip",
+		"dandelion"
+	]
+ },	{
+	type: "trees",
+	list: [
+		"fir",
+		"pine",
+		"birch"
+	]
+ }
+];	  const secondTree=myPlants[1].list[1];
+
+
+///////////// RECORD COLLECTION WHAT EXERCISE?/////
+/*  - Your function must always return the entire records object.
+	- If value is an empty string, delete the given prop property from the album.
+	- If prop isn't tracks and value isn't an empty string, assign the value to that album's prop.
+	- If prop is tracks and value isn't an empty string, you need to update the album's tracks array. First, if the album does not have a tracks property, assign it an empty array. Then add the value as the last item in the album's tracks array.
+*/
+//setup:
+const recordCollection = {
+ 2548: {
+	albumTitle: 'Slipp',
+	artist: 'Bon Jovi',
+	tracks: ['Let It Rock', 'You Give Love a Bad Name'] 
+ },
+ 2468: {
+	albumTitle: '1999',
+	artist: 'Prince',
+	tracks: ['1999', 'Little Red Corvette']
+ },
+ 1245: {
+	artist: 'Robert Palmaer',
+	tracks: []
+ },
+  5439: {
+	albumTitle: 'ABBA Gold'
+ }
+};
+function updateRecords(records, id, prop, value) {
+	if(value === "") {
+		delete records[id][prop];
+	} else if (prop !== "tracks") {
+		records[id][prop] =value;
+	} else {
+		if(!records[id].hasOwnProperty("tracks")){
+			records[id]["tracks"]=[];
+		} records[id]["tracks"].push(value);
+	} return records;
+}	//USAGE (DOWN))) 
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+		
+		
+const myArray=[];
+let i=5;
+while(i>=0){
+	myArray.push(i);
+	i--;
+}
+
+const myArray=[];
+for(let i=1; i<1-; i+=2) myArray.push(i);
+
+
+const myArr=[2,3,4,5,6];
+let total=0;
+for(let i=0; i<myArr.length; i++){ total+=myArr[i]; }
+
+
+///////////// NESTED FOR LOOPS MULTIPLY PRODUCT??//////
+	//const arr=[	[1,2], [3,4], [5,6] ];
+function multiplyAll(arr) {
+	let product=1;
+	for(let i=0; i<arr.length; i++) {
+		for(let j=0; j<arr[i].length; j++) {
+			product*=arr[i][j];
+		}
+	} return product;
+} multiplyAll([1,2], [3,4], [5,6,7] ]);		//product: 5040.
