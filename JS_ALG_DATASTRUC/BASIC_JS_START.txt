@@ -531,3 +531,129 @@ function multiplyAll(arr) {
 		}
 	} return product;
 } multiplyAll([1,2], [3,4], [5,6,7] ]);		//product: 5040.
+
+
+///////////// RECURSION FOR SUMS IN THE JS??///////
+function sum(arr, n){
+	let total=0;
+	if(n<=0){
+		return total;
+	} else {
+		return sum(arr,n-1)+arr[n-1];
+	}
+}
+//multiplication '
+function multiply(arr,n){
+	if(n<=0){ return 1;
+	} else {
+		return multiply(arr, n-1)*arr[n-1];
+	}
+}
+
+
+///////////// REMEMBER ACCESING OBJECTS NESTED AND NON??////////
+const contacts = [
+ {
+	firstName: "Akira",
+	lastName: "Laine",
+	number: "0543236543",
+	likes: ["Pizza", "Coding", "Brownie Points"],
+ },  /* ... */ {
+	firstName: "Kristian",
+	lastName: "Vos",
+	number: "unknown"
+	likes: ["JavaScript", "Foxes", "Games"],
+ },
+];
+function lookUpProfile(name, prop){
+	for(var i=0; i<contacts.length; i++){
+		if(contacts[i].firstName === name) {
+			if(contacts[i].hasOwnProperty(prop)) {
+				return contacts[i][prop];
+			} else {
+				return "No such property";
+			}
+		}
+	} return "No such contact";
+} lookUpProfile("Akira", "likes");
+
+
+///////////// REMEMBER ACCESING OBJECTS NESTED AND NON??/////////
+function randomFraction() {
+	return Math.random();
+}
+function randomFraction() {
+	return Math.floor(Math.random()*10); 
+}
+
+
+function randomRange(myMin, myMax){
+	return Math.floor(Math.random() * (myMax-myMin+1)) + myMin;
+}
+
+function convertToInteger(str) {
+	const a=parseInt(str);
+	return a;
+} convertToInteger("56");
+/* the parseInt() function can take a second argument for the radix: i.e. parseInt("11", 2) => gives 3 in result */
+
+function convertToInteger(str) {
+	const a=parseInt(str,2);
+	return a;
+} convertToInteger("10011");
+
+
+///////////// CONDITIONAL (TERNARY)_ OPERATORS.??//////////
+function checkEqual(a, b){
+	return a==b ? "Equal": "Not Equal";
+} checkEqual(1,2); 
+
+function checkSign(num) {
+	return (num === 0) ? "zero" : (num>0) ? "positive" : "negative";
+} checkSign(10);
+
+
+///////////// COUNTUP FUNCTION RECU/ COUNTDOWN FUNC RCRSIVE.??///////////
+function countup(n){
+	if(n<1) {
+		return [];
+	} else {
+		const countArray=countup(n-1);
+		countArray.push(n);
+		return countArray;
+	}
+} console.log(countup(5));	// +>  [1,2,3,4,5]
+
+funciton countdown(n) {
+	if(n<1) { return []; }
+	 else {
+		const countArray = countdown(n-1);
+		countArray.unshift(n);
+		return countArray;
+	}
+} console.log(countdown(5));  // +> [5,4,3,2,1] .
+
+
+///////////// RANGE FUNCTION RCRSIVEEE.////////////
+function rangeOfNumbers(startNum, endNum) {
+	if(startNum > endNum) {
+		return [];
+	} else {
+		const numbers=rangeOfNumbers(startNum, endNum - 1);
+		numbers.push(endNum);
+		return numbers;
+	}
+} console.log(rangeOfNubmers(1, 5)); // [1,2,3,4,5];
+
+
+/* or: 		*/
+
+function rangeOfNumbers(startNum, endNum) {
+	if(endNum - startNum === 0){
+		return [startNum];
+	} else {
+		var numbers=rangeOfNumbers(startNum, endNum - 1);
+		numbers.push(endNum);
+		return numbers;
+	}
+}	/// finitio./
