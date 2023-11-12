@@ -1,0 +1,79 @@
+/////////////// Compare Scopes of the var and let Keywords /////////////////////
+function checkScope() {
+	let i ='function scope';
+	if(true) {
+		let i ='block scope';
+		console.log('Block scope i is: ',i);
+	}
+	console.log('Function scope i is: ',i);
+	return i;
+}	// +> 2 different i values, one in block scope, different one in the function scope.
+
+
+/////////////// Mutate an Array Declared with const. ///////////////////// /
+const s=[5,7,2];
+function editInPlace(){
+	/* s=[1,2,3];  //error */
+	s[0]=2;
+	s[1]=5;
+	s[2]=7;
+}
+editInPlace();
+
+
+/////////////// Prevent Object Mutation. ///////////////////// //
+/* let obj = {
+  name:"FreeCodeCamp",
+  review:"Awesome"
+};
+Object.freeze(obj);
+obj.review = "bad";		//error
+obj.newProp = "Test";	//error
+console.log(obj); 		*/
+
+function freezeObj() {
+	const MATH_CONSTANTS={
+		PI: 3.14
+	};
+	Object.freeze(MATH_CONSTANTS);
+	try {
+		MATH_CONSTANTS.PI=99;
+	} catch (ex) {
+		console.log(ex);
+	} return MATH_CONSTANTS.PI;
+} const PI = freezeObj();		//+> returns 3.14
+
+
+/////////////// Arrow Functions to Write Concise Anonymous Functions. ///////////////////// ///
+ /*
+ const myFunc=function() {
+	const myVar="value";
+	return myVar;
+ }
+ // =====================
+ const myFunc=()=> {
+	const myVar="value";
+	return myVar;
+ }
+ // =====================
+ const myFFunc = () => "value";
+ // all these functions do the same.
+
+const magic = () => new Date();
+
+
+/////////////// Write Arrow Functions with Parameters. ///////////////////// ////
+ /* exampl 
+ const multiplier=(item, multi) => item*multi;
+ multiplier(4,1);
+ */
+
+const myConcat = (arr1, arr2) => {
+	return arr1.concat(arr2);
+};
+console.log(myConcat([1,2], [3,4,5]));
+
+
+/////////////// Set Default parameters for your Function. ///////////////////// /////
+ /* const greeting = (name="Anonymous") => "Hello " + name;		*/
+const increment = (number, value=1) => nubmer + value;
