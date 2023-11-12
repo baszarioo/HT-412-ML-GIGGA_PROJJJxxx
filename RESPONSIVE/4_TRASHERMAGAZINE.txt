@@ -2,6 +2,24 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Magazine</title>
+    <link href="https://fonts.googleapis.com/css?family=Anton%7CBaskervville%7CRaleway&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
 </head>
-<body></body>
+<body>
+	<main>
+		<section class="heading">
+			<header class="hero">
+				<img src="https://cdn.freecodecamp.org/1920X1080-indigo.png" alt="fcc logo" class="hero-img" loading="lazy" width=400>
+			</header>
+			<div class="author">
+			  <p class="author-name">By <a href="https://freecodecamp.org" target="_blank" rel="noreferrer" >freeCodeCamp</a></p>
+			  <p class="publish-date">March 7, 2019</p>
+			</div>
+		</section>
+	</main>
+</body>
 </html>
