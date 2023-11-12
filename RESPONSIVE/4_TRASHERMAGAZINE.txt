@@ -101,7 +101,15 @@
 					width="400"
 					height="400"
 				  />
-				<blockquote class="image-quote"></blockquote>
+				<blockquote class="image-quote">
+					<hr />
+					<p class="quote">
+					  The millions of people who are learning to code
+					  through freeCodeCamp will have an even better resource to help
+					  them learn these fundamentals.
+					</p>
+					<hr />
+				</blockquote>
 				<img							src="https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg"
 					alt="four people working on code"
 					loading="lazy"
@@ -114,3 +122,33 @@
 	</main>
 </body>
 </html>
+
+
+4||[STYLES.CSS]|\\
+
+*, ::before, ::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Baskervville, serif;
+  color: linen;
+  background-color: rgb(20,30,40);
+}
+h1 {
+  font-family: Anton, sans-serif;
+}
+h2, h3, h4, h5, h6 {
+  font-family: Raleway, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: linen;
+}
+main {
+  display: grid;
+}
