@@ -19,6 +19,41 @@
 			  <p class="author-name">By <a href="https://freecodecamp.org" target="_blank" rel="noreferrer" >freeCodeCamp</a></p>
 			  <p class="publish-date">March 7, 2019</p>
 			</div>
+			<div class="social-icons">
+			  <a href="https://www.facebook.com/freecodecamp/"><i class="fab fa-facebook-f"></i>
+			  </a>
+			  <a href="https://twitter.com/freecodecamp/"><i class="fab fa-twitter"></i>
+			  </a>
+			  <a href="https://instagram.com/freecodecamp"><i class="fab fa-instagram"></i>
+			  </a>
+			  <a href="https://www.linkedin.com/school/free-code-camp/"><i class="fab fa-linkedin-in"></i>
+			  </a>
+			  <a href="https://www.youtube.com/freecodecamp"><i class="fab fa-youtube"></i>
+			  </a>
+			</div>
+		</section>
+		<section class="text">
+			<p class="first-paragraph">
+				Machine learning is a branch of artificial intelligence that enables computers to learn from data and improve their performance without explicit programming. Machine learning can be used for various applications, such as natural language processing, computer vision, recommender systems, self-driving cars, and more. Machine learning algorithms can be divided into three main types: supervised learning, unsupervised learning, and reinforcement learning. Supervised learning is when the algorithm learns from labeled data, unsupervised learning is when the algorithm learns from unlabeled data, and reinforcement learning is when the algorithm learns from its own actions and rewards. Machine learning is a rapidly evolving field that has many challenges and opportunities for the future.
+			</p>
+			<p class="first-paragraph">
+				Machine learning is a fascinating field of artificial intelligence that allows computers to learn from data and improve their abilities without being explicitly programmed. It has many applications in various domains, such as understanding human languages, recognizing faces and objects, recommending products and services, driving cars autonomously, and more.
+			</p>
+			<p class="text">
+				A young computer science student was fascinated by machine learning and wanted to learn more about it. He enrolled in an online course that taught the basics of machine learning, such as linear regression, logistic regression, neural networks, and more. He was eager to apply his knowledge to real-world problems, so he decided to create a machine learning model that could predict the stock prices of his favorite companies. He collected a lot of data from the internet, such as historical prices, news articles, social media posts, and more. He fed the data to his model and trained it for several hours. He was confident that his model was accurate and reliable, so he decided to test it on the next day’s market. He invested all his savings in the stocks that his model recommended, hoping to make a fortune. However, to his dismay, he found out that his model was completely wrong and he lost all his money. He was devastated and wondered what went wrong. He checked his code and realized that he had made a fatal mistake: he had used the same data for training and testing his model, which resulted in overfitting and poor generalization. He learned a hard lesson that day: machine learning is not magic, and it requires careful data analysis, validation, and evaluation. He vowed to never repeat his mistake again and to study machine learning more seriously.
+			</p>
+			<blockquote>
+			  <hr>
+			  <p class="quote">The entire curriculum should be a series of projects</p>
+			  <hr>
+			</blockquote>
+			<p>
+				Some of the myths are:
+				Machine learning is an unnecessary luxury in times of crisis, such as the COVID-19 pandemic. On the contrary, machine learning can be a valuable tool for cost optimization, business continuity, and innovation in various domains, such as healthcare, education, and finance.
+			</p>
+			<p>
+				Machine learning can learn on its own and replace human workers. In reality, machine learning still needs human guidance, feedback, and intervention to ensure its quality, validity, and ethics. Machine learning is not a magic solution, but a powerful tool that can augment human capabilities and intelligence2.
+			</p>
 		</section>
 	</main>
 </body>
