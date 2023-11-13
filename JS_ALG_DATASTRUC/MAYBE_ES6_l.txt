@@ -77,3 +77,98 @@ console.log(myConcat([1,2], [3,4,5]));
 /////////////// Set Default parameters for your Function. ///////////////////// /////
  /* const greeting = (name="Anonymous") => "Hello " + name;		*/
 const increment = (number, value=1) => nubmer + value;
+
+
+/////////////// Use the rest parameter with Function Parameters. ///////////////////// //////
+ /* function howMany(...args) { return "You have passed "+args.length+ " arguments."; */
+ 
+const sum= (...args) => {
+	let total=0;
+	for(let i=0; i<args.length; i++) {
+		total +=args[i];
+	} return total; 
+}
+
+
+/////////////// Use the Spread Operator to Evaluate Arrays In-Place. ///////////////////// ///////
+ES5: var arr=[6,89,3,45];
+	var maximus=Math.max.apply(null, arr);
+ES6: var arr=[6,89,1,45];
+	var maximus=Math.max(...arr);
+	
+	how to use spread:
+		const spreaded=[...arr];
+	
+const arr=1=['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+arr2= [...arr1];
+console.log(arr2);
+
+
+/////////////// DESTRUCTURINGG ASSIGNMENT TO EXTRACT VALUES FROM OBJECTS>. ///////////////////// ////////
+ checkt that:
+	const user={name: 'John Doe', age: 34 };
+	const name=user.name;
+	const age=user.age;
+	||
+	const { name, age } = user
+	
+ BEFORE:
+	const HIGH_TEMPERATURES = {
+		yesterday: 75,
+		today: 77,
+		tomorrow: 80
+	};
+	const today = HIGH_TEMPERATURES.today;
+	const tomorrow = HIGH_TEMPERATURES.tomorrow;
+	/* could've been": */
+	const { today, tomorrow } = HIGH_TEMPERATURES;
+	
+	
+/////////////// DESTRUCTURIZIN IN OTHER WAY AROUND:>. ///////////////////// /////////
+ 1st:
+	const user = {name: 'John Doe', age: 34 };
+ 2nd: 
+	const {name: userName, age: userAge } =user;
+	
+FIX;
+const HIGH_TEMPERATURES = {
+	yesterday: 75,
+	today: 77,
+	tomrrow: 80
+};
+const { today: highToday, tomorrow: highTomorrow } = HIGH_TEMPERATURES;
+
+/////////////// DESTRUCTURIZING FROM NESTED OBJECTS. ///////////////////// //////////
+look: 
+	const user= {
+		johnDoe: {
+			age: 34,
+			email: 'johnDoe@freeCodeCamp.com'
+		}
+	};
+look2: 
+	const { johnDoe: {age, email}} = user;
+	||"
+	const { johnDoe: { age: userAge, email: userEmail }}=user; 
+	
+SOLVE:
+const LOCAL_FORECAST = {
+ yesterday: { low: 61, high: 75 },
+  today: { low: 64, high: 77 },
+  tomorrow: { low: 68, high: 80 }
+};
+ const { today: { low: lowToday, high: highToday }} =LOCAL_FORECAST;
+ 
+ 
+/////////////// DESTRUCTURIZING TO ASSIGN VARIABLES FROM ARRAYS: . ///////////////////// ///////////
+1: 
+	const [a,b]=[1,2,3,4,5,6];
+	console.log(a,b);
+2: 
+	const [a,b,,, c] = [1,2,3,4,5,6];
+	console.log(a,b,c); // +> 1,2,5
+	
+ // destructurize to swap numbers:
+ let a=8, b=6;
+ [a,b]=[b,a];
