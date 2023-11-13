@@ -299,3 +299,117 @@ class Vegetable {
 }
 const carrot = new Vegetable('carrot');
 console.log(carrot.name);
+
+
+/////////////// USE GETTERS AND SETTERS TO ACCESS OBJECT.  ///////////// /////
+class Book {
+	constuctor(author) {
+		this._author = author;
+	}
+	get writer() {
+		return this._author;
+	}
+	set writer(updatedAuthoer) {	
+		this._author= updatedAuthor;
+	}
+}
+const novel = new Book('anonymous');
+console.log(novel.writer);
+novel.writer = 'newAuthor';
+console.log(novel.writer);
+
+actual exercise:
+class Thermostat {
+	constructor(fahrenheitTemperature) {
+		this._fahrenheitTemperature = fahrenheitTemperature;
+	}
+	get temperatureInCelsius() {
+		return (5/9)*(this._fahrenheitTemperature -32);
+	}
+	set temperatureInCelsius(celsiusTemperature) {	
+		this._fahrenheitTemperature=(celsiusTemperature * 9.0) /5 + 32;
+	}
+} //usage;_.
+const myThemorstat = new Themostat(68);
+console.log(myThermostat.temperatureInCelsius);
+myThermostat.temperatureInCelsius=25;
+console.log(myThermostat.temperatureInCelsius);
+
+or||
+class Thermostat {
+  constructor(tempFahr) {
+    this._tempFahr = tempFahr;
+  }
+  get temperature() {
+    return (5/9)*(this._tempFahr-32);
+  }
+  set temperature(updatedTemp) {
+    this._tempFahr=(updatedTemp * 9.0)/5 +32;
+  }
+}
+// Only change code above this line
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
+
+
+/////////////// CREATING A MODULE SCRIPT.  ///////////// //////
+<hmtl>
+	<body>
+		<script type="module" src="index.js"></script>
+	</body>
+</html>
+
+
+/////////////// USE EXPORT TO SHARE A CODE BLOCK.  ///////////// ///////
+export const add=(x,y) => {
+	return x+y;
+}
+ or ||
+const add = (x,y) => {
+	return x+y;
+}
+export { add };
+
+then -> you can import it in another file:
+export {add,subtract};
+
+then watch that:
+export const uppercaseString= (string) => {
+	return string.toUpperCase();
+}
+export const lowercaseString = (string) => {	
+	return string.toLowerCase();
+}
+
+
+/////////////// REUSE JAVASCRIPT CODE USING IMPORT.  ///////////// ////////
+import {add, subtract } from './math_functions.js';
+or
+import {uppercaseString, lowercaseString} from './string_functions.js'
+uppercaseString('hello');
+lowercaseString('WORLD!');
+
+
+/////////////// USE * TO IMPORT EVERYTHING FROM A FILE  ///////////// ////////
+import * as myMathMOdule from "./math_functions.js";
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);
+
+or ||
+import * as stringFunctions from "./string_functions.js"
+ stringFunctions.uppercaseString("hello");
+ stringFunctions.lowercaseString("WORLD!");
+ 
+ 
+/////////////// CREATE AN EXPORT FALLBACK WITH EXPORT DEFAULT. ///////////// /////////
+examplel:
+ export default function add(x,y) {
+	return x+y;
+ }			// <------------ this is function
+ export default function(x,y) {
+	return x+y;
+ }			// <------------ this is anonymous funct.
+ 
