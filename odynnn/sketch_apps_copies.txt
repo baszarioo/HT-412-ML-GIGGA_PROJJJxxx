@@ -1,4 +1,4 @@
-andre*jh271:
+and*e*jh271:
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,8 +17,145 @@ andre*jh271:
 				<input id='new-size' type='range' min='1' max="100" defaultValue="16">
 				<label id='size-label' for='grid-size'></label>
 			</div>
+			<form id="radio-buttons">
+				<input type="radio" name="color" value="default">
+				<label for="blue">Blue</label><br>
+				<input type="radio" name="color" value="random1">
+				<label for="random1">Random 1</label><br>
+				<input type="radio" name="color" value="random2">
+				<label for="random2">Random 2</label><br>
+				<input type="radio" name="color" value="random3">
+				<label for="random3">Random 3</label><br>
+				<input type="radio" name="color" value="darken">
+				<label for="incrementally-darken">Incrementally Darken</label><br>
+				<input type="radio" name="color" value="user">
+				<label for="color-picker">Choose your own... &emsp;</label>
+				<input id="color-picker" type="color">
+			</form>
 		</div>
 		<div id='grid-container'> </div>
 	</body>
 	<script type="text/javascript" src="script.js"></script>
 </html>
+
+--1.b: CSS
+html {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #80f718;
+	font-family: 'Indie Flower', cursive;
+}
+h3{
+	text-align: center;
+	margin: 4vh;
+	font-family: 'League Script', cursive;
+	color: red;
+	font-size: 5vw;
+}
+#controls-container {
+	display: flex;
+	float: left;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 9vw;
+	margin-top: 1vh;
+	width: 24vw;
+	padding: 0;
+	height: 38vw;
+}
+p { 
+	font-size: 2vw;
+}
+button {
+	font-family: 'Indie Flower', cursive;
+	background-color: #3ba1c9;
+	color: rgb(0,0,0);
+	border-radius: 24px;
+	border: 1px solid white;
+	width: 22vw;
+	height: 3vh;
+}
+button:focus {
+	outline: none;
+}
+#clear {
+	position: relative;
+	bottom: 2vw;
+	background-color: #3ba1c9;
+}
+#clear:hover {
+	box-shadow: 0 6px 6px rgba(0,0,0,0.199);
+	background-color: #042b50;
+	color: white;
+	border: 1px solid #c6c6c6;
+	text-decoration: none;
+	transition: all .3s ease;
+	color: #d9f3ed;
+}
+#clear:active {
+	border: 1px solid #300a0a;
+	transition: all 0s ease;
+	background-color: #7bcfb3;
+	color: white;
+	box-shadow: 0 6px 6px rgba(0,0,0,0.199);
+}
+#new-container {
+  line-height: 40px;
+}
+#new-grid {
+  display: block;
+  background-color: #f35858de;
+}
+#new-grid:hover {
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.199);
+  background-color: #500d04;
+  color: white;
+  border: 1px solid #c6c6c6;
+  text-decoration: none;
+  transition: all .3s ease;
+  color: #d9f3ed;
+}
+#new-grid:active {
+  border: 1px solid #300a0a;
+  transition: all 0s ease;
+  background-color: #7bcfb3;
+  color: white;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.199);
+}
+#new-size {
+  width: 19vw;
+}
+#size-label {
+  width: 3vw;
+  font-size: 1.5vw;
+  color: #7b68ee;
+}
+/* Radio buttons */
+#radio-buttons {
+  line-height: 35px;
+}
+/* Main Grid */
+#grid-container {
+  float: right;
+  margin-top: 1vh;
+  margin-right: 6vw;
+  box-sizing: content-box;
+  display: grid;
+  height: 49vw;
+  width: 49vw;
+  border: 1px rgba(0, 0, 0, 0.404) solid;
+}
+
+.cell {
+	border: 1px rgba(0,0,0,0.041) solid;
+	background-color: rgba(255,255,255,1);
+}
+.cell:hover {
+	background-color: aquamarine !important;
+}
+
+--1.c javascript; script.js
