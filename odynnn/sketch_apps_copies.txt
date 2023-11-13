@@ -151,11 +151,136 @@ button:focus {
 }
 
 .cell {
-	border: 1px rgba(0,0,0,0.041) solid;
-	background-color: rgba(255,255,255,1);
+	border: 1px rgba(0,0,0,0.041) solid;background-color: rgba(255,255,255,1);
 }
 .cell:hover {
 	background-color: aquamarine !important;
 }
 
 --1.c javascript; script.js
+const gridContainer=document.querySelector('#grid-container;);
+const controlsContainer = document.querySelector('#controls-container');
+let squaresPerSide=16;
+let cell=[];
+let currentlyActive=false;
+let currentColor=[];
+ gridContainer.addEventListener('click', function() { togglePen()});
+const resetButton = document.querySelector('#clear');
+resetButton.addEventListener('click',clear);
+
+const newGridButton = document.querySelector('#new-grid');
+newGridButton.addEventListener('click', function() {
+	clear();
+	createGrid(newSize.value);
+})
+
+let newSize=document.querySelector('#new-size');
+newSize.value=16;
+let displaySize=document.querySelector('#size-label');
+displaySize.textContent=newSize.value;
+newSize.addEventListener('mousemove', function() {
+	displaySize.textContent=newSize.value;
+})
+
+const colorButtons=document.querySelector('#radio-buttons');
+colorButtons.addEventListener('click', function(){
+	console.log(colorButtons.color.value) 
+	if(colorButtons.color.value=='darken') {
+		cell.forEach(item => {
+			item.dataset.darken=0;
+		})
+	}
+}) colorButtons.color.value="default";
+
+const colorPicker= document.querySelector('#color-picker');
+colorPicker.addEventListener('change', function() {
+	console.log(colorPicker.value);
+})
+colorPicker.value='#7b68ee';
+createGrid(squaresPerSide);
+
+function createGrid(squaresPerSide) {	
+	removeCells();
+	gridContainer.style.gridTemplateColumns = (`repeat(${squaresPerSide}, 1fr`);
+	gridContainer.style.gridTemplateRows = (`repeat(${squaresPerSide}, 1fr`);
+	let numberOfCells=squaresPerside * squaresPerSide;
+	for(let i=0; i<numberOfCells; i++) {
+		cell[i]=document.createElement('div');
+		cell[i].classList.add('cell');
+		cell[i].dataset.darken=0;
+		cell[i].style='background-color: rgba(255,255,255,1)';
+		cell[i].addEventListener('click', activatePen);
+		gridContainer.appendChild(cell[i]);
+	}
+}
+function removeCells() {
+	while(gridContainer.firstChild) {
+		gridContainer.removeChild(gridContainer.firstChild);
+	}
+}
+function clear() {
+	cell.forEach(item => {
+		item.style='background-color: rgba(255,255,255,1)';
+		item.removeEventListener('mouseenter', activatePen);
+		item.dataset.darken=0;
+	})
+	currentlyActive=false;
+}
+function togglePen() {
+	if(!currentlyActive) {
+		cell.forEach(item => {
+			item.removeEventListener('mouseleave', activatePen);
+		})
+		currentlyActive=false;
+	}
+}
+function activatePen(e) {
+	colorTheme=colorButtons.color.value;
+	switch(colorTheme) {
+    case('random1'):
+      currentColor = randomColor1();
+      e.target.style = `background-color: rgba(${currentColor})`;
+      break;
+    case('random2'):
+      currentColor = randomColor2();
+      e.target.style = `background-color: rgba(${currentColor})`;
+      break;
+    case('random3'):
+      currentColor = randomColor3();
+      e.target.style = `background-color: rgba(${currentColor})`;
+      break;
+    case('darken'):
+      currentColor = darken(e);
+      e.target.style = `background-color: rgba(${currentColor})`
+      break;
+    case('user'):
+      currentColor = colorPicker.value;
+      e.target.style = `background-color: ${currentColor}`;
+      console.log(currentColor);
+      break;
+    default:
+      currentColor = [19, 123, 214, 0.95];
+      e.target.style = `background-color: rgba(${currentColor})`;
+  }
+}
+function randomColor!() {
+  let red  let red = Math.floor(Math.random()*150);
+  let green = Math.floor(Math.random()*220);
+  let blue = (Math.floor(Math.random()*135)+120);
+  let alpha = (0.5*Math.random()+0.5);
+  return [red, green, blue, alpha];
+} //emphasizes blue
+function randomColor2() {
+  let red = (Math.floor(Math.random()*155)+100);
+  let green = (Math.floor(Math.random()*255)+000);
+  let blue = Math.floor(Math.random()*0);
+  let alpha = (0.6*Math.random()+0.2);
+  return [red, green, blue, alpha];
+} //emphasizes red
+function randomColor3() {
+  let red = Math.floor(Math.random()*50);
+  let green = Math.floor(Math.random()*125+130);
+  let blue = (Math.floor(Math.random()*255));
+  let alpha = (0.5*Math.random()+0.5);
+  return [red, green, blue, alpha];
+} //emphasizes green
