@@ -224,3 +224,78 @@ function makeList(arr){
 const failureList = makeList(result.failure);
 
 
+/////////////// WRITE CONCISE OOBOJECT LITERAL DECLARATIONS USING OBJECT PROPERTY.  ///////////// //
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+===
+const getMousePosition = (x, y) => ({ x, y });
+
+exercise: 
+const createPerson = (name, age, gender) => {
+	return { name, age, gender };
+}
+
+
+/////////////// WRITE CONCISE DECLARATIVE FUNCITONS ES6.  ///////////// ///
+before:
+	const person = {
+		name: "Taylor",
+		sayHello: function() {
+			return `Hello! My name is ${this.name}.`;
+		}
+	};
+After :
+	const person = {
+		name: "Taylor",
+		sayHello() {
+			return `Hello! My name is ${this.name}.`;
+		}
+	};
+	
+exercise:
+const bicycle = {
+	gear: 2,
+	// setGear: function(newGear) {
+	setGear(newGear){	this.gear= newGear; 	}
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+
+/////////////// CLASS SYNTAX TO DEFINE A CONSTRUCTOR FUNCTION.  ///////////// ////
+ES5: object can be created by defining a constructor function and using the 'new' keyword to instantiate the object.
+ES6: class declaration has a constructor that is invoked with the new keyword.If the 'constructor' method is NOT explicitly defined, then it is implicitly defined with no arguments.
+
+	||EXAMPLE||
+// Explicit constructor, 
+class SpaceShuttle {	
+	constructor(targetPlanet) {
+		this.targetPlanet = targetPlanet;
+	}
+	takeOff() {
+		console.log("To "+ this.targetPlanet+ "!");
+	}
+}
+// Implicit constructor
+class Rocket { 
+	launch() {
+		console.log("To the moon!');
+	}
+}
+const zeus = new SpaceShuttle('Jupiter');
+zeus.takeOff();
+const atlas=new Rocket();
+atlas.launch();
+//
+
+exercise:
+class Vegetable {
+	constructor(veg) {
+		this.veg=veg;
+		this.name=veg;
+	}
+}
+const carrot = new Vegetable('carrot');
+console.log(carrot.name);
