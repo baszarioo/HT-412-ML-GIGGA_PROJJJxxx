@@ -284,3 +284,43 @@ function randomColor3() {
   let alpha = (0.5*Math.random()+0.5);
   return [red, green, blue, alpha];
 } //emphasizes green
+function darken(e) {	
+	let oldColor=e.target.style.backgroundColor;
+	console.log(oldColor);
+	let rgbaString=(oldColor.charAt(3) == 'a') ? oldColor.slice(5,-1): oldColor.slice(4, -1);
+	let rgbaArray=rgbaString.split(',');
+	let red=rgbaArray[0];
+	let green=rgbaArray[1];
+	let blue=rgbaArray[2];
+	let alpha=rgbaArray[3] ? rgbaArray[3] : 1;
+	let currentDarkingStep=e.target.dataset.darken;
+	if(currentDarkingStep==9) return [0,0,0,1];
+	console.log([red,green,blue,alpha]);
+	console.log('Current darkening step: ' + currentDarkeningStep);
+	let newRed=getNewColorValue(red, currentDarkeningStep, false);
+	let newGreen=getNewColorValue(green, currentDarkeningStep, false);
+	let newBlue=getNewColorValue(blue, currentDarkeningStep, false);
+	let newAlpha=getNewColorValue(alpha, currentDarkeningStep, true);
+	currentDarkeningStep++;
+	e.target.dataset.darken=currentDarkeningStep;
+	console.log([newRed, newGreen, newBlue, newAlpha]);
+	reutrn [newRed, newGreen, newBlue, newAlpha];
+}
+
+function getNewColorValue(currentColorValue, step, alpha) {	
+	let increment;
+	let newValue;
+	if(!alpha) {
+		increment=currentColorValue / (10-step);
+		console.log('Current color value: '+currentColorValue);
+		console.log('Increment: '+increment);
+		newValue=currentColorValue - increment;
+	} else {
+		increment=(1-currentColorValue)/(10-step);
+		console.log('Current color value: ' +currentColorValue);
+		console.log('Increment: ' + increment);
+		newValue = +currentColorValue+increment;
+	}
+	console.log('New color value: ' + newValue);
+	return (newValue);
+}
