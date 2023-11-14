@@ -413,4 +413,81 @@ examplel:
 	return x+y;
  }			// <------------ this is anonymous funct.
  
-AC
+
+/////////////// IMPORT A DEFAULT EXPORT. ///////////// //////////
+import subtract from "./math_functions.js"
+ subtract(7,4);
+ 
+
+/////////////// CREATE A JAVASCRIPT PROMISE. ///////////// ////////// /
+const myPromise = new Promise((resolve, reject) => {
+});
+
+solve:
+const makeServerRequest = new Promise((resolve, reject) => {
+
+});
+
+
+/////////////// CVOMPLETE A PROMISE ::. ///////////// ////////// //
+const myPromise = new Priomise((resolve,reject) => {
+	if(condition here) {
+		resolve("Promise fulfilled");
+	} else {
+		reject("Promise was rejected");
+	}
+});
+
+solve:
+const makeServerRequest = new Promise((resolve, reject) => {
+	let repsonse fromServer;
+	if(responseFromServer){
+		resolve("We got the data");
+	} else {
+		reject("Data not received");
+	}
+});
+
+
+/////////////// HANDLE A FULFILLED PROMISE WITH THEN:. ////////// ///
+you want to make something with response from the server.This can be achieved by using the then method. The `then` method is executed imediately after your promise is fulfilled with `resolve`.
+
+myPromise.then(result => { });
+
+
+so we come to:
+const makeServerRequest=new Promise((resolve, reject) => {
+	let responseFromServer =true;
+	if(responseFromServer){
+		resolve("We got the data");
+	} else {
+		reject("Data not received");
+	}
+});
+makeServerRequest.then(result => {
+	console.log(result);
+}).catch(error => {
+	console.log(error);
+});
+
+
+/////////////// HANDLE A REJECTED PROMISE WITH CATCH:. ////////// ////
+catch is the method used when your promise has been rejected.
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to false to represent an unsuccessful response from a server
+  let responseFromServer = false;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
+
+makeServerRequest.then(result => {
+  console.log(result);
+});
+makeServerRequest.catch(error=> {
+  console.log(error);
+});
