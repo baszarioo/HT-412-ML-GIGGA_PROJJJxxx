@@ -158,6 +158,7 @@ button:focus {
 }
 
 --1.c javascript; script.js
+
 const gridContainer=document.querySelector('#grid-container;);
 const controlsContainer = document.querySelector('#controls-container');
 let squaresPerSide=16;
@@ -324,3 +325,36 @@ function getNewColorValue(currentColorValue, step, alpha) {
 	console.log('New color value: ' + newValue);
 	return (newValue);
 }
+
+
+
+@tmcerleaX - n.
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SKETCH APP PAINT</title>
+	<meta name="author" content="XD XD nicetry">
+	<meta name="description" content="A simple painting tiles app, build with Vanilla JS">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link hrefd="css/style.css" rel="stylesheet">
+</head>
+
+<body> 
+	<div clas="conatiner" id="titlecontainer">
+		<h1 id="gametitle">Sketch app</h1>
+	</div>
+	<div class="conatiner" id="menucontainer">
+		<button class="featurebutton" id="resetbutton" onclick="resetGrid()">Reset</button>
+		<button class="featurebutton" </button>
+		<button class="featurebutton" </button>
+		<button class="featurebutton" </button>
+		<button class="featurebutton" </button>
+		<button class="featurebutton" </button>
+	</div>
+	<div class="container" id="maincontainer">
+	</div>
+	
+	<script src="js/main.js"></script>
+</body>
+</html>
