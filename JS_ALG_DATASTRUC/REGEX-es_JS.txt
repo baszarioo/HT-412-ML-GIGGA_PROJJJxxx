@@ -1,0 +1,65 @@
+	////////////////	USING THE TEST METHOD 	//////////////// /
+if you want to find the word `the` in the string ,you could use the following regex: /the/.
+JS has multiple ways to use regexes. One way to test a regex is using the `.test()` method + which returns true / false.
+ EXAMPLE: 
+let testStr="freeCodeCamp";
+let testRegex=/Code/;
+testRegex.test(testStr);
+
+ EXERCISE:
+let myString = "Hello, World!";
+let myRegex = /Hello/;
+let result = myRegex.test(myString); 
+
+
+	////////////////	MATCH LITERAL STRINGS  	//////////////// //
+For example, the regex /Kevin/ wont match kevin or KEVIN. !!
+
+
+////////////////	MATCH A LITERAL STRING  WITH DIFFERENT POSSIBILITES 	//////////////// ///
+Operator to match more than 1 patterns: /yes|no|maybe/
+
+let petString="James has a pet cat.";
+let petRegex=/dog|cat|bird|fish/;
+let result=petRegex.test(petString);
+
+
+////////////////	HOW TO IGNORE CASE WHILE MATCHING 	//////////////// ////
+in that instance, you can use the `i` flag. exmple: `/ignorecase/i `  +> it will match: ignorecase, IgNoreCase, and IgnoreCASE
+
+
+let str="freeCodeCamp";
+let regex=/freecodecamp/i;
+let result=regex.test(str
+
+
+////////////////	EXTRACT MATCHES 	//////////////// /////
+1) test() => checks if pattern exists or not within a string. 
+2) match() => extract the actual matches you found.
+"Hello, World!".match(/Hello/);
+let ourStr="Regular expressions";
+let ourRegex=/expressions/;
+ourStr.match(ourRegex);
+
+||this:
+'string'.match(/regex/);
+/regex/.test('string');
+
+ EXERCISE:
+let extractStr="Extract the word 'coding' from this string.";
+let codingRegex=/coding/;
+let result=extractStr.match(codingRegex);
+
+
+////////////////	FIND MORE THAN THE FIRST MATCH 	//////////////// //////
+to search or extract a pattern more than once, you can use the global flag : `g`.
+example:
+	let repeatRegex=/Repeat/g;
+	testStr.match(repeatReggex);
+	,match +> ["Repeat","Repeat","Repeat"]...
+
+solve:
+let twinkleStar="Twinkle, twinkle, little star";
+let starRegex=/twinkle/ig;
+let result=twinkleStar.match(starRegex);
+console.log(result) // 	+> ['Twinkle', 'twinkle'].
