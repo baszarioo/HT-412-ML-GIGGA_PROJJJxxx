@@ -63,3 +63,93 @@ let twinkleStar="Twinkle, twinkle, little star";
 let starRegex=/twinkle/ig;
 let result=twinkleStar.match(starRegex);
 console.log(result) // 	+> ['Twinkle', 'twinkle'].
+
+
+////////////////	MATCH ANYTHING WITH WILDCARD PERIOD 	//////////////// ///////
+example:
+ let humStr="I'll hum a song";
+ let hugStr="Bear hug";
+ let huRegex=/hu./;
+ huRegex.test(humStr);	//true
+ huRegex.test(hugStr);	//true
+exercise:
+	let exampleStr="Let's have fuin with regular expressions!";
+	let unRegex=/.un/;
+	let result=unRegex.test(exampleStr); // true
+	
+
+////////////////	MATCH SINGLE CHARACTER WITH MULTIPLE POSSIBILITIES	 	//////////////// ///////
+example: 
+ let bigStr="big";
+ let bagStr="bag";
+ let bugStr="bug";
+ let bogStr="bog";
+ let bgRegex=/b[aiu]g/;
+ bigStr.match(bgRegex);		
+ bagStr.match(bgRegex);
+ bugStr.match(bgRegex);
+ bogStr.match(bgRegex);
+ // match +> ["big"], => ["bag"] => ["bug"] => null.
+
+exercise:
+let quoteSample = "Beware of bugs in the above code; I have only proved it correct.";
+let vowelRegex=/[aeiouAEIOU]/gi;
+let result=quoteSample.match(vowelRegex);
+
+
+////////////////	MATCH RANGE OF LETTERS OF THE ALPHABER	 	//////////////// ////////
+let catStr="cat";
+let batStr="bat;
+let matStr = "mat";
+let bgRegex = /[a-e]at/;
+catStr.match(bgRegex);
+batStr.match(bgRegex);
+matStr.match(bgRegex);
+ // match +> ["cat"], ["bat"], null
+ 
+ let quoteSample = "The quick brown fox jumps over the lazy dog.";
+let alphabetRegex = /[a-z]/ig; // Change this line
+let result = quoteSample.match(alphabetRegex); // Change this line
+
+
+////////////////	MATCH NUMBERS AND LETTERS	 	//////////////// /////////
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig;
+jennyStr.match(myRegex);
+
+let quoteSample = "Blueberry 3.141592653s are delicious.";
+let myRegex = /[h-s2-6]/gi; // Change this line
+let result = quoteSample.match(myRegex); // Change this line
+
+
+////////////////	MATCH SINGLE CHARACTERS NOT SPECIFIED	 	//////////////// //////////
+Creatin a negated character set = place a caret character (^) after the opening bracket and before the characters you do not want to match.
+example: /[^aeiou]/gi  +> matches all characters like: .,!,[,@,/ and white spaces are matched. Every single char that is not a vowel.
+
+let quoteSample = "3 blind mice.";
+let myRegex = /[^aeiou0-9]/gi; // Change this line
+let result = quoteSample.match(myRegex); // Change this line
+
+
+////////////////	MATCH CHARACTERS THAT OCCUR ONE || MORE+ TIMES	 	//////////////// ///////////
+example:
+	/a+/g finds one match in 'abc' +> ["a"], and ["aa"] in 'aabc' string.
+	
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/g; // Change this line
+let result = difficultSpelling.match(myRegex);
+
+
+////////////////	MATCH CHARACTERS THAT OCCUR ZERO OR+ MORE TIMES	 	//////////////// ////////////
+* operator.
+let chewieRegex=/Aa*/;
+let result = chewieQuote.match(chewieRegex);
+
+
+////////////////	FIND CHARACTERS WITH LAZY MATCHING.	 	//////////////// ////////////
+/t[a-z]*i/ would find ["titani"] in 'titanic' string.
+/t[a-z]*?i/ 	returns ["ti"]
+
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<.*?>/;
+let result = text.match(myRegex);
