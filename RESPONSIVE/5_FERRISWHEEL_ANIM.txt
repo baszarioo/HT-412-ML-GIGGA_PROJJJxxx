@@ -36,6 +36,8 @@
   max-width: 500px;
   animation-name: wheel;
   animation-duration: 10s;	//applied animation
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 .line {
   background-color: black;
@@ -69,6 +71,8 @@
   position: absolute;
   border: 2px solid; 
   transform-origin: 50% 0%;
+  /* animation: cabins 10s linear infinite; */
+  animation: cabins 10s ease-in-out infinite;	//,, more natural swinging.
 }
 .cabin:nth-of-type(1) {
   right: -8.5%;
@@ -94,11 +98,30 @@
   right: 17%;
   top: 7%;
 }
+
 @keyframes wheel {	//rule used to define the flow of a CSS animation.
    0% {
      transform: rotate(0deg);
    }
    100% {
      transform: rotate(360deg);
+   }
+}
+@keyframes cabins {
+   0% {
+     transform: rotate(0deg);
+	 /* background-color: yellow; */	//jerky animation.
+   }
+   25%{
+    background-color:yellow;
+   }
+   50%{
+    background-color: purple;
+   }
+   75%{
+    background-color: yellow;	// top smooth animation.
+   }
+   100% {
+     transform: rotate(-360deg);
    }
 }
