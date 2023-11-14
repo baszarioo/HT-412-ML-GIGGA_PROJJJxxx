@@ -34,6 +34,8 @@
   width: 55vw;		// we get a circle.
   max-height: 500px;
   max-width: 500px;
+  animation-name: wheel;
+  animation-duration: 10s;	//applied animation
 }
 .line {
   background-color: black;
@@ -43,6 +45,7 @@
   left: 50%;
   top: 50%;		//and now it loooks like a circle's radius.
   transform-origin: 0% 0%;
+  
 }
 .line:nth-of-type(2) {
   transform: rotate(60deg);	//pizza slice.
@@ -59,3 +62,43 @@
 .line:nth-of-type(6) {
   transform: rotate(300deg);
 }		// now on its fully sliced, still like a pizza
+.cabin {
+  background-color: red;
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  border: 2px solid; 
+  transform-origin: 50% 0%;
+}
+.cabin:nth-of-type(1) {
+  right: -8.5%;
+  top: 50%;
+}
+.cabin:nth-of-type(2) {
+  right: 17%;
+  top: 93.5%;
+}
+.cabin:nth-of-type(3) {
+  right: 67%;
+  top: 93.5%;
+}
+.cabin:nth-of-type(4) {
+  left: -8.5%;
+  top: 50%;
+}
+.cabin:nth-of-type(5) {
+  left: 17%;
+  top: 7%;
+}
+.cabin:nth-of-type(6) {
+  right: 17%;
+  top: 7%;
+}
+@keyframes wheel {	//rule used to define the flow of a CSS animation.
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(360deg);
+   }
+}
