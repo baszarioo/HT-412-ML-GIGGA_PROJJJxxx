@@ -7,6 +7,8 @@
       <link rel="stylesheet" href="./styles.css" />
     </head>
   <body>
+	<div class="left-mountain"></div>
+	<div class="back-mountain"></div>
     <div class="penguin"></div>
     <div class="ground"></div>
   </body>
@@ -24,10 +26,11 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
 .penguin{
   width: 300px;
   height: 300px;
+  margin: auto;
+  margin-top: 75px;
 }
 .ground {
 	width: 100vw;
@@ -35,4 +38,21 @@ body {
 	background: linear-gradient(90deg, rgb(88, 175, 236), rgb(182, 255, 255));
 	z-index: 3;
 	position: absolute;
+	margin-top: -58px;
+}
+.left-mountain {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(rgb(203,241,228), rgb(80,183,255));
+  position: absolute;
+  transform: skew(0deg, 44deg); // skew==skos
+  z-index: 2;	// it will be behind the .ground element.
+  margin-top: 100px;
+}
+.back-mountain {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient( rgb(203,241,228), rgb(47,170,255));
+  position: absolute;	// position that prevents an object from takin up space in the page layout.
+  z-index: 1;
 }
