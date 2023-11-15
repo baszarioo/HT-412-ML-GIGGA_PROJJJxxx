@@ -298,7 +298,7 @@ let haRegex = /Haz{4,}ah/; // Change this line
 let result = haRegex.test(haStr);
 
 
-////////////////	 Specify THE EXACT NUMBER OF Matches.   	//////////////// ///////
+/////////////// 	CHECK FOR MIXED GROUPING OF CHARACTERS:. 	//////////////// //////
 let A4="haaaah";
 let A3="haaah";
 let A100="h"+"a".repeat(100)+"h";
@@ -312,7 +312,7 @@ let timRegex = /Tim{4}ber/g; //
 let result = timRegex.test(timStr);
 
 
-/////////////// CHECK FOR ALL OR NONE:. ////////// /////
+/////////////// 	CHECK FOR ALL OR NONE:. 	//////////////// ///////
 let american = "color";
 let british = "colour";
 let rainbowRegex= /colou?r/;
@@ -324,7 +324,7 @@ let favRegex = /favou?rite/; //
 let result = favRegex.test(favWord);
 
 
-/////////////// POSITIVE AND NEGATIVE LOOKAHEAD:. ////////// //////
+/////////////// POSITIVE AND NEGATIVE LOOKAHEAD:. //////////////// ////////
 positive/negative lookahead: will look to make sure the element in the search pattern is there/is not in the sample, but won't match it. A positive lookahead: (?=...), Negative one: (?!...).
 let quit="qu";
 let noquit="qt";
@@ -343,7 +343,7 @@ should be:
 let pwRegex= /(?=\w{6})(?=\w*\d{2})/;
 
 
-/////////////// CHECK FOR MIXED GROUPING OF CHARACTERS:. ////////// ///////
+/////////////// CHECK FOR MIXED GROUPING OF CHARACTERS:. //////////////// ////////
 let testStr="Pumpkin";
 let testRegex=/P(engu|umpk)in/;
 testRegex.test(testStr);
@@ -355,3 +355,38 @@ let myString = "Eleanor Roosevelt";
 let myRegex = /(Franklin|Eleanor)( D\.)? Roosevelt/g; //
 let result = myRegex.test(myString); // 
 
+
+/////////////// REUSE PATTERNS USING CAPTURE GROUPS:. //////////////// /////////
+let repeatRe
+
+let reRegex=/^(\d+)/;
+
+should be: 
+let reRegex= /^(\d+) \1 \1$/;
+or||
+let reRegex=/^(\d+) \1 \1(?!.)/;
+
+
+/////////////// USE CAPTURE GROUPS TO SEARCH AND REPLACE:. //////////////// //////////
+let wrongText="The sky is silver.";
+let silverRegex=/silver/;
+wrongText.replace(silverRegex, "blue");	// +> The sky is blue.
+or""
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');	// +> Camp Code
+
+solution:
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // Change 
+let replaceText = "$3 $2 $1"; // this
+let result = str.replace(fixRegex, replaceText);
+
+
+/////////////// REMOVE WHITESPACE FROM START AND END:. //////////////// ///////////
+// String.prototype.trim();  // casual way to solve it. 
+
+let hello="   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g;
+let result = hello.replace(wsRegex, "");
+
+or||
+let result=hello.replace(/^\s+|\s+$/g, '');
