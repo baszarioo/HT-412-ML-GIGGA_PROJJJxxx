@@ -85,3 +85,12 @@ function zeroArray(m, n) {
 
 let matrix = zeroArray(3, 2);
 console.log(matrix);	// +> [ [0,0], [0,0], [0,0] ]
+
+
+/////////////	PREVENT INFINITE LOOPS WITH A VALID TERMINAL CONDITION:.	///////////// /////////
+example of infinite loop;
+function loopy() {
+	while(true) {
+		console.log("Hello, world!");
+	}
+}
