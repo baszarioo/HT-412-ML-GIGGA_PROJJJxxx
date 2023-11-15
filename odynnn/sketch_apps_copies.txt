@@ -358,3 +358,104 @@ function getNewColorValue(currentColorValue, step, alpha) {
 	<script src="js/main.js"></script>
 </body>
 </html>
+
+
+--2.b: CSS
+
+html { font-size: 15px; }
+@meida only screen and (max-width: 800px) {
+	html { font-size: 10px; } 
+}
+@media only screen and (max-width: 550px) {
+	html { font-size: 8px; }
+}
+@media only screen and (max-width: 450px) {
+	html { font-size: 7px; }
+}
+body {
+	margin: 0;
+	width: 100%;
+	height: 100vh;
+	color: #fff;
+	background: linear-gradient(-45deg, #e2592f, #dd1964, #0faee7, #16d861);
+	background-size: 400% 400%;
+	animation: backgroundGradient 15s ease infinite;
+}
+@keyframes backgroundGradient {
+ 0% { background-position: 0% 0%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 0%; }
+}
+#titlecontainer {
+	display: flex;
+	height: 7rem;
+	justify-content: center;
+	align-items: center;
+}
+#gametile {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 50px;
+	animation: titleShadowZoom 3s ease infinite;
+}
+@keyframes titleShadowZoom { 
+ 0% { text-shadow: 1px 1px #000000; }
+ 50% { text-shadow: 4px 4px #000000; }
+ 100% { text-position: 1px 1px #000000; }
+}
+#menucontainer {
+	display: flex;
+	flex-wrap: wrap;
+	height: 5rem;
+	margin-bottom: 3rem;
+	justify-content: center;
+}
+.featurebutton {
+	background-color: white;
+	border: 3px solid black;
+	border-radius: 7px;
+	margin: 1rem;
+	width: 100px;
+	text-transform: uppercase;
+	font-weight: bolder;
+}
+#rainbowbutton {	animation: rainbowButtonBackground 10s ease infinite;	}
+
+@keyframes rainbowButtonBackground {
+	0% { background-color: #ff6262; }
+	20% { background-color: #ffef62; }
+	40% { background-color: #7cff62; }
+	60% { background-color: #62ffe5; }
+	80% { background-color: #6272ff; }
+	100% { background-color: #ff62ff; }
+}
+#opaquebutton {
+	animation: opaqueButtonBackground 3s ease infinite;
+}
+@keyframes opaqueButtonBackground {	
+	0% { opacity: 0%; }
+	50% { 
+		opacity: 100%;
+		color: black;
+	}
+	100%{ opacity: 0%; }
+}
+#maincontainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	width: 40 rem;
+	height: 40rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+.gamecell {
+	background-color: white;
+	padding: 0px;
+	animation: gameShadowZoom 3s ease infinite;
+}
+@keyframes gameShadowZoom {
+	0% {	box-shadow: 3px 3px #000000;	}
+	50% {	box-shadow: 10px 10px #000000; 	}
+	100% { 	box-shadow: 3px 3px #000000;	}
+}
