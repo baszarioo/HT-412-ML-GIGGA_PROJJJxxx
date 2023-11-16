@@ -9,6 +9,7 @@
   <body>
 	<div class="left-mountain"></div>
 	<div class="back-mountain"></div>
+	<div class="sun"></div>
     <div class="penguin"></div>
     <div class="ground"></div>
   </body>
@@ -31,6 +32,8 @@ body {
   height: 300px;
   margin: auto;
   margin-top: 75px;
+  position: relative;
+  z-index: 4;
 }
 .ground {
 	width: 100vw;
@@ -55,4 +58,48 @@ body {
   background: linear-gradient( rgb(203,241,228), rgb(47,170,255));
   position: absolute;	// position that prevents an object from takin up space in the page layout.
   z-index: 1;
+  transform:rotate(45deg);
+  left: 110px;
+  top: 225px;
+}
+.sun {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  position: absolute;
+  border-radius: 50%;	//circle.
+  top: -75px;
+  right: -75px; 	//top and right edges off screen.
+}
+.penguin-head {
+  width: 50%;
+  height: 45%;
+  background: linear-gradient(45deg, gray, rgb(239,240,228));
+  border-radius: 70% 70% 65% 65% //circleised headd
+  top: 10%;
+  left: 25%;
+}
+.penguin-body {
+  width: 53%;
+  height: 45%;
+  background: linear-gradient(45deg, rgb(134,133,133) 0%, rgb(234,231,231) 25%, white 67%);
+  border-radius: 80% 80% 100% 100%;
+  top: 40%;
+  left: 23.5%;
+  z-index: 1;	//now it appears in front of penguin-body element.
+}
+// or .penguin div { //more specified.
+.penguin * {
+  position: absolute;
+}
+.penguin-body::before {		//pseudo element that's the 1st child of the penguin body element.
+  content: "";
+  position: absolute;	//set a position to its closest positioned ancestor.
+  width: 50%;
+  height: 45%;
+  background-color: gray;
+  top: 10%;
+  left: 25%;
+  border-radius: 0% 0% 100% 100%;
+  opacity: 70%;
 }
