@@ -551,3 +551,39 @@ function colorGrid() {
     } 
 }
 function changeColor(event) {
+	console.log("Triggers changeColor")
+	switch(event.target.dataset.color) {
+		case 'rainbow':
+			color = 'rainbow';
+			break;
+		case 'opaque':
+			color='opaque';
+			break;
+		case 'eraser':
+			color='eraser';
+			break;
+		default: 
+			color='black';
+			break;
+	}
+}
+function buttonHover() {
+	this.style.border='3px solid white';
+}
+function buttonStandard() {
+	this.style.border='3px solid black';
+}
+function userColorSelection(event) {
+	color=event.target.value;
+}
+//EVENT LISTENERS:
+addColorButtons.forEach(addColorButton=> addColorButton.addEventListener('click', changeColor));
+addColorButtons.forEach(addColorButton=> addColorButton.addEventListener('mouseover', buttonHover));
+addColorButtons.forEach(addColorButton=> addColorButton.addEventListener('mouseout', buttonStandard));
+userColorPicker.addEventListener('change', userColorSelection, false);
+userColorPicker.addEventListener('input', userColorSelection, false);
+
+function onLoad() {
+	let gridPixels=document.querySelectorAll(".gamecell");
+	gridPixels.forEach(gridPixel => gridPixel.addEventListener("mouseover", colorGrid));
+}
