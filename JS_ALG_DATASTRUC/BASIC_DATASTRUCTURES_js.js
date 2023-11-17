@@ -120,3 +120,103 @@ function copyMachine(arr,num) {
 } console.log(copyMachine([true,false,true],2));		// +> [[true,false,true],[true,false,true]]
 
 
+/* Combine Arrays with the Spread Operator */
+// 'spread (...)' opeartor also gives us a possibility to combine arrays.]
+let thisArray=['sage', 'rosemary', 'parsley', 'thyme'];
+let thatArray=['basil', 'cilantro', ...thisArray, 'corlander'];  //+> all of them.
+//solution:
+function spreadOut() {
+  let fragment = ['to', 'code'];
+  let sentence = ['learning', ...fragment, 'is', 'fun'] //
+  return sentence;
+}
+console.log(spreadOut());
+
+
+/* Check for the Presence of an Element with indexOf() */
+// indexOf returns -1, if the element does not exist on the array.
+let fruits=['apples', 'pears', 'oranges', 'peaches', 'pears'];
+fruits.indexOf('dates');		// -1
+fruits.indexOf('oranges');		// 2
+frutis.indexOf('pears');		// 1
+
+function quickCheck(arr,elem){
+	return arr.indexOf(elem) !== -1;
+}
+console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+
+
+/* Iterate Through All an Array's Items using For loops */
+// JavaScript offers several built in methods that each iterate over arrays in slightly different ways to acheive different results (such as: every(), forEach(), map() ).
+//example:
+function greaterThanTen(arr){ 
+	let newArr=[];
+	for (let i=0; i<arr.length; i++){
+		if(arr[i] > 10) {
+			newArr.push(arr[i]);
+		}
+	}
+	return newArr;
+}
+greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
+// solution;
+function filteredArray(arr, elem) {
+	let newArr=[];
+	for(let i=0; i<arr.length; i++) {
+		if(arr[i].indexOf(elem)=== -1) {
+			newArr.push(arr[i]);
+		}
+	}
+	return newArr;
+}
+console.log(filteredArray([[3,2,3], [1,6,3], [3,13,26],[19,3,9]], 3));
+
+
+/* Create complex multi-dimensional arrays */
+let nestedArray=[
+	['deep'],
+	[
+		['deeper'],['deeper']
+	],
+	[
+		[
+			['deepest'],['deepest']
+		],
+		[
+			[
+				['deepest-est?']
+			]
+		]
+	]
+];
+console.log(nestedArray[2][1][0][0][0]); // deepest-est?
+//but:
+nestedArray[2][1][0][0][0] = 'deeper still';	// +> now it is 'deeper still'
+// stop-ito
+let myNestedArray = [
+ // Level 1
+ ['unshift', false, 1, 2, 3, 'complex', 'nested'],
+ ['loop', 'shift', 6, 7, 1000, 'method'],
+ ['concat', false, true, 'spread', 'array'],
+ ['mutate', 1327.98, 'splice', 'slice', 'push'],
+ ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth'],
+ // Level 2
+ [
+    // Level 3
+    ['deep', 'level 3']
+ ],
+ // Level 4
+ [
+    [// Level 3
+      ['deeper', 'level 4']
+    ]
+ ],
+ // Level 5
+ [
+    [// Level 4
+      [
+        ['deepest', 'level 5']
+      ]
+    ]
+ ]
+];
