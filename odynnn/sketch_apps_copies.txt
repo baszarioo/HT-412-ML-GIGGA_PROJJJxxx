@@ -459,3 +459,95 @@ body {
 	50% {	box-shadow: 10px 10px #000000; 	}
 	100% { 	box-shadow: 3px 3px #000000;	}
 }
+
+
+--2.c: JavaScript
+const addColorButtons = document.querySelector('.featurebutton');
+const userColorPicker=document.querySelector('#input-color');
+let slider = document.querySelector('#sizeRange');
+let color='black';
+function newGrid(numberCells){	
+	numberCells=numberCe;;s || 16;
+	let cellWidth = 40/numberCells+"rem";
+	let cellHeight=40/numberCells+"rem";
+	const mainContainerDiv = document.getElementById("maincontainer");
+	let divArray=[];
+	for(i=0; i<numberCells; i++){
+		divArray[i]=document.createElement("div");
+		mainContainerDiv.appendChild(divArray[i]);
+		for(j=0; j<numberCells; j++) {
+			const newDiv=document.createElement("div");
+			const classAttribute=document.createAttriburte("class");
+			classAttribute.value="gamecell";
+			newDiv.setAttributeNode(classAttribute);
+			const widthHeightAttribute = document.createAttribute("style");
+			widthHeightAttribute.value=`width: ${cellWidth}; height: ${cellHeight};`;
+			newDiv.setAttributeNode(widthHeightAttribute);
+			divArray[i].appendChild(newDiv);
+		}
+	}
+	onLoad();
+}
+
+//function to reset the Grid.
+function resetGrid() {	
+	let allCells = document.querySelectorAll(".gamecell").forEach(cell => {
+		cell.style.backgroundColor="white";
+	})
+	let promptNumberCells = prompt("How many squares per side? (Maximum: 100)");
+	let numberCells = parseInt(promptNumberCells, 10);
+	if(isNaN(numberCells)){
+		window.alert("Enter a positive integer! (max 100)");
+		return;
+	}
+	else if(nubmerCells <=0) {
+		window.alert("Enter a positive integer! (max 100)");
+		return;
+	}
+	else if(nubmerCells >100) {
+		window.alert("Enter a positive integer! (max 100)");
+		return;
+	}
+	const mainContainerDiv=document.getElementById("maincontainer");
+	while(mainContainerDiv.firstChild) mainContainerDiv.removeChild(mainContainerDiv.firstChild);
+	newGrid(numberCells);
+}
+//trigger creation of grid on DOM Content loaded.
+window.addEventListener('DOMContentLoaded', (event) => {
+	newGrid();
+});
+function colorGrid() {
+	console.log('triggers colorGrid')
+	switch(color){
+		case 'rainbow':
+			this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+			this.classList.remove('opaque');
+			break;
+		case 'opaque';
+			if(this.style.backgroundColor.match(/rgba/)) {
+				let currentOpacity = Number(this.style.backgroundColor.slice(-4,-1));
+				if(currentOpacity<=0.9) {
+					this.style.backgroundColor=`rgba(0,0,0,${currentOPacity + 0.1})`;
+					this.classList.add('opaque');
+				}
+			} else if(this.classList=='opaque' && this.style.backgroundColor == 'rgb(0,0,0)') {
+				return;
+			} else {
+				this.style.backgroundColor='rgba(0,0,0,0.1)';
+			}
+			break;
+		case 'eraser':
+			this.style.backgroundColor = '#ffffff';
+            this.classList.remove('opaque');
+            break;
+        case 'black':
+            this.style.backgroundColor = '#000000';
+            this.classList.remove('opaque');
+            break;
+        default:
+            this.style.backgroundColor = color;
+            this.classList.remove('opaque');
+            break;
+    } 
+}
+function changeColor(event) {
