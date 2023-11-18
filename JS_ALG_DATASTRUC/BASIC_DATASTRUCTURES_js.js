@@ -220,3 +220,105 @@ let myNestedArray = [
     ]
  ]
 ];
+
+
+/* Add Key-value pairs to JavaScript Objects */
+const tekkenCharacter = {
+	player: 'Hwoaran',
+	fightingStyle: 'Tae Kwon Doe',
+	human: true;
+};
+//add an origin to the character: 
+tekkenCharacter.origin = 'South Korea';
+// or other property like one below: (it's required if property has a space in it.)
+tekkenCharacter['hair color']='dyed orange';
+//but it can be applied as below:
+const eyes='eye color';
+teekenCharacter[eyes]='brown';
+//+> result:
+{
+	player: 'Hwoarang',
+	fightingStyle: 'Tae Kwon Doe',
+	human: true,
+	origin: 'South Korea',
+	'hair color': 'dyed orange',
+	'eye color': 'brown'
+}
+//exercise:
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28
+};
+foods.bananas = 13;
+foods.grapes=35;
+foods.strawberries=27;
+console.log(foods);
+
+
+/* Modify an Object Nested Within an Obejct */
+//example:
+let nestedObject = {
+	id": 288026589,
+	date: 'December 31, 2016',
+	data: {
+		totalUsers: 99,
+		online: 80,
+		onlinmeStatus: {
+			active: 67,
+			away: 13,
+			busy: 8
+		}
+	}
+};	// now edit that property;
+nestedObject.data.onlineStatus.busy=10;
+//exercise: change value of online to 45:
+let userActivity = {
+  id: 23894201352,
+  date: 'January 1, 2017',
+  data: {
+    totalUsers: 51,
+    online: 42
+  }
+};
+userActivity.data.online=45;
+console.log(userActivity);
+
+
+/* Access Property Names with Bracket notation */
+//example:
+let selectedFood=getCurrentFood(scannedItem);
+let inventory=foods[selectedFood];
+//solution :
+
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+function checkInventory(scannedItem) {
+  return foods[scannedItem];
+}
+console.log(checkInventory("apples"));
+
+
+/* Use the delete Keyword to Remove Object Properties */
+//for example:
+delete food.apples;
+//
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+delete foods.oranges;
+delete foods.plums;
+delete foods.strawberries;
+console.log(foods);
+
