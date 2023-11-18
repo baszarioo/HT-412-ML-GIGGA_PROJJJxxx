@@ -322,3 +322,138 @@ delete foods.plums;
 delete foods.strawberries;
 console.log(foods);
 
+
+/* Check if an Object has a Property */
+//examples:
+users.hasOwnProperty('Alan');	//true
+'Alan' in users; 	// also true.
+//exercise:
+//v1:
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function hasAllFourNames(obj) {
+	let requiredNames=['Alan', 'Jeff', 'Sarah', 'Ryan'];
+	for(let i=0;i<requiredNames.length; i++){
+		if(!obj.hasOwnProperty(requiredNames[i])){
+			return false;
+		}
+	}
+	return true;
+}
+// or v2 |
+function isEveryoneHere(userObj) {
+  if('Alan' in userObj){
+    if('Jeff' in userObj){
+      if('Sarah' in userObj){
+        if('Ryan' in userObj){
+          return true;
+        } else return false; 
+      }else return false;
+    }else return false;
+  }else return false;
+}
+console.log(isEveryoneHere(users));
+
+
+/* Iterate through the keys of an Object with a for...in Statement */
+const refrigerator = {
+	'milk': 1,
+	'eggs': 12,
+};
+for(const food in refrigerator) {
+	console.log(food, refrigerator[food]);
+}		//+> milk 1 and eggs 12  = key-values
+
+const users={
+	Alan: {
+		online: false
+	},
+	Jeff: {
+		online: true
+	},
+	Sarah: {
+		online: false
+	}
+}
+function countOnline(allUsers) {
+	let count=0;
+	for(const user in allUsers){
+		if(allUsers[user].online === true){
+			count++;
+		}
+	}
+	return count;
+}
+console.log(countOnline(users));
+
+
+/* Generate an Array of All Object Keys with Object.keys() */
+let users = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+function getArrayOfUsers(object) {
+	let keysArray= Object.keys(object);
+	// let keysArray=Object.keys(object);
+	return keysArray;
+}
+console.log(getArrayOfUsers(users));
+
+
+/* Modify an Array Stored in an Object */
+let user = {
+	name='Kenneth',
+	age: 28,
+	data: {
+		username: 'kennethCodesAllDay',
+		joinDate: 'March 26, 2016',
+		organization: 'freeCopdeCamp',
+		friends: [
+			'Sam',
+			'Kira',
+			'Tomo'
+		],
+		location: {
+			city: 'San Francisco',
+			state: 'CA',
+			country: 'USA'
+		}
+	}
+};
+function addFriend(userObj, friend) {
+	userObj.data.friends.push(friend);
+	return userObj.data.friends;
+}
+console.log(addFriend(user,'Pete'));
+//.FIN ITO .
