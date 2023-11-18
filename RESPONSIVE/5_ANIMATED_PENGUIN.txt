@@ -23,8 +23,17 @@
         </div>
 		<div class="blush left"></div>
         <div class="blush right"></div>
+		<div class="beak top"></div>
+        <div class="beak bottom"></div>
       </div>
-	  <div class="penguin-body"></div>
+	  <div class="shirt">
+			<div>💜</div>
+			<p>I CSS</p>
+	  </div>
+	  <div class="penguin-body">
+		<div class="foot left"></div>
+        <div class="foot right"></div>
+	  </div>
     </div>
 
     <div class="ground"></div>
@@ -168,4 +177,65 @@ body {
   top: 25%;
   left: -23%;
   border-radius: 50%;
+}
+
+.blush {
+	width: 15%;
+	height: 10%;
+	background-color: pink;
+	top: 65%;
+	border-radius: 50%;
+}
+.blush.left {
+  left: 15%;
+}
+.blush.right {
+  right: 15%;
+}
+
+.beak {
+  height: 10%;
+  //background-color: orange;
+  background-color: var(--penguin-picorna);
+  border-radius: 50%
+}
+.beak.top {
+  width: 20%;
+  top: 60%;
+  left: 40%;
+}
+.beak.bottom {
+  width: 16%;
+  top: 65%;
+  left: 42%;
+}
+.shirt {
+// font: bold 25px Helvetica, sans-serif;
+  font-size: 25px;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  top: 165px;
+  left: 127.5px;
+  z-index: 1;
+  color: #6a6969;
+}
+.shirt div {
+  font-weight: initial; //in some browsers, hear emoji may look different, set the heart's div to original.
+  top: 22.5px; 
+  left: 12px;
+}
+
+.foot {
+  width: 15%;
+  height: 30%;
+  //background-color: orange;
+  background-color: var(--penguin-picorna);
+  top: 85%;
+  border-radius: 50%;
+}
+.foot.left {
+  left: 25%;
+}
+.foot.right {
+  right: 25%;
 }
