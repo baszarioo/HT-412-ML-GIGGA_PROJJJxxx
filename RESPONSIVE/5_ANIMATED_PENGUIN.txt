@@ -66,6 +66,10 @@ body {
   margin-top: 75px;
   position: relative;
   z-index: 4;
+  //103
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0ms;	//animation when drag clicking on pengu.
 }
 .ground {
 	width: 100vw;
@@ -77,12 +81,14 @@ body {
 }
 .left-mountain {
   width: 300px;
-  height: 300px;
+  //height: 300px;
   background: linear-gradient(rgb(203,241,228), rgb(80,183,255));
   position: absolute;
   transform: skew(0deg, 44deg); // skew==skos
   z-index: 2;	// it will be behind the .ground element.
   margin-top: 100px;
+  //104
+  height: calc(100vh - 300px);
 }
 .back-mountain {
   width: 300px;
@@ -261,9 +267,31 @@ body {
   left: 5%;
   transform-origin: top left;  // make it to be top left corner of its parent.
   transform: rotate(130deg) scaleX(-1);
+  animation-name: wave;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 .arm.right {
   top: 0%;
   right: -5%;
   transform: rotate(-45deg);	//rotate by 45deg, counterclockwise.
+}
+@keyframes wave {
+  10%{
+	transform: rotate(110deg) scaleX(-1);	//retain the scaling of the left arm.
+  }
+  20%{
+	transform: rotate(130deg) scaleX(-1);
+  }
+  30%{
+	transform: rotate(110deg) scaleX(-1);
+  }
+  40%{
+	transform: rotate(130deg) scaleX(-1);
+  }
+}
+.penguin:active {
+	transform: scale(1.5);
+	cursor: not-allowed;	//blokada kursora
 }
