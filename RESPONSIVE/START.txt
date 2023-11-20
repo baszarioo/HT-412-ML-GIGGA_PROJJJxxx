@@ -42,7 +42,7 @@ elementy ol: <li></li>
 		</fieldest>
 		<fieldset>
 			<legend>What's your cat's personality?</legend>
-			<input id="loving" type="checkbox" name="personality" value="loving" checked> <label for="loving">Loving</label>
+			<input id="loving" type="checkbox" name="personality" value="loving" checked> <label for="loving">Loving</label>	<!-- there has to be a space between checkbox and label-->
 			<input id="lazy" type="checkbox" name="personality" value="lazy"> <label for="lazy">Lazy</label>
 			<input id="energetic" type="checkbox" name="personality" value="energetic"> <label for="energetic">Energetic</label>
 		</fieldset>
