@@ -276,3 +276,85 @@ input[type='number']::-webkit-outer-spin-button {
 .fa-github:hover {
 	transform: rotate(360deg) scale(1.2);
 }
+
+@michaxsman	[script.js JAVASCRIPT]:
+let firstOperand = '';
+let secondOperand= '';
+let currentOperation=null;
+let shouldResetScreen=false;
+
+const numberButtons=document.querySelectorAll('[data-number]');
+const operatorButtons=document.querySelectorAll('[data-operator]');
+const equalsButton=document.getElementById('equalsBtn');
+const clearButton=document.getElementById('clearBtn');
+const deleteButton=document.getElementById('deleteBtn');
+const printButton=document.getElementById('lastOperationScreen');
+const currentOperationScreen=document.getElementById('currentOperationScreen');
+window.addEventListener('keydown', handleKeyboardInput)
+equalsButton.addEventListener('click', evaluate);
+clearButton.addEventListener('click', clear);
+deleteButton.addEventListener('click', deleteNumber);
+pointButton.addEventListener('click', appendPoint);
+
+numberButtons.forEach((button)=>
+	button.addEventListener('click', ()=>setOperation(button.textContent))
+)
+operatorButtons.forEach((button)=> 
+	button.addEventListener('click', ()=>setOperation(button.textContent))
+)
+
+function appendNumber(number){
+	if(currentOperationScreen.textContent==='0' || shouldResetScreen)
+		resetScreen()
+	currentOperationScreen.textContent +=number;
+}
+function resetScreen() {
+	currentOperationScreen.textContent='';
+	shouldResetScreen=false;
+}
+function clear() {
+	currentOperationscreen.textContent='0';
+	lastOperationScreen.textContent='';
+	firstOperand='';
+	secondOperand='';
+	currentOperation=null;
+}
+function appendPoint() {
+	if(shouldResetScreen) resetScreen();
+	if(currentOperationScreen.textContent==='') currentOperationScreen.textContent='0';
+	if(currentOperationScreen.textContent.includes('.')) {
+		return currentOperationScreen.textScreen += '.';
+	}
+}
+function deleteNumber() {
+	currentOperationScreen.textContext = currentOperationScreen.textContext
+		.toString()
+		.slice(0,-1);
+/* toString() converts the textContext of the currentOperationScreen object to a string.
+  slice() is used to remove the last character from the string.
+  the modified string is assigned back to the textContext property of the currentOperationScreen object. 
+*/
+}
+
+//MICHELLE KWAN : figure skater chinese-american
+
+function setOperation(operator) {
+	if(currentOperation!==null) evaluate();
+	firstOperand=currentOperationScreen.textContext;
+	currentOPeration = operator;
+	lastOperationScreen.textContext=`${firstOperand} ${currentOperation}`
+	shouldResetScreen=true;
+}
+function evaluate(){ 
+	if(currentOperation === null || shouldResetScreen) return;
+	if(currentOperation === '÷' && currentOperationScreen.textContent === '0'){
+		alert("You can't divide by 0!")
+		return
+	}
+	secondOperand = currentOperationScreen.textContext;
+	currentOperationScreen.textContext=roundResult(
+		operate(currentOperation, firstoperand, secondOperand)
+	)
+	lastOperationScreen.textContent=`${firstOperand} ${currentOperation} ${secondOperand} =`
+	currentOPeration =null;
+}
