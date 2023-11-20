@@ -1,0 +1,72 @@
+/* BEFORE THE PROJECT: //EVENT: preventDefault() method.
+The preventDefault() method of the Event interface tells the user agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be.
+
+The event contniunes to propagate as usual, unless one of its event listeners calls stopPropagation() or stop ImmediatePropagation(), either of which terminates propagation at once.
+
+for example: calling preventDefault() for a non-cancelable event, such as one dispatched via EventTarget.dispatchEvent(), without specifying: [cancelable: true] has no effect.
+
+1. Block default click handling: [js]
+const checkbox = document.querySelector("#id-checkbox");
+checkbox.addEventListener("click", checkboxClick, false);
+function checkboxClick(event){
+	let warn="preventDefault() won't let you check this!<br>";
+	document.getElementById("output-box").innerHTLM += warn;
+	event.preventDefault();
+}
+[html];
+<p>Please click on the checkbox control.</p>
+<form>
+ 	<label for="id-checkbox">Checkbox:</label>
+	<input type="checkbox id="id-checkbox" />
+</form>
+<div id="output-box"></div>
+
+
+2. Stopping keystrokes from reaching an edit field. 
+	[html]:
+<div class="container">
+	<p>Please enter your name using lowercase letters only.</p>
+	<form>
+		<input type="text" id="my-textbox" autocomplete="off" />
+	</form>
+</div>
+	 [CSS]:
+.warning {
+	border: 2px solid #f39389;
+	border-radius: 2px;
+	padding: 10px;
+	position: absolute;
+	background-color: #fbd8d4;
+	color: #3b3c40;
+}    [javascript]:
+const myTextbox=document.getElementById("my-textbox");
+myTextbox.addEventListener("keydown", checkName, false);
+
+function checkName(evt){
+	const key=evt.key;
+	const lowerCaseAlphabet="abcdefghijklmnoqprstuvwxyz";
+	if(!lowerCaseAlphabet.includes(key)){
+		evt.preventDefault();
+		displayWarning(
+			"Please use lowercase letters only.\n" + `Key pressed: ${key}\n`,
+		);
+	}
+}
+//+
+let warningTimeout;
+const warningBox=document.createElement("div");
+warningBox.className="warning";
+function displayWarning(msg){
+	warningBox.innerHTML=msg;
+	if(document.body.contains(warningBox)){
+		clearTimeout(warningTimeout);
+	} else {
+		myTextbox.parentNode.insertBefore(warningBox, myTextbox.nextSibling);
+	}
+warningTimeout=setTimeout(()=> {
+	warningBox.parentNode.removeChild(warningBox);
+	warningTimeout=-1;
+	}, 2000);
+}
+*/
+
