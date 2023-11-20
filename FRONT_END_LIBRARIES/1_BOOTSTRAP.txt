@@ -1,0 +1,41 @@
+** USE RESPONSIVE DESIGN WITH BOOTSTRAP FLUID CONTAINERS ** 
+apply bootstrap to any app by adding this code: 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+than wrap all the html in a div of class ="container-fluid"
+
+
+** MAKE IMAGES MOBILE RESPONSIVE **
+add a class to an image element of "img-responsive"
+example:
+<a href="#"><img class="smaller-image thick-green-border img-responsive" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+<a href="#"><img class="thick-green-border img-responsive" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/running-cat.jpg" alt="Running cat fast as."></a>
+
+
+** CENTER TEXT WITH BOOTSTRAP **
+example: 
+<h2 class="red-text text-center">your text</h2>
+
+
+** CREATE A BOOTSTRAP BUTTON **
+<button class="btn btn-default">Like</button>
+
+
+** CREATE A BLOCK ELEMENT BOOTSTRAP BUTTON **
+add btn-block class to a button element /it will make it take up 100% of the available width /
+<button class="btn btn-default btn-block"> Like </button>
+
+
+** TASTE THE BOOTSTRAP BUTTON COLOR RAINBOW **
+just replace the btn-default class, with a btn-primary , one. (blue color).
+<button class="btn btn-primary btn-block"> L I K E </button>
+
+
+** CALL OUT OPTIONAL ACTIONS WITH BTN-INFO **
+btn-info class is used to call attention to optional actions that the user can take.
+<button class="btn btn-block btn-info">INFO</button>
+
+
+** WARN YOUR USERS OF A DANGEROUS ACTION WITH BTN-DANGER **
+use a class of "btn-danger".
+<button class="btn btn-block btn-danger">Delete</button>
