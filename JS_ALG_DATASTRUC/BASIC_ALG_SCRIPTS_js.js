@@ -187,3 +187,30 @@ functrion frankenSplice(arr1, arr2, n) {
 	return arr2Copy;
 }
 console.log(frankenSplice([1,2,3],[4,5,6], 1)); // +> [4,1,2,3,5,6].
+
+
+/* FALSY BOUNCER */
+const input = [false,0,"hello",null, undefined, NaN];
+const result=falsyBouncer(input);
+console.log(result); // +> ["hello"]
+
+function falsyBouncer(arr) {
+	return arr.filter(Boolean);
+}
+
+
+/* WHERE DO I BELONG */
+function getIndexToI(arr, num) {
+	let i=0;
+	while(i<arr.length && arr[i] <= num) {
+		i++;
+	}
+	return i;
+} //not really- missing some requirement.
+
+function getIndexToIns(arr, num){
+	arr.sort((a,b)=> a-b);
+	let index=arr.findIndex(element => element >= num);
+	return index=== -1 ? arr.length:index;
+}
+console.log(getIndexToIns([1,2,3,4], 1.5)); // 1'
