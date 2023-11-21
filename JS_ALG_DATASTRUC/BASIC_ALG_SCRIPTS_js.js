@@ -122,4 +122,68 @@ function truncateString(str, num){
 		return str;
 	}
 }
-truncateString("A-tisket a-tasket A green and yellow basket",8) // +>
+truncateString("A-tisket a-tasket A green and yellow basket",8) // +> A tisket...
+
+
+/* FINDERS KEEPERS */
+//Create a function that looks through an array 'arr' and returns the first element in it that passes.
+function findElement(arr,func) {
+	for(let i=0; i<arr.length; i++){
+		const element = arr[i];
+		if(func(element)) {
+			return element;
+		}
+	}
+	return undefined;
+}
+findELement([1,2,3,4], num=> num % 2 === 0);
+
+			
+/*	BOO WHO */
+function booWho(value) {
+	return typeof value === 'boolean';
+}
+booWho(null);
+
+
+/* TITLE CASE A SENTENCE */
+function titleCase(str){
+	return str.toLowerCase().split(' ').map(word =>word.charAt(0).toUpperCase() + word.slioce(1)).join(' ');
+}	//it works fine, but also joins all words.
+function titleCase(str) {
+	let words=str.toLowerCase().split(' ');
+	let titleCasedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+	let titleCasedSentence=titleCasedWords.join(' ');
+	return titleCasedSentence;
+}
+let result=ttileCase("I'm a little hleb");
+// or ""
+function titleCase(str) {
+	const newTitle=str.split(" ");
+	const updatedtitle=[];
+	for(let st in newTitle) {
+		updatedTitle[st]=newTitle[st][0].toUpperCase() + newTitle[st].slice(1).toLowerCase();
+	}
+	return updatedTitle.join(" ");
+}
+// or | |v2 !!!!!!!!
+function titleCase(str) {
+	return str
+		.toLowerCase().split(" ")
+		 .map(val=>val.replace(val.charAt(0), val.charAt(0).toUpperCase()))
+		  .join(" ");
+}
+titleCase("Imi timi jimy");
+// or | |v3 || ^^^^^^^^^
+function titleCase(str) {
+	return str.toLowerCase().replace(/(^|\s)\s/g, L=>L.toUpperCase());
+}
+
+
+/* SLICE AND SPLICE */
+functrion frankenSplice(arr1, arr2, n) {
+	let arr2Copy=arr2.slice();
+	arr2Copy.splice(n, 0, ...arr1);
+	return arr2Copy;
+}
+console.log(frankenSplice([1,2,3],[4,5,6], 1)); // +> [4,1,2,3,5,6].
