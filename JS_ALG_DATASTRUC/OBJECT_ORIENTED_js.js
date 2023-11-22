@@ -180,3 +180,126 @@ for(let property in beagle){
 		prototypeProps.push(property);
 	}
 }
+
+
+/* UDNERSTAND THE CONSTRUCTOR PROPERTY */
+// check that!
+let duck= new Bird();
+let beagle=new Dog();
+console.log(duck.constructor === Bird);		//true
+console.log(beagle.constructor === Dog);	//true
+// advantage of the constructor property ^ is that it's possible to check for this property to find out what kind of object it is. Like below:
+function joinBirdFraternity(candidate){	//braterstwo
+	if(candidate.constructor===Bird){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function Dog(name){
+	this.name=name;
+}
+function joinDogFraternity(candidate){
+	if(candidate.constructor===Dog){
+		return true;
+	}
+}
+
+
+/* CHANGE THE PROTOTYPE TO A NEW OBJECT */
+//adding properties to the prototype individually becomes tedious when we add many properties. Like:
+Bird.prototype.eat = function() {
+	console.log("nom nom nom");
+}
+Bird.prototype.describe=function(){
+	console.log("My name is "+this.name);
+}
+// A more efficient way is to set the prototype to a new object that already contains the property.
+Bird.prototype = {
+	numLegs: 2,
+	eat: function() {
+		console.log("nom nom nom");
+	},
+	describe: function() {
+		console.log("My name is " +this.name);
+	}
+};
+// for a Dog class
+function Dog(name) {
+	this.name=name;
+}
+Dog.prototype = {
+	numLegs: 4,
+	eat: function() {
+		console.log("nom nom nom");
+	},
+	describe: function() {
+		console.log("My name is "+this.name);
+	}
+};
+
+
+/* REMEMBER TO SET THE CONSTRUCTOR PROPERTY WHEN CHANGING THE PROTOTYPE */
+duck.constructor === Bird; //false
+duck.constructor === Object; //true
+duck instanceof Bird; //true
+// to fix that, whenever a prototype is manually set to a new object, remember to define the constructor property:
+Bird.prototype = {
+	constructor: Bird,
+	numLegs: 2,
+	eat: function() {
+		console.log("nom nom nom");
+	},
+	describe: function() {
+		console.log("My name is: "+this.name);
+	}
+};
+//or: 
+function Dog(name){
+	this.name=name;
+}
+Dog.prototype = {
+	constructor: Dog,
+	numLegs: 4,
+	eat: function() {
+		console.log("nom nom nom");
+	}, 
+	describe: function() {
+		console.log("My name is "+this.name);
+	}
+};
+	
+	
+/* UNDERSTAND WHERE AN OBJECT'S PROTOTYPE COMES FROM */
+function Bird(name){
+	this.name=name;
+}
+let duck= new Bird("Donald");
+Bird.prototype.isPrototypeOf(duck);	//true
+
+function Dog(name) {
+	this.name= name;
+}
+let beagle=new Dog("Snoopy");
+Dog.prototype.isPrototypeOf(beagle);
+
+
+/*	 UNDERSTAND THE PROTOTYPE CHAIN 	*/
+function Bird(name){
+	this.name=name;
+}
+typeof Bird.prototype;
+//prototype is an object + it can have its own prototype. => prototype of Bird.prototype is Object.prototype
+Object.prototype.isPrototypeOf(Bird.prototype);  //true
+//o r | |
+let duck=new Bird("Donald");
+duck.hasOwnProperty("name");
+//Bird supertype, duck=subtype. => Object is  a supertype for all objects in JavaScript
+function Dog(name){
+	this.name=name;
+}
+let beagle=new Dog("Snoopy");
+Dog.prototype.isPrototypeOf(beagle);	// yields true
+Object.prototypeOf(Dog.prototype);		// true
+
