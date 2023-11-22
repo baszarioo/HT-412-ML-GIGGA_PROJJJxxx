@@ -214,3 +214,69 @@ function getIndexToIns(arr, num){
 	return index=== -1 ? arr.length:index;
 }
 console.log(getIndexToIns([1,2,3,4], 1.5)); // 1'
+
+
+/* MUTATIONS */
+function checkIfContainsAllLetters(array) {
+	let mainString=array[0].toLowerCase();
+	let checkString=array[1].toLowerCase();
+	for(let i=0;i<checkSTring.length; i++){
+		if(mainString.indexOf(checkString[i]) === -1){
+			return false;
+		}
+	}
+	return true;
+}
+
+function mutation(arr){
+	let str1=arr[0].toLowerCase();
+	let str2=arr[1].toLowerCase();
+	return str2.split('').every(lettter=>str1.includes(letter));
+}
+console.log(mutation(["hello", "Hello"));
+
+function mutation(arr) {
+	const test=arr[1].toLowerCase();
+	const target=arr[0].toLowerCase();
+	for(let i=0; i<test.length; i++){
+		if(target.indexOf(test[i])<0) return false;
+	}
+	return true;
+}
+//||
+function mutation(arr){
+	return arr[1]
+		.toLowerCase()
+		.split("")
+		.every(function(letter) {
+			return arr[0].toLowerCase().indexOf(letter) !== -1;
+		});
+}
+
+
+/* CHUNKY MONKEY */
+//Write a function that splits an array (first argument) into groups the length of size (second argument), and returns them as a two-dimensional array.
+function chunkyArrayInGroups(arr, size) {
+	let result=[];
+	for(let i=0;i<arr.length; i+=size){
+		let chunk=arr.slice(i, i+size);
+		result.push(chunk);
+	}
+	return result;
+}
+
+function chunkArrayInGroups2(arr,size) {
+	const newArr=[];
+	while(arr.length>0){
+		newArr.push(arr.splice(0, size));
+	}
+	return newArr;
+}
+
+function chunkArrInGroups3(arr,size){
+	if(arr.length<=size){
+		return [arr];
+	}else {
+		return [arr.slice(0,size)].concat(chunkArrInGroups3(arr.slice(size), size) );
+	}
+}
