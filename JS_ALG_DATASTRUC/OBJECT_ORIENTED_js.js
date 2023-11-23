@@ -303,3 +303,4 @@ let beagle=new Dog("Snoopy");
 Dog.prototype.isPrototypeOf(beagle);	// yields true
 Object.prototypeOf(Dog.prototype);		// true
 
+

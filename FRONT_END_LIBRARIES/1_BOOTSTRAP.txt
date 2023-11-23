@@ -39,3 +39,43 @@ btn-info class is used to call attention to optional actions that the user can t
 ** WARN YOUR USERS OF A DANGEROUS ACTION WITH BTN-DANGER **
 use a class of "btn-danger".
 <button class="btn btn-block btn-danger">Delete</button>
+
+
+** USE THE BOOTSTRAP GRID TO PUT ELEMENTS SIDE BY SIDE **
+Bootstrap uses a responsive 12-column grid system, which makes it easy to put elements into rows and specify each element's relative width. Most of them can be applied to a div element.
+we can use it like: <div class="col-xs-4">
+<div class="row">
+	<div class="col-xs-4">
+		<button class="btn btn-block btn-primary">Like</button>
+	</div>
+	<div class="col-xs-4">
+		<button class="btn btn-block btn-info">Info</button>
+	</div>
+	<div class="col-xs-4">
+		<button class="btn btn-block btn-danger">Delete</button>
+	</div>
+</div>
+
+
+** DITCH CUSTOM CSS FOR BOOTSTRAP **
+delete .red-text, .smaller-image and p stylings.	than use an img-responsive for img, and text-primary for p.
+
+
+** USE A SPAN TO TARGET INLINE ELEMENTS **
+you can use spans to create inline elements, like the btn-block class, to make the button fill entire row.
+By using the inline 'span' element, we can put several elements on the same line.
+<p>Things cats <span class="text-danger">love:</span></p>
+<p>Top 3 things cats <span class="text-danger">hate:</span></p>
+
+
+** CREATE A CUSTOM HEADING **
+Nes
+  <div class="row">t both h2 element + first picture, so They're on the same line.
+    <div class="col-xs-8">
+      <h2 class="text-primary text-center">CatPhotoApp</h2>
+    </div>
+    <div class="col-xs-4">
+  <a href="#"><img class="img-responsive thick-green-border" src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+    </div>
+  </div>
+ 
