@@ -46,15 +46,51 @@ Bootstrap uses a responsive 12-column grid system, which makes it easy to put el
 we can use it like: <div class="col-xs-4">
 <div class="row">
 	<div class="col-xs-4">
-		<button class="btn btn-block btn-primary">Like</button>
+		<button class="btn btn-block btn-primary"><i class="fas fa-thumbs-up"></i> Like</button>
 	</div>
 	<div class="col-xs-4">
-		<button class="btn btn-block btn-info">Info</button>
+		<button class="btn btn-block btn-info"><i class="fas fa-info-circle"></i> Info</button>
 	</div>
 	<div class="col-xs-4">
-		<button class="btn btn-block btn-danger">Delete</button>
+		<button class="btn btn-block btn-danger"><i class="fas fa-trash"></i> Delete</button>
 	</div>
 </div>
+
+
+** RESPONSIVELY STYLE RADIO BUTTON **
+It's possible to use bootstrap's :col-xs-* on 'form' elements.!
+<form action="https://freecatphotoapp.com/submit-cat-photo">
+ <div class="row">
+	<div class="col-xs-6">
+		<label><input type="radio" name="indoor-outdoor">Indoor</label>
+	</div>
+	<div class="col-xs-6">
+		<label><input type="radio" name="indoor-outdoor">Outdoor</label>
+	</div>
+ </div>
+ ...
+</form>
+
+
+** RESPONSIVELY STYLE CHECKBOXES **
+...
+<div class="row">
+	<div class="col-xs-4">
+		<label><input type="checkbox" name="personality"> Loving</label>
+	</div>
+	<div class="col-xs-4">
+		<label><input type="checkbox" name="personality"> Caring</label>
+	</div>
+	<div class="col-xs-4">
+		<label><input type="checkbox" name="personality"> Crazy</label>
+	</div>
+</div>
+/...
+
+
+** STYLE TEXT INPUTS AS FORM CONTROLS **
+All textual <input>, <textarea>, and <select> elements with the class .form-control have a width of 100%
+
 
 
 ** DITCH CUSTOM CSS FOR BOOTSTRAP **
@@ -79,3 +115,44 @@ Nes
     </div>
   </div>
  
+
+** ADD FONT AWESOME ICONS TO OUR BUTTONS **
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="shja384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzTebnhndOJK28anvf" crossorigin="anonymous">
++ The i element was originallyh used to make other elements italic, but is now commonly used for icons. The FA classes can be sucesffully added to it, turning into an  icon. As example:
+<i class="fas fa-info-circle"></i>
+<button class="btn btn-block btn-primary">Like<i class="fas fa-thumbs-up"></i></button>
+
+
+** ADD FONT AWESOME ICONS TO ALL OF OUR BUTTONS **
+...
+<div class="col-xs-4"><button class="btn btn-block btn-primary"><i class="fas fa-thumbs-up"></i>Like</button></div>
+<div class="col-xs-4"><button class="btn btn-block btn-primary"><i class="fas fa-info-circle"></i>Info</button></div>
+<div class="col-xs-4"><button class="btn btn-block btn-danger"><i class
+
+
+** STYLE TEXT INPUTS AS FORM CONTROLS **
+...
+ <input type="text" placeholder="cat photo URL" class="form-control" required>
+ <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Submit </button>
+ </form>
+</div>
+
+
+** LINE UP FORM ELEMENTS RESPONSIVELY WITH BOOTSTRAP **
+get form input' and button' on the same line.
+...
+ <div class="row">
+	<div class="col-xs-7">
+	 <input type="text" class="form-control" placeholder="cat photo URL" required>
+	</div>
+	<div class="col-xs-5">
+	 <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Submit </button>
+	</div>
+ </div>
+</form>
+</div>
+
+
+** CREATE A BOOTSTRAP HEADLINE **
+build a jQuery playground for future jQuery challenges. h3 with some bootstrap's classes.
+<h3 class="text-primary text-center">jQuery Playground</h3>
