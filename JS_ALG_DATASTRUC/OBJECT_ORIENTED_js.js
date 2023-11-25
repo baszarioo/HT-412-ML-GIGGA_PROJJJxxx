@@ -304,3 +304,145 @@ Dog.prototype.isPrototypeOf(beagle);	// yields true
 Object.prototypeOf(Dog.prototype);		// true
 
 
+/* USE INHERITANCE SO YOU DON'T REPEAT YOURSELF */
+// in the example below describe method is shared by Bird and Dog.
+Bird.prototype = {
+	constrtuctor: Bird,
+	describe: function() {
+		console.log("My name is "+ this.name);
+	}
+};
+Dog.prototype = {
+	constructor: Dog,
+	describe: function() {
+		console.log("My name is "+this.name);
+	}
+};
+//we can ommit that by creating a supertype! (or parent) called Animal:
+function Animal() { };
+Animal.prototype = {
+	constructor: Animal,
+	describe: function() {
+		console.log("My name is " + this.name);
+	}
+};
+// +>
+Bird.prototype = {
+	constructor: Bird
+};
+Dog.prototype = {
+	constructor: Dog
+};
+
+// solution:
+function Cat(name){
+	this.name=name;
+}
+Cat.prototype = {
+	constructor: Cat
+};
+function Bear(name){
+	this.name=name;
+}
+Bear.prototype= {
+	constructor: Bear
+};
+
+function Animal() { }
+Animal.prototype = {
+	constructor: Animal,
+	eat: function() {
+		console.log("nom nom nom");
+	}
+};
+
+
+/* INHERIT BEHAVIOURS FROM A SUPERTYPE */
+// supertype:
+function Animal() { }
+Animal.prototype.eat = function() {
+	console.log("nom nom nom");
+}
+//now create a new instance of the supertype
+let animal = new Animal();	//not optimal
+let animal = Object.create(Animal.prototype);	
+animal.eat();
+animal instanceof Animal;	//true
+
+//solution
+function Animal() { }
+Animal.prototype = {
+	constructor: Animal,
+	eat: function() {
+		console.log("nom nom nom");
+	}
+};
+let duck=Object.create(Animal.prototype);
+let beagle=Object.create(Animal.prototype);
+
+
+/* SET THE CHILD'S PROTOTYPE TO AN INSTANCE OF THE PARENT */
+//: set the prototytpe of the subtype (or child) - in this case, Bird- to be instance of Animal.
+Bird.prototype = Object.create(Animal.prototype);	// Bird includes all the key 'ingredients' from Animal.
+let duck = new Bird("Donald");
+duck.eat();
+// solution:
+function Animal() { }
+Animal.prototype = {
+	constructor: Animal,
+	eat: function() {
+		console.log("nom nom nom");'
+	}
+};
+Dog.prototype=Object.create(Animal.prototype);
+let beagle= new Dog();
+
+
+/* RESET AN INHERITED CONSTRUCRTOR PROPERTY */
+function Bird() { }
+Bird.prototype = Object.create(Animal.prototype);
+let duck = new Bird();
+duck.constructor	// created through Animal.
+
+Bird.prototype.constructor = Bird;
+duck.constructor // +> now it's done through Bird.
+//solution:
+function Animal() { };
+function Bird() { };
+function Dog() { };
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype=Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+let duck = new Bird();
+let beagle=new Dog();
+
+
+/* ADD METHODS AFTER INHERITANCE */
+// bird as a constructor that inherits its prototype from Animal 
+function Animal() { }
+Animal.prototype.eat = function () {
+	console.log("nom nom nom");
+};
+function Bird() { };
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+//now add unique behavior for Bird objects.
+Bird.prototype.fly = function() {
+	console.log("I'm flying!");
+};
+//now instances of Bird will have both eat() + fly() methods.
+let duck = new Bird();
+duck.eat();
+duck.fly();
+
+//exercise:
+function Animal() { }
+Animal.prototype.eat =function() {console.log("nom nom nom"); };
+function Dog() { }
+Dog.prototype=Object.create(Animal.prototype);
+Dog.prototype.constructor=Dog;
+Dog.prototype.bark = function() {
+	console.log("Woof!");
+};
+let beagle = new Dog();
