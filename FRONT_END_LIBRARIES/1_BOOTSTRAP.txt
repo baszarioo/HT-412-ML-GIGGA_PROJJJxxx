@@ -233,3 +233,71 @@ well class = creates a visual sense of depth for your columns.
       </div>
    ...
    
+   
+** CREATE A CLASS TO TARGET WITH JQUERY SELECTORS **
+	<button class="btn btn-default target"></button>
+	<button class="btn btn-default target"></button>
+	<button class="btn btn-default target"></button>
+	...
+	<button class="btn btn-default target"></button>
+	<button class="btn btn-default target"></button>
+	<button class="btn btn-default target"></button>
+	
+	
+** ADD ID ATTRIBUTES TO BOOTSTRAP ELEMENTS **
+<div class="container-fluid">
+	...
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="well" id="left-well">
+				<button class="btn btn-default target"></button>
+			...
+		</div>
+		<div class="col-xs-6">
+			<div class="well" id="right-well">
+				<button class="btn btn-default target"></button>
+			...
+		</div>
+	...
+	
+	
+** 	LABEL BOOTSTRAP WELLS **
+<div class="container-fluid">
+	...
+	<div class="row">
+		<div class="col-xs-6">
+			<h4>#left-well</h4>
+			<div class="well" id="left-well">
+				<button class="btn btn-default target"></button>
+			...
+		</div>
+		<div class="col-xs-6">
+			<h4>#right-well</h4>
+			<div class="well" id="right-well">
+				<button class="btn btn-default target"></button>
+			...
+		</div>
+	...
+
+
+** GIVE EACH ELEMENT A UNIQUE ID **
+<div class="container-fluid">
+	...
+	<div class="row">
+		<div class="col-xs-6">
+			<h4>#left-well</h4>
+			<div class="well" id="left-well">
+				<button class="btn btn-default target" id="target1"></button>
+			...
+		</div>
+		<div class="col-xs-6">
+			<h4>#right-well</h4>
+			<div class="well" id="right-well">
+				<button class="btn btn-default target" id="target4"></button>
+			...
+		</div>
+	...
+	
+
+** USE COMMENTS TO CLARIFY CODE **
+<!-- Code below essa this in essyn -->
