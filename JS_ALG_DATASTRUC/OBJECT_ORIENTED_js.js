@@ -520,3 +520,82 @@ function Bird() {
 		return weight;
 	};
 }
+
+
+/* UNDERSTAND THE IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE) */
+// A common pattert in JS to execute a function as sson as it is declared: 
+(function () {
+	console.log("Chirp, chirp!);
+})();	//anonymous function expression that executes right away! :OBJECT
+//exercise: rewrite the function into (IIFE).
+function makeNest() {
+	console.log("A cozy nest is ready");
+}
+makeNest();
+// ++>
+(function () {
+	console.log("A cozy nest is ready");
+})();
+
+
+/* USE AN IIFE TO CREATE A MODULE */
+// (IIFE) is often used to group related functionality into a single object or module.
+//For example we can group 2 mixins into a module as follows:
+function glideMixin(obj) {
+	obj.glide=function() {
+		console.log("Gliding on the water");
+	};
+}
+function flyMixin(obj){
+	obj.fly=function() {
+		console.log("Flying, woosh!");
+	};
+}
+// --> now group them into module;
+let motionModule = (function () {
+	return {
+		glideMixin: function(obj) {
+			obj.glide=function() {
+				console.log("Gliding on the water");
+			};
+		},
+		flyMixin: function(obj){
+			obj.fly=function(){
+				console.log("Flying, woosh!");
+			};
+		}
+	}
+})(); // usage below:
+motionModule.glideMixin(duck);
+duck.glide();
+
+//exercise: BEFORE
+let isCuteMixin=function(obj) {
+	obj.isCute=function() {
+		return true;
+	};
+};
+let singMixin=function(obj){
+	obj.sing=function() {
+		console.log("Singing to an awesome tune");
+	};
+};
+// exercise: DONE
+let funModule = (function() {
+	let isCuteMixin=function(obj){
+		obj.isCute=function(){
+			return true;
+		};
+	};
+	let singMixin=function(obj){
+		obj.sing=function(){
+			console.log("Singing to an awesome tune");
+		};
+	};
+	return {
+		isCuteMixin: isCuteMixin,
+		singMixin: singMixin
+	};
+})();
+	
+	
