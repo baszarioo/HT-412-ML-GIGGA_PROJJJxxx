@@ -446,3 +446,77 @@ Dog.prototype.bark = function() {
 	console.log("Woof!");
 };
 let beagle = new Dog();
+
+
+/* OVERRIDE INHERITED METHODS **/
+ChildObject.prototype = Object.create(ParentObject.prototype);
+ChildObject.prototype.methodName=function() {...};
+//here's how a Bird can ovveride the eat() method inherited from Animal.
+function Animal() { }
+Animal.prototype.eat = function() {
+	return "nom nom nom";
+};
+function Bird() { }
+Bird.prototype =Object.create(Animal.prototype);
+Bird.prototype.eat=function() {
+	return "peck peck peck";
+};
+//exercise:
+function Bird() { };
+Bird.prototype.fly = function() { return "I am flying!"; };
+function Penguin() { }
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor =Penguin;
+Penguin.prototype.fly = function() {
+	return "Alas, this is a flightless bird.";
+}
+let penguin = new Penguin();
+console.log(penguin.fly());
+
+
+/* USE A MIXIN TO ADD COMMON BEHAVIOR BETWEEN UNRELATED OBJECTS */
+// for example: Bird + Airplane both fly, but are not unrelated.
+let flyMixin = function(obj) {
+	obj.fly = function() {
+		console.log("Flying, woosh!");
+	}
+}; //The flyMixin takes any object and gives it the fly method.
+let bird= {
+	name: "Donald",
+	numLegs: 2
+};
+let plane = {
+	model: "777",
+	numPassengers: 524
+};
+flyMixin(bird);	// +> bird.fly();
+flyMixin(plane); // +> plane.fly();
+// exercise:
+...
+let glideMixin=function(obj) {
+	obj.glide= function() {
+	}
+}
+glideMixin(bird);
+glideMixin(boat);
+
+
+/** USE A CLOSURE TO PROTECT PROPERTIES WITHIN AN OBJECT FROM BEING MODIFIED EXTERNALLY **/
+bird.name="Duffy";
+function Bird() {
+	let hatchedEgg=10;
+	this.getHatchedEggCount = function() {
+		return hatchedEgg;
+	};
+}
+let ducky = new Bird();
+ducky.getHatchedEggCount();
+//easiest way to make a public proverty, private -> is to create a variable within the constructor function.
+//solutuin:
+function Bird() {
+	this.weight=15; //public no matter what.
+	let weight=15;	//possibility to make it private.
+	this.getWeight =function() {
+		return weight;
+	};
+}
