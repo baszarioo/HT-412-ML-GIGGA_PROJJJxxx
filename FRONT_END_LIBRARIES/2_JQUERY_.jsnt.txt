@@ -63,3 +63,44 @@ exercise;
 
 **** DELETE YOUR JQUERY FUNCTIONS ****
 // just leave the document ready function itself.
+
+
+*** TARGET THE SAME ELEMENT WITH MULTIPLE JQUERY SELECTORS ****
+<script>
+	$(document).ready(function() {
+		$("button").addClass("animated");
+		$(".btn").addClass("shake");
+		$("#target1").addClass("btn-primary");
+	});
+</script>
+....
+
+
+
+*** REMOVE CLASSES FROM AN ELEMENT WITH JQUERY ****
+$("target2").removeClass("btn-default");
+// or "
+$("button").removeClass("btn-default");
+
+
+*** CHANGE THE CSS OF AN ELEMENT USING JQUERY ****
+Here's how to change elements color to blue:
+$("#target1").css("color", "blue");
+// +>
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+  });
+</script>
+
+
+*** DISABLE AN ELEMENT USING JQUERY ****
+//like that:
+$("button").prop("disabled", true);
+//exercise:
+<script>
+	$(document).ready(function() {
+		$("#target1").css("color", "red");
+		$("#target1").prop("disabled", true);
+	});
+</script>
