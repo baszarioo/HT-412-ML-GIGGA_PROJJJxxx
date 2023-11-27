@@ -33,3 +33,33 @@ solution:
 	});
 </script> 
 ...
+
+
+**** TARGET ELEMENTS BY CLASS USING JQUERY ***
+//example: making all the elements with class: text-primary -> to shake by adding to 'document ready function'
+$(".text-primary").addClass("animated shake");
+//exercise:
+<script>
+	$(document).ready(function() {
+		$("button").addClass("animated bounce");
+		$(".well").addClass("animated shake");
+	});
+</script>
+....
+
+
+**** TARGET ELEMENTS BY ID!! USING JQUERY ***
+//EXAMPLE"
+$("#target6").addClass("animated fadeOut");
+exercise;
+<script>
+	$(document).ready(function() {
+		$("button").addClass("animated bounce");
+		$(".well").addClass("animated shake");
+		$("#target3").addClass("animated fadeOut");
+	});
+</script>
+
+
+**** DELETE YOUR JQUERY FUNCTIONS ****
+// just leave the document ready function itself.
