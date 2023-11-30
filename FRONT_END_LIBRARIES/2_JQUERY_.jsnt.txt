@@ -122,3 +122,51 @@ $("#target4").html("<em>#target4</em>")
 		$("#target4").remove();
 	});
 </script>
+
+
+**** USE "appendTo" TO MOVE ELEMENTS WITH JQUERY ****
+// example to move target4 from our right well to our left one."
+$("#target4").appendTo("#left-well");
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+  });
+</script>
+
+
+**** CLONE AN ELEMENT USING JQUERY ****
+//example: 
+$("#target2").clone().appendTo("#right-well");
+//now clone target5 elem. and append it to left-well.
+<script>
+	$(document).ready(function() {
+		$("#target1").css("color", "red");
+		$("#target1").css("disabled", true);
+		$("#target4").remove();
+		$("#target2").appendTo("right-well");
+		$("#target5").clone.appendTo("right-well");
+	});
+</script>
+
+
+**** TARGET THE PARENT OF AN ELEMENT USING JQUERY ****
+// for example: h3 element has the parent element of <div class="container-fluid"> -> which itself has the parent element of body.
+// "example" of how to use parent() function to give the parent elmeent of the left-well -> a blue background.
+	$("#left-well").parent().css("background-color", "blue");
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red");
+  });
+</script>
+
+
