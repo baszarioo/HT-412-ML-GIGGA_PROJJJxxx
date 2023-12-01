@@ -170,3 +170,91 @@ $("#target2").clone().appendTo("#right-well");
 </script>
 
 
+*** TARGET THE CHILDREN OF AN ELEMENT USING JQUERY *****
+// use a children() function.
+// example to target children of left-well elements to color them blue:
+$("#left-well").children().css("color", "blue");	
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red");
+    $("#left-well").children().css("background-color", "orange");
+    $("#right-well").children().css("color", "orange");
+  });
+</script> ...
+
+
+*** TARGET A SPECIFIC CHILD OF AN ELEMENT USING JQUERY *****
+// how would we give the third element in each well, the bounce class.
+$(".target:nth-child(3)").addClass("animated bounce");
+
+<script>
+  $(document).ready(function() {
+    $("#target1").css("color", "red");
+    $("#target1").prop("disabled", true);
+    $("#target4").remove();
+    $("#target2").appendTo("#right-well");
+    $("#target5").clone().appendTo("#left-well");
+    $("#target1").parent().css("background-color", "red");
+    $("#right-well").children().css("color", "orange");
+    $(".target:nth-child(2)").addClass("animated bounce");
+  });
+</script>
+
+
+*** TARGET EVEN ELEMENTS USING JQUERY *****
+// we can target elements based on their positions also by using :odd and :even selectors.. example:
+$(".target:odd").addClass("animated shake");
+...
+	$(".target:even").addClass("animated shake");
+ });
+</script>
+
+
+*** USE JQUERY TO MODIFY THE ENTIRE PAGE *****
+// make entire body fadeout:!!
+$("body").addClass("animated fadeOut");
+
+exercises: add classes animated and hinge to body element.
+
+<script>
+	$(document).ready(function() {
+		$("#target1").css("color", "red");
+		$("#target1").prop("disabled", true);
+		$("#target4").remove();
+		$("#target2").appendTo("#right-well");
+		$("#target5").clone().appendTo("#left-well");
+		$("#target1").parent().css("background-color", "red");
+		$("#right-well").children().css("color", "orange");
+		$("#left-well").children().css("color", "green");
+		$(".target:nth-child(2)").addClass("animated bounce");
+		$(".target:even").addClass("animated shake");
+		$("body").addClass("animated hinge");
+	});
+</script>
+<div class="container-fluid">
+	<h3 class="text-primary text-center">jQuery Playground</h3
+	<div class="row">
+	 <div class="col-xs-6">
+      <h4>#left-well</h4>
+      <div class="well" id="left-well">
+        <button class="btn btn-default target" id="target1">#target1</button>
+        <button class="btn btn-default target" id="target2">#target2</button>
+        <button class="btn btn-default target" id="target3">#target3</button>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h4>#right-well</h4>
+      <div class="well" id="right-well">
+        <button class="btn btn-default target" id="target4">#target4</button>
+        <button class="btn btn-default target" id="target5">#target5</button>
+        <button class="btn btn-default target" id="target6">#target6</button>
+      </div>
+    </div>
+  </div>
+</div>
