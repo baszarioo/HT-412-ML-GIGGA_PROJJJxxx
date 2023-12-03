@@ -160,3 +160,87 @@ function remove(arr,bookName){
 		return bList;
 	}
 }
+
+
+
+/* USE THE MAP METHOD TO EXTRACT DATA FROM AN ARRAY */
+//  functions are considered to be 'first class objects in JS'. example: Array.prototype.map() ; is a method which iterates over each item in an array and returns a new array containing the results of calling the callback function on each element, without mutating the original array.
+
+//example of map method, to return only usernames array from user's elements.; 
+const users = [
+	{ name: 'John', age: 34 },
+	{ name: 'Amy', age: 20 },
+	{ name: 'camperCat', age: 10 }
+];
+const names = users.map(user => user.name);
+console.log(names);	// +> [ 'John', 'Amy', 'camperCat' ]
+
+//exercise return title + rating of a movie from IMDB database. 
+//V1 ....
+const ratings=[];
+for(let i = 0; i<watchList.length; i++){ 
+	ratings.push({title: watchList[i]["Title"], rating: watchList[i]["imdbRating"]});
+}
+//ver2_valid: 
+const ratings = watchList.map(item => ({ title: item["Title"], rating: item["imdbRating"] }));
+//ver3_valid:
+const ratings = watchList.map(({ Title: title, imdbRating: rating }) => ({title, rating}));
+
+
+
+/* IMPLEMENT MAP ON A PROTOTYPE */
+//  map = a pure function
+// write your own Array.prototype.myMap(), which should behave exactly like Array.prototype. map(). Array instance can be acessed in the myMap method using this.
+
+//solution 1
+Array.prototype.myMap = function (callback) {
+	const newArray=[];
+	this.forEach((element, index, originalArr) =>
+		newArray.push(callback(element, index, originalArr))
+	);
+	return newArray;
+};
+//solution 2:
+Array.prototype.myMap = function(callback) {
+	const newArray=[];
+	for(let i =0; i<this.length; i++) {
+		newArray.push(callback(this[i], i, this));
+	}
+	return newArray;
+};
+
+
+
+/* USE THE FILTER METHOD TO EXTRACT DATA FROM AN ARRAY */
+// /usage of Array.prototype.filter() /
+const users = [
+	{ name: 'John', age: 34 },
+	{ name: 'Amy', age: 20 },
+	{ name: 'camperCat', age: 10},
+];
+const usersUnder30 = users.filter(user => user.age < 30);
+console.log(usersUnder30); // +> [ { name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 } ]
+
+// solution 1: (movies with rating >= 8,0
+const filteredList = watchList
+	.filter(({ imdbRating }) => imdbRating >= 8.0)
+	.map(({ Title: title, imdbRating: rating }) => ({title, rating}));
+console.log(filteredList);
+// solution 2: 
+const filteredList = watchList
+	.filter(movie => movie.imdbRating >= 8.0)
+	.map(movie => ({title: movie["Title"], rating: movie["imdbRating"] }));
+ console.log(filteredList);
+ 
+//solution 3:
+const filteredList = watchList
+	.filter(movie => {
+		return parseFloat(movie.imdbRating) >= 8.0;
+	})
+	.map(movie => {
+		return {
+			title: movie.Title,
+			rating: movie.imdbRating
+		};
+	});
+	
