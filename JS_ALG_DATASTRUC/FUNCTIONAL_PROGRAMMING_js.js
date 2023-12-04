@@ -244,3 +244,61 @@ const filteredList = watchList
 		};
 	});
 	
+
+
+/* /// IMPLEMENT THE FILTER METHOD ON A PROTOTYPE */
+// solution 1
+Array.prototype.myFilter = function(callback) {
+	const newArray=[];
+	for(let i=0; i<this.length; i++) {
+		if(Boolean(callback(this[i], i, this)) === true) {
+			newArray.push(this[i]);
+		}
+	}
+	return newArray;
+};
+
+// solution 2:
+Array.prototype.myFilter=function(callback) {
+	const newArray=[];
+	for(let i=0; i<this.length; i++) {
+		if(callback(this[i], i, this) == true) {
+			newArray.push(this[i]);
+		}
+	} return newArray;
+};	
+	
+// solution 3:
+Array.prototype.myFilter = function(callback) {
+	const newArray=[];
+	for(const [index,elem] of this.entries()) {
+		if(callback(elem, index, this)) newArray.push(elem);
+	}
+	return newArray;
+};
+
+
+
+/* /// RETURN PART OF AN ARRAY USING THE SLICE METHOD */
+//CHECK THAT: 
+const arr=["Cat", "Dog", "Tiger", "Zebra"];
+const newArray = arr.slice(1,3);	// +> ["Dog", "Tiger"].
+
+//soluzione;
+function sliceArray(anim, beginSlice, endSlice){
+	return anim.slice(beginSlice, endSlice);
+}
+const inputAnim=["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+sliceArray(inputAnim, 1, 3);
+
+
+
+/* /// REMOVE ELEMENTS FROM AN ARRAY USING SLICE INSTEAD OF SPLICE */
+function nonMutatingSplice(cities) {
+	return cities.slice(0,3);
+}
+
+//before:
+function nonMutatingSplice(cities) {
+	retrun cities.splice(3);
+}
