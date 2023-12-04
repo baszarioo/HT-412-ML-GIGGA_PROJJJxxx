@@ -1,0 +1,73 @@
+SVGs are a very common image format on the web. They're very useful if we need to create or modify our images prorammatically, cause we can change their properties through .i.e CSS and JavaScript.
+It's often used for:
+1. Icons,
+2. Graphs/charts.
+3. Large, simple images
+4. Patterned backgrounds,
+5. Applying effects to other elements via SVG filters.
+
+SVGs are definedf using XML (extensible markup language).
+Example syntax of SVG:
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+	<rect x=0 y=0 width=100 height=50 />
+	<circle class="svg-circle" cx="50" cy="50" r="10"/>
+</svg>
+
+XML's can become elements in the DOM just like HTML ones, we can target them with CSS and create them using the Element WebAPI you've already been using!
+But it's extremely INEFFICIENT at storing complex images.
+
+//example:
+<div class="container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+	<rect x=0 y=0 width=100 height=100 fill="burlywood"/>
+	<path d="M 10 10 H 90 V 90 L 10 60" fill="transparent" stroke="black" stroke-width="3"/>
+	<circle cx=50 cy=50 r=20 class="svg-circle"/>
+	 <g class="svg-text-group">
+		<text x="20" y="25" rotate="10" id="hello-text">Hello!</text>
+		<use href="#hello-text" x="-10" y="65" fill="white"/>
+	 </g>
+</svg>
+</div>
+++ CSS ++
+.container {
+	max-width: 200px;
+	margin: auto;
+}
+.svg-circle:hover + .svg-text-group {
+	opacity: 0;
+}
+
+ELEMENTS DEFINED BY SVG:
+xmlns, viewBox, class & id, <circle>, <rect>, <path>, <text> + <fill>, <stroke>
+
+EMBEDDING SVGs
+Linking SVGs works basically the same way as linking any other image. You can use an HTML image element such as <img>, or link it using CSS by: " background-image:url(./my-image.svg) "
+
+BEST SVG ICONS: Material Icons, Feather Icons, The Noun Project + Ionicons
+//example: <ion-icon name="add-circle-outline"></ion-icon>
+
+ALL ABOUT SVGs https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial
+- SVGs use grid.
+- basic shapes: rect, circle, ellipse, line, polyline, polygon, path"
+  <polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145"
+      stroke="orange" fill="transparent" stroke-width="5"/>
+
+  <polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180"
+      stroke="green" fill="transparent" stroke-width="5"/>
+
+  <path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+-gradients <stop> nodes. : <stop offset="100%" stop-color="yellow" stop-opacity="0.5"/>
+	an then:
+	<style>
+		#rect1 {fill: url(#Gradient1); }
+	</style>
+- clipping and masking.
+	<svg
+		width="200" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<rect x="0" y="0" width="200" height="200" fill="blue" />
+	<circle
+		cx="100" cy="100" r="50" stroke="yellow" stroke-width="40" stroke-opacity=".5" fill="red" />
+	</svg>
+
+LIBRARIES  snap.sv, SVG.js	, for data visualization : the "d3' is a standard. =>
+	inkspace (open source).
