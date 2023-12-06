@@ -1,0 +1,20 @@
+npm install --save-dev vite	//deprecated (2023-12).
+-> go to package.json and write: 
+{
+ "scripts": {
+	"dev": "vite dev:
+ },
+
+//update npm: 
+npm install -g npm@10.2.5
+// or|| 
+npm install npm@latest
+
+
+//2023-12 +
+npm create vite@latest
+-> then: 
+cd <project_name>
+nom install
+npm run dev
+-- scripts are created from beginning.
