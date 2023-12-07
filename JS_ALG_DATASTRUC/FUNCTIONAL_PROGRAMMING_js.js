@@ -302,3 +302,77 @@ function nonMutatingSplice(cities) {
 function nonMutatingSplice(cities) {
 	retrun cities.splice(3);
 }
+
+
+
+/* ////COMBINE TWO ARRAYS USING THE CONCAT METHOD */
+// concat method works for both: arrays and strings- the same.
+[1,2,3].concat([4,5,6]);	// +> [1,2,3,4,5,6];
+//solutin:
+function nonMutatingConcat(original, attach) {
+	return original.concat(attach);
+}
+const first=[1,2,3];
+const seocnd=[4,5];
+nonMutatingConcat(first, second);
+
+
+
+/* ////ADD ELEMENTS TO THE END OF AN ARRAY USING CONCAT INSTEAD OF PUSH */
+//comparation of concat with push( arr will have a modified value .. which is not how you want to deal with functinoal programming.
+function nonMutatingPush(original, newItem) {
+	/* return original.push(newItem); */ //mutation appears
+	return original.concat(newItem);	//functional way- non mutating side effects.
+}
+const first=[1,2,3];
+const second=[4,5];
+nonMutatingPush(first,second);
+
+
+
+/* //// USE THE REDUCE METHOD TO ANALYZE DATA /*/
+//Array.prototype.reduce() => allows for more general forms of array processing, and it's possible to show that both filter and map can be derived as special applications of reduce. 
+
+//example1:
+const users=[
+	{ name: 'John', age: 34 },
+	{ name: 'Amy', age: 20 },
+	{ name: 'camperCat', age: 10 }
+];
+const sumOfAges=users.reduce((sum,user) => sum + user.age, 0);
+console.log(sumOfAges);		//+> 64
+//example2:
+const users=[
+	{ name: 'John', age: 34},
+	{name: 'Amy', age: 20},
+	{name: 'camperCat', age: 10}
+];
+const usersObj=users.reduce((obj, user) => {
+	obj[user.name] = user.age;
+	return obj;
+}, {});
+console.log(userObj);	//+> { John: 34, Amy: 20, camperCat: 10 };
+
+//solution1 :to find averageIMDB movie rating.
+function getRating(watchList){
+	const averageRating=watchList.filter(film=> film.Director === "Christopher Nolan")
+		.map(film=>Number(film.imdbRating))
+		.reduce((sumOfRatings, rating) => sumOfRatings+rating) / 
+			watchList.filter(film=>film.Director==="Christopher Nolan").length;
+	return averageRating;
+} console.log(getRating(watchList));
+
+//solution2;
+function getRating(watchList) {
+	const nolanData=watchList
+		.reduce((data, { Director: director, imdbRating: rating }) => {
+			if(director === 'Christopher Nolan') {
+				data.count++;
+				data.sum += Number(rating);
+			}
+			return data;
+		}, { sum: 0, count: 0 });
+	const averageRating = nolanData.sum / nolanData.count;
+	return averageRating;
+}
+console.log(getRating(watchList));
