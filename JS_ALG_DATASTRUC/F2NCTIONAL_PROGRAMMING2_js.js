@@ -122,3 +122,60 @@ function checkPositive(arr) {
 /* //// USE THE EVERY METHOD TO CHECK THAT EVERY ELEMENT IN AN ARRAY MEETS A CRITERIA. */
 
 
+
+/* ////USE THE SOME METHOD TO CHECK THAT ANY ELMENETS IN AN ARRAY MEET A CRITERIA */
+// checking if any elements in the numbers array is less than :
+const numbers = [10, 50, 8, 220, 110, 11];
+numbers.some(function(currentValue) {
+	return currentValue < 10;		// if there's at least one element passing test.
+});
+//solution to check if there is there any positive number in an array:
+function checkPositive(arr) {
+	return arr.some(function(value){ 
+		return value>0;
+	});
+}
+checkPositive([1,2,3,-4,5]);
+
+
+
+
+/* /// INTRODUCTION TO CURRYING AND PARTIAL APPLICATION/ */
+// arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1.
+
+//example:
+function unCurried(x,y) {
+	return x+y;
+}
+function curried(x) {
+	return function(y) {
+		return x+y;
+	}
+}
+const curried =x => y => x + y;
+curried(1)(2);		// +> 3
+
+//example 2: it's useful when you can't supply all the arguments to a function at 1 time.
+const funcForY=curried(1);
+console.log(funcForY(2)); // 3;
+
+// partial application: WHOATT:
+function impartial(x,y,z) {
+	return x+y+z;
+}
+cosnt partialFn=impartial.bind(this, 1,2);
+partialFn(10); // 13.
+//	/	/	//	/	/	//	/	/	//	
+
+function add(x) {
+	return function(y) {
+		return function(z) {
+			return x+y+z;
+		};
+	};
+} 
+add(10)(20)(30);
+// or 	or	 or		or
+function add(x) {
+	return y=>z=>x+y+z;
+} add(10)(20)(30); 
