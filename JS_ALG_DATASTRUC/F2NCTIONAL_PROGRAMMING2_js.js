@@ -57,3 +57,68 @@ function nonMutatingSort(arr) {
 	});
 }
 nonMutatingSort(globalArray);
+
+
+
+/* /// SPLIT A STRING INTO AN ARRAY USING THE SLPIT METHOD / */
+// exercise: 
+const str = "Hello World";
+const bySpace = str.split(" ");		// +> ["Hello", "World"];
+const otherString = "How9are7you2today";
+const byDigits = otherString.split(/\d/);	// +> ["How", "are", "you", "today"]
+
+// use the split method inside a function to split str -> into an array of words.
+function splitify(str) {
+	return str.split(/\W/);
+}
+splitify("Hello World,I-am code");
+
+
+
+
+/* /// COMBINE AN ARRAY INTO A STRING USING THE JOIN METHOD /*/
+	const arr=["Hello", "World"];
+	const str=arr.join(" ");	//+> Hello World
+	// join method to replace a '-' with a spacebar.
+function sentensify(str) {
+	return str.split(/\W/).join(" ");	//any non-word character.
+}
+sentensify("May-the-force-be-with-you");
+
+
+
+/* ///APPLY FUNCTIONAL PROGRAMMIN TO CONVERT STRINGS TO URL SLUGS/ */
+ // inotherwords. replace " " to "-", and change all uppercased into lowercase.
+function urlSlug(title) {
+	return title.toLowerCase().trim().split(/\s+/).join("-");
+}
+var winterComing = urlSlug("Winter Is Coming");		/* +> "winter-is-coming"  */
+
+ // solution2:
+function urlSlug2(title) {
+	return title.split(" ").filter(substr => substr !== "").join("-").toLowerCase();
+}
+var wiunterComing = urlSlug(globalTitle); // +> Should be "winter-is-coming".
+
+
+
+
+/* //// USE THE EVERY METHOD TO CHECK THAT EVERY ELEMENT IN AN ARRAY MEETS A CRITERIA. */
+const numbers=[1,5,8,0,10,11];
+numbers.every(function(cuurentValue) {
+	return currentValue<10;
+});
+
+//function to check if every number in arr is positive:
+function checkPositive(arr) {
+	return arr.every(val => val > 0);
+} checkPOsitive([1,2,3,-4,5]);
+//solution:2;
+function checkPositive(arr) {
+	return arr.every(function(value) {
+		return value >0;
+	});
+} checkPositive([1,2,3,-4,5]);
+/* //// USE THE EVERY METHOD TO CHECK THAT EVERY ELEMENT IN AN ARRAY MEETS A CRITERIA. */
+
+
