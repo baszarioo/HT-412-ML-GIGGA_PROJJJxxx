@@ -206,4 +206,73 @@ div {
 
 
 
+/////////////////////////////	USE @EACH TO MAP OVER ITEMS IN A LIST 	////////////////////////////////
+used to loop over each item in a list or map.
+@each $color in blue, red, green {
+	.#{$color}-text {color: $color;}
+}
 
+ // vs map:
+$colors: (color1: blue, color2: red, color3: green);
+@each $key, $color in $colors; {
+	.#{$color}-text {color: $color;}
+}	// you get from that +>
+	.blue-text { color: blue; }
+	.red-text { color: red; }
+	.green-text { color: green; }
+f\
+
+//solution;
+<style type='text/scss'>
+ @each $color in blue, black, red {
+	.#{$color}-bg {background-color: $color; }
+ }
+div {
+	height: 200px;
+	width: 200px;
+ }
+</style>
+<div class="blue-bg"></div>
+<div class="black-bg"></div>
+<div class="red-bg"></div>
+
+
+
+/////////////////////////////	APPLY A STYLE UNTIL A CONDITION IS MET WITH @while 	/////////////////////////
+- create an example of simple grid system;/
+$x: 1;
+@while $x<13 {
+	.col-#{$x} {width: 100%/12 * $x;}
+	$x: $x+1;
+}
+
+-- now create a series of classes with different font-sizes using @while.
+<style type='text/scss'>
+	$x: 1;
+	@while $x < 6 {
+		.text-#{$x} {font-size: 15px * $x; }
+		$x: $x+1;
+	}
+</style>
+<p class="text-1">Hello</p>
+<p class="text-2">Hello</p>
+<p class="text-3">Hello</p>
+<p class="text-4">Hello</p>
+<p class="text-5">Hello</p>
+
+
+
+
+//////////////////////////	SPLIT YOUR STYLES INTO SMALLER CHUNKS WITH PARTIALS 	///////////////////////
+/Partials in Sass are separate files that hold segments of CSS code. You need to import them.
+Names of files start with (_) underscore, and have .scss extension.
+
+example: you have partial of "_mixins.scss", so you import them by: @import 'mixins'
+
+exercise: import a partial named: "_variables.scss"
+@import "variables";
+
+
+
+/////////////////////////////	EXTEND ONE SET OF CSS STYLES TO ANOTHER ELEMENT 	///////////////////////
+Sass has a feature called extended , that makes it easy to borrow the CSS rules from one element and build upon them in another.
