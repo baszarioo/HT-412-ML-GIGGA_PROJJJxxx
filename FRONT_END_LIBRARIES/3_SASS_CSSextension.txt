@@ -1,0 +1,209 @@
+/////////////////////////////	SASS 	////////////////////////////////
+Syntatically Awesome StyleSheets:
+
+1. / STORE DATA WITH SASS VARIABLES:
+/Some examples:
+$main-fonts: Arial, sans-serif;
+$headings-color: green;
+
+/and use them:
+h1 {
+	font-family: $main-fonts;
+	color: $headings-color;
+}
+
+\exercise: create variable, and set it's value to red. Then apply it ...
+<style type='text/scss'>
+	$text-color: red;
+	.header {
+		text-align: center;
+	}
+	.blog-post, h2 {
+		color: $text-color;
+		// color: red;
+	}
+</style>
+<h1 class="header">Learn Sass</h1>
+<div class="blog-post">
+	<h2>Some random title</h2>
+	<p>Paragraph with text innit</p>
+</div>
+<div class="blog-post">
+	<h2>Header #2</h2>
+	<p>Here is some more random text.</p>
+</div>
+
+
+
+/////////////////////////////	NEST CSS WITH SASS 	////////////////////////////////
+BEFORE/:
+article {
+	height: 200px;
+}
+article p {
+	color: white;
+}
+article ul {
+	color: blue;
+}
+
+AFTER/:
+article {
+	height: 200px;
+	p {
+		color: white;
+	}
+	ul {
+		color: blue;
+	}
+} 	..
+...
+<style type='text/scss'>
+	.blog-post {
+		h1 {
+			text-align: center;
+			color: blue;
+		}
+		p {
+			font-size: 20px;
+		}
+	}
+</style>
+
+
+
+/////////////////////////////	CREATE REUSABLE CSS WITH MIXINS 	////////////////////////////////
+	// in Sass, a mixin is a group of CSS declarations that can be reused throughout the style sheet.
+div {
+	-webkit-box-shadow: 0px 0px 4px #fff;
+	-moz-box-shadow: 0px 0px 4px #fff;
+	-ms-box-shadow: 0px 0px 4px #fff;
+	box-shadow: 0px 0px 4px #fff;
+}
+
+// and then a mixin:
+@mixin box-shadow($x, $y, $blur, $c){
+	-webkit-box-shadow: $x $y $blur $c;
+	-moz-box-shadow: $x $y $blur $c;
+	-ms-box-shadow: $x $y $blur $c;
+	box-shadow: $x $y $blur $c;
+}
+div {
+	@include box-shadow(0px, 0px, 4px, #fff);
+}
+
+//solution: 
+<style type='text/scss'>
+	@mixin border-radius($radius){
+		-webkit-box-radius:$radius;
+		-moz-border-radius:$radius;
+		-ms-border-radius:$radius;
+		border-radius:$radius;
+	}
+	#awesome {
+		width: 150px;
+		height: 150px;
+		background-color: green;
+		@include border-radius(15px);
+	}
+</style>
+<div id="awesome"></div>
+
+
+
+
+/////////////////////////////	USE @IF AND @ELSE TO ADD LOGIC TO YOUR STYLES 	/////////////////////////////
+/- the @if directive in Sass is useful to test for a specific case- it works just like the if statement in JS.
+@mixin make-bold($bool) {
+	@if $bool == true {
+		font-weight: bold;
+	}
+}
+
+// and '@else if' ++ '@else'
+@mixin text-effect($val) {
+	@if $val == danger {
+		color: red;
+	}
+	@else if $val == alert {
+		color: yellow;
+	}
+	@else if $val == success {
+		color: green;
+	}
+	@else {
+		color: black;
+	}
+}
+// ezxercsie: border-stroke -> takes $val, -> @if, @else if, @else ..
+
+<style type='text/scss'>
+	@mixin border-stroke($val){
+		@if $val == light {
+			border: 1px solid black;
+		}
+		@else if $val == medium {
+			border: 3px solid black;
+		}
+		@else if $val == heavy {
+			border: 6px solid black;
+		}
+		@else {
+			border: none;
+		}
+	}
+	#box {
+		width: 150px;
+		height: 150px;
+		background-color: red;
+		@include border-stroke(medium);
+	}
+</style>
+<div id="box"></div>
+
+
+
+/////////////////////////////	USE @FOR TO CREATE A SASS LOOP 	////////////////////////////////
+@for is used in two ways; "start through end" or "start to end". The main difference is that the "start to end" excludes the end number as part of rthe count, and "start through end" includes the end number as part of the count.
+
+//example1: start->end.
+@for $1 from 1 through 12 {
+	.col-#{$i} { width: 100%/12 * $i; }
+}
+// #{$o} part is the syntax to combine a variable (i) with text to make a string.
+// it would look like this:
+.col-1 {
+	width: 8.33333%;
+}
+.col-2 {
+	width: 16.66667%;
+}	.......
+.col-12 {
+	width: 100%;
+}
+
+
+\\Example2;//
+@for $i from 1 through 10 {
+	.foo:nth-of-type(#{$i}) {
+		border-color: hsl($i * 36, 50%, 50%);
+	}
+}
+
+
+./// exxercise: 
+<style type='text/scss'>
+	@for $j from 1 through 5 {
+		.text-#{$j} { font-size: 15px * $j; }
+	}
+</style>
+<p class="text-1">Hello</p>
+<p class="text-2">Hello</p>
+<p class="text-3">Hello</p>
+<p class="text-4">Hello</p>
+<p class="text-5">Hello</p>	// significantly growing font-size.
+
+
+
+
+
