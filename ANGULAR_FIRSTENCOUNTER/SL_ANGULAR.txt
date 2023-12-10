@@ -83,3 +83,5 @@ export class HeaderComponent {}
 	template: '<app-menu/>'
 })
 export class HeaderComponent { }
+
+isntead of angular (ng) now nx is being used.
