@@ -1,0 +1,16 @@
+--allowJs
+--outDir
+--checkJs
+
+example:
+a.ts //
+export default createThing;
+function createThing(...args): createThing.Thing {...}
+namespace createThing {
+	export interface Thing {...}
+}
+
+b.js //
+import createThing from './a';
+	// @param {createThing.Thing} thing;
+export function takesThing(thing) {}

@@ -1,0 +1,26 @@
+npm init
+npm i typescript
+tsc --init .
+
+in tsconfig.json:
+"target" set to -> "ES2015", ++
+"module": "commonjs"
+
+
+typescript data types:
+string, nubmer, boolean. array, enum, tuple, any, void, never.
+
+assigning new variable, w/o value => let lname : string;
+lname="Santosh";
+let newname = lname.toUpperCase();
+
+
+2// 
+let age: number;
+age=25; //ok
+age="25"; //invalid.
+age=25.5; // fine
+
+but u can use;
+let dob="25";
+let result=parseInt(dob);

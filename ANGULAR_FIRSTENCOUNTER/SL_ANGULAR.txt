@@ -1,0 +1,85 @@
+npm install -g @angular/cli
+ng new photoEditor
+cd photoEditor 
+ng serve --open //launch and open
+
+A component is a class that uses the @Component decorator to define its properties.
+Create a component named MenuComponent, that can be called by the HTML tag <menu/>
+@Component ({
+	selector: 'menu',
+	standalone: true,
+	templateUrl: './menu.component.html',
+	styleUrl: './menu.component.html'
+})
+export class MenuComponent{}
+
+@Component({
+	selector: 'menu',
+	standalone: true,
+	template: '<p>Hello</p>',
+	styleUrl: './menu.component.html'
+})
+export class MenuComponent {}
+
+or:
+@component({
+	selector: 'app-root',
+	standalone: true,
+	templateUrl: './app.component.html',
+	styleUrl: './app.component.css'
+})
+export class AppComponent {}
+
+
+-- CREATING COMPONENTS:
+ng generate component Header --inline-template	`// creates a folder for the component files.
+
+Ts file source:
+@Component({
+	selector: 'app-header',
+	standalone: true,
+	template: '',
+	styleUrl: './app-header.component.css'
+})
+export class HeaderComponent {}
+
+add some HTML to the copmponent's template property;
+@Component({ 
+	selector: 'app-header',
+	template: '<h1>My Header</h1>'
+})
+
+
+1.now to use this component you have to include in in the 'app.component.html' file:
+<app-header />
+<p>Root Component</p>
+
+2.then you need to add it to the  root component as dependency 'app.component.ts'
+import {HeaderComponent}
+from '../header/header.component';
+ @Component({
+	selector: 'app-root',
+	standalone: true,
+	templateUrl: './app.component.html',
+	styleUrl: './app.component.css',
+	imports: [HeaderComponent],
+})
+export class AppComponent {}.
+
+then: in 'header.component.ts:  ' you can still edit styles or sth.
+import { Component } from 
+'@angular/core/';
+@Component({
+	selector: 'app-header',
+	standalone: true,
+	template: '<h1>My Header</h1>',
+	styleUrl: './header.component.css',
+})
+export class HeaderComponent {}
+++create a code to reference the template with the selector 'app-menu' in the 'app-header' component's inline template.
+@Component({
+	selector: 'app-header',
+	standalone: true,
+	template: '<app-menu/>'
+})
+export class HeaderComponent { }

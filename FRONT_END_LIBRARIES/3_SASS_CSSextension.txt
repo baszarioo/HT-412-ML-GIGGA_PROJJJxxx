@@ -276,3 +276,32 @@ exercise: import a partial named: "_variables.scss"
 
 /////////////////////////////	EXTEND ONE SET OF CSS STYLES TO ANOTHER ELEMENT 	///////////////////////
 Sass has a feature called extended , that makes it easy to borrow the CSS rules from one element and build upon them in another.
+// e x a m p l e
+.panel {
+	background-color: red;
+	height: 70px;
+	border: 2px solid green;
+}
+.big-panel {
+	@extend .panel;
+	width: 150px;
+	font-size: 2em;
+}
+/ now create a class .info-important that extends .info and also has a background-color : mag.
+
+<style type='text/scss'>
+	h3{ text-align: center; }
+	.info { 
+		width: 200px;
+		border: 1px solid black;
+		margin: 0 auto;
+	}
+	.info-important {
+		@extend .info;
+		background-color: magenta;
+	}
+</style>
+<h3>Posts</h3>
+<div class="info-important">
+	<p>This is an important post. It should extend the class ".info" and have its own CSS styles.</p>
+</div>
