@@ -1,0 +1,14 @@
+<!-- <p>board works!</p> -->
+<h1>Tura gracza: {{ player }}</h1>
+<button nbButton outline status="danger" (click)="newGame()">
+  Rozpocznij nową grę
+</button>
+<h2 *ngIf="winner">Gracz {{ winner }} zwyciężył rozgrywkę!</h2>
+<main>
+  <app-square
+    *ngFor="let val of squares; let i = index"
+    [value]="val"
+    (click)="makeMove(i)"
+    >
+  </app-square>
+</main>
