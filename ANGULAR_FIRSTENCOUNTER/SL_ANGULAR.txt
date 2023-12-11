@@ -6,6 +6,18 @@ ng serve --open //launch and open
 npm i angular-cli-ghpages --save-dev
 npm install -g @angular/cli@~15.2.5
 
+npm i @nebular/auth --legacy-peer-deps 	//if normal instalation don't works.
+you should use: npx nx migrate @nebular/theme@^11.0.0		//version for the tic tac toe game; )
+then use: npm install
+or: nx migrate --run-migrations
+npm install @angular/service-worker		//network proxy -> needed for PWA
+
+//deploying: 
+
+
+since angular (nx) do not support straight-easy way to include and use a nebular(themes) you need to:
+1. generate a lib (before: ng g lib theme ).
+2. add styling manually, by exporting setups.
 A component is a class that uses the @Component decorator to define its properties.
 Create a component named MenuComponent, that can be called by the HTML tag <menu/>
 @Component ({
