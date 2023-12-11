@@ -3,6 +3,9 @@ ng new photoEditor
 cd photoEditor 
 ng serve --open //launch and open
 
+npm i angular-cli-ghpages --save-dev
+npm install -g @angular/cli@~15.2.5
+
 A component is a class that uses the @Component decorator to define its properties.
 Create a component named MenuComponent, that can be called by the HTML tag <menu/>
 @Component ({
