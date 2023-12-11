@@ -13,6 +13,18 @@ or: nx migrate --run-migrations
 npm install @angular/service-worker		//network proxy -> needed for PWA
 
 //deploying: 
+ng add @angular/pwa@^0.803.4	// keyword "id" - deprecated, use "$id" for schema ID.
+ng add @angular/fire@7.5.0
+
+1/ First, you have to connect your firebase account > firebase login
+
+2/ Next, check if the connection is alright (you need to create your project on firebase in a first place to see it in the result) > firebase projects:list
+
+3/ Then, you need to initialize firebase > firebase init
+
+4/ And now you can add the following command > ng add @angular/fire
+
+
 
 
 since angular (nx) do not support straight-easy way to include and use a nebular(themes) you need to:
