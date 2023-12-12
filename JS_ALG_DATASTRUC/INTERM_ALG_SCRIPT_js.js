@@ -252,10 +252,10 @@ function myReplace(str,before,after) {
 	return str.replcae(before, after);
 }
 //V3:
-function myReplcae(str, before, after) {
+function myReplace(str, before, after) {
 	function applyCasing(source,target) {
 		var targetArr=target.split("");
-		var sourceArr=target.split("");
+		var sourceArr=source.split("");
 		for(var i=0; i<Math.min(targetArr.length, sourceArr.length); i++) {
 			if(/[A-Z]/.test(sourceArr[i])) {
 				targetArr[i] = targetArr[i].toUpperCase();
@@ -309,4 +309,97 @@ const Util=(function() {
 		textCase
 	};
 })();
+function myReplace4(str, before, after) {
+	const {textCase} = Util;
+	const regex=new RegExp(before, "gi");
+	const replacingStr= textCase(after, textCase(before));
+	return str.replace(regex, replacingStr);
+}
+// V 5:
+function myReplace5(str, before, after) {
+	const strArr=str.split(" ");
+	const [wordToReplace]=strArr.filter(item=>item===before);
+	const replacement = wordToReplace[0] === wordToReplace[0].toUpperCase()
+		? after[0].toUpperCase()+after.slice(1)
+		: after[0].toLowerCase()+after.slice(1);
+	return strArr.map(item => (item === before ? replacement : item)).join(" ");
+}
+myReplace5("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+
+
+/* /// DNA PAIRING /// */
+// example: GCG-> [["G", "C"], ["C","G"], ["G","C"]]
+function pairElement(str) {
+	const matchWithBasePair = function(char) {
+		switch(char) {
+			case "A":
+				return ["A", "T"];
+			case "T":
+				return ["T", "A"];
+			case "C":
+				return ["C", "G"];
+			case "G":
+				return ["G", "C"];
+		}
+	};
+	const pairs=[];
+	for(let i=0; i<str.length; i++) {
+		pairs.push(matchWithBasePair(str[i]));
 	}
+	return pairs;
+}
+pairElement("GCG");
+//  v  2  ;
+function pairElement2(str) {
+	const pairs={
+		A: "T",
+		T: "A",
+		C: "G",
+		G: "C"
+	};
+	return str
+		.split("")
+		.map(x=>[x, pairs[x]]);	// map character to array of character and matching pair.
+}
+//.....
+
+
+
+/* ///MISSING LETTERS (from alphabet)//// */
+// v e r s i o n 1;
+function fearNotLetter(str) {
+	for(let i =0 ;i<str.length; i++) {
+		const charCode=str.charCodeAt(i);
+		if(charCode!== str.charCodeAt(0) +i) {
+			return String.fromCharCode(charCode-1);
+		}
+	}
+	return undefined;
+}
+// v e r s i o n 2 2 
+function fearNotLetter2(str) {
+	let currCharCode=str.charCodeAt(0);
+	let missing = undefined;
+	str
+		.split("")
+		.forEach(letter=> {
+			if(letter.charCodeAt(0) === currCharCode) {
+				currCharCode++;
+			} else {
+				missing = String.fromCharCode(currCharCode);
+			}
+		});
+	return missing;
+}
+// v e r s i o n 3 3 3
+function fearNotLetter3(str) {
+	for (let i=1; i<str.length; ++i){
+		if(str.charCodeAt(i) - str.charCodeAt(i-1) > 1) {
+			retrun String.fromCharCode(str.charCodeAt(i - 1) + 1);
+		}
+	}
+}
+
+
+
