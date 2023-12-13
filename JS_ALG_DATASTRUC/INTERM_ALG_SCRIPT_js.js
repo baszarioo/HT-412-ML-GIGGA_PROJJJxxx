@@ -485,7 +485,7 @@ function convertHTML(str) {
 		'"': "&quot;",
 		"'": "&apos;"
 	};
-	return str.replace(/[&<>\"'])/g, match => htmlEntities[match]);
+	return str.replace(/([&<>\"'])/g, match => htmlEntities[match]);
 }
 //version 3 version 3 version 3;
 function convertHTML(str) {
