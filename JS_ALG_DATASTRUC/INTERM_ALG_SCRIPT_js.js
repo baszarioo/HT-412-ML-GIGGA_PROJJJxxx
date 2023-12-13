@@ -403,3 +403,129 @@ function fearNotLetter3(str) {
 
 
 
+
+
+/* /// SORTED UNION //// */
+// fu nction that taes 1+ arrays and returns anew array of unique values in the order of the original provided arrays. Check the assertions test. example; [1,2,3],[5,4],[5,6] => [1,2,3,5,4,6].
+function uniteUnique1(arr1, arr2, arr3) {
+//function uniteUnique1(arr) ; will work also.
+	const finalArray=[];
+	for(let i=0; i<arguments.length; i++) {
+		const arrayArguments=arguments[i];
+		for(let j=0; j<arrayArguments.length; j++) {
+			let indexValue=arrayArguments[j];
+			if(finalArray.indexOf(indexValue) <0) {
+				finalArray.push(indexValue);
+			}
+		}
+	}
+	return finalArray;
+}
+// v 2 v 2
+function uniteUnique2(arr) {
+	const args = [...arguments];
+	const result=[];
+	for (let i = 0; i < args.length; i++) {
+		for (let j = 0; j < args.length; j++) {
+			if (!result.includes(args[i][j])) {
+				result.push(args[i][j]);
+			}
+		}
+	}
+	return result;
+} 
+// v 3 v 3 v 3
+function uniteUnique3(...arr) {
+	return [...new Set(arr.flat())];
+}
+// or as an arrow function;
+const uniteUnique3v2 = (...arr) => [...new Set(arr.flat())];
+// v 4 v 4 v 4 v 4 
+function uniteUnique4() {
+	return [...arguments]
+		.flat()
+		.filter((item, ind, arr) => arr.indexOf(item) === ind);
+}
+uniteUnique([1,3,2], [5,2,1,4], [2,1]);
+
+
+
+/* /// CONVERT HTML ENTITIES //// */
+// convert the characters &, <, >, ", and ', in a string to their corresponding HTML entities.
+function convertHTML(str) {
+	var temp=str.split("");	//temp that will have an array created by split, containing each individual char.
+	for(var i=0; i<temp.length; i++){
+		switch(temp[i]){
+			case "<":
+				temp[i]="&lt;";
+				break;
+			case "&":
+				temp[i]="&amp;";
+				break;
+			case ">":
+				temp[i]="&gt;";
+				break;
+			case "'":
+				temp[i]="&apos;";
+				break;
+			case '"':
+				temp[i]= "&quot;";
+		}
+	}
+	temp=temp.join("");		//temp.join converts the arrat of characters into a string to be reused.
+	return temp;
+}
+convertHTML("Dolce & Gabbana");
+//version 2 version 2
+function convertHTML(str) {
+	const htmlEntities = {
+		"&": "&amp;",
+		"<": "&lt;";
+		">": "&gt;";,
+		'"': "&quot;",
+		"'": "&apos;"
+	};
+	return str.replace(/[&<>\"'])/g, match => htmlEntities[match]);
+}
+//version 3 version 3 version 3;
+function convertHTML(str) {
+	const htmlEntities={
+		"&": "&amp;",
+		"<": "&lt;",
+		">": "&gt;",
+		'"': "&quot;",
+		"'": "&apos;"
+	};
+	return str	//use map function to return a filtered str with all entities changed, automatically.
+		.split("")
+		.map(entity=>htmlEntities[entity] || entity)
+		.join("");
+}
+
+
+
+/* /// SUM ALL ODD FIBONACCI NUMBERS //// */
+function sumFibs(num) {
+	let prevNumber= 0;
+	let currNumber=1;
+	let result=0;
+	while(currNumber<=num) {
+		if(currNumber % 2 !== 0) {
+			result += currNumber;
+		}
+		currNumber +=prevNumber;
+		prevNumber=currNumber-prevNumber;
+	}
+	return result;
+}
+// v22 v2222 v22222222
+function sumFibs22(num) {
+	if (num<=0) return 0;
+	const arrFib=[1,1];
+	let nextFib=0;
+	while((nextFib=arrFib[0]+arrFib[1]) <= num) {
+		arrFib.unshift(nextFib);
+	}
+	return arrFib.filter(x => x % 2 != 0).reduce((a, b) => a + b);
+}
+
