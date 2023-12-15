@@ -1,0 +1,117 @@
+3:29; INTEGRACJA GITHUB ACTIONS + OPENAI 
+.github/workflows
+name: xx
+on: 
+	<triggery>
+	workflow_dispatch: 
+	schedule:
+		- cron: '0 6 * * *'
+jobs:
+		checkout repo
+		set up node
+		run npm
+		create dynamic branch name
+
+wykorzystanie secrets.TOKEN<>
+z githuba
+1 - Token do OPENAI api
+2 - Token dostępu do GH.
+
+Wszystko przed deployem podlega testom jednostkowym.
+
+
+generowanie zadań: [w innym projekcie:]
+src > advent > create-new-task.ts
+import OpenAi from 'openai';
+import fs from 'fs';
+...
+
+const openai = new OpenAI({
+	apiKey: process.env.OPENAI_PLATFORM_KEY
+});
+
+const resp = await openai.chat.completions.create({
+	model: "<>"
+	response_format: { type: 'json_object' },
+	temperature: 0.5,
+	mesages: [
+		{
+			role: "user",
+			content: `...`,
+		},
+	]
+});
+const message: JSONResponse = JSON.parse(resp.choices[0].message.content!);
+//Generacja plików statycznych które są pobierane podczas renderowania strony.
+fs.writeFileSync('./src/advent/description.html', message.description, {encoding: 'utf ...'})
+fs.writeFileSync('./src/advent/task.md', message.task, {encoding: 'utf-8'})
+fs.writeFileSync('./src/advent/test.md', message.task, {encoding: 'utf-8'})
+// Utwórz pliki sandboxowe aby przeprowadzić testy CI/CD i zweryfikować implementacje.
+fs.writeFileSync('./src/advent/sandbox/index.ts', message.impl, {encoding: 'utf-8'})
+fs.writeFileSync('./src/advent/sandbox/index.test.ts', message.test, {encoding: 'utf-8'})
+console.log('Zapisano nowe zadanie!');
+//fin.
+
+
+Jak to działa:
+1. Odpowiedzi z GPT są dodawane do 2 zestawów plików: {test.md, task.md}(markdown), oraz {index.test.ts, index.ts}
+//pliki statyczne (md) są kopiowane do komponentów i są wykorzystywane do wyrenderowania zadań na stronie. Te same pliki są importowane również do sandboxa, w celu symulacji środowiska w któym zadania rozwiązują użytkownicy.
+
+src>advent>test.md:
+import { calculateTilesNeeded } from './index';
+descirbe('calculateTilesNeeded', () => {
+	test('returns correct tile count for single section', () => {
+		expect(calculateTilesNeeded([{ width: 5, height: 3}])).toBe(15);
+	});
+	test('returns correct tile count for multiple sections', () => {
+		expect(calculateTilesNeeded([
+			{width:5, height:3},
+			{width:2, height:2},
+			{width:3, height:4}
+		])).toBe(31);
+	});
+	test('returns zero when no section are provided',
+	() => {
+		expect(calculateTilesNeeded([])).toBe(0);
+	});
+});
+//f
+
+src>advent>task.md:
+export function calculateTilesNeeded(sections: Array<{
+	width: number; height: number; }>): number {
+		let totalTiles=0;
+		return totalTiles;
+}
+//f
+
+src>advent>sandbox>index.test.ts:
+import { calculateTilesNeeded } from './index';
+describe('calculateTilesNeeded', () => {
+	test('returns correct tile count for single section', () //...
+		expect(calculateTilesNeeded([{ width: 5, height: 3 } //...
+	});
+	test('returns correct tile count for multiple sections', // ... )
+		expect(calculateTilesNeeded([
+			{width: 5, height: 3 },
+			{width: 2, height: 2 },
+			{width: 3, height: 4 }
+		])).toBe(31);
+	});
+	test('returns zero when no sections are providedf', () => //...)
+		expect(calculateTilesNeeded([])).toBe(0);
+	});
+});
+
+src>advent>sandbox>index.ts:
+export function calculateTilesNeeded(sections: Array<{ width: //...
+	return sections.reduce((acc, next)=> {
+		return acc+next.height * next.width
+	}, 0);
+}
+//11minut
+deklaracja testów w package.json:
+"scripts": {
+	...
+	"test:advent": "jest-src/advent/sandbox/index.test.ts"
+},

@@ -1,0 +1,63 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "mlodyoskar",
+      "name": "Oskar Puchalski",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45982530?v=4",
+      "profile": "https://opuchalski.pl",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "ssynowiec",
+      "name": "Stanisław Synowiec",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52856724?v=4",
+      "profile": "https://github.com/ssynowiec",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "AdiPol1359",
+      "name": "Adrian Polak",
+      "avatar_url": "https://avatars.githubusercontent.com/u/27779154?v=4",
+      "profile": "https://adipol.dev",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "MarcinParda",
+      "name": "Marcin Parda",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32539248?v=4",
+      "profile": "https://marcinparda.vercel.app/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kumiega",
+      "name": "kumiega",
+      "avatar_url": "https://avatars.githubusercontent.com/u/134657075?v=4",
+      "profile": "https://github.com/kumiega",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "advent-of-frontend",
+  "projectOwner": "przeprogramowani"
+}

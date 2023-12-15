@@ -1,0 +1,48 @@
+export class GiftRegistryt {
+	private registry: Map<number, string[]>;
+	constructor() {
+		this.registry=new Map();
+	}
+	addGift(childId: number, gift: string){
+		if(!this.registry.has(childId)) {
+			this.registry.set(childId, []);
+		}
+		this.registry.get(childId)!.push(gift);	//the ! is used to assert that the result is not null or 	undefined.
+	}
+	getGiftsForChild(childId: number) {
+		return this.registry.get(childId) || [];
+	}
+	removeGift(childId: number, gift: string) {
+		const gifts = this.registry.get(childId);
+		if(!gifts || !gifts.includes(gift)){
+			throw new Error('Gift not found');
+		}
+		const index=gifts.indexOf(gift);
+		gifts.splice(index, 1);
+	}
+//That's objcet oriented prog. [classes+ methods + modifying the state of the object].
+}
+////////////////////////// index.test.ts /////////////////////////////
+import {GiftRegistry } form './index';
+describe('GiftRegistry', ()=>{
+	it('should retrieve all gifts for a given child ID', () => {
+		const registry = new GiftRegistry();
+		registry.addGift(1, 'teddy bear');
+		registry.addGift(1, 'bicycle');
+		registry.addGift(2, 'car model');
+		expect(registry.getGiftsForChild(1)).toEqual(['teddy bear', 'bicycle']);
+	});
+	it('should handle removal of gifts correctly', () => {
+		const registry=new GiftRegistry();
+		registry.addGift(1, 'teddy bear');
+		registry.addGift(1, 'bicycle');
+		registry.removeGift(1, 'teddy bear');
+		expect(registry.getGiftsForChild(1)).toEqual(['bicycle']);
+		expect(registry.getGiftsForChild(1)).not.toContain('teddy bear');
+	});
+	it('should throw an error if trying to remove a gift that does not exist', () => {
+		const registry = new GiftRegistry();
+		registry.addGift(1, 'teddy bear');
+		expect(() => registry.removeGift(1, 'puzzle')).toThrow('Gift not found');
+	});
+});
