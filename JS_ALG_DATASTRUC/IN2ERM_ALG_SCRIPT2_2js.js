@@ -66,4 +66,99 @@ function smallestCommons(arr) {
 	return lcmValue;
 }
 smallestCommons([1,5]);
-
+//VV1: looping.
+function smallestCommons(arr) {
+	const [min, max]=arr.sort((a, b)=> a-b);
+	const numberDivisors = max - min + 1;
+	let upperBound = 1;
+	for(let i=min; i<=max; i++){
+		upperBound *= i;
+	}
+	for(let multiple=max; multiple <= upperBound; multiple += max) {
+		let divisorCount = 0;
+		for(let i=min; i<=max; i++) {
+			if(multiple % i === 0) {
+				divisorCOunt += 1;
+			}
+		}
+		if(divisorCount === numberDivisors) {
+			return multiple;
+		}
+	}
+}
+smallestCommons([1, 5]);
+//VV2: ES6 looping;
+function smallestCommons2_ES6(arr) {
+	const [min, max] = arr.sort((a, b) => a - b);
+	const range = Array(max - min + 1)
+		.fill(0)
+		.map((_, i) => i + min);
+	const upperBound = range.reduce((prod, curr) => prod * curr);
+	for(let multiple = max; multiple <= upperBound; multiple += max) {
+		const divisible = range.every((value)=>multiple % value === 0);
+		if(divisible) {
+			return multiple;
+		}
+	}
+}
+//VV3: GCD & LCM ;
+function smallestCommons3_GCDLCM(arr) {
+	const [min,max] = arr.sort((a,b)=> a-b);
+	const range = Array(max - min + 1)
+		.fill(0)
+		.map((_, i) => i + min);
+	const gcd = (a, b) => (b === 0) ? a : gcd(b, a%b);
+	const lcm = (a, b) => a*b / gcd(a,b);
+	return range.reduce((multiple, curr) => lcm(multiple, curr));
+}
+//VV4: Prime_factorization ;
+function smallestCommons(arr) {
+	const primeFactors = {};
+	const [min, max] = arr.sort((a,b) => a - b);
+	for(let i=min; i<=max; i++) {
+		const currentFactors = getPrimeFactors(i);
+		for (let prime in currentFactors) {
+			if(!primeFactors[prime] || currentFactors[prime] > primeFactors[prime]) {
+				primeFactors[prime] = currentFactors[prime]
+			}
+		}
+	}
+	// Build SCM from factorization
+	let multiple = 1;
+	for(let prime in primeFactors) {
+		multiple *= prime ** primeFactors[prime];
+	}
+	return multiple;
+}
+function getPrimeFactors(num) {
+	const factors = {};
+	for(let i=2; i<=num; i++) {
+		while ((num % i) === 0) {
+			factors[i] = (factors[i]) ? factors[i] + 1 : 1;
+			num /= i;
+		}
+	}
+	return factors;
+}
+				
+				
+				
+/* //14/21// DROP IT // */	
+//v e r 1 1 1:
+function dropElements(arr, func){ 
+	while(arr.length > 0 && !func(arr[0])) {
+		arr.shift();		//Array.prototype.shift()
+	}
+	return arr;
+}
+dropElements([1,2,3,4], function(n) { 
+	return n >= 3;
+});
+// v e r 2 2 2:
+function dropElements(arr, func) {
+	let sliceIndex = arr.findIndex(func);
+	return arr.slice(sliceIndex >= 0 ? sliceIndex : arr.length);
+}
+dropElements([1,2,3,4], function(n) {
+	return n>=3;
+});
