@@ -1,0 +1,163 @@
+export class GiftRegistry {
+	private registry: Map<number, string[]>;
+	constructor() {
+		this.registry=new Map();
+	}
+	addGift(childId: number, gift: string){
+		if(!this.registry.has(childId)) {
+			this.registry.set(childId, []);
+		}
+		this.registry.get(childId)!.push(gift);	//the ! is used to assert that the result is not null or 	undefined.
+	}
+	getGiftsForChild(childId: number) {
+		return this.registry.get(childId) || [];
+	}
+	removeGift(childId: number, gift: string) {
+		const gifts = this.registry.get(childId);
+		if(!gifts || !gifts.includes(gift)){
+			throw new Error('Gift not found');
+		}
+		const index=gifts.indexOf(gift);
+		gifts.splice(index, 1);
+	}
+//That's objcet oriented prog. [classes+ methods + modifying the state of the object].
+}
+////////////////////////// index.test.ts /////////////////////////////
+import {GiftRegistry } form './index';
+describe('GiftRegistry', ()=>{
+	it('should retrieve all gifts for a given child ID', () => {
+		const registry = new GiftRegistry();
+		registry.addGift(1, 'teddy bear');
+		registry.addGift(1, 'bicycle');
+		registry.addGift(2, 'car model');
+		expect(registry.getGiftsForChild(1)).toEqual(['teddy bear', 'bicycle']);
+	});
+	it('should handle removal of gifts correctly', () => {
+		const registry=new GiftRegistry();
+		registry.addGift(1, 'teddy bear');
+		registry.addGift(1, 'bicycle');
+		registry.removeGift(1, 'teddy bear');
+		expect(registry.getGiftsForChild(1)).toEqual(['bicycle']);
+		expect(registry.getGiftsForChild(1)).not.toContain('teddy bear');
+	});
+	it('should throw an error if trying to remove a gift that does not exist', () => {
+		const registry = new GiftRegistry();
+		registry.addGift(1, 'teddy bear');
+		expect(() => registry.removeGift(1, 'puzzle')).toThrow('Gift not found');
+	});
+});
+
+									use: npm test
+////////////////////////////////////////////////// DAY2 ///////////////////////////////////////////
+/index.test.ts/:
+import { ChristmsaQueue } from './index';
+describe('ChristmasQueue', () => {
+	test('should enqueue and dequeue items based on priority', () => {
+		const pq=new ChristmasQueue<string>();
+		pq.enqueue('lowPriority', 1);
+		pq.enqueue('highPriority', 3);
+		pq.enqueue('mediumPriority', 2);
+		pq.enqueue('highPriority', 3);
+		pq.enqueue('lowPriority', 1);
+		expect(pq.dequeue()).toBe('highPriority');
+		 expect(pq.isEmpty()).toBe(true);
+	});
+	test('should handle same priority items in FIFO order', () => {
+		const pq=new ChristmasQueue<string>();
+		pq.enqueue('firstIn', 2);
+		pq.enqueue('secondIn', 2);
+		pq.enqueue('thirdin', 2);
+		expect(pq.dequeue()).toBe('firstIn');
+		expect(pq.dequeue()).toBe('secondIn');
+		expect(pq.dequeue()).toBe('thirdIn');
+	});
+	test('should support complex types', () -> {
+		const pq=new ChristmasQueue<{ giftName: string }>();
+		pq.enqueue({ giftName: 'game console' }, 1);
+		pq.enqueue({ giftName: 'snowboard' }, 2);
+		pq.enqueue({ giftName: 'game console' }, 3);
+		expect(pq.dequeue()).toStrictEqual({ giftName: 'christmas balls' });
+		expect(pq.dequeue()).toStrictEqual({ giftName: 'snowboard' });
+		expect(pq.dequeue()).toStrictEqual({ giftName: 'game console' });
+	});
+	test('should throw an error when dequeueing from an empty queue', () => {
+		const pq = new ChristmasQueue<string>();
+		expect(pq.isEmpty()).toBe(true);
+		expect(() => pq.dequeue()).toThrow('There are no letters in the queue!');
+	});
+});
+
+/index.ts/02-12-2023:
+export class ChristmasQueue<T> {
+	private items: {priority: number; value: T }[];
+	constructor() {
+		this.items=[];
+	}
+	enqueue(value: T, priority: number) {
+		this.items.push({ priority, value });
+		this.items.sort((a,b) => b.priority - a.priority);
+	}
+	dequeue(): T {
+		if(this.isEmpty()) {
+			throw new Error('There are no letters in the queue!');
+		}
+		return this.items.shift()!.value;
+	}
+	isEmpty(): boolean {
+		return this.items.length === 0;
+	}
+}
+
+
+
+////////////////////////////////////////////////// DAY3 ///////////////////////////////////////////
+///index.test.ts/
+import { Lokalizacja, MapaCzasoprzestrzenna, znajdzWorek } from './index';
+describe('znajdzWorek', () => {
+	test('powinien zwrocic lokalizacje z najwyzsza wartoscia mapy', () => {
+		const lokalizacje: Lokalizacja[] = [
+			{ x: 1, y: 2, z: 3, czas: 4 },
+			{ x: 5, y; 6, z: 7, czas: 8 },
+			{ x: 9, y: 10, z: 11, czas: 12 },
+		];
+		const mapa: MapaCzasoprzestrzenna = (x,y,z,czas)=> x+y+z+czas;
+		const wynik = znajdzWorek(lokalizacje, mapa);
+		expect(wynik).toEqual({ x: 9, y: 10, z: 11, czas: 12 });
+	});
+	test('powinien zwrócić null, gdy lista lokalizacji jest pusta', () => {
+		const lokalizacje: Lokalizacja[] = [];
+		const mapa: MapaCzasoprzestrzenna = jest.fn();
+		const wynik = znajdzWorek(lokalizacje, mapa);
+		expect(wynik).toBeNull();
+	});
+	test('powinien obsłużyć wartości niepoprawne matematycznie', () => {
+		const lokalizacja: Lokalizacja[] = [
+			{x: -1, y: -2, z: -3, czas: -4 },
+			{z: 0, y: 0, z: 0, czas: 0 },
+		];
+		const mapa: MapaCzasoprzestrzenna = () => NaN;
+		const wynik = znajdzWorek(lokalizacje, mapa);
+		expect(wynik).toBeNull();
+	});
+});
+///index.ts/
+export interface Lokalizacja {
+	x: number;
+	y: number;
+	z: number;
+	czas: number;
+}
+export type MapaCzasoprzestrzenna = (x: number, y: number, z: number, czas: number) => number;
+export function znajdzWorek(lokalizacje: Lokalizacja[], mapa: MapaCzasoprzestrzenna): Loklalizacja | null {
+	if(lokalizacje.length === 0) {return null;}
+	let maxScore = Number.NEGATIVE_INFINITY;
+	let bestLocation: Lokalizacja | null = null;
+	for(const lokalizacja of lokalizacje) {
+		const score = mapa(lokalizacja.x, lokalizacja.y, lokalizacja.z, lokalizacja.czas);
+		if(!isNaN(score) && score > maxScore) {
+			maxScore = score;
+			bestLocation = lokalizacja;
+		)
+	}
+	return bestLocation;
+}
