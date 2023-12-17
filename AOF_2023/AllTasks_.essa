@@ -161,3 +161,55 @@ export function znajdzWorek(lokalizacje: Lokalizacja[], mapa: MapaCzasoprzestrze
 	}
 	return bestLocation;
 }
+
+////////////////////////////////////////////////// DAY4 ///////////////////////////////////////////
+////index.test.ts/
+import { memoize } from './index';
+describe('memoize', () => {
+	it('should memoize function results', ()=> {
+		const complexCalculation = jest.fn().mockImplementation((x: number) => x * x);
+		const memoizedCalculation = memoize(complexCalculation);
+		expect(memoizedCalculation(2)).toBe(4);
+		expect(memoizedCalculation(2)).toBe(4);
+		expect(memoizedCalculation(3)).toBe(9);
+		expect(memoizedCalculation).toHaveBeenCalledTimes(2);
+	});
+	it('should handle different arguments correctly', () => {
+		const greeting = jest.fn().mockImplementation((p: string) => `${p}!`);
+		const memoizedGreeting = memoize(greeting);
+		expect(memoizedGreeting('John')).toBe('John!');
+		expect(memoizedGreeting('Paul')).toBe('Paul!');
+		expect(greeting).toHaveBeenCalledTimes(2);
+	});
+	it('should throw an error when non-function is memoized', () => {
+		expect(() => memoize(42 as never)).toThrow('function in case to be memoized must be a function.');
+	});
+});
+
+////index.ts/:
+type Func = (...args: any[]) => any;
+export function memoize(fn: Func): Func {
+	if(typeof fn !== 'function') {
+		throw new Error('Function to be memoized must be a function.');
+	}
+	const cache: Map<string, any> = new Map();
+	return function (...args: any[]): any {
+		const key=JSON.stringify(args);
+		if(cache.has(key)){
+			return cache.get(key);
+		}
+		const result = fn(...args);
+		cache.set(key, result);
+		return result;
+	};
+}
+1. Type declaration: (type Func):
+2. Function Signature (export function memoize(fn: Func): Func):
+3. Type Check: (if (typeof fn !== 'function'){ throw new Error(...);} ):
+4. Cachce Initialization (const cache: Map<string, any> = new Map(); ):
+5. Memoized Function ( return function (...args: any[]): any { .... } ):
+(that takes any nymber of arguments and returns any value ( => any ).
+
+
+
+////////////////////////////////////////////////// DAY4 ///////////////////////////////////////////
