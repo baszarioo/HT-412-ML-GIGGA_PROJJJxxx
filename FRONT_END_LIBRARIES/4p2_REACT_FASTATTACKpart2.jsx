@@ -109,3 +109,159 @@ class MyComponent extends React.Component {
 		}
 	}
 };
+
+
+
+
+/* ///3/// WRITE A SIMPLE COUNTER; ///3/// */
+class Counter extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state= {
+			count: 0
+		};
+		this.increment = this.increment.bind(this);
+		this.decrement = this.decrement.bind(this);
+		this.reset =this.reset.bind(this);
+	}
+	reset() {
+		this.setState({
+			count: 0
+		});
+	}
+	increment() {
+		this.setState(state => ({
+			count: state.count +1
+		}));
+	}
+	decrement() {
+		this.setState(state => ({
+			count: state.count - 1
+		}));
+	}
+	render() {
+		return (
+			<div>
+				<button className='inc' onClick={this.increment}>Increment!</button>
+				<button className='dec' onClick={this.decrement}>Decrement!</button>
+				<button className='reset' onClick={this.reset}>Reset</button>
+				<h1>Current Count: {this.state.count}</h1>
+			</div>
+		);
+	}
+};
+
+
+
+/* ///3/// CREATE A CONTROLLED INPUT; ///3/// */
+// idea to create a controlled input where text updates from sthe state, not the browser.
+handleChange(event) {
+	this.setState({
+		input: event.target.value
+	});
+} //don't forget to bind that.
+this.handleChange = this.handleChange.bind(this);
+//usage:
+<input value={this.state.input} onChange = {this.handleChange}/>
+
+//exercise:
+class ControlledInput extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			input: ''
+		};
+		this.handleChange = this.handleChange.bind(this);
+	}
+	handleChange(event) {
+		this.setState({
+			input: event.target.value
+		})
+	}
+	render() {
+		return (
+			<div>
+				<input value={this.state.input} onChange={this.handleChange} />
+				<h4>Controlled input:</h4>
+				<p>{this.state.input}</p>
+			</div>
+		);
+	}
+}
+
+
+
+/* ///3/// CREATE A CONTROLLED FORM; ///3/// */
+// 
+event.preventDefault()
+this.setState({
+	submit: this.state.input
+});
+//<input value={this.state.input} onChange={this.handleChange} /> ... <h4>{this.state.submit}</h1>
+class MyForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state= {
+			input: '',
+			submit: ''
+		};
+		this.handleChange= this.handleChange.bind(this);
+		this.handleSubmit= this.handleSubmit.bind(this);
+	}
+	handleChange(event) {
+		this.setState({
+			input: event.target.value
+		});
+	}
+	handleSubmit(event) {
+		event.preventDefault()
+		this.setState({
+			submit: this.state.input
+		});
+	}
+	render() {
+		return (
+			<div> 
+				<form onSubmit={this.handleSubmit}>
+					<input
+						value={this.state.input}
+						onChange={this.handleChange} />
+					<button type='submit'>Submit!</button>
+				</form>
+				<h1>{this.state.submit}</h1>
+			</div>
+		);
+	}
+};
+	
+	
+/* ///3/// PASS STATE AS PROPS TO CHILD COMPONENTS.; ///3/// */
+// the MyApp component = stateful + renders a navbar component as a child. Pass the name property in its state down to child compoennt.
+class MyApp extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state ={
+			name: 'CamperBot'
+		}
+	}
+	render() {
+		return (
+			<div>
+				<Navbar name={this.state.name}/> {/*!!!!!!!!*/}
+			</div>
+		);
+	}
+};
+class Navbar extends React.Component {
+	cosntructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+		<div>
+			<h1>Hello, my name is: {this.props.name}</h1>
+		</div>
+		);
+	}
+};
+			
