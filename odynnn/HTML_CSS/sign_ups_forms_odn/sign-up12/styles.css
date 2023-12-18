@@ -167,3 +167,180 @@ body {
     font-size: 1.2rem;
     margin-top: 1.9rem;
 }
+.log-in-message .sign-in-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    padding-bottom: 5.1px;
+    border-bottom: 2.1px solid var(--color-primary);
+    outline: none;
+}
+.log-in-message .sign-in-link:hover, .log-in-message .sign-in-link:focus {
+    color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
+    cursor: pointer;
+}
+.sun {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+}
+.sunPseudo {
+    background: var(--color-primary);
+    position: absolute;
+    border-radius: 51px;
+    right: -74px;
+    width: 31px;
+    height: 31px;
+    transition: opacity 1s, transform 1s;
+}
+.sunPseudo:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+}
+.sunPseudo::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 81%;
+    width: 81%;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: #fefefe;
+    filter: blue(40px);
+    user-select: none;
+    opacity: 0%;
+}
+.sunPseudo:hover::before {
+    opacity: 100%;
+}
+.moon {
+    position: absolute;
+    top: 30px;
+    right: 100px;
+}
+.moonPseudo {
+    position: absolute;
+    height: 30px;
+    width: 31px;
+    left: -81px;
+    box-shadow: inset -6px 6px 0 6px var(--color-primary);
+    border-radius: 50%;
+    transition: opacity 1s, transform 1s;
+    opacity: 0%;
+}
+.moonPseudo:hover {
+    cursor: pointer;
+    transform: translate(2px, 3px);
+}
+.moonPseudo:hover::before {
+    opacity: 10%;
+}
+.moonPseudo::before {
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    border-radius: 51%;
+    background-color: #fefefe;
+    z-index: -1;
+    filter: blur(40px);
+    user-select: none;
+    opacity: 0%;
+}
+
+.credits {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1.6rem;
+    color: var(--color-light);
+}
+.credits_name {
+    color: var(--color-primary);
+}
+.porscheLogo_img {
+    z-index: 1;
+    width: 21rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+.porscheLogo_img-dark {
+    z-index: 2;
+    width: 21rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: none;
+    transform: scale(110%);
+}
+/* sun-moon animation @lxoWxiRxy: */
+@keyframes arc-out-sun {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rorate(180deg);
+    }
+}
+.arc-out-sun {
+    animation: arc-out-sun 2s forwards;
+}
+@keyframes arc-in-moon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(200deg);
+    }
+}
+.arc-in-moon {
+    animation: arc-in-moon 2s forwards;
+}
+@keyframes reflect-moon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+   }
+}
+.reflect-moon {
+    animation: reflect-moon 1ms forwards;
+}
+@keyframes arc-out-moon {
+    0% {
+        transform: rotate(204deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.arc-out-moon {
+    animation: arc-out-moon 2s forwards;
+}
+/* ...  */
+:root.night-mode .form {
+    color: var(--color-secondary);
+}
+:root.night-mode .sign-in-link {
+    color: var(--color-light);
+    border-bottom-color: var(--color-light);
+}
+:root.night.mode .sign-in-link:hover {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
+:root-night-mode .form_control:active, :root.night-mode .form_control:focus {
+    border-color: var(--color-primary);
+}
+:root.night-mode .credits_name {
+    color: var(--color-secondary);
+}
+:root.night-mode .porscheLogo_img {
+    display: none;
+}
+:root.night-mode .porscheLogo_img-dark {
+    display: none;
+}
