@@ -162,3 +162,93 @@ function dropElements(arr, func) {
 dropElements([1,2,3,4], function(n) {
 	return n>=3;
 });
+// v e r 3 3 3:
+function dropElements(arr, func) {
+	let originalLen =arr.length;
+	for(let i=0; i<originalLen; i++) {
+		if(func(arr[0])) {
+			break;
+		} else {
+			arr.shift();
+		}
+	}
+	return arr;
+}
+dropElements([1,2,3,4], function(n) {
+	return n >= 3;
+}
+// v e r 4 4 4: 
+function dropElements(arr, func) {
+	return arr.length > 0 && !func(arr[0])
+		? (dropElements(arr.slice(1), func))
+		: arr;
+}
+dropElements([1,2,3], function(n) {return n<3; });
+
+
+
+/* //15/21// STEAMROLELR // */	
+//flattten a nested array _ account for varying levels of nesting.
+function steamrollArray(arr) {
+	const flattenedArray = [];
+	for(let i=0; i<arr.length; i++) {
+		if(Array.isArray(arr[i])) {
+			flattenedArray.push(...steamrollArray(arr[i]));
+		} else {
+			flattenedArray.push(arr[i]);
+		}
+	}
+	return flattenedArray;
+};
+steamrollArray([1, [2], [3, [[4]]]]);
+// v2 v2 
+function steamrollArray(arr) {
+	const flat = [].concat(...arr);
+	return flat.some(Array.isArray) ? steamrollArray(flat): flat;
+}
+// v3 v3 v3:
+function steamrollArray(arr) {
+	return arr
+		.toString()
+		.replace(",,", ",")
+		.split(",")
+		.map(function(v) {
+			if(v=="[object Object]") {	//bring back empty objects.
+				return {};
+			} else if(isNaN(v)) {
+				return v;
+			} else {
+				return parseInt(v); // if a number in a string, convert it 
+			}
+		});
+}
+// v4 v4 v4 v4
+function steamrollArray(val, flatArr=[]) {
+	val.forEach(item => {
+		if(Array.isArray(item)) steamrollArray(item, flatArr);
+		else flatArr.push(item);
+	});
+	return flatArr;
+}
+// v5 v5 v5 v5 v5:
+function steamrollArray(arr, flatArr = []) {
+	const elem = arr.pop();
+	return elem
+		? !Array.isArray(elem)
+			? steamrollArray(arr, [elem, ...flatArr])
+			: steamrollArray(arr.concat(elem), flatArr)
+		: flatArr;
+}
+
+/* //16/21// BINARY AGENTS;// */
+// translate binary to english ok in js./?
+// vershion1;
+function binaryAgent1(str) {
+	var biString = str.split(" ");
+	var uniString = [];
+	for(var i =0; i<biString.length; i++) {
+		uniString.push(String.fromCharCode(parseInt(biString[i], 2)));
+	}
+	return uniString.join("");
+}
+//...
