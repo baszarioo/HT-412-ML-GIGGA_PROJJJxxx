@@ -361,4 +361,45 @@ export class Machine {
 	}
 }
 
-////////////////////////////////////////////////// DAY6 ///////////////////////////////////////////
+////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
+// index.ts / =======
+type Letter = { [key: string]: number };
+export function createTrackedLetter(letter: Letter, changeTracker: (key: string, value: number) => void): Letter {
+	const trackedLetter = new Proxy(letter, {
+		set(target: Letter, key: string, value: numbeR) {
+			const oldValue = target[key];
+			if(oldValue !== value) {
+				changeTracker(key as string, value);
+			}
+			target[key] = value;
+			return true;
+		},
+	});
+	return trackedLetter;
+} //proxy used to create a tracked vers. of the letter-> whole function returns a tracked letter that triggers the changeTracker callback whenever a property is set to a new value.
+
+// index.test.ts // =======
+import { createTrackedLetter } from './index';
+describe('Letter Tracker', () => {
+	test('should create tracked letter correctly', () => {
+		const letter" { [key:string]: number } = {};
+		const changeTracker = jest.fn();
+		const trackedLetter = createTrackedLetter(letter, changeTracker);
+		trackedLetter.snowboards = 2;
+		expect(changeTracker).toHaveBeenCalledWith('snowboards', 2);
+		trackedLetter.snowboards = 0;
+		expect(changeTracker).toHaveBeenCalledWith('snowboards', 0);
+	});
+	test('should avoid tracking stable items', () => {
+		const letter = {snowboards: 5, consoles: 7};
+		const changeTracker = jest.fn();
+		const trackedLetter = createTrackedLetter(letter, changeTracker);
+		trackedLetter.snowboards = 10;
+		expect(changeTracker).toHaveBeenCalledTimes(1);
+		expect(changeTracker).not.toHaveBeenCalledWoth('consoles', 7);
+	});
+});
+
+////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
+////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
+////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
