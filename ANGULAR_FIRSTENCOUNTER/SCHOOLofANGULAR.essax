@@ -1,0 +1,44 @@
+You can list three main constructs that make up an Angular application: component, service and module.
+In brief:
+ - Component : responsible for presenting individual technical or technical-business functionalities. A component has its own life cycle, and it's essential to familiarize yourself with it to avoid frustrations, such as data not being initialized before the page is displayed. From a technical perspective, a component allows wrapping functionalities in one area, making it reusable. For example, a component could be a card for presenting data.
+ - Service : is a singleton (meaning that only one instance of the service is created). The service is responsible for communication with the backend and can prepare forms. Due to being a singleton, it can serve as a cache in the app. A common mistake made by devs is subscribing within the service. This is one of the more frequently encountered errors;
+ - Module : is a contruct responsible for combining entire technical or technical-business areas. A module is a collection of all components, services, pipes, and directives that are responsible for creating a specific area in the application. This can be illustrated with the example of a banking app. In such an application, there are many areas: payments, loans, settings, etc. Each of these areas should be encapsulated in a moudle and should be loaded using the 'lazy loading; mechanism. This mechanism allows loading modules and their contents when they are needed.
+ 
+ Angular: When is it worth using?
+	1. During the development of complex business applications.
+	2. When there is a lot of dynamic content in the app.
+	3. Dynamic web apps where content and some components are displayed based on the user's role or actions in the app.
+Angular: Examples of apps:
+	1. E-commerce app
+	2. Banking apps
+	3. Brokerage apps. (makler).
+	
+Components: cars, footers, dashboard
+Service: Singleton - communication between components: filters and displayed data. Set of methods to filter data.  
+Module: exports, providers and inports; - component can be in scope of only one module. To use a component out of scope of it you have to write it in the range named "exports".
+
+ng add @angular/material -> npm i -> in google: angular material -> components -> examples : copy to html component. and css's
+then in app.module.ts in imports: add - MatCardMoudle, MatButtonModule (for example).
+Start app -> npm start
+
+FLEBOX: add (for example) 6 same cards as above:
+then they will be displayed in column.
+ -> to unwrap them - use margin.
+To make them displaying in a row: package whole app.component.html class in <div class="main-container>:</div>
+and in scss use a code of:
+.main-container {
+	display: flex;
+}
+and set width to: 33%, then   in .main-c : flex-wrap: wrap;
+
+SETTING UP COMMERCIAL CONFIG:
+Try to delete 'strict' from it.
+: public variable: string | null = null; [that's ok in strict mode].
+: public variable: string = null;	[that's wrong]
+
+SETTING UP ICONS {fontAwesome}
+-> import in app.module.ts
+export class AppComponent {
+  public faCoffee: IconDefinition = faCoffee;
+}	// can be used in commercial project.
+		faCoffee = faCoffee; => cannot be used in commercial tbh.
