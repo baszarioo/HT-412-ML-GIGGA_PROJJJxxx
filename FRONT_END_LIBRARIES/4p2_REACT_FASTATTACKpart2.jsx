@@ -265,3 +265,147 @@ class Navbar extends React.Component {
 	}
 };
 			
+			
+
+
+			
+/* ///4//// PASS A CALLBACK AS PROPS.; ////4/// */		
+class MyApp extends React.Component {
+	constructor(props) {
+		super9props);
+		this.state = {
+			inputValue: ''
+		}
+	this.handleChange=this.handleChange.bind(this);
+	}
+	handleChange(event) {
+		this.setState({
+			inputValue: event.target.value
+		});
+	}
+	render() {
+		return (
+			<div>
+				<GetInput
+					input={this.state.inputValue}
+					handleChange={this.handleChange}/>
+				<RenderInput
+					input={this.state.inputValue}/>
+			</div>
+		);
+	}
+};
+class GetInput extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			<div>
+				<h3>Get Input:</h3>
+				<input
+					value={this.props.input}
+					onChange={this.props.handleChange}/>
+			</div>
+		);
+	}
+};
+class RenderInput extends React.Component {
+	constructor(props){
+		super(props);
+	}
+	render() {
+		return (
+			<div>
+				<h3>Input Render:</h3>
+				<p>{this.props.input}</p>
+			</div>
+		);
+	}
+};
+	
+	
+	
+/* ///4//// USE THE LIFECYCLE METHOD - COMPONENTWILLMOUNT; ////4/// */		
+//main lifecycle methodfs are:
+componentWillMount();
+componentDidMount();
+shouldComponentUpdate();
+componentDidUpdate();
+componentWillUnmount();	//called before render(), when a comp is being mounted to the DOM.	
+//exercuise:
+class MyComponent extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	componentWillMount() {
+		console.log("ciao");
+	}
+	render() {
+		return <div />
+	}
+};
+
+
+
+/* ///4//// USE THE LIFECYCLE METHOD - COMPONENTDIDMOUNT; ////4/// */		
+class MyComponent extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			activeUsers: null]
+		};
+	}
+	componentDidMount() {
+		setTimeout(() => {
+			this.setState({
+				activeUsers: 1273
+			});
+		}, 2500);
+	}
+	render() {
+		return (
+			<div>
+				<h1>Active Users: {this.state.activeUsers}</h1>
+			</div>
+		);
+	}
+}
+
+
+
+/* ///4//// USE THE LIFECYCLE METHOD - COMPONENTDIDMOUNT; ////4/// */
+//attach event listener in componentDidMount() for keydown events, and have these eventys trigger the callback handleKeyPress(). Then remove it.
+class MyComponent extends React.Component {
+	constructor(props) {
+		super(props);
+		this.stage = {
+			message: ""
+		};
+		this.handleEnter = this.handleEnter.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this);
+	}
+	componentDidMount() {
+		document.addEventListener("keydown", this.handleKeyPress);
+	}
+	componentWillUnmoonut() {
+		document.removeEventListener("keydown", this.handleKeyPress);
+	}
+	handleEnter() {
+		this.setState((state) => ({
+			messsage: state.message + 'You pressed the enter key! '
+		}));
+	}
+	handleKeyPress(event) {
+		if(event.keyCode === 13) {
+			this.handleEnter();
+		}
+	}
+	render() {
+		return (
+			<div>
+				<h1>{this.state.message}</h1>
+			</div>
+		);
+	}
+}
