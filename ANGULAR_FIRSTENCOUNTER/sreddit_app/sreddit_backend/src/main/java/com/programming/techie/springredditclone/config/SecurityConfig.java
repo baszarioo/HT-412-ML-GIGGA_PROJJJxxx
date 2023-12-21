@@ -59,9 +59,9 @@ public class SecurityConfig {
                         .permitAll()
                         .requestMatchers("/v2/api-docs",
                                 "/configuration/ui",
-                                "/swagger-resources/**",
+                                "/swagger-resources/**", //openAPI doc
                                 "/configuration/security",
-                                "/swagger-ui.html",
+                                "/swagger-ui.html", //openAPI doc
                                 "/webjars/**")
                         .permitAll()
                         .anyRequest()
