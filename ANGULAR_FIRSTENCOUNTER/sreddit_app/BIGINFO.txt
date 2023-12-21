@@ -1,0 +1,2 @@
+ctrl+shift+a -> plugin menu;
+production grade app: set hibernate.ddl.auto to none, and perform all database changes through migrations scripts using lyway or liquibase

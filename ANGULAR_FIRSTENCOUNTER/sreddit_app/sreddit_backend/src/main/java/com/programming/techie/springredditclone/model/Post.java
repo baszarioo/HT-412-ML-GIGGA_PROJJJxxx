@@ -1,6 +1,7 @@
 package com.programming.techie.springredditclone.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.time.Instant;
@@ -15,6 +16,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
+    @NotBlank(message =  "Post name cannot be empty")
     private String postName;
     private String url;
     @Lob
