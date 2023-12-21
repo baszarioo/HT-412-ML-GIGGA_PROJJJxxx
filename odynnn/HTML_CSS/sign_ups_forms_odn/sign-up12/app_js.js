@@ -51,3 +51,70 @@ moonPseudo.addEventListener('click', () => {
     moonPseudo.classList.toggle('fade-in');
     root.classList.remove('night-mode');
 })
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formControls.forEach(control => {
+        if(!control.value){
+            control.style.border='1px solid red';
+            control.previousElementSibling.style.color= 'red'
+        }
+    })
+})
+
+const nameInput = document.querySelector('#naem');
+const emailInput = document.querySelector('#email');
+
+password1Input.addEventListener('input', () => {
+    checkPasswords();
+})
+password2Input.addEventListener('input', () => {
+    checkPasswords();
+})
+
+formControls.forEach(control => {
+    control.addEventListener('input', () => {
+        if(control.value){
+            control.style.border = '1px solid gren';
+            control.previousElementSibling.style.color = 'green'
+        } else {
+            control.style.border= '1px solid red';
+            control.prevoousElementSibling.style.color= 'red'
+        }
+    })
+})
+
+emailInput.addEventListener('input', () => {
+    let inputValue = emailInput.value;
+    console.log(inputValue);
+    if(/@\w*(.com|.ca|.org|.pl)/.test(inputValue) === false){
+        emailInput.style.border = '1px solid red';
+        emailInput.previousElementSibling.style.color='red';
+    }
+})
+
+formControls.forEach((control) => {
+    control.addEventListener('focus', (e) => {
+        if(e.target.style.borderColor != 'red' && e.target.style.borderColor != 'green'){
+            if(!root.classList.contains('night-mode')){
+                e.target.previousElementSibling.style.color = '#e98227';
+            } else {
+                e.target.previousElementSibling.style.color = '#e4700b3';
+            }
+        }
+    })
+    control.addEventListener('blur', (e) => {
+        if(e.target.style.borderColor != 'red' && e.target.style.borderColor != 'green'){
+            e.target.previousElementSibling.style.color = '';
+        }
+    })
+})
+
+let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+if(matched) {
+    console.log('Tryb nocny');
+    root.classList.add('night-mode');
+    sunPseudo.dispatchEvent(click);
+} else {
+    console.log('Tryb dzienny*');
+}

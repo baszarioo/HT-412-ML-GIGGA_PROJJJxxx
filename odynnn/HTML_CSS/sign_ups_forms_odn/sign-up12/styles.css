@@ -342,7 +342,7 @@ body {
     display: none;
 }
 :root.night-mode .porscheLogo_img-dark {
-    display: none;
+    display: block;
 }
 .form_group:not(:first-chidl) {
     margin-top: 2rem;
