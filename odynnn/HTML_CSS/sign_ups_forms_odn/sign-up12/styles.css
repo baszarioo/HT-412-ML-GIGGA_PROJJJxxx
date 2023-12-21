@@ -332,7 +332,7 @@ body {
     color: var(--color-primary);
     border-bottom-color: var(--color-primary);
 }
-:root-night-mode .form_control:active, :root.night-mode .form_control:focus {
+:root.night-mode .form_control:active, :root.night-mode .form_control:focus {
     border-color: var(--color-primary);
 }
 :root.night-mode .credits_name {
@@ -343,4 +343,107 @@ body {
 }
 :root.night-mode .porscheLogo_img-dark {
     display: none;
+}
+.form_group:not(:first-chidl) {
+    margin-top: 2rem;
+}
+.form_label {
+    display: block;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* animations cont. */
+@keyframes arc-in-sun {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.arc-in-sun {
+    animation: arc-in-sun 2s forwards;
+}
+.fade-in {
+    opacity: 100%;
+}
+.fade-out {
+    opacity: 0%;
+}
+@keyframes flickerAnimation {
+    0%{
+        border-color: #000;
+        color: #000;
+    }
+    60%{
+        border-color: var(--color-secondary);
+        color: var(--color-secondary);
+    }
+    65% {
+        border-color: #000;
+        color: var(--color-secondary);
+    }
+    70% {
+        border-color: var(--color-secondary);
+        color: var(--color-secondary);
+    }
+    75% {
+        border-color: #000;
+        color: #000;
+    }
+    100% {
+        border-color: var(--color-secondary);
+        color: var(--color-secondary);
+    }
+}
+.flicker {
+    animation: flickerAnimation 1s;
+}
+
+/* media - section  */
+@media only screen and (max-width: 1560px){
+    html {
+        font-size: 50%;
+    }
+}
+@media only screen and (max-width: 1160px){
+    html {
+        font-size: 40%;
+    }
+}
+@media only screen and (max-width: 930px) {
+    html {
+        font-size: 56.5%;
+    }
+    .hero {
+        height: 100vh;
+        min-height: 100vh;
+        min-width: 0vw;
+    }
+    .content {
+        width: 100vw;
+    }
+    .panel {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .header {
+        text-align: center;
+        margin-left: 2.5rem;
+    }
+    .header_primary {
+        font-size: 4.4rem;
+    }
+    .header_secondary {
+        font-size: 1.4rem;
+    }
+    .content{
+        height: 96vh;
+    }
+    .porscheLogo {
+        z-index: 1;
+    }
 }
