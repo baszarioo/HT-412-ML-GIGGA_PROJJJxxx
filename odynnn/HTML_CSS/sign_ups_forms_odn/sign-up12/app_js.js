@@ -24,3 +24,30 @@ const checkPasswords = () => {
         password2.previousElementSibling.style.color = 'green';
     }
 }
+
+const sun = document.querySelector('.sun');
+const moon = document.querySelector('.moon');
+const sunPseudo = document.querySelector('.sunPseudo');
+const moonPseudo = document.querySelector('.moonPseudo');
+
+sunPseudo.addEventListener('click', () => {
+    if(!sun.classList.contains('arc-out-sun')){
+        sun.classList.toggle('arc-out-sun');
+        moon.classList.toggle('arc-in-moon');
+    } else {
+        moon.classList.toggle('arc-out-moon');
+        sun.classList.toggle('arc-in-sun');
+    }
+    sunPseudo.classList.toggle('fade-out');
+    moonPseudo.classList.toggle('fade-in');
+    root.classList.add('night-mode');
+    console.log('clicked');
+})
+
+moonPseudo.addEventListener('click', () => {
+    moon.classList.toggle('arc-out-moon');
+    sun.classList.toggle('arc-in-sun');
+    sunPseudo.classList.toggle('fade-out');
+    moonPseudo.classList.toggle('fade-in');
+    root.classList.remove('night-mode');
+})
