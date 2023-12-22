@@ -1,0 +1,16 @@
+1. Business Context of app. = 
+
+2. LifeCycle of component. 
+ - many of prog. initialize data in constructor(). When in Angular the OnInit hook is the place where it should be done. Other hooks:
+
+3. Strict Typing: 
+
+4. Strategies of changes detection. Default vs OnPush: 
+
+5. Subscribtions management: 
+ - Remember to unsubscribe to a stream/flow. If you forget about it may lead to a leak of mem.
+
+6. RxJS operators: 
+ - reactive programming + dataflows, streams. When you dont know RxJS it is similar to you driving a car using only a 1st gear.
+
+7. Learn to Code Review
