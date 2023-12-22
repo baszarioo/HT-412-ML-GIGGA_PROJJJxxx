@@ -400,6 +400,82 @@ describe('Letter Tracker', () => {
 	});
 });
 
-////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
+////////////////////////////////////////////////// DAY8 ///////////////////////////////////////////
+import { Letter, LetterSorter, PriorityStrategy, LengthStrategy, CountryStrategy } from './index';
+describe('LetterSorter', () => {
+	let letters: Letter[] = [];
+	beforeEach(() => {
+		letters = [
+			{ content: 'Hi', country: 'us', priority: 'medium' },
+			{ content: 'Halo', country: 'de', priority: 'low' },
+			{ content: 'Cześć', country: 'pl', priority: 'high' }
+		];
+	});
+	test('should sort letters by priority', () => {
+		const sorter = new LetterSorter(new PriorityStrategy());
+		const sortedLetters = sorter.sortLetters(letter);
+		expect(sortedLetters).toEqual([
+			{ content: 'Cześć', country: 'pl', priority: 'high' },
+			{ content: 'Hi', country: 'us', priority: 'medium' },
+			{ content: 'Halo', country: 'de', priority: 'low' }
+		]);
+	});
+	test('should sort letters by country', () => {
+		const sorter = new LetterSorter(new CountryStrategy());
+		const sortedLetters = sorter.sortLetters(letters);
+		expect(sortedLetter).toEqual([
+			{ content: 'Cześć', country: 'pl', priority: 'high' },
+			{ content: 'Halo', country: 'de', priority: 'low' },
+			{ content: 'Hi', country: 'us', priority: 'medium' }
+		]);
+	test('should sort letters by length', () => {
+		const sorter = new LetterSorter(new LengthStrategy());
+		const sortedLetters = sorter.sortLetters(letters);
+		expect(sortedLetters).toEqual([
+			{ content: 'Hi', country: 'us', priority: 'medium' },
+			{ content: 'Halo', country: 'de', priority: 'low' },
+			{ content: 'Cześć', country: 'pl', priority: 'high' }
+		]);
+	});
+});
+
+//=index.ts=////////
+export interface Letter {
+	content: string;
+	country: string;
+	priority: 'low' | 'medium' | 'high';
+}
+export interface SortStrategy { 
+	compare(a: Letter, b: Letter): number;
+}
+export class PriorityStrategy implements SortStrategy {
+	compare(a: Letter, b:Letter): number {
+		const priorityOrder = { low: 2, medium: 1, high: 0 };
+		return priorityOrder[a.priority] - priorityOrder[b.priority];
+	}
+}
+export class LengthStrategy implements SortStrategy {
+	compare(a:Letter, b:Letter):number {
+		return a.content.length - b.content.length;
+	}
+}
+export class CountryStrategy implements SortStrategy {
+	private countryOrder: { [key: string]: number } = { pl: 1, de: 2, us: 3};
+	compare(a:Letter, b:Letter):number {
+		const orderA = this.countryOrder[a.country] || Number.MAX_SAFE_INTEGER;
+		const orderB = this.countryOrder[b.country] || Number.MAX_SAFE_INTEGER;
+		return orderA - orderB;
+	}
+}
+export class LetterSorter {
+	private strategyt: SortStrategy;
+	constructor(strategy: SortStrategy) {
+		this.startegy= strategy;
+	}
+	sortLetters(letters: Letter[]): Letter[] {
+		return letters.slice().sort((a,b)=>this.strategy.compare(a,b));
+	}
+}
+
 ////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
 ////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
