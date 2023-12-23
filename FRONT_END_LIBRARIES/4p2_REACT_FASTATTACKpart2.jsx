@@ -374,7 +374,7 @@ class MyComponent extends React.Component {
 
 
 
-/* ///4//// USE THE LIFECYCLE METHOD - COMPONENTDIDMOUNT; ////4/// */
+/* ///4//// USE THE LIFECYCLE METHOD - COMPONENTWMOUNT; ////4/// */
 //attach event listener in componentDidMount() for keydown events, and have these eventys trigger the callback handleKeyPress(). Then remove it.
 class MyComponent extends React.Component {
 	constructor(props) {
@@ -409,3 +409,157 @@ class MyComponent extends React.Component {
 		);
 	}
 }
+
+/* ///5///// OPTIMIZE RE-RENDERS WITH SHOULDCOMPONENTUPDATE; /////5/// */
+class OnlyEvens extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	shouldComponentUpdate(nextProps, nextState) {
+		console.log('Should I update?');
+		if(nextProps.value % 2 == 0) {
+			return true;			
+		}
+		return false;
+	}
+	componentWillReceiveProps(nextProps) {
+		console.log('Receiving new props...');
+	}
+	componentDidUpdate() {
+		console.log('Component re-rendered.');
+	}
+	render() {
+		return <h1>{this.props.value}</h1>
+	}
+}
+class Controller extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			value: 0
+		};
+		this.addValue = this.addValue.bind(this);
+	}
+	addValue() {
+		this.setState({
+			value: this.state.value + 1
+		});
+	}
+	render() {
+		return ( 
+			<div>
+				<button onClick={this.addValue}>Add</button>
+				<OnlyEvens value={this.state.value}/>
+			</div>
+		);
+	}
+};
+
+
+
+/* ///5///// INTRODUCING INLINE STYLES; /////5/// */
+//inline style for HTML:
+// <div style="color: yellow; font-size: 16px">Mellow Yellow</div>
+//inline style for JSX:
+<div style = {{color:"yellow", fontSize: 16}}>Mellow Yellow</div>
+//exercise;
+class Colorful extends React.Component {
+	render() {
+		return (
+			<div style={{color: "red", fontSize: "72px"}}>Big Red</div>
+		);
+	}
+};
+
+
+/* ///5///// Add Inline Styles in React; /////5/// */
+const styles = {
+	color: 'purple',
+	fontSize: 40,
+	border: "2px solid purple",
+};
+class Colorful extends React.Component {
+	render() {
+		return (
+			<div style={styles}>Style Me!</div>
+		);
+	}
+};
+
+
+
+/* ///5///// Use advanced JavaScript in React Render Method; /////5/// */
+// while you're inside the render method and not inside the return method, you can write Js wothout wrappingg it inside curly braces.
+const answer = possibleAnswers[this.state.randomIndex];
+//...
+<p> {answer} </p>
+
+//exercise;
+const inputStyle = {
+	width: 235,
+	margin: 5
+};
+class MagicEightBall extends React.Component {
+	constructor(props) {
+		super(props) {
+			this.state = {
+				userInput: '',
+				randomIndex: ''
+			};
+			this.ask= this.ask.bind(this);
+			this.handleChange = this.handleChange.bind(this);
+		}
+	ask() {
+		if(this.state.userInput) {
+			this.setState({
+				randomIndex: Math.floor(Math.random() * 20),
+				userInput: ''
+			});
+		}
+	}
+	handleChange(event) {
+		this.setState({
+			userInput: event.target.value
+		});
+	}
+	render() {
+		const possibleAnswers = [
+			'It is certain',
+			'It is decidedly so',
+			'Without a doubt',
+			'Yes, definitely',
+			'You may rely on it',
+			'As I see it, yes',
+			'Outlook good',
+			'Yes',
+			'Signs point to yes',
+			'Reply hazy try again',
+			'Ask again later',
+			'Better not tell you now',
+			'Cannot predict now',
+			'Concentrate and ask again',
+			"Don't count on it",
+			'My reply is no',
+			'My sources say no',
+			'Most likely',
+			'Outlook not so good',
+			'Very doubtful'
+		];
+		const answer = possibleAnswers[this.state.randomIndex];
+		return (
+			<div>
+				<input
+					type='text'
+					value={this.state.userInput}
+					onChange={this.handleChange}
+					style={inputStyle}
+				/>
+				<br />
+				<button onClick={this.ask}>Ask the Magic Eight Ball!</button>
+				<br />
+				<h3>Answer:</h3>
+				<p> {answer} </p>
+			</div>
+		);
+	}
+};
