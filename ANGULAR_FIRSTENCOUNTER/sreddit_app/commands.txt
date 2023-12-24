@@ -1,0 +1,3 @@
+ng g s ..x
+
+if our webconfig is not specified, then our request is reject
