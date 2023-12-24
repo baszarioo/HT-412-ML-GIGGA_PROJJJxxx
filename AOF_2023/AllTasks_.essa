@@ -554,7 +554,70 @@ describe('Equipment Tests', () => {
 	});
 });
 ////////////////////////////////////////////////// DAY10 ///////////////////////////////////////////
+/index.test.ts/ =
+import {findCyclesBetweenLocations} from './index';
+test('finds cycles in location graph', () => {
+	const graph = {
+		'North Pole': ['London', 'New York'],
+		London: ['Paris'],
+		Paris: ['Berlin', 'Madrid'],
+		Berlin: ['North Pole'],
+		Madrid: [],
+		'New York': ['North Pole'],
+	};
+	expect(findCyclesBetweenLocations(graph)).toEqual([
+		['North Pole', 'London', 'Paris', 'Berlin', 'North Pole'],
+		['North Pole', 'New York', 'North Pole'],
+	]);
+});
+test('handles a graph with no cycles between locations', () => {
+	const graph = {
+		'North Pole': ['London', 'New York'],
+		London: ['Paris'],
+		Paris: ['Berlin'],
+		Berlin: [],
+		Madrid: [],
+		'New York': ['Madrid'],
+	};
+	expect(findCyclesBetweenLocations(graph)).toEqual([]);
+});
+test('throws an error for invalid input', () => {
+	const invalidGraph = {
+		'North Pole': ['London', 'New York'],
+		London: ['Paris'],
+		Paris: ['Berlin', 'Madrid'],
+		'New York': ['North Pole'],
+	};
+	expect(() => findCyclesBetweenLocations(invalidGraph)).toThrow('Invalid graph: missing nodes');
+});
 
+/index.ts/ =
+export function findCyclesBetweenLocations(graph: Record<string, string[]>): string[][] {
+	const visited = new Set<string>();
+	const cycles: string[][] = [];
+	function dfs(node: string, path: string[] = []) {
+		visited.add(node);
+		path.push(node);
+		for(const neighbor of graph[node]) {
+			if(!graph[neighbor]) {
+				throw new Error('Invalid graph: missing nodes');
+			}
+			if(!visited.has(neighbor)) {
+				dfs(neighbor, path.slice());
+			} else if ( path.includes(neighbor)) {
+				const cycle = path.slice(path.indexOf(neighbor));
+				cycle.push(neighbor);
+				cycles.push(cycle);
+			}
+		}
+	}
+	for(const node in graph) {
+		if(!visited.has(node)) {
+			dfs(node);
+		}
+	}
+	return cycles;
+}
 ////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
 ////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
 ////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
