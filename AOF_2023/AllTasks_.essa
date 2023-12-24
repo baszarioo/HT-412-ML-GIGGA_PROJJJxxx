@@ -618,6 +618,97 @@ export function findCyclesBetweenLocations(graph: Record<string, string[]>): str
 	}
 	return cycles;
 }
+////////////////////////////////////////////////// DAY11 ///////////////////////////////////////////
+class PriorityQueue { 
+	private queue: [string, number][];
+	constructor() {
+		this.queue=[];
+	}
+	enqueue(item: [string, number]): void {
+		if(this.isEmpty()) {
+			this.queue. push(item);
+		} else {
+			let added = false;
+			for(let i=0; i<this.queue.length; i++) {
+				if(item[1] < this.queue[i][1]) {
+					this.queue.splice(i, 0, item);
+					added=true;
+					break;
+				}
+			}
+			if(!added) {
+				this.queue.push(item);
+			}
+		}
+	}
+	dequeue(): [string, number] {
+		return this.queue.shift() as [string, number];
+	}
+	isEmpty(): boolean {
+		return this.queue.length === 0;
+	}
+}
+
+export interface WeightedGraph {
+	[key: string]: { [key: string]: number };
+}
+export function findShortestPath(graph: WeightedGraph, start: string, end: string): string[] | null {
+	const costs: { [key: string]: number } = {};
+	const paths: { [key: string]: string[] } = { [start]: [] };
+	const pq = new PriorityQueue();
+	pq.enqueue([start, 0]);
+	while(!pq.isEmpty()) {
+		const [node, cost] = pq.dequeue();
+		if(costs[node] !== undefined && cost > costs[node]) continue;
+		costs[node] = cost;
+		for(let neighbor in graph[node]) {
+			let newCost = cost + graph[node][neighbor];
+			if(costs[neighbor] === undefined || newCost < costs[neighbor]) {
+				costs[neighbor] = newCost;
+				paths[neighbor[ = [...paths[node], node];
+				pq.enqueue([neighbor, newCost]);
+			}
+		}
+	}
+	if(!graph[start] || !graph[end]) {
+		throw new Error('Invalid or non-existent route');
+	}
+	if(costs[end] === undefined) {
+		return null;
+	}
+	return [...paths[end], end];
+}
+
+/index.test.ts/ =======
+import { findShortestPath } from './index';
+describe('findShortestPath', () => {
+	it('should return the shortest path between cities', () => {
+		const graph = {
+			London: { Paris:1, Berlin:4 },
+			Paris: { London:1, Berlin:2, Tokyo:5 },
+			Berlin: { London:4, Paris:2, Tokyo:1 },
+			Tokyo: { Paris:5, Berlin:1 }
+		};
+		expect(findShortestPath(graph, 'London', 'Tokyo')).toEqual(['London', 'Paris', 'Berlin', 'Tokyo']);
+	});
+	it('should handle cities with no connection between them', () => {
+		const graph = {
+			London: { Paris: 1 },
+			Paris: { London: 1 },
+			Tokyo: { Beijing: 1 },
+			Beijing: { Tokyo: 1 }
+		};
+		expect(findShortestPath(graph, 'London', 'Beijing')).toBeNull();
+	});
+	it('should throw an error for invalid or non-existent routes', () => {
+		const graph = { 
+			London: { Berlin: 1, Paris: 2 },
+			Berlin: { London: 1 }
+		};
+		expec(() => findShortestPath(graph, 'London', 'Fankfurt')).toThorw('Invalid or non-existent route');
+	});
+});
+////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
 ////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
 ////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
 ////////////////////////////////////////////////// DAY7 ///////////////////////////////////////////
