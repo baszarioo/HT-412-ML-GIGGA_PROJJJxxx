@@ -252,3 +252,102 @@ function binaryAgent1(str) {
 	return uniString.join("");
 }
 //...
+function binaryAgent2(str) {
+	str=str.split(" ");
+	var power;
+	var decValue =0;
+	var sentence = "";
+	for( var s =0; s<str.length; s++) {
+		for(var t=0; t<str[s].length; t++) {
+			if(str[s][t] == 1){
+				power=Math.pow(2, +str[s].length -t -1);
+				decValue+=power;
+			}
+		}
+		sentence+=String.fromCharCode(decValue);
+		decValue=0;
+	}
+	return sentence;
+}
+//tests..
+function binaryAgent3(str) {
+	return String.fromCharCode(
+		...str.split(" ").map(function(char) {
+			return parseInt(char, 2);
+		})
+	);
+}
+//test22..
+//alternative
+const binaryAgent = str => str.replace(/\d+./g, char => String.fromCharCode(`0b${char}`));
+
+
+
+/* ///17/21// EVERYTHING BE TRUTHY checker;/// */
+function truthCheck1(collection, pre) {
+	let counter = 0;
+	for(let c in collection) {
+		if(collection[c].hasOwnProperty(pre) && Boolean(collection[c][pre])) {
+			counter++;
+		}
+	}
+	return counter == collection.length;
+} //example test;
+truthCheck([{ name: "Quincy", role: "Founder", isBot: false }, { name:"Naomi", role:"", isBot: false }, {name:"CamperBot", role:"Bot", isBot: true }], "isBot");
+
+// v 2 using Array.every()
+function truthCheck2(collection, pre) {
+	return collection.every(function (element) {
+		return element.hasOwnProperty(pre) && Boolean(element[pre]);
+	});
+}
+// v 3 ss collection.
+function truthCheck(collection, pre) {
+	return collection.every(obj => obj[pre]);
+}
+
+
+
+/* ///18/21// ARGUMENTS OPTIONAL ;/// */
+//create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+function addTogether1() {
+	const [frist,second] = arguments;
+	if(typeof(first) === 'number') {
+		if(typeof (second) === 'number') return first + second;
+		if(arguments.length === 1) return (second) => addTogether(first, second);
+	}
+}
+//version22
+function addTogether() {
+	const [first,second] = arguments;
+	if(typeof(first) !== "number"){
+		return undefined;
+	}
+	else if (arguments.length === 1) {
+		function addSecond(second) {
+			if(typeof(second) !== "number") {
+				return undefined;
+			} else {
+				return first + second;
+			}
+		}
+		return addSecond;
+	}
+	else if (typeof(second) !== "number") {
+		return undefined;
+	}
+	else {
+		return first + second;
+	}
+}
+// version 3 3 3
+function addTogether() {
+	const [first, second] = arguments;
+	function addSecond(second) {
+		if(typeof(second) === 'number') return first + second;
+	}
+	if(typeof(first) === "number") {
+		if(arguments.length === 1) return addSecond;
+		if(arguments.length === 2) return addSecond(second);
+	}
+}
