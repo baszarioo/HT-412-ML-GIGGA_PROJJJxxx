@@ -351,3 +351,92 @@ function addTogether() {
 		if(arguments.length === 2) return addSecond(second);
 	}
 }
+
+
+
+
+/* ////19/21// MAKE A PERSON ;//// */
+const Person = function(first, last) {
+	let firstName= first;
+	let lastName= last;
+	this.getFirstName = function() {
+		return firstName;
+	};
+	this.getLastName = function () {
+		return lastName;
+	};
+	this.getFullName = function() {
+		return this.getFirstName() + " " + this.getLastName();
+	};
+	this.setFirstName = function(first){
+		return firstName = first;
+	};
+	this.setLastName = function(last) {
+		return lastName = last;
+	};
+	this.setFullName = function(first, last) {
+		this.setFirstName(first);
+		this.setLastName(last);
+		return this.getFullName();
+	};
+};
+const bob = new Person("Bob", "Ross");
+console.log(bob.getFullName());
+
+
+
+/* ////20/21// MAP THE DFEBRIS: ;//// */
+function orbitalPeriod(arr) {
+	const GM = 398600.4418;
+	const earthRadius = 6367.4447;
+	const a = 2*Math.PI;
+	const newArr=[];
+	 const getOrbPeriod = function(obj) {
+		const c = Math.pow(earthRadius + obj.avgAlt, 3);
+		const b = Math.sqrt(c / GM);
+		const orbPeriod = Math.round(a * b);
+		return {name: obj.name, orbitalPeriod: orbPeriod};
+     };
+	for(let elem in arr) {
+		newArr.push(getOrbPeriod(arr[elem]));
+	}
+	return newArr;
+}
+orbitalPeriod([{ name: "sputnik", avgAlt: 35873.5553 }]);
+//solution2; loop + 
+fucntion orbitalPeriod(arr) {
+	const GM= 398600.4418;
+	const earthRadius = 6367.4447;
+	const newarr = [];
+	for(let elem in arr) {
+		const orbitalPer = Math.round(
+			2* Math.PI * Math.sqrt(Math.pow(arr[elem].avgAlt + earthRadius, 3) / GM)
+		);
+		newArr.push({name: arr[elem].name, orbitalPeriod: orbitalPer});
+	}
+	return newArr;
+}
+//solution3 - newArray to prevent modifications
+function orbitalPeriod(arr) {
+	const GM= 398600.4418;
+	const earthRadius= 6367.4447;
+	const newArr = JSON.parse(JSON.stringify(arr));
+	newArr.forEach(function(item) {
+		const tmp = Math.round(
+			2 * Math.PI * Math.sqrt(Math.pow(earthRadius + item.avgAlt, 3) / GM)
+		);
+		delete item.avgAlt;
+		item.orbitalPeriod = tmp;
+	});
+	return newArr;
+}
+//solution 4;
+function orbitalPeriod(arr) {
+	const GM = 398600.4418;
+	const earthRadius = 6367.4447;
+	return arr.map(({ name, avgAlt }) => {
+		const earthRadius + avgAlt;
+		const orbitalPeriod = Math.round(2 * Math.PI * Math.sqrt(Math.pow(earth, 3)/GM));
+		return { name, orbitalPeriod };
+	});
+}
