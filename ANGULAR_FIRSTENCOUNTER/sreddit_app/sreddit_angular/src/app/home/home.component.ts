@@ -13,11 +13,7 @@ export class HomeComponent implements OnInit {
   public faArrowDown: IconDefinition = faArrowDown;
   public faComments: IconDefinition = faComments;
   posts: Array<PostModel> = [];
-  constructor(private postService: PostService) {
-    this.postService.getAllPosts().subscribe(post => {
-      this.posts = post;
-    });
-  }
+  constructor() { }
   ngOnInit(): void {
     
   }

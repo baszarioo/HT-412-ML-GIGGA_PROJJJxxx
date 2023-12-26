@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SignupRequestPayload } from '../signup/signup-request.payload';
 import { Observable, throwError  } from 'rxjs';
@@ -10,6 +10,8 @@ import { LoginResponse } from '../login/login-response.payload';
   providedIn: 'root'
 })
 export class AuthService {
+  @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
+  @Output() username: EventEmitter<string> = new EventEmitter();
 
   constructor(private httpClient: HttpClient, private localStorage: LocalStorageService) { }
   signup(signupRequestPayload: SignupRequestPayload): Observable<any> {
@@ -25,6 +27,9 @@ export class AuthService {
         this.localStorage.store('username', data.username);
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('expiresAt', data.expiresAt);
+        
+        this.loggedIn.emit(true);
+        this.username.emit(data.username);
         return true;
       }));
   }  
@@ -96,5 +101,8 @@ export class AuthService {
     this.localStorage.store('refreshToken', data.refreshToken);
     this.localStorage.store('expiresAt', data.expiresAt);
     this.localStorage.store('username', data.username);
+  }
+  isLoggedIn(): boolean {
+    return this.getJwtToken() != null;
   }
 }
