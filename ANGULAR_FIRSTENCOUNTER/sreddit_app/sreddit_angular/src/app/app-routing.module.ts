@@ -11,9 +11,9 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent},
-  { path: 'create-post', component: CreatePostComponent},
-  { path: 'create-subreddit', component: CreateSubredditComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'create-post', component: CreatePostComponent },
+  { path: 'create-subreddit', component: CreateSubredditComponent },
   { path: 'list-subreddits', component: ListSubredditsComponent },
   { path: 'view-post/:id', component: ViewPostComponent }
 ];

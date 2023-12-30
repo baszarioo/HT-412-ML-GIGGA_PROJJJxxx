@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { SignupRequestPayload } from '../signup/signup-request.payload';
 import { Observable, throwError  } from 'rxjs';
 import { LoginRequestPayload } from '../login/login-request.payload';
-import { LocalStorageService } from 'ngx-webstorage/public_api';
+import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { map, tap, catchError } from 'rxjs/operators';
 import { LoginResponse } from '../login/login-response.payload';
 @Injectable({

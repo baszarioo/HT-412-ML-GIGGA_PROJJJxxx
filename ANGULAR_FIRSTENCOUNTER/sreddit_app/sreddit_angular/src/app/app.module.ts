@@ -38,7 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CreateSubredditComponent,
     CreatePostComponent,
     ListSubredditsComponent,
-    ViewPostComponent
+    ViewPostComponent,
   ],
   imports: [
     BrowserModule,
