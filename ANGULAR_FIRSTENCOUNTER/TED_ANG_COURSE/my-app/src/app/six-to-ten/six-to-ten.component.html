@@ -1,0 +1,20 @@
+<p>six-to-ten works!</p>
+<table>
+  <thead>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Type</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pokemon of pokemons; index as i">
+      <td [class.rare-flare]="pokemon.isRare">{{ pokemon.id }}</td>
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.type }}</td>
+    </tr>
+    <tr *ngFor="let pokemon of pokemons; let i =index">
+      <td [ngClass]="{'rare-flare' : pokemon.isRare}">{{pokemon.id}}</td>
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.type }}</td>
+    </tr>
+  </tbody>
+</table>
