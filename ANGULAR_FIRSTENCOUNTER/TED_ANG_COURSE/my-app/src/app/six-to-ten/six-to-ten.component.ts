@@ -21,6 +21,7 @@ interface Pokemon {
   styleUrl: './six-to-ten.component.scss'
 })
 export class SixToTenComponent {
+  pokeName: string=""; //6
   pokemons: Pokemon[] =[{
     id: 1,
     name: 'pikachu',
@@ -38,4 +39,7 @@ export class SixToTenComponent {
     isRare: true
   }]
   constructor() {}
+  handleChange(event : any){
+    this.pokeName = event?.target.value;
+  }
 }

@@ -1,4 +1,16 @@
 <p>six-to-ten works!</p>
+<input type="text" [value]="pokeName" (input)="handleChange($event)">
+<p>{{pokeName}}</p>
+<!--<div *ngIf="!pokeName">No search results found...</div>-->
+<ng-container *ngIf="pokeName.length; then pokemonList; else noPokemon"></ng-container>
+<ng-template #pokemonList>
+  <h1>All pokemon available</h1>
+  ....
+</ng-template>
+<ng-template #noPokemon>
+  <h1>No Pokemon available</h1>
+</ng-template>
+<p>six 1 six ^ empty input=no pokemon, type sth=pokemon found</p>
 <table>
   <thead>
     <th>Index</th>
@@ -15,6 +27,14 @@
       <td [ngClass]="{'rare-flare' : pokemon.isRare}">{{pokemon.id}}</td>
       <td>{{ pokemon.name }}</td>
       <td>{{ pokemon.type }}</td>
+    </tr>
+  </tbody>
+  <p>style-syntax-test:</p>
+  <tbody>
+    <tr *ngFor="let pokemon of pokemons; let i = index;">
+      <td class="pokemon-td" [class.rare-flare]="pokemon.isRare">
+        {{i}}:{{pokemon.name}}
+      </td>
     </tr>
   </tbody>
 </table>
