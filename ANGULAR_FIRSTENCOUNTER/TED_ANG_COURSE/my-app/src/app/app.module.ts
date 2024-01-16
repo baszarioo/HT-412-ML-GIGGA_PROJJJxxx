@@ -6,18 +6,20 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import {SixToTenComponent} from "./six-to-ten/six-to-ten.component";
 import {CommonModule} from "@angular/common";
+import {PokemonListComponent} from "./pokemon-base/pokemon-list/pokemon-list.component";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    SixToTenComponent,
-    CommonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        SixToTenComponent,
+        CommonModule,
+        PokemonListComponent
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

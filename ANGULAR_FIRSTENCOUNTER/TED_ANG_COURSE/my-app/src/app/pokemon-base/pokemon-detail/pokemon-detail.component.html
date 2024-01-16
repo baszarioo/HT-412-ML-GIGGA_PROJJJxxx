@@ -1,1 +1,8 @@
 <p>pokemon-detail works!</p>
+<tr>
+    <td class="pokemon-td"
+        [class.cool-bool]="detail.isCool">
+        {{detail.id}}:{{detail.name}} {{ detail.isCool == true ? "is COOL": "is NOT COOL"}}
+    </td>
+    <button (click)="onRemove()">Remove Pokemon</button>
+</tr>
