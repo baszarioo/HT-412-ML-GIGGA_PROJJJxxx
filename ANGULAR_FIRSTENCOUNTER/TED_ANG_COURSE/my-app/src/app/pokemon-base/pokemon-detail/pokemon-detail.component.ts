@@ -4,7 +4,7 @@ import {Pokemon} from "../../models/pokemon";
 @Component({
   selector: 'app-pokemon-detail',
   standalone: false,
-  imports: [],
+  // imports: [],
   templateUrl: './pokemon-detail.component.html',
   styleUrl: './pokemon-detail.component.scss'
 })

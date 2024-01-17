@@ -6,12 +6,12 @@ import {PokemonService} from "../../services/pokemon.service";
 @Component({
   selector: 'app-pokemon-list',
   standalone: false,
-    imports: [
-        NgClass,
-        NgStyle,
-        PokemonDetailComponent,
-        CommonModule
-    ],
+    // imports: [
+    //     NgClass,
+    //     NgStyle,
+    //     PokemonDetailComponent,
+    //     CommonModule
+    // ],
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.scss'
 })
@@ -45,6 +45,11 @@ export class PokemonListComponent implements OnInit {
       //whereas /* this.pokemons = this.pokemons[0] */ //is a state mutability, - avoid it at all cost.
   }
   ngOnInit() {
-    this.pokemons = this.pokemonService.getPokemons();
+    // this.pokemons = this.pokemonService.getPokemons();
+      this.pokemonService.getPokemons().subscribe((data: Pokemon[]) => {
+          console.log(data);
+          this.pokemons = data;
+      });
   }
 }
+
