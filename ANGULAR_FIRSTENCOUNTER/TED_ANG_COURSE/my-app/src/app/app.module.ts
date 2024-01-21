@@ -8,10 +8,12 @@ import {SixToTenComponent} from "./six-to-ten/six-to-ten.component";
 import {CommonModule} from "@angular/common";
 import {PokemonListComponent} from "./pokemon-base/pokemon-list/pokemon-list.component";
 import {PokemonBaseModule} from "./pokemon-base/pokemon-base.module";
+import {PokemonTemplateFormComponent} from "./pokemon-template-form/pokemon-template-form.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PokemonTemplateFormComponent
   ],
     imports: [
         BrowserModule,
