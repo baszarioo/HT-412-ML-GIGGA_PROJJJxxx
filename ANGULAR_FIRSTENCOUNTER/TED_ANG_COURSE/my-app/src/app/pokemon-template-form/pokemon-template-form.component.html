@@ -11,6 +11,12 @@
   <label>
     <input type="checkbox" name="acceptTerms" [(ngModel)]="pokemon.acceptTerms" /> Check to accept terms.
   </label>
+  <label> <!-- Select option. You can send back both key or value [or other props if defined]. -->
+    Pokemon Type:
+    <select name="pokemonType" [ngModel]="pokemon?.name">
+      <option *ngFor="let type of pokemonType" [value]="type.key" [defaultSelected]="type.value===pokemon.type">{{type.value}}</option>
+    </select>
+  </label>
 </form>
 <div>
   MODEL: {{ pokemon | json}}
