@@ -1,12 +1,12 @@
-<!--<p>pokemon-template-form works!</p>-->
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="handleSubmit(form)">
   Pokemon Name:
   <input type="text" [(ngModel)]="pokemon.name" name="name" />
   <label>
     <input type="radio" name="isCool" [value]="true" [ngModel]="pokemon.isCool" />Pokemon is cool?
   </label>
   <label>
-    <input type="radio" name="isCool" [value]="false" [ngModel]="pokemon.isCool" (ngModelChange)="toggleIsCool($event)"/> Pokemon is Cooln't?
+<!--    "ngModel" ->> it's a form validation-->
+    <input type="radio" name="isCool" [value]="false" #pokemonName="ngModel" [ngModel]="pokemon.isCool" (ngModelChange)="toggleIsCool($event)"/> Pokemon is Cooln't?
   </label>
   <label>
     <input type="checkbox" name="acceptTerms" [(ngModel)]="pokemon.acceptTerms" /> Check to accept terms.
@@ -17,8 +17,13 @@
       <option *ngFor="let type of pokemonType" [value]="type.key" [defaultSelected]="type.value===pokemon.type">{{type.value}}</option>
     </select>
   </label>
+  <button type="submit" [disabled]="!form.valid">Save</button>
+  <button type="button" (click)="back()">Go Back</button>
 </form>
 <div>
   MODEL: {{ pokemon | json}}
   FORM: {{ form.value | json }}
+  ERROR: <div *ngIf="!pokemonName.pristine">NOT PRISTINE ANYMORE => DIRTY NOW.</div>
+<!--  <div *ngIf="!pokemonName.touched">NOT PRISTINE ANYMORE => DIRTY NOW.</div>-->
+<!--  touched, untouched, valid(un), pristine.-->
 </div>

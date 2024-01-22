@@ -1,8 +1,13 @@
 <router-outlet></router-outlet>
+<div>
+<!--    <a routerLink="/"></a>-->
+    <a *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.exact }"
+    >{{ item.name }}</a>
+</div>
 <!--<input [(ngModel)]="favoriteAnimal" />-->
 <!--<p>{{favoriteAnimal}}</p>-->
 
-<input type="text" #pokemonName5 />
+<input  type="text" #pokemonName5 />
 <button (click)="handleClick(pokemonName5.value)">Template ref value</button>
 <!--SIX-TO-TEN NG Model-->
 <app-six-to-ten></app-six-to-ten>
