@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentInit, AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {NgClass, NgStyle, CommonModule} from "@angular/common";
 import {PokemonDetailComponent} from "../pokemon-detail/pokemon-detail.component";
 import {Pokemon} from 'src/app/models/pokemon';
@@ -15,7 +15,7 @@ import {PokemonService} from "../../services/pokemon.service";
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.scss'
 })
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent implements OnInit, AfterViewInit, AfterContentInit {
   /* XDDD array in a smart component? Pathetic... prophylaxis*/
   // pokemons: Pokemon[] = [{
   //   id: 1,
@@ -36,7 +36,11 @@ export class PokemonListComponent implements OnInit {
   //     isCool: true,
   //     isStylish: false
   // }]
-  pokemons!: Pokemon[];
+
+  pokemons!: Pokemon[];   // pokemons: Pokemon[] = [];
+  // @ViewChild('pokemonRef') pokemonRef!: ElementRef;  // more than 1 child - iteration.
+  @ViewChildren('pokemonRef') pokemonRef!: ElementRef;
+  @ViewChild('pokemonTh') pokemonTh!: ElementRef;
   constructor(private pokemonService: PokemonService) { }   //dep. injection
   handleRemove(event: Pokemon){
       this.pokemons = this.pokemons.filter((pokemon: Pokemon) => {
@@ -50,6 +54,16 @@ export class PokemonListComponent implements OnInit {
           console.log(data);
           this.pokemons = data;
       });
+  }
+
+  ngAfterViewInit(): void {
+  //   throw new Error('Method not implemented.');
+    console.log(this.pokemonTh);
+    this.pokemonTh.nativeElement.innerText = "Pokemon Name";
+    // some queries are returned
+  }
+  ngAfterContentInit(): void {
+    console.log(this.pokemonRef);
   }
 }
 

@@ -13,7 +13,7 @@
   </label>
   <label> <!-- Select option. You can send back both key or value [or other props if defined]. -->
     Pokemon Type:
-    <select name="pokemonType" [ngModel]="pokemon?.name">
+    <select name="pokemonType" [ngModel]="pokemon.name"> <!--before: pokemon?.name  - it's optional chaining operator-->
       <option *ngFor="let type of pokemonType" [value]="type.key" [defaultSelected]="type.value===pokemon.type">{{type.value}}</option>
     </select>
   </label>

@@ -1,12 +1,14 @@
 <p>pokemon-list works!</p>
 <table>
     <thead>
-    <th>Name</th>
+    <th #pokemonTh >Name</th>
     <th>Index</th>
     </thead>
     <tbody>
-        <app-pokemon-detail *ngFor="let pokemon of pokemons" [detail]="pokemon"
-        (remove)="handleRemove($event)"></app-pokemon-detail>
+        <app-pokemon-detail
+          #pokemonRef
+          *ngFor="let pokemon of pokemons" [detail]="pokemon"
+        (remove)="handleRemove($event)"><h1>--------------------------------------</h1></app-pokemon-detail>
 <!--        <br/>-->
 <!--        <h1> list of cutassive </h1>-->
 <!--        <tr *ngFor="let pokemon of pokemons; let i = index">-->
