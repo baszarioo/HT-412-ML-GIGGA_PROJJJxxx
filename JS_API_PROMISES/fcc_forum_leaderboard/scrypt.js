@@ -6,6 +6,23 @@ const avatarUrl = "https://sea1.discourse-cdn.com/freecodecamp";
 
 const postsContainer=document.getElementById('posts-container');
 
+const allCategories = {
+	299: {
+		category: "Career Advice",
+		className: "career"
+	},
+	409: { category: "Project Feedback", className: "feedback" },
+	417: { category; "freeCodeCamp Support", className,
+	421: { category: "JavaScript", className: "javascript" },
+	423: { category: "HTML - CSS", className: "html-css" },
+	424: { category: "Python", className: "python" },
+	432: { category: "You Can Do This!", className: "motivation" },
+	560: { category: "Backend Development", className: "backend" },
+};
+const forumCategory = (id) => {
+	let selectedCategory = {};
+};
+
 const timeAgo = (time) => {
 	const currentTime = new Date();
 	const lastPost = new Date(time);
@@ -18,7 +35,17 @@ const timeAgo = (time) => {
 		return `${minutesAgo}m ago`;
 	}
 	if(hoursAgo < 24) {
-		return ${hoursAgo}h ago`;
+		return `${hoursAgo}h ago`;
+	}
+	return `${daysAgo}d ago`;
+};
+
+const viewCount = (viewS) => {
+	const thousands =Math.floor(views/1000);
+	if(views >= 1000) {
+		return `${thousands}k`;
+	} else {
+		return views.toString();
 	}
 };
 
@@ -60,9 +87,11 @@ const showLatestPosts = (data) => {
 					${posts_count - 1}
 				</td>
 				<td>
-					${views}
+					${viewCount(views)}
 				</td>
-				<td></td>
+				<td>
+					${timeAgo(bumped_at)}
+				</td>
 			</tr>
 		`;	//build out table base.
 	}).join('');
