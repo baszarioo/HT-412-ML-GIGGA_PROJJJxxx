@@ -68,7 +68,12 @@ const viewCount = (viewS) => {
 const avatars = (posters, users) => {
 	return posters.map((poster) => {
 		const user = users.find(user => user.id === poster.user_id);
-	});
+		if(user) {
+			const avatar = user.avatar_tmeplate.replace(/{size}/, 30);
+			const userAvatarUrl = avatar.startsWith("/user_avatar/") ? avatarUrl.concat(avatar) : avatar;
+			return `<img src="${userAvatarUrl}" alt="${user.name}" />`;
+		}
+	}).join('');
 };
 
 const fetchData = async() => {
@@ -102,10 +107,16 @@ const showLatestPosts = (data) => {
 		return `
 			<tr>
 				<td>
-					<p class="post-title">${title}</p>
-					${forumCategory(category_id)}	<!-- Tag -->
+					<!-- <p class="post-title">${title}</p> -->
+					<a href="${forumTopicUrl}${slug}/${id}" target="_blank">${title}</a>
+					${forumCategory(category_id)}  <!-- Tag -->
+					
 				</td>
-				<td></td>
+				<td>
+					<div class="avatar-container">
+						${avatars(posters, users)}
+					</div>
+				</td>
 				<td>
 					${posts_count - 1}
 				</td>
