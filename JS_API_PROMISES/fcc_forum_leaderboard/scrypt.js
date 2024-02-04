@@ -21,6 +21,22 @@ const allCategories = {
 };
 const forumCategory = (id) => {
 	let selectedCategory = {};
+	if(allCategories.hasOwnProperty(id)) {
+		const { className, category } = allCategories[id];
+		selectedCategory.className = className;
+		selectedCategory.category = category;
+	} else {
+		selectedCategory.className = 'general';
+		selectedCategory.category = 'General';
+		selectedCategory.id = 1;
+	}
+	const url = `${forumCategoryUrl}${selectedCategory.className}/${id}`;
+	
+	const linkText=selectedCategory.category;
+	
+	const linkClass=`category ${selectedCategory.className}`;
+	
+	return `<a href=${url}" class="${linkClass}" target="_blank">${linkText}</a>`;
 };
 
 const timeAgo = (time) => {
@@ -47,6 +63,12 @@ const viewCount = (viewS) => {
 	} else {
 		return views.toString();
 	}
+};
+
+const avatars = (posters, users) => {
+	return posters.map((poster) => {
+		const user = users.find(user => user.id === poster.user_id);
+	});
 };
 
 const fetchData = async() => {
@@ -81,6 +103,7 @@ const showLatestPosts = (data) => {
 			<tr>
 				<td>
 					<p class="post-title">${title}</p>
+					${forumCategory(category_id)}	<!-- Tag -->
 				</td>
 				<td></td>
 				<td>
