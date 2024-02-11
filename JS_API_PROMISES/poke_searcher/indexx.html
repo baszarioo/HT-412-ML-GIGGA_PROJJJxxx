@@ -3,14 +3,17 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Pokemon Search App</title>
+		<title>Pokémon Search App</title>
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
+		<h1>Pokémon Search App</h1>
 		<div class="container">
-			<h1>Pokemon Search App</h1>
-			<input id="search-input" type="text" placeholder="Enter Pokemon name or ID" required>
-			<button id="search-button">Search</button>
+			<form role="search" id="search-form">
+				<label for="search-input">Search for Pokémon Name or ID:</label>
+				<input id="search-input" type="text" placeholder="Enter Pokemon name or ID" required>
+				<button id="search-button">Search</button>
+			</form>
 			<div class="pokemon-details">
 				<h2>Pokemon Details</h2>
 				<div id="pokemon-name"></div>
@@ -25,6 +28,7 @@
 				<div id="special-defense"></div>
 				<div id="speed"></div>
 			</div>
+			<div id="sprite-container" class="sprite-container"></div>
 			<div id="pokemon-image"></div>
 		</div>
 		</script src="app_y.js"></script>
