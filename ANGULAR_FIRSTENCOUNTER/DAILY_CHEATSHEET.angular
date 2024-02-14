@@ -1,0 +1,34 @@
+What does the ngAfterContentInit() method do? //
+Component({
+	selector: 'app-projected-content',
+	template: `<ng-content select="[identifier]"></ng-content>`,
+});
+export class ProjContentComponent implements AfterContentInit {
+	@ContentChild('contentRef') public projContent!: ElementRef;
+	ngAfterContentInit(): void {
+		console.log('projectedContent: ', this.projContent);
+	}
+}
+// logs to console something..
+
+
+What will the ngAfterContentInit() method log on the console?
+Component({
+	selector: 'app-projected-content',
+	template: `<ng-content select="[identifier]"></ng-content>`,
+});
+export class ProjContentComponent implements AfterContentInit {
+	@ContentChild('contentRef') public projContent!: ElementRef;
+	ngAfterContentInit(): void {
+		console.log('projectedContent: ', this.projContent);
+	}
+	Component({
+		selector: 'app-parent',
+		template: 
+		<app-projected-content>
+			<p #contentRef identifier>Some Content</p>
+		</app-projected-content>
+	})
+export class ParentComponent {}
+//# logs a nativeElement p with the innerText 'Some content'
+// # select="[xd]" //in template: finds it in Component : @ContentChild ;)
