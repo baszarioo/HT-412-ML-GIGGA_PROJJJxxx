@@ -51,4 +51,25 @@ suite('Unit Tests', function () {
 			);
 		});
 	});
+	function weirdNumbers(delta) {
+		return 1 + delta - Math.random();
+	}
+	suite("Comparisons", function () {
+		test("#isAbove, #isAtMost", function () {
+			assert.isAtMost("hello".length, 5);
+			assert.isAbove(1, 0);
+			assert.isAbove(Math.PI, 3);
+			assert.isAtMost(1 - Math.random(), 1);
+		});
+		test("#isBelow, #isAtLeast", function () {
+			assert.isAtLeast("world".length, 5);
+			assert.isAtLeast(2 * Math.random(), 0);
+			assert.isBelow(5 % 2, 2);
+			assert.isBelow(2/3, 1);
+		});
+		test("#approximately", function () {
+			assert.approximately(weirdNumbers(0.5), 1, 0.4);
+			assert.approximately(weirdNumbers(0.2), 1, 0.1);
+		});
+	});
 });
