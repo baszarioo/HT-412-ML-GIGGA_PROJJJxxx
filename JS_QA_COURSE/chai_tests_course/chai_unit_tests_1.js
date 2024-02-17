@@ -68,8 +68,26 @@ suite('Unit Tests', function () {
 			assert.isBelow(2/3, 1);
 		});
 		test("#approximately", function () {
-			assert.approximately(weirdNumbers(0.5), 1, 0.4);
-			assert.approximately(weirdNumbers(0.2), 1, 0.1);
+			assert.approximately(weirdNumbers(0.5), 1, 0.5);
+			assert.approximately(weirdNumbers(0.2), 1, 0.8);
 		});
 	});
+	
+	const winterMonths = ["dec", "jan", "feb", "mar"];
+	const backendLanguages = ["php", "python", "javascript", "ruby", "asp"];
+	suite("Arrays", function () {
+		test("#isArray, #isNotArray", function () {
+			assert.isArray(
+				"isThisAnArray?".split(""),
+				"String.prototype.split() returns an array",
+			);
+			assert.isNotArray([1,2,3].indexOf(2), "indexOf returns a number");
+		});
+		test("Array #include, #notInclude", function () {
+			assert.notInclude(winterMonths, "jul", "It's summer in july... ");
+			assert.include(backendLanguages, "javascript", "JS is a backend language");
+		});
+	});
+	
+	
 });
