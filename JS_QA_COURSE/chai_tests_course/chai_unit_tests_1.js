@@ -73,8 +73,10 @@ suite('Unit Tests', function () {
 		});
 	});
 	
+	// -----------------------------------------------------------------------------
 	const winterMonths = ["dec", "jan", "feb", "mar"];
 	const backendLanguages = ["php", "python", "javascript", "ruby", "asp"];
+	
 	suite("Arrays", function () {
 		test("#isArray, #isNotArray", function () {
 			assert.isArray(
@@ -89,9 +91,11 @@ suite('Unit Tests', function () {
 		});
 	});
 	
+	// -----------------------------------------------------------------------------
 	const formatPepole = function (name, age) {
 		return "# name: " + name + ", age: " + age + "\n";
 	};
+	
 	suite("Strings", function () {
 		test("#isString, #isNotString", function () {
 			assert.isNotString(Math.sin(Math.PI / 4), "A float is not a string");
@@ -109,5 +113,39 @@ suite('Unit Tests', function () {
 		});
 	});
 	
+	// -----------------------------------------------------------------------------
+	const Car = function () {
+		this.model = "sedan";
+		this.engines = 1;
+		this.wheels = 4;
+	};
+	const Plane = function () {
+		this.model = "737";
+		this.engines = ["left", "right"];
+		this.wheels = 6;
+		this.wings = 2;
+	};
+	const myCar = new Car();
+	const airlinePlane = new Plane();
 	
+	suite("Objects", function () {
+		test("#property, #notProperty", function () {
+			assert.notProperty(myCar, "wings", "Cars don't have wings");
+			assert.property(airlinePlane, "engines", "Planes have engines");
+			assert.property(myCar, "wheels", "Cars have wheels");
+		});
+		test("#typeOf, #notTypeOf", function () {
+			assert.typeOf(myCar, "object");
+			assert.typeOf(myCar.model, "string");
+			assert.notTypeOf(airlinePlane.wings, "string");
+			assert.typeOf(airlinePlane.engines, "array");
+			assert.typeOf(myCar.wheels, "number");
+		});
+		test("#instanceOf, #notInstanceOf", function () {
+			assert.notInstanceOf(myCar, Plane);
+			assert.instanceOf(airlinePlane, Plane);
+			assert.instanceOf(airlinePlane, Object);
+			assert.notInstanceOf(myCar.wheels, String);
+		});
+	});		
 });
