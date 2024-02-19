@@ -55,5 +55,37 @@ suite('Functional Tests', function () {
 		// -----------------------------------------------------------------------------
 		
 /*
- 
+When you test a 'PUT', you'll often send data along with it. The data you include with your PUT request is called the body of the request.
+To send a 'PUT' request and a JSON object to the '/travellers' endpoint, you can use 'chai-http' plugin's 'put' and 'send' methods:
+ chai
+	.request(server)
+	.keepOpen()
+	.put('/travellers')
+	.send({
+		"surname": [last name of a traveller of the past]
+	}) //...
+	
 */
+		test('Send {surname: "Colombo"}', function (done) {
+			chai
+				.request(server)
+				.keepOpen()
+				.put('/travellers')
+				.send({ surname: 'Colombo' })
+				.end(function (err, res) {
+					assert.equal(res.status, 200, 'response status should be 200');
+					assert.equal(res.type, 'application/json', 'Response should be json');
+					assert.equal(
+						res.body.name,
+						'Cristoforo',
+						'res.body.name should be "Christoforo"'
+					);
+					assert.equal(
+						res.body.surname,
+						'Colombo',
+						'res.body.surname should be "Colombo"'
+					);
+					done();
+				});
+		});
+		
