@@ -26,17 +26,32 @@ app.use('/public', express.static(process.cwd() + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.route('/').get((req, res) => {
-	res.render('index', { title: 'Hello', message: 'Please log in' });
-});
+myDB(async client => {
+	const myDataBase = await client.db('database').collection('users');
+	
+	app.route('/').get((req, res) => {
+		res.render('index', {
+			title: 'Connected to Database',
+			message: 'Please log in'
+		});
+	});
+	// user serialization x deserialzation:
+	passport.serializeUser((user, done) => {
+		done(null, user._id);
+	});
+	passport.deserializeUser((id, done) => {
+		myDatabase.findOne({ _id: new ObjectID(id) }, (err, doc) => {
+			done(null, null);
+		});
+	});
 
-// user serialization x deserialzation:
-passport.serializeUser((user, done) => {
-	done(null, user._id);
-});
-passport.deserializeUser((id, done) => {
-	myDatabase.findOne({ _id: new ObjectID(id) }, (err, doc) => {
-		done(null, null);
+// app.route('/').get((req, res) => {
+//	 res.render('index', { title: 'Hello', message: 'Please log in' });
+// });
+
+}).catch(e => {
+	app.route('/').get((req, res) => {
+		res.render('index', { title: e, message: 'Unable to connect to database' });
 	});
 });
 

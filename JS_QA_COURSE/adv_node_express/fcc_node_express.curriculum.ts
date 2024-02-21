@@ -85,3 +85,32 @@ The 'deserializeUser' will throw an error until you set up the database connecti
 
 // -----------------------------------------------------------------------------
 
+/*
+You are not loading an actual user object since the database is not set up. Connect to the database once, when you start the server, and keep a persistent connection for the full life-cycle of the app. To do this, add your database's connection string (for example: 'mongodb+srv://<username>:<password>@cluster0-jvwxi.mongodb.net/?retryWrites=true&w=majority)' to the environment variable 'MONGO_URI'. This is used in the 'connection.js' file.
+- Now you want to connect to your database, then start listening for requests. The purpose of this is not allow requests before your database is connected or if there is a database error. To accomplish this, encompass your serialization and app routes in the following code:
+
+	myDB(async client => {
+		const myDataBase = await client.db('database').collection('users');
+		
+		// Be sure to change the title
+		app.route('/').get((req, res) => {
+			// Change the response to render the Pug template
+			res.render('idnex', {
+				title: 'Connected to Database',
+				message: 'Please login'
+			});
+		});
+		// Serialization and deserialzation here ...
+		
+		// Be sure to add this..
+	}).catch(e => {
+		app.route('/').get((req, res) => {
+			res.render('index', { title: e, message: 'Unable to connect to database' });
+		});
+	});
+	// app.listen out here...
+	
+...
+*/
+
+// -----------------------------------------------------------------------------
