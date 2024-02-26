@@ -152,3 +152,97 @@ In 'render()' method use 'Math.random()' as mentioned in the challenge descripti
 At this point, you've seen serveral applications of conditional rendering and the use of inline styles. Here's one more example that combines both of these topics. You can also render CSS conditionally based on the state of a React component. To do this, you check for a condition, and if that condition is met, you modify the styles object that's assingned to the JSX elements in the render method.
 -This paradigm is important to understand because it is a dramatic shift from the more traditional approach of applying styles by modifying DOM elements directly (which is very common with jQuery, for example). In that approach, you must keep track of when elements change and also handle the actual manipulation directly. It can become difficult to keep track of changes, potentially making your UI unpredictable. When you set a style object based on a condition, you describe how the UI should look as a function fo the application's state. There is a clear flow of information that only moves in one direction. This is the preffered method when writing applications with React.
 */
+
+	class GateKeeper extends React.Component {
+		constructor(props) {
+			super(props);
+			this.state = {
+				input: ''
+			};
+			this.handleChange = this.handleChange.bind(this);
+		}
+		handleChange(event) {
+			this.setState({ input: event.target.value })
+		}
+		render() {
+			let inputStyle = {
+				border: '1px solid black'
+			};
+			if(this.state.input.length > 15) {
+				inputStyle.border = '3px solid red';
+			/*
+			if(this.state.input.length > 15) {
+				inputStyle = {
+					border: '3px solid red'
+				};
+			}
+			*/
+			}
+			return (
+				<div>
+					<h3>Don't Type Too Much:</h3>
+					<input
+						type="text"
+						style={inputStyle}
+						value={this.state.input}
+						onChange={this.handleChange} />
+				</div>
+			);
+		}
+	};
+	
+/* ///// USE ARRAY.MAP() TO DYNAMICALLY RENDER ELEMENTS; ///// */
+/*
+define two states as a JS object:
+	
+		{object: state, object: state}
+	
+.map() usage for generating a line for every object in the array.
+
+		this.state.toDoList.map(i => <li>{i}</li>);
+		
+*/
+
+		const textAreaStyles = {
+			width: 235,
+			margin: 5
+		};
+		class MyToDoList extends React.Component {
+			constructor(props) {
+				super(props);
+				this.state = {
+					userInput: '',
+					toDoList: []
+				}
+				this.handleSubmit = this.handleSubmit.bind(this);
+				this.handleChange = this.handleChange.bind(this);
+			}
+			handleSubmit() {
+				const itemsArray = this.state.userInput.split(',');
+				this.setState({
+					toDoList: itemsArray
+				});
+			}
+			handleChange(e) {
+				this.setState({
+					userInput: e.target.value
+				});
+			}
+			render() {
+				const items = this.state.toDoList.map(i => <li>{i}</li>);
+				return (
+					<div>
+						<textarea
+							onChange={this.handleChange}
+							value={this.state.userInput}
+							style={textAreaStyles}
+							placeholder="Separate Items With Commas" /><br />
+						<button onClick={this.handleSubmit}>Create List</button>
+						<h1>My "To Do" List:</h1>
+						<ul>{items}</ul>
+					</div>
+				);
+			}
+		};
+		
+
