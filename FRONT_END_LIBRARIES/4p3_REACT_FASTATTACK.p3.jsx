@@ -346,4 +346,20 @@ Use .map() from previous the previous exercise to list out the online users and 
 		};
 		
 		
-/* ///// x; ///// */
+/* ///// RENDER REACT ON THE SERVER WITH 'RENDERTOSTRING' ///// */
+/*
+The '.renderToString()' method is provide on 'ReactDOMServer', which is available here as a global object. The method takes one argument which is a React element...
+
+*/
+
+		class App extends React.Component {
+			constructor(props) {
+				super(props);
+			}
+			render() {
+				return <div/>
+			}
+		};
+		ReactDOMServer.renderToString(<App />);
+		
+//fin.
