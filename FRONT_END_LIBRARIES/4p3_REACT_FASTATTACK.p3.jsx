@@ -245,4 +245,105 @@ define two states as a JS object:
 			}
 		};
 		
+/* ///// GIVE SIBLING ELEMENTS A UNIQUE KEY ATTRIBUTE; ///// */
+/* when you create an array of elements, each one needs a 'key' attribute set to a unique value ...
+solution1: using the array element as the key:
 
+		const renderFrameworks = frontEndFrameworks.map((item) => 
+			<li key={item}>{item}</li>
+		);
+		
+solution2: Using the array index as the key (not proper).
+
+		const renderFrameworks = frontEndFrameworks.map((item, index) =>
+			<li key={index}>{item}</li>
+		);
+
+*/
+
+		const frontEndFrameworks = [
+			'React',
+			'Angular',
+			'Ember',
+			'Knockout',
+			'Backbone',
+			'Vue'
+		];
+		
+		function Frameworks() {
+			const renderFrameworks = frontEndFrameworks.map((item) => 
+				<li key={item}>{item}</li>
+			);
+			return (
+				<div>
+					<h1>Popular Front End JavaScript Frameworks</h1>
+					<ul>
+						{renderFrameworks}
+					</ul>
+				</div>
+			);
+		};
+		
+/* ///// USE ARRAY.FILTER() TO DYNAMICALLY FILTER AN ARRAY; ///// */
+/*
+	
+		let onlineUsers = users.filter(user => user.online);
+		
+In the code editor, 'MyComponent's ' 'state' is initialized with an array of users...
+User .filter() to create a new array that only shows users online.
+
+		this.state.users.filter(user => user.online === true)
+		
+Use .map() from previous the previous exercise to list out the online users and give them a unique key.
+
+		usersOnline.map(user => <li key={user.username}>{user.username}</li>)
+	
+*/
+		class MyComponent extends React.Component {
+			constructor(props) {
+				super(props);
+				this.state = {
+					users: [
+						{
+							username: 'Jeff',
+							online: true
+						},
+						{
+							username: 'Alan',
+							online: false
+						}
+						{
+							username: 'Mary',
+							online: true
+						},
+						{
+							username: 'Jim',
+							online: false
+						},
+						{
+							username: 'Sara',
+							online: true
+						},
+						{
+							username: 'Laura',
+							online: true
+						}
+					]
+				}
+			}
+			render() {
+				const usersOnline = this.state.users.filter(user => user.online === true);
+				const renderOnline = usersOnline.map(user => <li key={user.username}>{user.username}</li>);
+				return (
+					<div>
+						<h1>Current Online Users:</h1>
+						<ul>
+							{renderOnline}
+						</ul>
+					</div>
+				);
+			}
+		};
+		
+		
+/* ///// x; ///// */
