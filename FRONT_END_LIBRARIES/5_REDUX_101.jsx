@@ -471,4 +471,67 @@ One solution from ES6 to help enforce state immutability in Redux is the spread 
 		const store = Redux.createStore(immutableReducer);
 		
 		
-/* ///// x.` ///// */
+/* ///// REMOVE AN ITEM FROM AN ARRAY ///// */
+/*
+	Time to practice removing items from an array. The spread operator can be used here as well. Other useful JavaScript methods include 'slice()' and 'concat()'
+*/
+	
+		const immutableReducer = (state = [0,1,2,3,4,5], action) => {
+			switch(action.type) {
+				case "REMOVE_ITEM":
+					return [
+						...state.slice(0, action.index),
+						...state.slice(action.index + 1, state.length)
+					];
+				/*
+				case "REMOVE_ITEM":
+					return state.filter((_, index) => index !== action.index);
+				*/
+				default:
+					return state;
+			}
+		};
+		const removeItem = index => {
+			return {
+				type: "REMOVE ITEM"
+				index
+			};
+		};
+		
+		const store = Redux.createStore(immutableReducer);
+		 
+		 
+/* ///// COPY AN OBJECT WITH OBJECT.ASSIGN ///// */
+/*
+The last several challenges worked with arrays, but there are ways to help enforce state immutability when state is an 'object', too. A useful too lfor handling objects in the 'Object.assign()' utility. 'Object.assign()' takes a target object and source objects and maps properties from the source objects to the target object. Any matchinggg properties are overwritten by properties in the source objects. This behavior is commonly used to make shallow copies of objects by passing an empty object as the first argument followed by the object(s) you want to copy.
+
+		const newObject = Object.assign({}, obj1, obj2);
+		
+This creates 'newObject' as a new 'object', which contains the properties that currently exist in 'obj1' and 'obj2'.
+*/
+
+		const defaultState = {
+			user: "CamperBot",
+			status: "offline",
+			friends: "732,982",
+			community: "freeCodeCamp"
+		};
+		
+		const immutableReducer = (state = defaultState, action) => {
+			switch(action.type) {
+				case "ONLINE":
+					return Object.assign({}, state, { status: "online" });
+				default: 
+					retuirn state;
+			}
+		};
+		
+		const wakeUp = () => {
+			return {
+				type: "ONLINE"
+			};
+		};
+		
+		const store = Redux.createStore(immutableReducer);
+		
+//fin.
