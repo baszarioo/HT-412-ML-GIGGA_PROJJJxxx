@@ -306,3 +306,169 @@ Now the key 'notes' will contain all of the state associated with our notes and 
 		});
 		
 		const store = Redux.createStore(rootReducer);
+		
+		
+/* ///// SEND ACTION DATA TO THE STORE.` ///// */
+
+		const ADD_NOTE = "ADD_NOTE";
+		const notesReducer = (state = "Initial State", action) => {
+			switch (action.type) {
+				case ADD_NOTE:
+					return action.text;
+				default:
+					return state;
+			}
+		};
+		const addNoteText = note => {
+			return {
+				type: ADD_NOTE,
+				text: note
+			};
+		};
+		const store = Redux.createStore(notesReducer);
+		console.log(store.getState());
+		store.dispatch(addNoteText("Hello!"));
+		console.log(store.getState());
+		
+		
+/* ///// USE MIDDLEWARE TO HANDLE ASYNCHRONOUS ACTIONS.` ///// */
+
+		const REQUESTING_DATA = "REQUESTING_DATA";
+		const RECEIVED_DATA = "RECEIVED_DATA";
+		
+		const requestingData = () => {
+			return { type: REQUESTING_DATA };
+		};
+		const receivedData = data => {
+			return { type: RECEIVED_DATA, users: data.users };
+		};
+		
+		const handleAsync = () => {
+			return function(dispatch) {
+				dispatch(requestingData());
+				setTimeout(function() {
+					let data = {
+						users: ["Jeff", "William", "Alice"]
+					};
+					// dispatch received data action here
+					dispatch(receivedData(data));
+				}, 2500);
+			};
+		};
+		const defaultState = {
+			fetching: false,
+			users: []
+		};
+		const asyncDataReducer = (state = defaultState, action) => {
+			switch(action.type) {
+				case REQUESTING_DATA:
+					return {
+						fetching: true,
+						users: []
+					};
+				case RECEIVED_DATA:
+					return {
+						fetching: false,
+						users: action.users
+					};
+				default:
+					return state;
+			}
+		};
+		const store = Redux.createStore(
+			asyncDataReducer,
+			Redux.applyMiddleware(ReduxThunk.default)
+		);
+		
+		
+/* ///// WRITE A COUNTER WITH REDUX.` ///// */
+
+		const INCREMENT = "INCREMENT";
+		const DECREMENT = "DECREMENT";
+		
+		const counterReducer = (state = 0, action) => {
+			switch(action.type) {
+				case INCREMENT:
+					return state + 1;
+				case DECREMENT:
+					return state - 1;
+				default:
+					return state;
+			}
+		};
+		const incAction = () => {
+			return {
+				type: INCREMENT
+			};
+		};
+		
+		const decAction = () => {
+			return {
+				type: DECREMENT
+			};
+		};
+		const store = Redux.createStore(counterReducer);
+		
+		
+/* ///// NEVER MUTATE STAKE.` ///// */
+/*
+We want to return a new copy of state in reducer function because of state immutability in Redux
+*/
+
+		const ADD_TO_DO = "ADD_TO_DO";
+		const todos = [
+			"Go to the store",
+			"Clean the house",
+			"Cook dinner",
+			"Learn to code"
+		];
+		
+		const immutableReducer = (state = todos, action) => {
+			switch (action.type) {
+				case ADD_TO_DO:
+					return state.concat(action.todo);
+					// return [..state, action.todo];
+				default: 
+					return state;
+			}
+		};
+		
+		const addToDo = todo => {
+			return {
+				type: ADD_TO_DO,
+				todo
+			};
+		};
+		const store = Redux.createStore(immutableReducer);
+		
+
+/* ///// USE THE SPREAD OPERATOR ON ARRAYS.` ///// */
+/*
+One solution from ES6 to help enforce state immutability in Redux is the spread operator: '...'. The spread operator has a variety of applications, one of which is well-suited to the previous challenge of producing a new array from an existing array. This is relatively new, but commonly used syntax. For example, if you have an array 'myArray' and write:	
+	
+		let newArray = [...myArray];
+		
+'newArray' is now a clone of 'myArray'. Both arrays still exist separately in memory. If you perform a mutation like 'newArray.push(5)', 'myArray' doesn't change. The '...' effectively spreads out the values in myArray into a new array...
+*/
+
+		const immutableReducer = (state = ["Do not mutate state!"], action) => {
+			switch(action.type) {
+				case "ADD_TO_DO":
+					let arr = [...state, action.todo];
+					return arr;
+				default:
+					return state;
+			}
+		};
+		
+		const addToDo = todo => {
+			return {
+				type: "ADD_TO_DO",
+				todo
+			};
+		};
+		
+		const store = Redux.createStore(immutableReducer);
+		
+		
+/* ///// x.` ///// */
